@@ -3,6 +3,7 @@
 
 // Load the module dependencies
 const User = require('mongoose').model('User'),
+	Campaign = require('mongoose').model('Campaign'),
 	passport = require('passport'),
 	config = require('../../config/config'),
 	local = require('../../config/strategies/local'),
@@ -126,8 +127,9 @@ exports.authByHash = function(req,res,next,h){
 	User.findOne({
 		verHash : h
 	}, (err, user) => {
-		if (err){
-			res.json('error: user already registered');
+		if (err || user == null){
+			res.json('error: Пользователь уже существует').redirect('/');
+			/* res.redirect('/'); */
 		} else {
 			req.user = user;
 			next();
@@ -135,14 +137,15 @@ exports.authByHash = function(req,res,next,h){
 	})
 };
 
- exports.verificationSuccess = function(req, res, next) {
-	User.findOneAndUpdate(req.user.id, {verificated : true, verHash : ''}, function(err, user) {
+exports.verificationSuccess = function(req, res, next) {
+	 User.findByIdAndUpdate(req.user.id, {$set:{verificated : true, verHash : ''}},  function(err, user) {
 		if (err) {
+			res.redirect('/');
 			return next(err);
 		} else {
-			res.json( 'success : true');
+			res.redirect('/custom');
 		}
-	})
+	}) 
 }; 
 
 exports.checkAuthentication = function(req,res,next){
@@ -152,3 +155,17 @@ exports.checkAuthentication = function(req,res,next){
         res.redirect("/");
     }
 }
+
+exports.campaignCreate = function(req, res, next) {
+	var campaign = new Campaign(req.body);
+	var message = null;
+	campaign.save(function(err) {
+			if (err) {
+				var message = getErrorMessage(err);
+				console.log(message);
+				return 'message: success';
+			}
+		else{
+			return res.json('msg:scs');
+		}})
+};

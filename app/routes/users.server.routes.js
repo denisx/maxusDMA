@@ -23,7 +23,8 @@ module.exports = function (app) {
 
 	app.route('/signout')
 		.get(users.signout);
-
+	app.route('/campaign')
+		.post(users.campaignCreate);
 		
 	app.param('authId', users.authByHash);
 };

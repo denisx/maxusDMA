@@ -8,3 +8,4 @@ exports.showIndex = function (req, res) {
 exports.showCustom = (req, res) => {
 	res.sendFile(path.join(__dirname, '../../public/', 'custom.html'));
 };
+
