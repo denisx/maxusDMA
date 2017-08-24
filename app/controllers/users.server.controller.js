@@ -55,7 +55,7 @@ let sendEmailVerification = function(sendEmail, verParam, webSite){
         "FromName":"MaxusTech",
         "Subject":"E-mail verification",
 		"Text-part":"This message is automatically sent by server. Mdma project opening soon. Пройдите по ссылке для подтверждения аккаунта:",
-        "Html-part":"<h3>This message is automatically sent by server.</h3><br />Mdma project opening soon!<br />Пройдите по ссылке для подтверждения аккаунта: <a href='"+ webSite+ verParam+"'>",
+        "Html-part":"<h3>This message is automatically sent by server.</h3><br />Mdma project opening soon!<br />Пройдите по ссылке для подтверждения аккаунта: <a href='"+ webSite +'/'+ verParam+"'>",
         "Recipients":[{"Email":sendEmail}]
 	});
 	console.log();
