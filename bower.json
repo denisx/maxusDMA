@@ -1,0 +1,14 @@
+{
+  "name": "mdma-alpha",
+  "description": "alpha build of mdma",
+  "main": "server.js",
+  "authors": [
+    "Maxus"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "angular": "^1.6.5",
+    "angular-route": "^1.6.5"
+  }
+}

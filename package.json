@@ -1,0 +1,25 @@
+{
+  "name": "mdma-alpha",
+  "version": "0.0.1",
+  "description": "alpha build of mdma",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Maxus",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "bower": "^1.8.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.10.8",
+    "morgan": "^1.8.2",
+    "node-mailjet": "^3.2.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0"
+  }
+}
