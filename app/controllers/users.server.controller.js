@@ -166,6 +166,21 @@ exports.campaignCreate = function(req, res, next) {
 				return 'message: success';
 			}
 		else{
-			return res.json('msg:scs');
-		}})
+			//res.json('msg:scs');
+			res.redirect('/campaign');
+		}});
+	//res.redirect('/campaign');
 };
+
+exports.campaign = (req, res) => {
+	res.sendFile(path.join(__dirname, '../../public/', 'campaign.html'));
+}
+
+exports.campaignGetUnique = (req,res,next) => {
+	let query = req.body;
+	console.log(Object.keys(query));
+	console.log(query[Object.keys(query)]);
+/* 	Campaign.find({
+		req.body
+	}) */
+}

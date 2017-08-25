@@ -9,12 +9,12 @@ const CampaignSchema = new Schema({
     campaign: String,
     client: String,
     campaigntype: String,
-     dataSource: {
+   /*   dataSource: {
         metrika: {
             metrika1 : String,
             metrika2 : String
         }
-    } 
+    }  */
 });
 
 mongoose.model('Campaign', CampaignSchema);
