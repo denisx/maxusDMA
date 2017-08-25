@@ -7,12 +7,14 @@ const mongoose = require('mongoose'),
 const CampaignSchema = new Schema({
     industry : String,
     campaign: String,
-    dataSource: {
+    client: String,
+    campaigntype: String,
+     dataSource: {
         metrika: {
             metrika1 : String,
             metrika2 : String
         }
-    }
+    } 
 });
 
 mongoose.model('Campaign', CampaignSchema);
