@@ -1,0 +1,34 @@
+<div>
+            <form action="/campaignUnique" method="POST">
+                <div>
+                    <label>Industry</label>
+                    <select name="industry" ng-change="refresh('industry')" ng-model="filters.industry">
+                        <option value="">--не выбрано--</option>
+                        <option ng-repeat="filter in filters | unique : 'industry'">{{filter.industry}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Campaign</label>
+                    <select name="campaign" ng-change="refresh('campaign')" ng-model="filters.campaign">
+                        <option value="">--не выбрано--</option>
+                        <option ng-repeat="filter in filters | unique : 'campaign'">{{filter.campaign}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Client</label>
+                    <select name="client" ng-change="refresh('client')" ng-model="filters.client">
+                        <option value="">--не выбрано--</option>
+                        <option ng-repeat="filter in filters | unique : 'client'">{{filter.client}}</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Campaign type:</label>
+                    <select name="campaigntype" ng-change="refresh('campaigntype')" ng-model="filters.campaigntype">
+                        <option value="">--не выбрано--</option>
+                        <option ng-repeat="filter in filters | unique : 'campaigntype'">{{filter.campaigntype}}</option>
+                    </select>
+                </div> 
+                <input type="submit" value="Отправить">
+                <input type="button" value="Восстанавливаю значения" ng-click="restoreOptions(query)">
+            </form>
+        </div>

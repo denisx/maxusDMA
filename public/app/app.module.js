@@ -1,5 +1,7 @@
 'use strict'
 
 angular.module('authTest', [
-    'greeting'
-])
+    'angular.filter',
+    'greeting',
+    'filter' 
+]);

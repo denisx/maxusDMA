@@ -2,7 +2,7 @@
 
 angular.module('greeting').factory('name' , ['$http', ($http) => {
     function successCall(data) {
-        sessionStorage.sessionUser = data.data.username;
+            return data.data;
         };
     
     function errorCall(err){

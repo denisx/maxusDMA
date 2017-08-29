@@ -1,6 +1,8 @@
 // Invoke 'strict' JavaScript mode
 'use strict';
 
+var a = {'industry': 'Industry2', 'campaign': 'Campaign2'};
+
 // Load the module dependencies
 const User = require('mongoose').model('User'),
 	Campaign = require('mongoose').model('Campaign'),
@@ -178,9 +180,19 @@ exports.campaign = (req, res) => {
 
 exports.campaignGetUnique = (req,res,next) => {
 	let query = req.body;
-	console.log(Object.keys(query));
-	console.log(query[Object.keys(query)]);
-/* 	Campaign.find({
-		req.body
-	}) */
+	console.log(query);
+	Campaign.find(query, (err, campaign) => {
+		if (err){
+			console.log(err);
+			res.json(error);
+		} else {
+			console.log(campaign);
+			res.json(campaign);
+			next();
+		}
+	})
+};
+
+exports.showFilters = (req, res) => {
+	res.sendFile(path.join(__dirname, '../../public/', 'filters.html'));
 }

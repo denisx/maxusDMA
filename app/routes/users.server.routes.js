@@ -30,6 +30,8 @@ module.exports = function (app) {
 
 	app.route('/campaignUnique')
 		.post(users.campaignGetUnique);
+	app.route('/filters')
+		.get(users.showFilters);
 		
 	app.param('authId', users.authByHash);
 };
