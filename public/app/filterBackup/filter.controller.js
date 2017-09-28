@@ -21,22 +21,20 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         };
 
         // recoloring checked option
-		//refactore \/
         function checkedFieldColor(currentField, state){
-            let curFilParent = currentField.parentNode.classList;
-            let curFilElemByTag = currentField.parentNode.getElementsByTagName('p')[0].classList;
             if (state == 'active'){
-                curFilParent.remove('sBDCVPassive');
-                curFilParent.add('sBDCVActive');
-                curFilElemByTag.remove('sBDCValuePPassive');
-                curFilElemByTag.add('sBDCValuePActive');
+                console.log('active');
+                currentField.parentNode.classList.remove('sBDCVPassive');
+                currentField.parentNode.classList.add('sBDCVActive');
+                currentField.parentNode.getElementsByTagName('p')[0].classList.remove('sBDCValuePPassive');
+                currentField.parentNode.getElementsByTagName('p')[0].classList.add('sBDCValuePActive');
             }
             else {
                 console.log('passive');
-                curFilParent.remove('sBDCVActive');
-                curFilParent.add('sBDCVPassive');
-                curFilElemByTag.remove('sBDCValuePActive');
-                curFilElemByTag.add('sBDCValuePPassive');
+                currentField.parentNode.classList.remove('sBDCVActive');
+                currentField.parentNode.classList.add('sBDCVPassive');
+                currentField.parentNode.getElementsByTagName('p')[0].classList.remove('sBDCValuePActive');
+                currentField.parentNode.getElementsByTagName('p')[0].classList.add('sBDCValuePPassive');
             }
         };  
 
@@ -44,14 +42,14 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             if ($scope.searchFilter != undefined) {
                 $scope.searchFilter[id] = '';
                 console.log('Зачищено ' + $scope.searchFilter, id);
-            };
+            }
         }
 
 
         //filter for matching by the search field
         $scope.searchFilterFunc = (arr, val) => {
             return function(item) {
-                if (item[arr].match(RegExp(val, 'i'))) return true;
+                if (item[arr].match(val)) return true;
             }
         }
 
@@ -62,25 +60,10 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             }
             hideShowBoxes(eventTarget.nextElementSibling, eventTarget, 'inline-block', 'none');
             document.addEventListener('click', function hideDrop(e) {
-				
                 if (e.target.closest('.selectBoxMainArea')!= eventTarget.parentNode) {
                     clearSearchBox(keyName);
                     if (queryCurrent.length > 0){
                         query[keyName] = queryCurrent;
-						let newString = '';
-						switch (query[keyName].length) {
-							case 1:
-								newString = 'Выбран '+ query[keyName].length + ' элемент';
-								break;
-							case 2:
-							case 3:
-							case 4:
-								newString = 'Выбрано '+ query[keyName].length + ' элемента';
-								break;
-							default:
-								newString = 'Выбрано '+ query[keyName].length + ' элементов';
-						}
-						eventTarget.childNodes[1].textContent = newString;
                         queryCurrent = [];
                         changeValues(query, eventTarget, keyName);
                     }
@@ -107,11 +90,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                     } else {
                         document.getElementById(a).checked = true;
                         if (queryCurrent.indexOf(a) == -1) {
-							let curVal = a;
-							if (a.includes('brand_')) {
-								curVal = a.slice(a.indexOf('_')+1);
-							}
-                            queryCurrent.push(curVal);
+                            queryCurrent.push(a);
                         }
                         checkedFieldColor(document.getElementById(a), 'active');
                     }
@@ -149,28 +128,17 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
         // restore default values
         $scope.queryNull = () => {
-			//Object.keys(query).forEach
             query = {};
             changeValues(query);
         }
  
         $scope.nextPage = () => {
-			setTimeout(()=>{optionsFilter.sendQueryNextPage(query)}, 1);
+            optionsFilter.sendQueryNextPage(query);
             
+                // .then((r) => {
+                //     $scope.filters = r;
+                // });
         }
-		
-        $scope.showHideAdvancedFilters = () => {
-            let aFB = document.getElementsByClassName('advancedFilterContainer')[0]; 
-            if (aFB.classList.contains('hideElement')){
-                aFB.classList.remove('hideElement');
-                document.getElementsByClassName('refreshFiltersLink')[0].classList.add('hideElement');
-            } else {
-                aFB.classList.add('hideElement');
-                document.getElementsByClassName('refreshFiltersLink')[0].classList.remove('hideElement');
-            }
-        };
-
-
         //Getting all values in start, initialization of filters
         if (!$scope.filters) {
             $scope.filters = changeValues(query);

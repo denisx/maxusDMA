@@ -1,0 +1,43 @@
+<div class="container">
+	<div class="row headContainer">
+		<div class="col-sm-4">
+			<a href="/"><img src="../../lib/pic/Header-logo.png"></a>
+		</div>
+		<div class="col-sm-6 col-sm-offset-2">
+			<div class="headerRightSection">
+				<div class="savedWorksDiv">
+					<input type="button" class="savedWorks" value="In Development">
+				</div>
+				<div class="loginDiv" ng-if="headerLoginTrig">
+					<p>Привет, {{userName}}</p>
+				</div>
+				<div class="loginDiv" ng-if="!headerLoginTrig">
+					<p class="loginP" data-toggle="modal" data-target="#loginPopup">Войти в личный кабинет</p>
+					<img src="../../lib/pic/People.svg" class="headerIcon">
+				</div>
+			</div>
+		</div>
+		<!--<div class="col-sm-3 col-sm-offset-3 savedWorksDiv">
+			<input type="button" class="savedWorks" value="In Development">
+		</div>
+		<div class="col-sm-3 loginDiv" ng-if="headerLoginTrig">
+			<p>Привет, {{userName}}</p>
+		</div>
+		<div class="col-sm-3 loginDiv" ng-if="!headerLoginTrig">
+			<p class="loginP" data-toggle="modal" data-target="#loginPopup">Войти в личный кабинет</p>
+			<img src="../../lib/pic/People.svg" class="headerIcon">
+		</div>-->
+	</div>
+</div>
+<div id="loginPopup" class="modal fade" role="dialog">  
+	<div class="loginPopupContainer">
+		<img src="../../lib/pic/Header-logo.png" class="loginPopupLogoImg">
+		<form class="loginPopupForm" ng-submit=login()>
+			<input type="text" class="loginPopupInputText" placeholder="Логин" name="username" ng-model="username">
+			<input type="password" class="loginPopupInputText" placeholder="Пароль" name="password" ng-model="password">
+			<input type="submit" class="loginPopupInputButton" value="Войти">
+			<p class="loginPopupForgotPass">Забыли пароль?</p>
+			
+		</form>
+	</div>	
+</div>

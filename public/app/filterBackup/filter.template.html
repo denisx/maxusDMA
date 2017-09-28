@@ -98,7 +98,7 @@
 </div>
 
 
-<div class="container advancedFilterContainer hideElement">
+<div class="container advancedFilterContainer">
     <div class="row">
        	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3">
        		<p class="selectBoxLabel">Выберите medium</p>
@@ -179,9 +179,9 @@
 						<input class="sBDCSearchBox" type="text" ng-model="searchFilter.brand">
 					</div>
 					<div class="sBDCValueContainer">
-						<div class="sBDCValue sBDCVPassive " ng-repeat="filter in filters | unique: 'brand'| filter:searchFilterFunc('brand' , searchFilter.brand)" ng-click="divClickCheck('brand_'+filter.brand, 'brand')">
+						<div class="sBDCValue sBDCVPassive " ng-repeat="filter in filters | unique: 'brand'| filter:searchFilterFunc('brand' , searchFilter.brand)" ng-click="divClickCheck(filter.brand, 'brand')">
 							<p class="sBDCValueP sBDCVPPassive">{{filter.brand}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{'brand_'+filter.brand}}"> 
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{filter.brand}}"> 
 						</div>			
 					</div>
         		</div>
@@ -289,16 +289,11 @@
     </div>
 </div>
 
-<div class="triangle" ng-click="showHideAdvancedFilters()">
-		<div class="down-triangle"></div>
-		<div class="up-triangle"></div>
-</div>
-
 
 <div class="container nextPage">
 	<div class="row nextPageRow">
 		<div class="col-sm-3 col-sm-offset-4">
-			<div class="continueButton" ng-click="nextPage()">
+			<div class="continueButton" ng-click="nextPage()" href="/filters">
 				<p class="contButP">Продолжить</p>
 				<img class="contButImg" src="../../lib/pic/Continue_arrow.png">
 			</div>

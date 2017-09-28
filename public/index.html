@@ -1,22 +1,53 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Alpha</title>
-        <script src="lib/angular/angular.js"></script>
-    </head>
-    <body>
-        <form action="/signin" method="post">
-            <label>Email: </label>    
-            <input type="text" name="username">
-            <br>
-            <label>Pass: </label>    
-            <input type="text" name="password">
-            <br>
-            <input type="submit" value="Отправить">
-        </form>
-        <a href="/signup">Зарегистрироваться</a>
-        <a href="/custom">Страница</a>
-        <a href="/filters">Фильтры</a>
-        <br>
-    </body>
+
+<head>
+    <title>Home</title>
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-filter/dist/angular-filter.min.js"></script>
+    <!-- <script type="text/javascript" src="app/app.module.js"></script> -->
+    <script type="text/javascript" src="app/filter/filter.module.js"></script>
+    <script type="text/javascript" src="app/filter/filter.controller.js"></script>
+    <script type="text/javascript" src="app/filter/filter.component.js"></script>
+    <script type="text/javascript" src="app/filter/filter.service.js"></script>
+
+    <script type="text/javascript" src="app/header/header.module.js"></script>
+    <script type="text/javascript" src="app/header/header.controller.js"></script>
+    <script type="text/javascript" src="app/header/header.component.js"></script>
+    <script type="text/javascript" src="app/header/header.service.js"></script>
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="app/filter/filter.template.css"> 
+    <!-- <script type="text/javascript" src="app/filter/select.script.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="app/header/header.style.css">
+    <link rel="stylesheet" href="lib/style/index.style.css">
+
+</head>
+
+<body>
+    <div id="pageheadApp" ng-app="pagehead">
+        <pagehead></pagehead>
+    </div>
+    <div class="container">
+    	<div class="row mainTextRow">
+    		<div class="col-sm-7 col-sm-offset-2">
+    			<div class="allExpDiv">
+    				<p class="allExpP">Весь агентский опыт одним кликом!</p>
+    			</div>
+    			<div class="buildingDiv">
+    				<p class="buildingP">Постоение любых отчетов по любым кампания, а так же группе кампаний по произвольным метрикам и фильтрам.</p>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    <div id="filterApp" ng-app="filter">
+        <filter></filter>
+    </div>
+</body>
+
 </html>
