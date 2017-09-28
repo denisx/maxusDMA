@@ -1,15 +1,18 @@
 <div class="container mainFilterContainer">
     <div class="row">
-       	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3">
+       	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="industry">
        		<p class="selectBoxLabel">Выберите отрасль</p>
        		<div class="selectBoxMainArea">
-				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'industry')">
+       			
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'industry')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">Industry</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
 					</div>     			
 				</div>
 
+				
+							
 				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'industry')">
@@ -26,13 +29,17 @@
 						</div>			
 					</div>
 				</div>
+				
+				<div class="selectBoxHoverInfo">
+					<p class="selectBoxHoverInfoP"></p>
+				</div>
 			</div>
 		</div>
        
        	<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3">
        		<p class="selectBoxLabel">Выберите клиента</p>
        		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'client')">
+       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'client')" ng-mousemove="showHoverDivInfo($event)">
        			<p class="selectBoxDropdownButtonText">Client</p>
        			<div class="selectBoxDropdownButtonImgDiv">
 					<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
@@ -55,6 +62,10 @@
 					</div>			
 				</div>
         	</div>
+        	
+        		<div class="selectBoxHoverInfo">
+					<p class="selectBoxHoverInfoP"></p>
+				</div>
 			</div>
 		</div>
        
@@ -62,7 +73,7 @@
        		<p class="selectBoxLabel">Выберите тип компании</p>
        		
        		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'ad_goal')">
+       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'ad_goal')" ng-mousemove="showHoverDivInfo($event)">
        			<p class="selectBoxDropdownButtonText">AdGoal</p>
        			<div class="selectBoxDropdownButtonImgDiv">
 					<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
@@ -85,6 +96,10 @@
 					</div>			
 				</div>
         	</div>
+        	
+        		<div class="hideElement selectBoxHoverInfo ">
+					<p class="selectBoxHoverInfoP"></p>
+				</div>
 			</div>
 		</div>
    

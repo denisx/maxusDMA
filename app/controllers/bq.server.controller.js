@@ -47,7 +47,6 @@ exports.showFiltersAnswer = (req, res) => {
         whereData +
         'GROUP BY ' +
         'Industry, Client, Campaign, Postbuy_data';
-        console.log(queryReq);
     let resultsToChangeArr = [];
     resultsToChangeArr.push(bqInvocation(queryReq));
     resultsToChangeArr.push(datasetsInvocation());

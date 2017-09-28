@@ -14,6 +14,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                 });
         };
 
+		//Refactore \/
         // open/close chosen div
         function hideShowBoxes(currentBox, currentButton, state1, state2){
             currentBox.style.display = state1;
@@ -32,7 +33,6 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                 curFilElemByTag.add('sBDCValuePActive');
             }
             else {
-                console.log('passive');
                 curFilParent.remove('sBDCVActive');
                 curFilParent.add('sBDCVPassive');
                 curFilElemByTag.remove('sBDCValuePActive');
@@ -43,11 +43,36 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         function clearSearchBox(id){
             if ($scope.searchFilter != undefined) {
                 $scope.searchFilter[id] = '';
-                console.log('Зачищено ' + $scope.searchFilter, id);
             };
         }
 
-
+		let changeTitleForBox = (element, keyName) => {
+			
+				
+			let newString = '';
+			let newStringHover = '';
+				switch (query[keyName].length) {
+					case 1:
+						newString = 'Выбран '+ query[keyName].length + ' элемент';
+						break;
+					case 2:
+					case 3:
+					case 4:
+						newString = 'Выбрано '+ query[keyName].length + ' элемента';
+						break;
+					default:
+						newString = 'Выбрано '+ query[keyName].length + ' элементов';
+				}
+			query[keyName].forEach((elem)=>{
+				newStringHover += elem + ', '; 
+			});
+			newStringHover = newStringHover.slice(0, -2);
+			element.getElementsByClassName('selectBoxDropdownButtonText')[0].textContent = newString;
+			element.parentNode.getElementsByClassName('selectBoxHoverInfoP')[0].textContent = newStringHover;
+			
+		};
+		
+		
         //filter for matching by the search field
         $scope.searchFilterFunc = (arr, val) => {
             return function(item) {
@@ -67,20 +92,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                     clearSearchBox(keyName);
                     if (queryCurrent.length > 0){
                         query[keyName] = queryCurrent;
-						let newString = '';
-						switch (query[keyName].length) {
-							case 1:
-								newString = 'Выбран '+ query[keyName].length + ' элемент';
-								break;
-							case 2:
-							case 3:
-							case 4:
-								newString = 'Выбрано '+ query[keyName].length + ' элемента';
-								break;
-							default:
-								newString = 'Выбрано '+ query[keyName].length + ' элементов';
-						}
-						eventTarget.childNodes[1].textContent = newString;
+						changeTitleForBox(eventTarget, keyName);
                         queryCurrent = [];
                         changeValues(query, eventTarget, keyName);
                     }
@@ -94,6 +106,15 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         };
 
 
+		$scope.showHoverDivInfo = (e) => {
+			let top = e.clientY - 10 + "px";
+			let left = e.clientX + 20  + "px";
+			let hovDiv = e.target.closest('.selectBoxMainArea').getElementsByClassName('selectBoxHoverInfo')[0];
+			hovDiv.style.left = left;
+			hovDiv.style.top = top;
+			
+		};
+		
         // Refactore this \/
         $scope.divClickCheck = (a, keyName) => {
             let d = document.getElementById(a).checked;

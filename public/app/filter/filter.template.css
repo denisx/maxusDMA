@@ -1,5 +1,6 @@
 .mainFilterContainer {
 	background-color: #eaeaea;
+	padding-top: 20px;
 }
 
 .advancedFilterContainer {
@@ -9,7 +10,6 @@
 .mainFilterContainer, .advancedFilterContainer {
 	font-size: 20px;
 	font-family: 'Roboto', sans-serif;
-	padding-top: 20px;
 }
 
 .hideElement {
@@ -28,6 +28,28 @@
 	position: absolute;
 	z-index: 1;
 	padding-bottom: 5px;
+}
+
+.selectBoxHoverInfo {
+	display: none;
+}
+
+.selectBoxDropdownButton:hover ~ .selectBoxHoverInfo {
+	display: block;
+    width: 150px;
+    height: auto;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+}
+
+.selectBoxHoverInfoP {
+	font-size: 14px;
+	margin: 5px 0 5px 5px;
+    color: #00b6e0;
 }
 
 .sBDCSearchBox {
@@ -189,7 +211,7 @@
 .selectBoxDropdownButtonText {
 	display: inline-block;
     padding: 8px 0px 0px 15px;
-	color: rgba(0, 182, 224, 255);
+	color: #00b6e0;
 }
 
 .selectBoxDropdownButton {
