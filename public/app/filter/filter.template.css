@@ -30,6 +30,10 @@
 	padding-bottom: 5px;
 }
 
+.selectBoxHoverDefault {
+	display:none;
+}
+
 .selectBoxHoverInfo {
 	display: none;
 }

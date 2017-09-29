@@ -46,9 +46,8 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             };
         }
 
-		let changeTitleForBox = (element, keyName) => {
-			
-				
+		
+		let changeTitleForBox = (element, keyName) => {			
 			let newString = '';
 			let newStringHover = '';
 				switch (query[keyName].length) {
@@ -68,7 +67,14 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			});
 			newStringHover = newStringHover.slice(0, -2);
 			element.getElementsByClassName('selectBoxDropdownButtonText')[0].textContent = newString;
-			element.parentNode.getElementsByClassName('selectBoxHoverInfoP')[0].textContent = newStringHover;
+			element.getElementsByClassName('selectBoxHoverInfoP')[0].textContent = newStringHover;
+			if (element.getElementsByClassName('selectBoxHoverInfo')[0] == undefined){
+				let currentHover = element.getElementsByClassName('selectBoxHoverDefault')[0];
+				currentHover.classList.add('selectBoxHoverInfo');
+				currentHover.classList.remove('selectBoxHoverDefault');
+				
+			}
+			
 			
 		};
 		
@@ -82,17 +88,25 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
         // tracking for opening and closing current div, calling 
         $scope.showDropdown =  (eventTarget , keyName) => {
-            if (eventTarget.tagName != 'DIV') {
+            if (eventTarget.className != 'selectBoxDropdownButton') {
                 eventTarget = eventTarget.closest('.selectBoxDropdownButton');
             }
             hideShowBoxes(eventTarget.nextElementSibling, eventTarget, 'inline-block', 'none');
             document.addEventListener('click', function hideDrop(e) {
+				if(e.target.className == 'refreshFiltersLink'){
+					console.log('+');
+					$scope.queryNull();
+					hideShowBoxes(eventTarget.nextElementSibling, eventTarget, 'none', 'inline-block');
+                    document.removeEventListener('click', hideDrop);
+					return false;
+				};
 				
                 if (e.target.closest('.selectBoxMainArea')!= eventTarget.parentNode) {
+					
                     clearSearchBox(keyName);
                     if (queryCurrent.length > 0){
                         query[keyName] = queryCurrent;
-						changeTitleForBox(eventTarget, keyName);
+						changeTitleForBox(eventTarget.parentNode, keyName);
                         queryCurrent = [];
                         changeValues(query, eventTarget, keyName);
                     }
@@ -110,6 +124,9 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			let top = e.clientY - 10 + "px";
 			let left = e.clientX + 20  + "px";
 			let hovDiv = e.target.closest('.selectBoxMainArea').getElementsByClassName('selectBoxHoverInfo')[0];
+			if (hovDiv == undefined) {
+				return false;
+			}
 			hovDiv.style.left = left;
 			hovDiv.style.top = top;
 			
@@ -170,7 +187,11 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
         // restore default values
         $scope.queryNull = () => {
-			//Object.keys(query).forEach
+			Object.keys(query).forEach((type)=>{
+				document.getElementById(type).getElementsByClassName('selectBoxDropdownButtonText')[0].textContent = type;
+				document.getElementById(type).getElementsByClassName('selectBoxHoverInfo')[0].classList.add('selectBoxHoverDefault');
+				document.getElementById(type).getElementsByClassName('selectBoxHoverInfo')[0].classList.remove('selectBoxHoverInfo');
+			});
             query = {};
             changeValues(query);
         }
