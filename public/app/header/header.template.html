@@ -12,7 +12,7 @@
 					<p>Привет, {{userName}}</p>
 				</div>
 				<div class="loginDiv" ng-if="!headerLoginTrig">
-					<p class="loginP" data-toggle="modal" data-target="#loginPopup">Войти в личный кабинет</p>
+					<p class="loginP" data-toggle="modal" data-target="#loginPopup" ng-click="modalListener()">Войти в личный кабинет</p>
 					<img src="../../lib/pic/People.svg" class="headerIcon">
 				</div>
 			</div>

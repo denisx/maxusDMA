@@ -1,3 +1,15 @@
 .container {
-    width: 95%;
+    width: 100%;
+    padding: 0px;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	overflow-y: scroll;
+	font-weight: 400;
+	font-size: 15px;
+}
+.row {
+	margin-left: 0;
+	margin-right: 0;
 }

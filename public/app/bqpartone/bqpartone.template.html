@@ -1,16 +1,46 @@
 <div class="container">
-    <table class="table">
-    	<thead>
-    		<td ng-repeat="val in tableContentHeader">
-    			{{val}}
-    		</td>
-    	</thead>
-    	<tr ng-repeat="row in tableContent ">
-    		<td ng-repeat="val in row track by $index">
-    			{{val}}
-    		</td>
-    	</tr>
-    </table>
+	<div class="row">
+		<div class="bread">
+			<div class="breadContent">
+				<p class="breadText">Отрасль</p>
+				<img src="../../lib/pic/Arrow_Main_Bread.png" class="breadImg">
+				<p class="breadText">Клиент</p>
+				<img src="../../lib/pic/Arrow_Main_Bread.png" class="breadImg">
+				<p class="breadText">Тип кампании</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="menuSection">
+			<div></div>
+		</div>
+		<div class="tableAppSection hideElement">
+			<div class="tableDiv">
+				<div class="dateRow">
+					<div class="dateBoxDropdownButton">
+						<p class="dateBoxDropdownButtonText">01.01.1990-12.12.2017</p>
+						<div class="dateBoxDropdownButtonImgDiv">
+							<img class="dateBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
+						</div>     			
+					</div>
+				</div>
+				<div class="tableRow">
+					<table class="table">
+						<thead>
+							<td ng-repeat="val in tableContentHeader">
+								{{val}}
+							</td>
+						</thead>
+						<tr ng-repeat="row in tableContent ">
+							<td ng-repeat="val in row track by $index">
+								{{val}}
+							</td>
+						</tr>
+					</table>
+				</div>				
+			</div>
+		</div>
+	</div>
 </div>
 <div class="loaderDiv">
 	<img class="loader" src="lib/pic/Logo_MDMA_Circle.svg">

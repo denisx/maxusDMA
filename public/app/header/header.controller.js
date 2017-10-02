@@ -21,6 +21,14 @@ angular.module('pagehead').controller('pageheadController', [
             }
         }
 		
+		let cleanInput = () => {
+			let inputs = document.getElementById('loginPopup').getElementsByTagName('input');
+			for (let i=0; i<inputs.length; i++) {
+				inputs[i].text = '';
+			}
+			$scope.popupState = 'login';
+		}
+		
         $scope.login = () => {
             headFactory.login($scope.username, $scope.password).then((result)=>{checkAuth(result[0],result[1])});
         };
@@ -35,11 +43,20 @@ angular.module('pagehead').controller('pageheadController', [
 		
 		$scope.registrationForm = () => {
 			$scope.popupState = 'registration';
-		}
+		};
 		
 		$scope.lostPassForm = () => {
 			$scope.popupState = 'lostPass';
-		}
+		};
+		
+		$scope.modalListener = () => {
+			document.addEventListener('click', function modalNull(e) {
+				if(e.target.id == 'loginPopup') {
+					cleanInput();
+					document.removeEventListener('click', modalNull);
+				}
+			})
+		};
 		
     }
 ]);
