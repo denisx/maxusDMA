@@ -199,9 +199,11 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             if (aFB.classList.contains('hideElement')){
                 aFB.classList.remove('hideElement');
                 document.getElementsByClassName('refreshFiltersLink')[0].classList.add('hideElement');
+                document.getElementsByClassName('filtersOpenerArrow')[0].id = "up-triangle";
             } else {
                 aFB.classList.add('hideElement');
                 document.getElementsByClassName('refreshFiltersLink')[0].classList.remove('hideElement');
+                document.getElementsByClassName('filtersOpenerArrow')[0].id = "down-triangle";
             }
         };
 
