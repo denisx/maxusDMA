@@ -1,7 +1,7 @@
 'use strict'
 
-angular.module('filter').factory('optionsFilter', ['$http', '$window',
-    ($http, $window) => {
+angular.module('filter').factory('optionsFilter', ['$http', 
+    ($http) => {
 
     let factoryMethods = {};
     factoryMethods.refreshOptions = (query) => {
@@ -13,14 +13,7 @@ angular.module('filter').factory('optionsFilter', ['$http', '$window',
     };
 
     factoryMethods.sendQueryNextPage = (query) => {
-        function successCall(data) {
-            
-            console.log(data.status);
-            if (data.status == 200) {
-                $window.location.href = 'filters';
-            }
-            return data;
-        };
+        function successCall(data) {return data;};
 
         function errorCall(err){return err;};
 

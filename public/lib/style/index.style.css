@@ -1,0 +1,24 @@
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.mainTextRow{
+	background-color: #00b6e0;
+	padding-bottom: 30px;
+}
+
+.allExpP {
+	font-size: 30px;
+	font-weight: 300;
+	color: #fff;
+}
+
+.buildingP {
+	font-size: 20px;
+	color: #0c5297;
+	width: 90%;
+}
+
+.allExpDiv {
+	padding: 35px 0 0 0;
+}

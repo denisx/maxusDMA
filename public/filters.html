@@ -1,19 +1,48 @@
 <!doctype html>
-<html ng-app="filter">
-    <head>
-        <title>Фильтры</title>
-        <script type="text/javascript" src="lib/angular/angular.js"></script>
-         <script type="text/javascript" src="lib/angular-filter/dist/angular-filter.min.js"></script> 
-        <script type="text/javascript" src="app/app.module.js"></script>
-        <script type="text/javascript" src="app/filter/filter.module.js"></script>
-        <script type="text/javascript" src="app/filter/filter.controller.js"></script>
-        <script type="text/javascript" src="app/filter/filter.component.js"></script>
-        <script type="text/javascript" src="app/filter/filter.service.js"></script>        
-    </head>
-    <body>
-        <filter></filter>
-        <div>
-            <a href="/">Главная</a>
-        </div>
-    </body>
+<html>
+
+<head>
+    <title>Home</title>
+    <link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
+    
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/angular-filter/dist/angular-filter.min.js"></script>
+
+    <script type="text/javascript" src="app/header/header.module.js"></script>
+    <script type="text/javascript" src="app/header/header.controller.js"></script>
+    <script type="text/javascript" src="app/header/header.component.js"></script>
+    <script type="text/javascript" src="app/header/header.service.js"></script>
+
+    <script type="text/javascript" src="app/bqpartone/bqpartone.module.js"></script>
+    <script type="text/javascript" src="app/bqpartone/bqpartone.controller.js"></script>
+    <script type="text/javascript" src="app/bqpartone/bqpartone.component.js"></script>
+    <script type="text/javascript" src="app/bqpartone/bqpartone.service.js"></script>
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+	
+	<link rel="stylesheet" href="lib/bootstrap-table/src/bootstrap-table.css">   
+   	<script type="text/javascript" src="lib/bootstrap-table/src/bootstrap-table.js"></script>
+   	<script type="text/javascript" src="lib/bootstrap-table/src/locale/bootstrap-table-ru-RU.js"></script>
+    <!-- <script type="text/javascript" src="app/filter/select.script.js"></script> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="app/header/header.style.css">
+    <link rel="stylesheet" href="app/bqpartone/bqpartone.template.css">
+    <link rel="stylesheet" href="lib/style/filters.style.css">
+
+</head>
+
+<body>
+    <div id="pageheadApp" ng-app="pagehead">
+        <pagehead></pagehead>
+    </div>
+    <div id="tableResultApp" ng-app="bqpartone">
+    	<preresulttable></preresulttable>
+    </div>
+    
+</body>
+
 </html>

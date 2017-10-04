@@ -5,16 +5,15 @@ const mongoose = require('mongoose'),
    
 
 const CampaignSchema = new Schema({
-    industry : String,
-    campaign: String,
-    client: String,
-    campaigntype: String,
-   /*   dataSource: {
-        metrika: {
-            metrika1 : String,
-            metrika2 : String
-        }
-    }  */
+    industry:String,
+    client:String,
+    brand:String,
+    ad_goal:String,
+    medium:String,
+    placement:String,
+    device:String,
+    format:String,
+    successful:String
 });
 
 mongoose.model('Campaign', CampaignSchema);

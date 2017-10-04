@@ -4,7 +4,7 @@ let users = require('../../app/controllers/users.server.controller'),
 	local = require('../../config/strategies/local'),
 	passport = require('passport');
 
-module.exports = function (app) {
+module.exports = (app) => {
 
 	app.route('/signup')
 		.get(users.showSignup)
@@ -14,12 +14,12 @@ module.exports = function (app) {
 		.get(users.verificationSuccess);
 
 	app.route('/signin')
-		.get(users.checkAuthentication, users.giveUserName)
+		// .get(users.checkAuthentication, users.giveUserName)
 		.post(passport.authenticate('local', {
-			successRedirect: '/custom',
-			failureRedirect: '/'
+/* 			successRedirect: '/',
+			failureRedirect: '/filters' */
 		}
-		));
+		), users.giveUserName);
 
 	app.route('/signout')
 		.get(users.signout);
@@ -30,8 +30,6 @@ module.exports = function (app) {
 
 	app.route('/campaignUnique')
 		.post(users.campaignGetUnique);
-	app.route('/filters')
-		.get(users.showFilters);
 		
 	app.param('authId', users.authByHash);
 };

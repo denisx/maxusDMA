@@ -1,0 +1,17 @@
+<div class="container">
+    <table class="table">
+    	<thead>
+    		<td ng-repeat="val in tableContentHeader">
+    			{{val}}
+    		</td>
+    	</thead>
+    	<tr ng-repeat="row in tableContent ">
+    		<td ng-repeat="val in row track by $index">
+    			{{val}}
+    		</td>
+    	</tr>
+    </table>
+</div>
+<div class="loaderDiv">
+	<img class="loader" src="lib/pic/Logo_MDMA_Circle.svg">
+</div>

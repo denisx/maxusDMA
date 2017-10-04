@@ -1,7 +1,7 @@
 // Invoke 'strict' JavaScript mode
 'use strict';
 
-var a = {'industry': 'Industry2', 'campaign': 'Campaign2'};
+// var a = {'industry': 'Industry2', 'campaign': 'Campaign2'};
 
 // Load the module dependencies
 const User = require('mongoose').model('User'),
@@ -193,6 +193,3 @@ exports.campaignGetUnique = (req,res,next) => {
 	})
 };
 
-exports.showFilters = (req, res) => {
-	res.sendFile(path.join(__dirname, '../../public/', 'filters.html'));
-}
