@@ -49,33 +49,26 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 		
 		let changeTitleForBox = (element, keyName) => {			
 			let newString = '';
-			let newStringHover = '';
-				switch (query[keyName].length) {
-					case 1:
-						newString = 'Выбран '+ query[keyName].length + ' элемент';
-						break;
-					case 2:
-					case 3:
-					case 4:
-						newString = 'Выбрано '+ query[keyName].length + ' элемента';
-						break;
-					default:
-						newString = 'Выбрано '+ query[keyName].length + ' элементов';
-				}
-			query[keyName].forEach((elem)=>{
-				newStringHover += elem + ', '; 
-			});
-			newStringHover = newStringHover.slice(0, -2);
+            switch (query[keyName].length) {
+                case 1:
+                    newString = 'Выбран '+ query[keyName].length + ' элемент';
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    newString = 'Выбрано '+ query[keyName].length + ' элемента';
+                    break;
+                default:
+                    newString = 'Выбрано '+ query[keyName].length + ' элементов';
+            }
+			let newStringHover = query[keyName].join(', ');
 			element.getElementsByClassName('selectBoxDropdownButtonText')[0].textContent = newString;
 			element.getElementsByClassName('selectBoxHoverInfoP')[0].textContent = newStringHover;
 			if (element.getElementsByClassName('selectBoxHoverInfo')[0] == undefined){
 				let currentHover = element.getElementsByClassName('selectBoxHoverDefault')[0];
 				currentHover.classList.add('selectBoxHoverInfo');
 				currentHover.classList.remove('selectBoxHoverDefault');
-				
-			}
-			
-			
+			}						
 		};
 		
 		

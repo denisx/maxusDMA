@@ -22,25 +22,27 @@
 <div id="loginPopup" class="modal fade" role="dialog">  
 	<div class="loginPopupContainer" ng-switch="popupState">
 		<img src="../../lib/pic/Header-logo.png" class="loginPopupLogoImg">
-		<form class="loginPopupForm" ng-submit=login() ng-switch-when="login">
-			<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="username">
-			<input type="password" class="loginPopupInputText" placeholder="Пароль" name="password" ng-model="password">
+		<form class="loginPopupForm" ng-submit="login()" ng-switch-when="login">
+			<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="user.username">
+			<input type="password" class="loginPopupInputText" placeholder="Пароль" name="password" ng-model="user.password">
 			<input type="submit" class="loginPopupInputButton" value="Войти">
 			<div class="linksPopupDiv">
 				<p class="loginPopupText" ng-click="registrationForm()">Регистрация</p>
 				<p class="loginPopupText" ng-click="lostPassForm()">Забыли пароль?</p>
 			</div>
 		</form>
+<!--
 		<form class="loginPopupForm" ng-submit=registration() ng-switch-when="registration">
 			<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="username">
-			<input type="text" class="loginPopupInputText" placeholder="Ваше имя" name="username" ng-model="username">
+			<input type="text" class="loginPopupInputText" placeholder="Ваше имя" name="username" ng-model="userRealName">
 			<input type="password" class="loginPopupInputText" placeholder="Пароль" name="password" ng-model="password">
-			<input type="password" class="loginPopupInputText" placeholder="Повторите пароль" name="password" ng-model="password">
+			<input type="password" class="loginPopupInputText" placeholder="Повторите пароль" name="password" ng-model="repeatPassword">
 			<input type="submit" class="loginPopupInputButton" value="Зарегистрироваться">
 		</form>
 		<form class="loginPopupForm" ng-submit=registration() ng-switch-when="lostPass">
 			<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="username">
 			<input type="submit" class="loginPopupInputButton" value="Восстановить">
 		</form>
+-->
 	</div>	
 </div>

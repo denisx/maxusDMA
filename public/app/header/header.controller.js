@@ -5,6 +5,11 @@ angular.module('pagehead').controller('pageheadController', [
 		
 		$scope.popupState = 'login';
 		
+		$scope.user = {
+			username: '',
+			password: ''
+		}
+		
         if (sessionStorage.sessionUser == undefined) {
             $scope.headerLoginTrig = false;
         }
@@ -30,7 +35,7 @@ angular.module('pagehead').controller('pageheadController', [
 		}
 		
         $scope.login = () => {
-            headFactory.login($scope.username, $scope.password).then((result)=>{checkAuth(result[0],result[1])});
+            headFactory.login($scope.user.username, $scope.user.password).then((result)=>{checkAuth(result[0],result[1])});
         };
 		
 		$scope.registration = () => {
