@@ -187,10 +187,7 @@
 	font-size: 16px;
 	text-decoration: underline;
 	cursor: pointer;
-<<<<<<< HEAD
 	max-width: max-content;
-=======
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
 }
 
 .refreshFiltersLink:hover {
@@ -211,11 +208,7 @@
     float: right;
 }
 
-<<<<<<< HEAD
 .selectBoxDropdownButtonImg {
-=======
-.selectBoxDropdownButtonImg{
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
     height: 50%;
     width: auto;
 }
@@ -271,29 +264,16 @@
 }
 
 .nextPageRow {
-<<<<<<< HEAD
 	margin-top: 5%;
 }
 /*Continue button end*/
 
 /*Гребаный ромбик*/
-=======
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-/*Continue button end*/
-
-/*Гребаный ромбик
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
 .triangle {
 	height: 25px;
     width: 25px;
     background-color: #13c33a;
-<<<<<<< HEAD
     margin-left: 48.8%;
-=======
-    margin-left: 48.6%;
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
     position: absolute;
 	transform: rotate(45deg);
     margin-top: -0.7%;
@@ -332,10 +312,7 @@
     margin-top: -21px;
     margin-left: 2px;
 }
-<<<<<<< HEAD
 /*Конец гребаного ромбика*/
-=======
-Конец гребаного ромбика*/
 
 /*Начало гребаного прямоугольничка*/
 
@@ -381,4 +358,3 @@
 }
 
 /*Конец гребаного прямоугольничка*/
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
