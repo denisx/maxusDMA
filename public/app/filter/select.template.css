@@ -1,6 +1,5 @@
 .mainFilterContainer {
 	background-color: #eaeaea;
-	padding-top: 20px;
 }
 
 .advancedFilterContainer {
@@ -10,6 +9,7 @@
 .mainFilterContainer, .advancedFilterContainer {
 	font-size: 20px;
 	font-family: 'Roboto', sans-serif;
+	padding-top: 20px;
 }
 
 .hideElement {
@@ -24,36 +24,10 @@
     padding: 5px 0 5px 0;
     display: none;
 	background-color: white;
-	border-radius: 6px;
+	border-radius: 10px;
 	position: absolute;
 	z-index: 1;
 	padding-bottom: 5px;
-}
-
-.selectBoxHoverDefault {
-	display:none;
-}
-
-.selectBoxHoverInfo {
-	display: none;
-}
-
-.selectBoxDropdownButton:hover ~ .selectBoxHoverInfo {
-	display: block;
-    width: 150px;
-    height: auto;
-    background-color: white;
-    position: fixed;
-    z-index: 1;
-    border: 0px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px grey;
-}
-
-.selectBoxHoverInfoP {
-	font-size: 14px;
-	margin: 5px 0 5px 5px;
-    color: #00b6e0;
 }
 
 .sBDCSearchBox {
@@ -187,10 +161,6 @@
 	font-size: 16px;
 	text-decoration: underline;
 	cursor: pointer;
-<<<<<<< HEAD
-	max-width: max-content;
-=======
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
 }
 
 .refreshFiltersLink:hover {
@@ -211,11 +181,7 @@
     float: right;
 }
 
-<<<<<<< HEAD
-.selectBoxDropdownButtonImg {
-=======
 .selectBoxDropdownButtonImg{
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
     height: 50%;
     width: auto;
 }
@@ -223,7 +189,7 @@
 .selectBoxDropdownButtonText {
 	display: inline-block;
     padding: 8px 0px 0px 15px;
-	color: #00b6e0;
+	color: rgba(0, 182, 224, 255);
 }
 
 .selectBoxDropdownButton {
@@ -271,29 +237,16 @@
 }
 
 .nextPageRow {
-<<<<<<< HEAD
 	margin-top: 5%;
 }
 /*Continue button end*/
 
-/*Гребаный ромбик*/
-=======
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-/*Continue button end*/
-
 /*Гребаный ромбик
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
 .triangle {
 	height: 25px;
     width: 25px;
     background-color: #13c33a;
-<<<<<<< HEAD
-    margin-left: 48.8%;
-=======
     margin-left: 48.6%;
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
     position: absolute;
 	transform: rotate(45deg);
     margin-top: -0.7%;
@@ -332,9 +285,6 @@
     margin-top: -21px;
     margin-left: 2px;
 }
-<<<<<<< HEAD
-/*Конец гребаного ромбика*/
-=======
 Конец гребаного ромбика*/
 
 /*Начало гребаного прямоугольничка*/
@@ -342,7 +292,7 @@
 .filtersOpener {
     width: 30px;
     height: 12px;
-    background-color: #00b6e0;
+    background-color: whitesmoke;
     border: solid 1px;
     border-radius: 3px;
     border-color:  #c6c6c6;
@@ -362,8 +312,8 @@
     height: 10px;
     background-color: transparent;
     border: 2px solid transparent;
-    border-bottom: 2px solid whitesmoke;
-    border-right: 2px solid whitesmoke;
+    border-bottom: 2px solid darkgray;
+    border-right: 2px solid darkgray;
     margin-top: -3px;
     margin-left: 9px;
 }
@@ -374,11 +324,10 @@
     height: 10px;
     background-color: transparent;
     border: 2px solid transparent;
-    border-top: 2px solid whitesmoke;
-    border-left: 2px solid whitesmoke;
+    border-top: 2px solid darkgray;
+    border-left: 2px solid darkgray;
     margin-top: 3px;
     margin-left: 9px;
 }
 
 /*Конец гребаного прямоугольничка*/
->>>>>>> 56b2315dbd1df9c3b8acb9f5895b80b193e8b861
