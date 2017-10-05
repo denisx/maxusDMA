@@ -10,9 +10,90 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="row mainPart">
 		<div class="menuSection">
-			<div></div>
+			<div class="customReportBoxMainArea" id="data_source">
+				<div class="customReportBoxDropdownButton cRBDBPassive" ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">Источники данных</p> 		
+				</div>
+				<div class="hideElement customReportBoxDropdownContainer ">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive" id="google_analytics">
+							<p class="cRBDCValueP cRBDCVPPassive">Google Analytics</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>
+						<div class="cRBDCValue cRBDCVPassive" id="metrika">
+							<p class="cRBDCValueP cRBDCVPPassive">Yandex.Metrika</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>	
+						<div class="cRBDCValue cRBDCVPassive" id="postbuy">
+							<p class="cRBDCValueP cRBDCVPPassive">PostBuy</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>	
+						<div class="cRBDCValue cRBDCVPassive" id="tns">
+							<p class="cRBDCValueP cRBDCVPPassive">Tns</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea" id="campaigns">
+				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">Кампании</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive">
+							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea" id="placement">
+				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">Размещение</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive">
+							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div> 
+			
+			<div class="customReportBoxMainArea" id="medium">
+				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">Medium</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive">
+							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div> 
+			
+			<div class="customReportBoxMainArea" id="format">
+				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">Формат</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive">
+							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div> 
+			
 		</div>
 		<div class="tableAppSection hideElement">
 			<div class="tableDiv">

@@ -18,9 +18,11 @@ img.loader {
 	display: block;
 }
 
+/*
 .hideElement {
 	display: none;
 }
+*/
 
 .displayElement {
 	display: block;
@@ -33,7 +35,7 @@ img.loader {
 }
 
 .breadContent {
-	margin-left: 3%;
+	margin-left: 2%;
 	padding-top: 0.2%; 
 }
 
@@ -45,35 +47,34 @@ img.loader {
 }
 /*End bread row*/
 
+.mainPart {
+	background-color: #d9d9d9;
+}
+
 /*Main section*/
 .tableAppSection {
-    padding: 15px;
-    background-color: #d9d9d9;
+    padding: 15px 15px 0px;
+
     float: right;
     min-width: 87%;
-    width: 98%;
+    width: 87%;
 }
 
 /*tableDiv section*/
-	.tableDiv {
-		box-shadow: 0 0 3px black;
-    	background-color: white;
-	}
+.tableDiv {
+	box-shadow: 0 0 3px black;
+	background-color: white;
+	height: -webkit-fill-available;
+}
 /*End tableDiv section*/
 		
-/*menuSction*/
-.menuSection {
-	display: inline-block;
-    float: left;
-	width: 2%;
-}
-/*End menuSction*/
+
 
 
 /*buttonRow section*/
 
 .dateRow {
-	padding: 1% 1% 0 0;
+	padding: 1% 1% 0 83%;
 }
 
 .dateBoxDropdownButton {
@@ -84,13 +85,7 @@ img.loader {
     border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 0 5px grey;
-    float: right;
-}
-
-.dateBoxDropdownButton::after {
-	content: "";
-	display: table;
-	clear: both;
+/*    margin-left: 86%;*/
 }
 
 .dateBoxDropdownButtonText {
@@ -117,10 +112,108 @@ img.loader {
 
 
 /*tableRow section*/
-		.tableRow {
-				
-		}
+.tableRow {
+	margin: 1%
+}
 /*End tableRow section*/
 
 /*End main section*/
 
+/*menuSction*/
+.menuSection {
+	display: inline-block;
+    float: left;
+    width: 13%;
+    color: #808080;
+    font-weight: 300;
+    border-right: 1px outset #cdcdcd;
+    height: -webkit-fill-available;
+    background-color: #f2f2f2;
+}
+/*End menuSction*/
+
+/*Menu section*/
+.customReportBoxMainArea {
+	font-size: 13pt;
+}
+
+.customReportBoxDropdownButtonText {
+	padding: 5% 0px 0px 16%;
+}
+
+.customReportBoxDropdownButton {
+    height: 45px;
+    width: 100%;
+    border-bottom: 1px solid #b3b3b3;
+	cursor: pointer;
+}
+
+.cRBDBPassive {
+	background-color: #f2f2f2;
+}
+
+.cRBDBPassive:hover, .cRBDBPActive, .cRBDCVPassive:hover, cRBDCVActive {
+	background-color: #e6e6e6;
+	color: #00b6e0;
+}
+
+.customReportBoxDropdownContainer {
+    width: 100%;
+    height: auto;
+    max-height: 350px;
+    padding: 5px 0 5px 0;
+    background-color: #f2f2f2;
+    padding-bottom: 5px;
+	border-bottom: 1px solid #b3b3b3;
+	display: block;
+}
+
+.cRBDCValueContainer {
+    margin-bottom: 5px;
+    display: block;
+    max-height: 240px;
+    width: 100%;
+    margin: auto;
+}
+
+.cRBDCValue {
+	cursor: pointer;
+}
+
+/*
+.cRBDCVPassive:hover {
+	background-color: #e6e6e6;
+}
+
+.cRBDCVPassive:hover .cRBDCVPPassive {
+	color: #00b6e0;
+}
+
+
+.cRBDCVActive {
+	border: 1px solid #0c5297;
+	background-color: #0c5297;
+}
+*/
+
+.cRBDCValueCheckbox {
+	display: none;
+}
+
+.cRBDCValueP {
+    padding: 0px 0px 0px 16%;
+    width: 100%;
+    margin: 0;
+}
+
+.cRBDCValuePPassive {
+	color: #00b6e0;
+}
+
+.cRBDCValuePActive {
+	color: #fff;
+}
+/*End menu section*/
+.hideElement {
+	display: none;
+}
