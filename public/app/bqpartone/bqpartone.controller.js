@@ -36,6 +36,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].innerHTML = '';
 			document.getElementsByClassName('tableAppSection')[0].classList.remove('hideElement');
+			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
         };
 
             getResults();

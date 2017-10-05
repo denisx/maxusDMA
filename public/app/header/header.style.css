@@ -48,6 +48,10 @@
 	cursor: pointer;
 }
 
+.loginP:hover {
+	color:#454545;
+}
+
 .loginDiv {
     margin-top: 6px;
     margin-left: 7px;
@@ -125,5 +129,10 @@
 
 .loginPopupText {
 	cursor: pointer;
+	width: fit-content;
+}
+
+.loginPopupText:hover {
+	color: black;
 }
 /*LoginPopup end*/

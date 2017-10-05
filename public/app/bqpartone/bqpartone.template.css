@@ -18,12 +18,6 @@ img.loader {
 	display: block;
 }
 
-/*
-.hideElement {
-	display: none;
-}
-*/
-
 .displayElement {
 	display: block;
 }
@@ -74,7 +68,8 @@ img.loader {
 /*buttonRow section*/
 
 .dateRow {
-	padding: 1% 1% 0 83%;
+	padding: 1% 1% 1% 79%;
+    overflow: hidden;
 }
 
 .dateBoxDropdownButton {
@@ -85,7 +80,7 @@ img.loader {
     border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 0 5px grey;
-/*    margin-left: 86%;*/
+	float:right;
 }
 
 .dateBoxDropdownButtonText {
@@ -113,7 +108,8 @@ img.loader {
 
 /*tableRow section*/
 .tableRow {
-	margin: 1%
+	margin: 1%;
+	overflow-x: auto;
 }
 /*End tableRow section*/
 
@@ -142,7 +138,6 @@ img.loader {
 }
 
 .customReportBoxDropdownButton {
-    height: 45px;
     width: 100%;
     border-bottom: 1px solid #b3b3b3;
 	cursor: pointer;

@@ -1,0 +1,17 @@
+node_modules/
+config/env/
+config/strategies/
+config/keys/
+.vscode/
+public/lib/angular
+public/lib/angular-filter
+public/lib/angular-multi-select
+public/lib/angular-route
+public/lib/bootstrap
+public/lib/bootstrap-select
+public/lib/bootstrap-table
+public/lib/ng-bootstrap-select
+public/lib/jquery
+package-lock.json
+.gitignore
+
