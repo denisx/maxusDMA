@@ -80,6 +80,35 @@ let bqInvocation = (query) => {
     return bqInvocationPromise;
 };
 
+let resultToJson = (inputArray) => {
+    let output = {};
+    let contentOfTable = inputArray.slice(1);
+    inputArray[0].forEach((elem)=>{
+        output[elem] = [];
+    });
+    contentOfTable.forEach((row)=>{
+        for (let i = 0; i<row.length; i++) {
+            output[Object.keys(output)[i]].push(row[i]);
+        }
+        console.log(output);
+    });
+    return output;
+}
+
+let resultToJson2 = (inputArray) => {
+    let output = [];
+    let contentOfTable = inputArray.slice(1);
+    contentOfTable.forEach((row)=>{
+        let rowObj = {};
+        for (let i = 0; i<row.length; i++) {
+            rowObj[inputArray[0][i]] = row[i];
+        }
+        output.push(rowObj);
+        console.log(output);
+    });
+    return output;
+}
+
   // Запишем в массив datasetArr все датасеты в аккаунте
 let datasetsInvocation = () => {
     let tablesObj = {}; // Объект с массивами с таблицами из датасетов
@@ -139,7 +168,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
     });   
     console.log(returnArr);
 
-    resultToTable = returnArr;
+    resultToTable = resultToJson2(returnArr);
     trigSendReq = true;
 }
 

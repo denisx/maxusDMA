@@ -56,10 +56,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
-					console.log(data.data);
-                    $scope.tableContentHeader = data.data[0];
-                    $scope.tableContent = data.data.slice(1);
-					fillMenuElements($scope.tableContentHeader, $scope.tableContent);
+					console.log(data);
+                  	$scope.tableContentHeader = Object.keys(data[0]);
+//                  $scope.tableContent = data.data.slice(1);
+//					fillMenuElements($scope.tableContentHeader, $scope.tableContent);
 					killLoader();
                 });
         };
@@ -86,7 +86,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].innerHTML = '';
 			document.getElementsByClassName('tableAppSection')[0].classList.remove('hideElement');
-			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
+//			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
         };
 
 		getResults();

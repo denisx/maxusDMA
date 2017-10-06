@@ -6,7 +6,7 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http',
         let factoryMethods = {};
 
         factoryMethods.getResultsForTable = () => {
-            function successCall(data) {return data;};
+            function successCall(data) {return data.data;};
 
             function errorCall(err) {return err;};
 

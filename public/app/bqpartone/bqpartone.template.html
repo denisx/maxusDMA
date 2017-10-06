@@ -11,6 +11,7 @@
 		</div>
 	</div>
 	<div class="row mainPart">
+<!--
 		<div class="menuSection hideElement">
 			<div class="customReportBoxMainArea" ng-repeat="types in menuElements" id={{types.id}}>
 				<div class="customReportBoxDropdownButton"  ng-click="showDropdown($event.target)">
@@ -26,6 +27,8 @@
 				</div>
 			</div>
 		</div>
+-->
+<!--
 		<div class="tableAppSection hideElement">
 			<div class="tableDiv">
 				<div class="dateRow">
@@ -51,6 +54,26 @@
 					</table>
 				</div>				
 			</div>
+		</div>
+-->
+		<div class="tableAppSection hideElement">
+			<table id="table" data-toggle="table" data-url="/filters/getTablesObj" class="table table-hover">
+				<thead>
+					<tr>
+						<th data-field="Industry">Industry</th>
+						<th data-field="Client">Client</th>
+						<th data-field="Campaign">Campaign</th>
+						<th data-field="Placement">Placement</th>
+						<th data-field="Medium">Medium</th>
+						<th data-field="Format">Format</th>
+						<th data-field="Postbuy_data">Postbuy_data</th>
+						<th data-field="google_analytics">google_analytics</th>
+						<th data-field="metrika">metrika</th>
+						<th data-field="tns">tns</th>
+						
+					</tr>
+				</thead>
+			</table>
 		</div>
 	</div>
 </div>
