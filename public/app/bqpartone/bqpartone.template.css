@@ -141,15 +141,7 @@ img.loader {
     width: 100%;
     border-bottom: 1px solid #b3b3b3;
 	cursor: pointer;
-}
-
-.cRBDBPassive {
 	background-color: #f2f2f2;
-}
-
-.cRBDBPassive:hover, .cRBDBPActive, .cRBDCVPassive:hover, cRBDCVActive {
-	background-color: #e6e6e6;
-	color: #00b6e0;
 }
 
 .customReportBoxDropdownContainer {
@@ -175,21 +167,10 @@ img.loader {
 	cursor: pointer;
 }
 
-/*
-.cRBDCVPassive:hover {
+.customReportBoxDropdownButton:hover, .cRBDBPActive, .cRBDCValue:hover, .cRBDCVActive {
 	background-color: #e6e6e6;
-}
-
-.cRBDCVPassive:hover .cRBDCVPPassive {
 	color: #00b6e0;
 }
-
-
-.cRBDCVActive {
-	border: 1px solid #0c5297;
-	background-color: #0c5297;
-}
-*/
 
 .cRBDCValueCheckbox {
 	display: none;
@@ -201,13 +182,6 @@ img.loader {
     margin: 0;
 }
 
-.cRBDCValuePPassive {
-	color: #00b6e0;
-}
-
-.cRBDCValuePActive {
-	color: #fff;
-}
 /*End menu section*/
 .hideElement {
 	display: none;

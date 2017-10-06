@@ -4,22 +4,27 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
     ($scope, bqpartoneFactory) => {
 		$scope.menuElements = {
 			data_source: {
+				id : 'data_source',
 				name: 'Источники',
 				content : ['Google Analytics', 'Yandex.Metrika', 'PostBuy', 'Tns']
 			},
-			Campaign : {
+			campaign : {
+				id : 'campaign',
 				name: 'Кампании',
 				content: []
 			},
-			Placement : {
+			placement : {
+				id : 'placement',
 				name: 'Размещение',
 				content: []
 			},
-			Medium : {
+			medium : {
+				id : 'medium',
 				name: 'Medium',
 				content: []
 			},
-			Format : {
+			format : {
+				id : 'format',
 				name: 'Формат',
 				content: []
 			}
@@ -40,6 +45,13 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
             });
         };
 
+		$scope.divClickCheck = (target) => {
+            if (target.className != 'cRBDCValue') {
+                target = target.closest('.cRBDCValue');
+            }
+            target.classList.toggle('cRBDCVActive');
+			target.getElementsByTagName('input')[0].checked = (target.getElementsByTagName('input')[0].checked) ? false : true;
+        };
 		
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
@@ -54,11 +66,12 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		
 		let fillMenuElements = (columnNames, tableData) => {
 			let reqNames = [columnNames.indexOf('Campaign'), columnNames.indexOf('Placement'), columnNames.indexOf('Medium'), columnNames.indexOf('Format')];
+			console.log($scope.menuElements);
 			tableData.forEach((row)=>{
 				reqNames.forEach((indx)=>{
 					row[indx].split(',').forEach((elem)=>{
-						if ($scope.menuElements[columnNames[indx]].content.indexOf(elem) == -1) {
-							$scope.menuElements[columnNames[indx]].content.push(elem);
+						if ($scope.menuElements[columnNames[indx].toLowerCase()].content.indexOf(elem) == -1) {
+							$scope.menuElements[columnNames[indx].toLowerCase()].content.push(elem);
 						}
 					});
 				});
