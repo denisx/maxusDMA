@@ -12,6 +12,7 @@
 	</div>
 	<div class="row mainPart">
 		<div class="menuSection hideElement">
+<!--
 			<div class="customReportBoxMainArea" id="data_source">
 				<div class="customReportBoxDropdownButton cRBDBPassive" ng-click="showDropdown($event.target)">
 					<p class="customReportBoxDropdownButtonText">Источники данных</p> 		
@@ -37,15 +38,30 @@
 					</div>
 				</div>
 			</div>
+-->
 			
+			<div class="customReportBoxMainArea" ng-repeat="types in menuElements">
+				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{types.name}}</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue cRBDCVPassive" ng-repeat="elements in types.content track by $index">
+							<p class="cRBDCValueP cRBDCVPPassive">{{elements}}</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div>
+<!--
 			<div class="customReportBoxMainArea" id="campaigns">
 				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
 					<p class="customReportBoxDropdownButtonText">Кампании</p> 			
 				</div>
 				<div class="customReportBoxDropdownContainer hideElement">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue cRBDCVPassive">
-							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+						<div class="cRBDCValue cRBDCVPassive" ng-repeat="elements in menuElements.Campaign">
+							<p class="cRBDCValueP cRBDCVPPassive">{{elements}}</p>
 							<input class="cRBDCValueCheckbox" type="checkbox"> 
 						</div>			
 					</div>
@@ -54,12 +70,12 @@
 			
 			<div class="customReportBoxMainArea" id="placement">
 				<div class="customReportBoxDropdownButton cRBDBPassive"  ng-click="showDropdown($event.target)">
-					<p class="customReportBoxDropdownButtonText">Размещение</p> 			
+					<p class="customReportBoxDropdownButtonText">Размещение</p>	
 				</div>
 				<div class="customReportBoxDropdownContainer hideElement">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue cRBDCVPassive">
-							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+						<div class="cRBDCValue cRBDCVPassive" ng-repeat="elements in menuElements.Placement">
+							<p class="cRBDCValueP cRBDCVPPassive">{{elements}}</p>
 							<input class="cRBDCValueCheckbox" type="checkbox"> 
 						</div>			
 					</div>
@@ -72,8 +88,8 @@
 				</div>
 				<div class="customReportBoxDropdownContainer hideElement">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue cRBDCVPassive">
-							<p class="cRBDCValueP cRBDCVPPassive">Пример</p>
+						<div class="cRBDCValue cRBDCVPassive" ng-repeat="elements in menuElements.Placement">
+							<p class="cRBDCValueP cRBDCVPPassive">{{elements}}</p>
 							<input class="cRBDCValueCheckbox" type="checkbox"> 
 						</div>			
 					</div>
@@ -93,6 +109,7 @@
 					</div>
 				</div>
 			</div> 
+-->
 			
 		</div>
 		<div class="tableAppSection hideElement">

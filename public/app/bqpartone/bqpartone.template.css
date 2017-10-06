@@ -47,7 +47,7 @@ img.loader {
 
 /*Main section*/
 .tableAppSection {
-    padding: 15px 15px 0px;
+    padding: 15px 15px;
 
     float: right;
     min-width: 87%;
@@ -58,7 +58,7 @@ img.loader {
 .tableDiv {
 	box-shadow: 0 0 3px black;
 	background-color: white;
-	height: -webkit-fill-available;
+/*	height: -webkit-fill-available;*/
 }
 /*End tableDiv section*/
 		
@@ -68,7 +68,7 @@ img.loader {
 /*buttonRow section*/
 
 .dateRow {
-	padding: 1% 1% 1% 79%;
+	padding: 1% 1%;
     overflow: hidden;
 }
 
@@ -108,7 +108,7 @@ img.loader {
 
 /*tableRow section*/
 .tableRow {
-	margin: 1%;
+	margin: 0% 1%;
 	overflow-x: auto;
 }
 /*End tableRow section*/
