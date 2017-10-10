@@ -6,27 +6,57 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			data_source: {
 				id : 'data_source',
 				name: 'Источники',
-				content : ['Google Analytics', 'Yandex.Metrika', 'PostBuy', 'Tns']
+				content : ['Google Analytics', 'Yandex Metrika', 'PostBuy', 'Tns']
 			},
+			ga: {
+				id : 'ga',
+				name: 'Google Analytics',
+				content : ['Test1', 'Test2', 'Test3', 'Test4', 'Test1', 'Test2', 'Test3', 'Test4'],
+//								content : ['Test1', 'Test2', 'Test3', 'Test4']
+				chosen : []
+			},
+			ym: {
+				id : 'ym',
+				name: 'Yandex Metrika',
+				content : ['Test1', 'Test2', 'Test3', 'Test4'],
+				chosen : []
+			},
+			postbuy: {
+				id: 'postbuy',
+				name: 'Postbuy',
+				content : ['Test1', 'Test2', 'Test3', 'Test4'],
+				chosen : []
+			}
+			,
 			campaign : {
 				id : 'campaign',
 				name: 'Кампании',
-				content: []
+				content: [],
+				chosen : []
 			},
 			placement : {
 				id : 'placement',
 				name: 'Размещение',
-				content: []
+				content: [],
+				chosen : []
 			},
 			medium : {
 				id : 'medium',
 				name: 'Medium',
-				content: []
+				content: [],
+				chosen : []
 			},
 			format : {
 				id : 'format',
 				name: 'Формат',
-				content: []
+				content: [],
+				chosen : []
+			},
+			sites : {
+				id: 'sites',
+				name: 'Сайты',
+				content: [],
+				chosen : []
 			}
 		};
 		
@@ -44,34 +74,33 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
                 }
             });
         };
-
+		
 		$scope.divClickCheck = (target) => {
-            if (target.className != 'cRBDCValue') {
-                target = target.closest('.cRBDCValue');
+            if (target.className != 'elementToChooseMVW') {
+                target = target.closest('.elementToChooseMVW');
             }
-            target.classList.toggle('cRBDCVActive');
-			target.getElementsByTagName('input')[0].checked = (target.getElementsByTagName('input')[0].checked) ? false : true;
+			let currentData = $scope.menuElements[$scope.menuToShow];
+			let chosenOne = target.firstElementChild.textContent;
+           	(currentData.chosen.indexOf(chosenOne) == -1) ?	currentData.chosen.push(chosenOne) : currentData.chosen.splice(currentData.chosen.indexOf(chosenOne), 1);
+			console.log($scope.menuElements[$scope.menuToShow]);
         };
 		
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
-					console.log(data);
                   	$scope.tableContentHeader = Object.keys(data[0]);
-//                  $scope.tableContent = data.data.slice(1);
-//					fillMenuElements($scope.tableContentHeader, $scope.tableContent);
+					fillMenuElements(data);
 					killLoader();
                 });
         };
 		
-		let fillMenuElements = (columnNames, tableData) => {
-			let reqNames = [columnNames.indexOf('Campaign'), columnNames.indexOf('Placement'), columnNames.indexOf('Medium'), columnNames.indexOf('Format')];
-			console.log($scope.menuElements);
+		let fillMenuElements = (tableData) => {
+			let reqNames = ['Campaign', 'Placement', 'Medium', 'Format'];
 			tableData.forEach((row)=>{
-				reqNames.forEach((indx)=>{
-					row[indx].split(',').forEach((elem)=>{
-						if ($scope.menuElements[columnNames[indx].toLowerCase()].content.indexOf(elem) == -1) {
-							$scope.menuElements[columnNames[indx].toLowerCase()].content.push(elem);
+				reqNames.forEach((columnName)=>{
+					row[columnName].split(',').forEach((elem)=>{
+						if ($scope.menuElements[columnName.toLowerCase()].content.indexOf(elem) == -1) {
+							$scope.menuElements[columnName.toLowerCase()].content.push(elem);
 						}
 					});
 				});
@@ -79,18 +108,34 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		};
 		
 		
-		let hideShowBoxes = (currentBox) =>{
-            currentBox.classList.toggle('hideElement');
-        };
+//		let hideShowBoxes = (currentBox) =>{
+//            currentBox.classList.toggle('hideElement');
+//        };
+//		
+		$scope.listenToHover = (currentBox) => {
+			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
+			$scope.menuToShow = currentMenuPoint.id;
+			let top = currentMenuPoint.offsetTop/document.body.scrollHeight*100 + 3 + '%';
+			let left = currentMenuPoint.offsetWidth/window.screen.availWidth*100 + 0.0875+ '%';
+			document.getElementsByClassName('hoverMenuWithVariants')[0].style.left = left;
+			document.getElementsByClassName('hoverMenuWithVariants')[0].style.top = top;
+			document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
+			document.addEventListener('click', function closeModal (e) {
+				if((e.target.closest('.hoverMenuWithVariants')==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
+					document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
+					document.removeEventListener('click', closeModal);
+				}
+			});
+		}
 		
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].innerHTML = '';
 			document.getElementsByClassName('tableAppSection')[0].classList.remove('hideElement');
-//			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
+			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
         };
-
+		
 		getResults();
-
+		
 		
 
     }]);

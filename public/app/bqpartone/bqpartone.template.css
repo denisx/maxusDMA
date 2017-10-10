@@ -181,6 +181,77 @@ img.loader {
     margin: 0;
 }
 
+.hoverMenuWithVariants {
+    width: 30%;
+    height: auto;
+    background-color: white;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    border-radius: 1px;
+    border: 1px solid #808080;
+	min-height: 300px;
+}
+
+.hoverMenuWithVariants p {
+	margin: 0;
+}
+
+.topSideMVW p{
+	padding: 2% 0 0 4%;
+    margin: 0;
+}
+
+.leftSideMVW, .rightSideMVW {
+	display: inline-block;
+    border: 1px solid black;
+    width: 45%;
+    margin-top: 2%;
+    min-height: 200px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.leftSideMVW {
+	margin-left: 4%;
+}
+
+.rightSideMVW {
+	margin-left: 2%;
+}
+
+.elementToChooseMVW {
+	border: 1px solid #00b6e0;
+    margin: 2%;
+    border-radius: 2px;
+}
+
+.elementToChooseMVW p {
+    padding: 2% 0 0 5%;
+    margin: 0;
+    color: #00b6e0;
+}
+
+.elementChosenMVW {
+    display: inline-block;
+    border: 1px solid #00b6e0;
+    margin: 2%;
+    border-radius: 2px;
+    width: auto;
+}
+
+.eCMVWLInner {
+	display: inline-block;
+}
+
+.xInEC {
+	display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-color: green;
+}
+
+
 /*End menu section*/
 .hideElement {
 	display: none;

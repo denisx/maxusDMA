@@ -11,23 +11,82 @@
 		</div>
 	</div>
 	<div class="row mainPart">
-<!--
 		<div class="menuSection hideElement">
-			<div class="customReportBoxMainArea" ng-repeat="types in menuElements" id={{types.id}}>
-				<div class="customReportBoxDropdownButton"  ng-click="showDropdown($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{types.name}}</p> 			
+			<div class="customReportBoxMainArea hoverToNewMenu">
+				<div class="customReportBoxDropdownButton">
+					<p class="customReportBoxDropdownButtonText">Источники</p>	
 				</div>
-				<div class="customReportBoxDropdownContainer hideElement">
+				<div class="customReportBoxDropdownContainer">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue" ng-repeat="elements in types.content track by $index" ng-click="divClickCheck($event.target)">
-							<p class="cRBDCValueP">{{elements}}</p>
-							<input class="cRBDCValueCheckbox" type="checkbox"> 
-						</div>			
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.ga.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">Google Analytics</p> 
+						</div>
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.ym.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">Yandex Metrika</p> 
+						</div>	
+						<div class="cRBDCValue">
+							<p class="cRBDCValueP">PostBuy</p> 
+						</div>	
+						<div class="cRBDCValue">
+							<p class="cRBDCValueP">Tns</p>
+						</div>				
+					</div>
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.campaign.id}} >
+				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{menuElements.campaign.name}}</p>	
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.placement.id}} >
+				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{menuElements.placement.name}}</p>	
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.medium.id}}>
+				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{menuElements.medium.name}}</p>	
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.format.id}}>
+				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{menuElements.format.name}}</p>	
+				</div>
+			</div>
+			
+			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.sites.id}}>
+				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{menuElements.sites.name}}</p>	
+				</div>
+			</div>
+			
+			<div class="hoverMenuWithVariants hideElement">
+				<div class="topSideMVW">
+					<p>{{menuElements[menuToShow].name}}</p>
+				</div>
+				<div class="leftSideMVW">
+					<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by $index" data-chosen="false" ng-click="divClickCheck($event.target)">
+						<p>{{elem}}</p>
+					</div>
+				</div>
+				<div class="rightSideMVW">
+					<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index" data-chosen="false">
+						<div class="eCMVWLInner">
+							<p>{{elem}}</p>	
+						</div>
+						<div class="xInEC">
+							
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
--->
+		
+		
 <!--
 		<div class="tableAppSection hideElement">
 			<div class="tableDiv">
@@ -57,7 +116,7 @@
 		</div>
 -->
 		<div class="tableAppSection hideElement">
-			<table id="table" data-toggle="table" data-url="/filters/getTablesObj" class="table table-hover">
+			<table id="table" data-toggle="table" data-url="/filters/getTablesObj" data-search="true" class="table table-hover">
 				<thead>
 					<tr>
 						<th data-field="Industry">Industry</th>
