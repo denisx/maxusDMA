@@ -13,7 +13,9 @@ angular.module('filter').factory('optionsFilter', ['$http', '$window',
     };
 
     factoryMethods.sendQueryNextPage = (query) => {
-        function successCall(data) {
+        console.log(query);
+		
+		function successCall(data) {
             
             console.log(data.status);
             if (data.status == 200) {

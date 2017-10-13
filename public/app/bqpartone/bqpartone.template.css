@@ -204,7 +204,8 @@ img.loader {
 
 .leftSideMVW, .rightSideMVW {
 	display: inline-block;
-    border: 1px solid black;
+    border: 1px solid #0c5297;
+	box-shadow: 0 0 1px 1px #0c5297;
     width: 45%;
     margin-top: 2%;
     min-height: 200px;
@@ -224,12 +225,18 @@ img.loader {
 	border: 1px solid #00b6e0;
     margin: 2%;
     border-radius: 2px;
+	color: #00b6e0;
+}
+
+.elementToChooseMVW:hover, .elementToChooseMVWActive {
+	background-color: #00b6e0;
+	color: white;
 }
 
 .elementToChooseMVW p {
-    padding: 2% 0 0 5%;
+    padding: 2% 5%;
     margin: 0;
-    color: #00b6e0;
+    
 }
 
 .elementChosenMVW {
@@ -242,13 +249,24 @@ img.loader {
 
 .eCMVWLInner {
 	display: inline-block;
+    border-right: 1px solid #00b6e0;
+    padding-right: 2px;
+}
+
+.eCMVWLInner p {
+	padding: 2% 5%;
+}
+
+.xContainer {
+	display: inline-block;
 }
 
 .xInEC {
-	display: inline-block;
-    width: 15px;
-    height: 15px;
-    background-color: green;
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+	margin-right: 2px;
 }
 
 

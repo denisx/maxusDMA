@@ -11,14 +11,14 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			ga: {
 				id : 'ga',
 				name: 'Google Analytics',
-				content : ['Test1', 'Test2', 'Test3', 'Test4', 'Test1', 'Test2', 'Test3', 'Test4'],
+				content : ['ga1', 'ga2', 'ga3', 'ga4', 'ga5', 'ga6', 'ga7', 'ga8'],
 //								content : ['Test1', 'Test2', 'Test3', 'Test4']
 				chosen : []
 			},
 			ym: {
 				id : 'ym',
 				name: 'Yandex Metrika',
-				content : ['Test1', 'Test2', 'Test3', 'Test4'],
+				content : ['ym1', 'ym2', 'ym3', 'ym4'],
 				chosen : []
 			},
 			postbuy: {
@@ -60,35 +60,57 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 		};
 		
-        $scope.showDropdown =  (eventTarget) => {
-            if (eventTarget.className != 'customReportBoxDropdownButton') {
-                eventTarget = eventTarget.closest('.customReportBoxDropdownButton');
-            }
-			eventTarget.classList.toggle('cRBDBPActive');
-            hideShowBoxes(eventTarget.nextElementSibling);
-            document.addEventListener('click', function hideDrop(e) {				
-                if (e.target.closest('.customReportBoxMainArea')!= eventTarget.parentNode) {                 
-                    hideShowBoxes(eventTarget.nextElementSibling);
-					eventTarget.classList.toggle('cRBDBPActive');
-                    document.removeEventListener('click', hideDrop);
-                }
-            });
-        };
+//		$scope.divClickCheck = (target) => {
+//            if (target.className != 'elementToChooseMVW') {
+//                target = target.closest('.elementToChooseMVW');
+//            }
+////			target.classList.toggle('elementToChooseMVWActive');
+//			
+//        };
+//		
+		$scope.listenToHover = (currentBox) => {
+			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
+			$scope.menuToShow = currentMenuPoint.id;
+			let menuPopup = document.getElementsByClassName('hoverMenuWithVariants')[0];
+			let top = currentMenuPoint.offsetTop/document.body.scrollHeight*100 + 3 + '%';
+			let left = currentMenuPoint.offsetWidth/window.screen.availWidth*100 + 0.0875+ '%';
+			menuPopup.style.left = left;
+			menuPopup.style.top = top;
+			menuPopup.setAttribute('type', $scope.menuToShow);
+			menuPopup.classList.toggle('hideElement');
+			
+			document.addEventListener('click', function closeModal (e) {
+				console.log(e.target);
+
+				if((e.target.closest('.hoverMenuWithVariants')==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
+					console.log(e.target.closest('.hoverMenuWithVariants'))
+					console.log(e.target.closest('.hoverToNewMenu'))
+//					clearChosen();
+					document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
+					document.removeEventListener('click', closeModal);
+				}
+				if(e.target.closest('.xContainer')!=null) {
+					removeChosen(e.target.closest('.xContainer').previousElementSibling.firstElementChild.textContent);
+					$scope.$apply();
+				}
+				if(e.target.closest('.elementToChooseMVW')!=null) {
+					removeContent(e.target.closest('.elementToChooseMVW').firstElementChild.textContent);
+					$scope.$apply();
+				}
+
+			});
+		}
 		
-		$scope.divClickCheck = (target) => {
-            if (target.className != 'elementToChooseMVW') {
-                target = target.closest('.elementToChooseMVW');
-            }
-			let currentData = $scope.menuElements[$scope.menuToShow];
-			let chosenOne = target.firstElementChild.textContent;
-           	(currentData.chosen.indexOf(chosenOne) == -1) ?	currentData.chosen.push(chosenOne) : currentData.chosen.splice(currentData.chosen.indexOf(chosenOne), 1);
-			console.log($scope.menuElements[$scope.menuToShow]);
-        };
+
 		
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
-                  	$scope.tableContentHeader = Object.keys(data[0]);
+					let tableContent = {
+						data: data
+					}
+                  	//$scope.tableContentHeader = Object.keys(data[0]);
+					$('#table').bootstrapTable(tableContent);
 					fillMenuElements(data);
 					killLoader();
                 });
@@ -107,26 +129,47 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			});
 		};
 		
+		let removeChosen = (value) => {	
+			$scope.menuElements[$scope.menuToShow].content.push(value);
+			$scope.menuElements[$scope.menuToShow].chosen.splice($scope.menuElements[$scope.menuToShow].chosen.indexOf(value),1);
+		};
 		
-//		let hideShowBoxes = (currentBox) =>{
-//            currentBox.classList.toggle('hideElement');
-//        };
-//		
-		$scope.listenToHover = (currentBox) => {
-			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
-			$scope.menuToShow = currentMenuPoint.id;
-			let top = currentMenuPoint.offsetTop/document.body.scrollHeight*100 + 3 + '%';
-			let left = currentMenuPoint.offsetWidth/window.screen.availWidth*100 + 0.0875+ '%';
-			document.getElementsByClassName('hoverMenuWithVariants')[0].style.left = left;
-			document.getElementsByClassName('hoverMenuWithVariants')[0].style.top = top;
-			document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
-			document.addEventListener('click', function closeModal (e) {
-				if((e.target.closest('.hoverMenuWithVariants')==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
-					document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
-					document.removeEventListener('click', closeModal);
-				}
-			});
+		let removeContent = (value) => {
+			$scope.menuElements[$scope.menuToShow].chosen.push(value);
+			$scope.menuElements[$scope.menuToShow].content.splice($scope.menuElements[$scope.menuToShow].content.indexOf(value),1);
 		}
+
+//		let checkChosen = () => {
+//			
+////			$scope.menuElements[$scope.menuToShow].chosen.forEach((elem)=>{
+////				console.log(elem, $scope.menuToShow, $scope.menuElements[$scope.menuToShow].content.indexOf(elem), elemArray[$scope.menuElements[$scope.menuToShow].content.indexOf(elem)]);
+////				console.log(elemArray);
+////				elemArray[$scope.menuElements[$scope.menuToShow].content.indexOf(elem)].classList.add('elementToChooseMVWActive');
+////			});
+//			let indexes = [];
+//			for (let i = 0; i < $scope.menuElements[$scope.menuToShow].content.length; i++){
+//				if ($scope.menuElements[$scope.menuToShow].chosen.includes($scope.menuElements[$scope.menuToShow].content[i])) {
+//					indexes.push(i);
+//					
+//				}
+//			}
+//			let elemArray = document.getElementsByClassName('elementToChooseMVW');
+//			indexes.forEach((ind)=>{
+//				elemArray[ind].classList.add('elementToChooseMVWActive');
+//			})
+//			console.log('============');
+//		};
+		
+//		let clearChosen = () => {
+//			let elemArray = document.getElementsByClassName('elementToChooseMVW');
+//			for (let i = 0; i< elemArray.length; i++) {
+//				if (elemArray[i].classList.contains('elementToChooseMVWActive')){
+//					elemArray[i].classList.remove('elementToChooseMVWActive');
+//				}
+//			}
+//		}
+//		
+
 		
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].innerHTML = '';

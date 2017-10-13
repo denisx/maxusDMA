@@ -42,7 +42,7 @@
 			
 			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.placement.id}} >
 				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.placement.name}}</p>	
+					<p class="customReportBoxDropdownButtonText">{{menuElements.placement.name}} </p>	
 				</div>
 			</div>
 			
@@ -69,18 +69,19 @@
 					<p>{{menuElements[menuToShow].name}}</p>
 				</div>
 				<div class="leftSideMVW">
-					<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by $index" data-chosen="false" ng-click="divClickCheck($event.target)">
+					<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by elem">
 						<p>{{elem}}</p>
 					</div>
 				</div>
 				<div class="rightSideMVW">
-					<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index" data-chosen="false">
+					<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
 						<div class="eCMVWLInner">
 							<p>{{elem}}</p>	
 						</div>
-						<div class="xInEC">
-							
+						<div class="xContainer">
+							<div class="xInEC"></div>	
 						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -116,7 +117,7 @@
 		</div>
 -->
 		<div class="tableAppSection hideElement">
-			<table id="table" data-toggle="table" data-url="/filters/getTablesObj" data-search="true" class="table table-hover">
+			<table id="table" data-toggle="table" data-search="true" class="table table-hover">
 				<thead>
 					<tr>
 						<th data-field="Industry">Industry</th>

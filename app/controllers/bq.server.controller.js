@@ -57,8 +57,6 @@ exports.showFiltersAnswer = (req, res) => {
     return res.send('success');
 }
 
-
-
 let resultToTable;
 let trigSendReq = false; // trigger for sending request
 
@@ -120,6 +118,7 @@ let datasetsInvocation = () => {
             // datasets is an array of Dataset objects.
             for (let i = 0; i < datasets.length; i++) {
                 let currentDatasetId = datasets[i].metadata.datasetReference.datasetId;
+
                 datasetsArr.push(currentDatasetId)
                 let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
                 dataset.getTables((err, tables)=>{
@@ -144,7 +143,8 @@ let datasetsInvocation = () => {
 
 let matchMetrics = (resultsArr, metricsArr) => {
     let returnArr = [];
-
+    console.log(resultsArr);
+    console.log(metricsArr);
     resultsArr.forEach((elem)=>{
         let typeClient = elem.Industry.toLowerCase() + '_' + elem.Client.toLowerCase();
         let elemValues = [];

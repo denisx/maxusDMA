@@ -158,8 +158,10 @@ exports.checkAuthentication = function(req,res,next){
     }
 }
 
+//костыль
 exports.campaignCreate = function(req, res, next) {
-	var campaign = new Campaign(req.body);
+	req.body.forEach((data)=>{
+		var campaign = new Campaign(data);
 	var message = null;
 	campaign.save(function(err) {
 			if (err) {
@@ -167,10 +169,12 @@ exports.campaignCreate = function(req, res, next) {
 				console.log(message);
 				return 'message: success';
 			}
-		else{
-			//res.json('msg:scs');
-			res.redirect('/campaign');
-		}});
+		/* else{
+			// res.json('msg:scs');
+			// res.redirect('/campaign');
+		} */});
+	})
+	
 	//res.redirect('/campaign');
 };
 
