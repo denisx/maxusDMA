@@ -1,0 +1,881 @@
+industry,client,site,date,utm_source,utm_medium,utm_campaign,utm_content,device_category,visits,pageviews,bounces,session_duration,goal_quotation_kasko,goal_quotation_osago,goal_quotation_kaskoOsago,goal_request_osago,goal_request_kasko,goal_request_kaskoOsago
+bankingFinance,Renins,renins.com,20170113,(direct),(none),(not set),(not set),desktop,1930,12764,141,1074653.0,13,259,26,22,837,620
+bankingFinance,Renins,renins.com,20170113,(direct),(none),(not set),(not set),mobile,897,1619,224,231576.0,39,1,1,426,446,296
+bankingFinance,Renins,renins.com,20170113,(direct),(none),(not set),(not set),tablet,146,561,26,63678.0,8,7,0,57,83,63
+bankingFinance,Renins,renins.com,20170113,192.168.1.53:8080,referral,(not set),(not set),desktop,1,6,0,437.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Autoreview_bns,cpc,KaskoOsago__spb,price_cut,desktop,1,3,0,6.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Banki.ru_House,button,(not set),(not set),desktop,7,20,0,359.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_House,button,(not set),(not set),tablet,1,7,0,222.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_Property,button,(not set),(not set),desktop,4,10,0,141.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,Accident,(not set),mobile,1,1,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,House,(not set),desktop,1,3,0,7.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,House,(not set),mobile,1,3,0,789.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,House,(not set),tablet,1,3,0,5.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,kasko,(not set),desktop,24,338,1,33221.0,0,10,0,0,18,14
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,kasko,(not set),mobile,1,4,0,2375.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Banki.ru_RKS,button,kasko,(not set),tablet,2,2,0,429.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,E-mail_Base-NewTravel,(not set),SummerDigest,(not set),desktop,24,25,0,552.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,GDN_MSK,banner,OsagoMini,160x600,desktop,3,9,0,258.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,InGuru,banner,Offroad.No-one,930x100,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Info-letter_15-14,links,kasko-cart,-go-to-calculator,desktop,2,19,0,1181.0,0,0,2,0,2,2
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,accident_broker_mskspbekb,NYP,desktop,1,5,0,57.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,accident_broker_mskspbekb,NYP,mobile,1,1,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,house_broker_mskspbekb,NYP,desktop,1,4,0,62.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,house_broker_mskspbekb,NYP,mobile,1,1,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,kasko_broker_mskspbekb,NYP,desktop,14,60,1,1491.0,1,1,1,0,12,10
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,kasko_broker_mskspbekb,NYP,mobile,21,35,0,3266.0,6,0,0,19,19,17
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,property_broker_mskspbekb,NYP,desktop,15,19,0,314.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru,cpa,travel_broker_mskspbekb,NYP,desktop,1,6,0,48.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_Address,TGB,NYP,1,desktop,5,46,0,3696.0,0,2,0,0,5,5
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_Address,TGB,NYP,1,tablet,1,1,1,0.0,0,0,0,1,0,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_CalcAuto,TGB,NYP,1,desktop,3,60,0,5508.0,0,2,0,0,3,1
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_In.card,link,GeneralPage,(not set),desktop,9,22,1,117.0,0,0,0,0,1,8
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_MSKSPB,TGB,KaskoAuto,930x100,desktop,15,237,0,20647.0,7,6,0,0,12,4
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_MSKSPB,TGB,KaskoAuto,930x100,mobile,1,1,0,54.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_Promopage,button,NYP,go-to-calculator,mobile,1,1,0,14.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_Promopage,logo,GeneralPage,go-to-home,mobile,2,2,0,0.0,0,0,0,2,2,0
+bankingFinance,Renins,renins.com,20170113,Inguru.ru_Recall,TGB,NYP,1,mobile,1,1,0,8.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Meduza,cpc,travel_putevoditel_world,ads,desktop,3,5,1,1.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,MobailApp,free,TravelApp,(not set),mobile,7,34,1,2151.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,MobailApp,free,TravelApp,(not set),tablet,1,2,0,810.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Moneymatika.ru,cpa,kasko__ekb,CheapestKasko,tablet,1,1,0,260.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Moneymatika.ru_All,TGB,NYP,Text,tablet,1,9,0,342.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,Moneymatika.ru_KaskoAbout,Set,Konstrkutor,3,desktop,1,18,0,499.0,1,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,cpc,falldigest_letter_rf,auto_act,mobile,1,1,0,289.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,cpc,falldigest_letter_rf,travel_deact,desktop,1,39,0,1395.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,cpc,november_trip_letter_rf,travel_deact,mobile,1,3,0,102.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,NY2017_letter_rf,avto_act,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,NY2017_letter_rf,avto_act,mobile,1,1,0,47.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,NY2017_letter_rf,avto_deact,desktop,1,20,0,396.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,NY2017_letter_rf,travel_deact,desktop,4,25,0,1068.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,NY2017_letter_rf,travel_deact,mobile,1,4,0,65.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,app_for_trip_letter_rf,travel_all,tablet,1,8,0,345.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,kasko_lostcart_dec_rf,base_kasko,desktop,1,15,0,290.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,real_discount_letter_rf,avto_deact,desktop,6,23,1,2068.0,0,0,0,0,3,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,real_discount_letter_rf,avto_deact,mobile,1,1,0,13.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,real_discount_letter_rf,spb_vz,desktop,1,3,0,21.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,RI_mail,rassylka,travel_velvetseason_letter_rf,base_auto_deact,desktop,1,6,0,995.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,accident_footer_msk_spb,icon,tablet,1,4,0,535.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_bu_msk_spb,promopage,desktop,35,85,0,2594.0,1,0,2,0,8,23
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_economatika_calc_msk_spb,promopage,desktop,10,123,0,6457.0,1,3,2,0,7,9
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_economatika_msk_spb,promopage,desktop,1,4,0,86.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_economatika_msk_spb,promopage,mobile,1,13,0,1794.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_vnedorojniki_msk_spb,promopage,desktop,5,41,0,1473.0,2,0,2,0,4,4
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,kasko_vnedorojniki_msk_spb,promopage,tablet,1,3,0,6.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,logo_header_msk_spb,logo,desktop,15,93,2,6228.0,0,5,0,0,5,5
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,logo_header_msk_spb,logo,mobile,4,6,2,337.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,property_footer_msk_spb,icon,desktop,1,2,0,3.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Renins.ru,cpc,travel_footer_msk_spb,icon,desktop,3,18,0,1094.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Renins.ru_Promopage,button,NYP,go-to-calculator,desktop,1,3,0,18.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Revizorro,cpq,kasko__msk,economatics,tablet,1,1,0,0.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,Revizorro,cpq,kasko__spbekb,probeg,desktop,2,3,1,6.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_All,TGB,NYP,985х125,desktop,5,28,0,4041.0,0,3,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_All,TGB,NYP,985х125,tablet,1,1,0,10.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_OSAGO,banner,OSAGO,984х124,desktop,16,102,4,3148.0,0,3,0,0,12,10
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_OSAGO,banner,OSAGO,984х124,mobile,18,24,1,4967.0,0,0,0,17,15,11
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_OSAGO,banner,OSAGO,984х124,tablet,4,12,0,247.0,0,0,0,1,4,4
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_OSAGOCalc,Set,OSAGO,1,desktop,1,22,0,344.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_OSAGOCalc,Set,OSAGO,1,tablet,1,12,0,917.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_Promopage,link,GeneralPage,go-to-home,desktop,1,4,0,18.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_all,TGB,NYP-White,1000x312,desktop,14,62,1,2748.0,3,0,1,0,12,12
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_all,TGB,NYP-White,1000x312,mobile,12,18,0,4292.0,2,0,0,12,12,11
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_all,TGB,NYP-White,692x152,desktop,13,48,1,1243.0,2,0,1,0,12,11
+bankingFinance,Renins,renins.com,20170113,Revizorro.ru_all,TGB,NYP-White,692x152,mobile,3,5,0,1028.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,Rusfootball.info_bns,cpc,KaskoOsago__mskspbekb,probeg,tablet,2,2,0,4.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,Sendsay,email,new_year_travel_letter_rf,auto_act,desktop,1,14,0,446.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Sendsay,email,new_year_travel_letter_rf,travel_deact,mobile,1,2,0,65.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Skyscanner,cpc,nectarin,mail1,desktop,1,5,0,10396.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,kasko_broker_msk,(not set),desktop,5,53,0,784.0,5,0,0,0,5,3
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,kasko_broker_msk,(not set),mobile,2,2,0,57.0,0,0,0,2,2,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,kasko_broker_mskspbekb,NYP,desktop,6,45,1,1970.0,2,0,2,0,5,5
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,kasko_broker_mskspbekb,NYP,tablet,1,2,0,166.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,osago_broker_msk,(not set),desktop,10,44,0,1007.0,0,7,0,0,4,4
+bankingFinance,Renins,renins.com,20170113,Sravni.ru,cpa,osago_broker_msk,(not set),mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Sravni.ru_KaskoCalc,Set,Konstrkutor,1,desktop,6,6,0,98.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru_KaskoCalc,Set,Konstrkutor,1,mobile,1,2,0,1804.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru_KaskoCalc,Set,Konstrkutor,2,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru_OSAGOCalc,Set,OSAGO,1,desktop,1,3,0,72.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,Sravni.ru_all,banner,NYP-Dark,300x500,desktop,2,11,0,834.0,0,0,1,0,2,1
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_OSAGO,banner,OSAGO,540x125,desktop,6,13,1,55.0,0,0,0,0,4,2
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_OSAGOCalc,Set,OSAGO,1,desktop,2,12,0,195.0,0,2,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,240х500,desktop,1,5,0,352.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,240х500,mobile,4,4,0,134.0,2,0,0,4,4,3
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,240х500,tablet,1,1,0,344.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,540х125,desktop,29,249,0,21583.0,0,5,0,0,21,17
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,540х125,mobile,1,1,0,463.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Sravnikupi.ru_all,banner,NYP-Dark,540х125,tablet,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,Vbr.ru,cpc,KaskoOsago__rf,(not set),mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,YandexMKB,cpm,kasko__msk,probeg,desktop,1,15,0,1176.0,0,1,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,a.pr-cy.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,adguard.com,referral,(not set),(not set),desktop,3,32,0,3420.0,0,1,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,118221,desktop,1,31,0,776.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,205380,desktop,119,553,9,39455.0,0,13,0,0,60,52
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,205759,desktop,7,61,0,6168.0,0,3,0,0,6,5
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,262250,desktop,2,34,0,2311.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,294594,desktop,2,5,0,246.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,294594,mobile,2,3,0,57.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,342010,desktop,1,6,0,130.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,352513,desktop,1,3,0,7.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,46755,desktop,1,3,0,5.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,481495,desktop,3,11,0,1232.0,0,1,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,481495,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,53753,desktop,1,1,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,79700,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,8761,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,admitad,cpa,kasko_network_msk_spb_ekb,90289,desktop,7,92,0,7833.0,0,3,0,0,6,5
+bankingFinance,Renins,renins.com,20170113,affiliatecatalog.ru,referral,(not set),(not set),desktop,2,9,0,462.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,alfastrah24.de02.agima.ru,referral,(not set),(not set),desktop,1,3,0,11.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,ask,organic,(not set),(not set),desktop,1,1,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,asn-news.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,auto-urist.ru,referral,(not set),(not set),desktop,1,5,0,476.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,autoins.ru,referral,(not set),(not set),desktop,380,3955,16,310746.0,0,116,0,0,252,204
+bankingFinance,Renins,renins.com,20170113,autoins.ru,referral,(not set),(not set),mobile,11,14,9,1211.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,autoins.ru,referral,(not set),(not set),tablet,7,14,5,615.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,baltzdrav.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,banki.ru,referral,(not set),(not set),desktop,23,87,0,10327.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,bing,organic,(not set),(not set),desktop,41,268,7,14690.0,0,3,2,0,13,13
+bankingFinance,Renins,renins.com,20170113,cityratings.ru,referral,(not set),(not set),desktop,1,12,0,1695.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,crm:8080,referral,(not set),(not set),desktop,1,19,0,422.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,drive2.ru,referral,(not set),(not set),desktop,60,296,6,20139.0,0,17,0,0,35,33
+bankingFinance,Renins,renins.com,20170113,drive2.ru,referral,(not set),(not set),mobile,4,8,0,2027.0,0,0,0,4,4,3
+bankingFinance,Renins,renins.com,20170113,e-osago.ugsk.ru,referral,(not set),(not set),desktop,3,57,0,8855.0,0,2,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,eburg.insgid.ru,referral,(not set),(not set),desktop,1,13,0,1115.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,engels.big-book-avto.ru,referral,(not set),(not set),desktop,1,4,0,470.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,forum.osagoonline.info,referral,(not set),(not set),desktop,4,19,0,704.0,0,0,0,0,4,4
+bankingFinance,Renins,renins.com,20170113,gatchina.insgid.ru,referral,(not set),(not set),desktop,1,4,0,32.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,gatchina.spravker.ru,referral,(not set),(not set),desktop,1,17,0,951.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,gdepolis.ru,referral,(not set),(not set),desktop,31,224,2,16011.0,0,6,0,0,19,19
+bankingFinance,Renins,renins.com,20170113,gdepolis.ru,referral,(not set),(not set),mobile,2,3,0,41.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,go.mail.ru,organic,(not set),(not set),desktop,145,982,26,66056.0,1,26,0,0,67,53
+bankingFinance,Renins,renins.com,20170113,go.mail.ru,organic,(not set),(not set),mobile,3,6,1,737.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,go.mail.ru,organic,(not set),(not set),tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,(not set),(not set),desktop,1,3,0,19.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,(not set),(not set),mobile,3,3,0,392.0,1,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,0.1 ВЗР.Бренд.ВЧ-1.Поиск,Ренессанс страхование ВЗР,mobile,1,1,0,1090.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,0.2 ВЗР.Бренд.ВЧ-2.Поиск,Ренессанс страхование ВЗР,desktop,58,208,1,16467.0,1,2,0,0,11,7
+bankingFinance,Renins,renins.com,20170113,google,cpc,0.2 ВЗР.Бренд.ВЧ-2.Поиск,Ренессанс страхование ВЗР,mobile,20,72,1,26546.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,0.2 ВЗР.Бренд.ВЧ-2.Поиск,Ренессанс страхование ВЗР,tablet,1,8,0,146.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,0.2 ВЗР.Бренд.ВЧ-2.Поиск,Страховка для выезжающих,desktop,1,3,0,60.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.1 ВЗР.Бренд.Поиск,Ренессанс страховка в шенген,desktop,1,10,0,803.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Купите страховку ВЗР онлайн,desktop,2,0,0,4762.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Онлайн страхование ВЗР,desktop,4,4,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Онлайн страхование в поездку,mobile,1,3,0,152.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Онлайн страхование для шенгена,desktop,1,6,0,540.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Оформите страховку для визы,desktop,14,14,0,7061.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Оформите страховку для визы,tablet,1,2,0,3.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Оформите страховку за границу,desktop,10,19,0,12336.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Полис для путешественников,desktop,1,2,0,29.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование в путешествие,desktop,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование в путешествие,mobile,1,2,0,120.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование выезда за границу,desktop,1,3,0,270.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование выезда за границу,mobile,4,6,1,182.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование для выезжающих,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страхование путешественников,desktop,11,149,0,11370.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховка для выезда онлайн,desktop,1,8,0,544.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховка для выезда онлайн,mobile,1,5,0,150.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховка для шенгена онлайн,desktop,4,12,1,2400.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховка для шенгена онлайн,mobile,4,12,1,298.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховка для шенгена онлайн,tablet,6,24,1,3470.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Страховой полис для выезжающих,desktop,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Туристическая страховка онлайн,desktop,6,9,0,63.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.МСК+СПб,Туристическая страховка онлайн,mobile,1,2,0,441.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование ВЗР,desktop,1,21,0,25082.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование ВЗР,mobile,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование в поездку,desktop,1,3,0,301.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование в поездку,mobile,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование для визы,desktop,2,4,0,272.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование туристов,desktop,2,6,0,186.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Онлайн страхование туристов,mobile,1,5,0,269.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку в поездку,desktop,1,2,0,30.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку для визы,desktop,6,12,0,2467.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку для визы,mobile,9,35,0,1242.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку для туриста,desktop,1,2,0,271.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку для туриста,mobile,1,2,0,101.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку за границу,desktop,2,9,0,916.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку за границу,mobile,2,3,1,1091.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформите страховку за рубеж,desktop,1,2,0,4772.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Оформление страховки ВЗР,mobile,1,5,0,1024.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование в путешествие,desktop,8,15,0,23051.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование выезда за границу,desktop,3,13,0,513.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование выезда за рубеж,desktop,2,6,0,219.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование для выезжающих,desktop,3,6,0,662.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование для выезжающих,mobile,1,2,0,5.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование путешественников,desktop,2,10,0,977.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование путешественников,mobile,1,2,0,10.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страхование путешественников,tablet,2,48,0,5126.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка в путешествие онлайн,mobile,1,1,0,246.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для выезда онлайн,desktop,2,5,0,180.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для выезда онлайн,mobile,3,5,0,218.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для выезда онлайн,tablet,1,3,0,210.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для выезжающих,desktop,1,2,0,90.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для путешественников,desktop,2,9,0,18060.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для путешественников,tablet,3,9,0,353.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховка для шенгена онлайн,desktop,3,7,0,1124.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховой полис для выезда,mobile,1,5,0,499.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Страховой полис для выезжающих,mobile,4,8,0,37.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Туристическая страховка онлайн,desktop,1,3,0,3780.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.2 ВЗР.Общие.Поиск.Регионы,Туристическая страховка онлайн,mobile,2,4,0,65.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Болгарию,desktop,1,5,0,362.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Болгарию,mobile,1,2,0,29.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Болгарию,tablet,1,2,0,3.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Грецию,mobile,1,2,0,3.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Испанию,desktop,1,3,0,118.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Италию,mobile,1,8,0,423.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Китай,mobile,5,10,0,244.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Тайланд,desktop,2,5,0,789.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Тайланд,mobile,7,28,1,6424.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Украину,mobile,1,2,0,14.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Финляндию,desktop,3,19,0,4367.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Финляндию,mobile,2,6,0,422.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.МСК+СПб,Страхование ВЗР в Эстонию,mobile,1,2,0,60.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.Регионы,Страхование ВЗР в Египет,mobile,1,5,0,408.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.Регионы,Страхование ВЗР в Литву,mobile,1,3,0,189.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.Регионы,Страхование ВЗР в Польшу,mobile,1,4,0,135.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.3 ВЗР.Страны.Поиск.Регионы,Страхование ВЗР в Тайланд,desktop,4,15,0,5482.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,1.4 ВЗР.Конкуренты.Поиск,Ренессанс страхование ВЗР,desktop,1,2,0,32.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,КАСКО от Ренессанс страхование,desktop,1,5,0,35.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,КАСКО от Ренессанс страхование,tablet,2,9,0,541.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,ОСАГО от Ренессанс страхование,desktop,9,54,2,1965.0,0,2,1,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,ОСАГО от Ренессанс страхование,mobile,10,19,3,1187.0,0,0,0,5,5,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,ОСАГО от Ренессанс страхование,tablet,7,8,6,15.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренеессанс страхование онлайн,desktop,29,152,5,22518.0,2,3,0,1,12,11
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренеессанс страхование онлайн,mobile,5,14,3,288.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование,desktop,186,1008,30,62951.0,9,22,15,0,54,49
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование,mobile,77,121,35,9511.0,1,0,0,24,24,21
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование,tablet,15,30,9,341.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование Online,desktop,53,258,9,13838.0,2,0,5,0,9,11
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование Online,mobile,34,40,30,178.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование Online,tablet,1,4,0,95.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование онлайн,desktop,35,185,9,11638.0,1,2,0,0,6,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование онлайн,mobile,24,50,4,2734.0,0,0,0,11,12,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Ренессанс страхование онлайн,tablet,1,8,0,251.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search,Страховка авто от угона,mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Brand_Search_mobile,Ренессанс страхование,desktop,1,7,0,160.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_EKB,Выбираете страховую компанию?,desktop,1,7,0,273.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_EKB,Онлайн-калькулятор КАСКО 24x7,tablet,2,25,0,689.0,0,0,2,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_EKB,Оформить ОСАГO на Renins.com,desktop,4,8,1,20.0,0,0,0,0,3,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_EKB,Оформить ОСАГO на Renins.com,tablet,1,1,0,970.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_EKB,Страхование по КАСКО онлайн,desktop,1,3,0,81.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,КАСКО в Ренессанс страхование,desktop,1,3,0,13.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,КАСКО в рассрочку от Ренессанс,mobile,1,2,0,338.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,Калькулятор КАСКО онлайн,desktop,1,6,0,144.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,Калькулятор КАСКО онлайн,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,ОСАГО от Ренессанс страхование,desktop,16,124,0,7078.0,0,7,0,0,16,15
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,ОСАГО от Ренессанс страхование,tablet,5,18,0,1953.0,0,1,0,2,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,Онлайн-калькулятор КАСКО 2016,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,Онлайн-калькулятор КАСКО 24x7,mobile,1,1,0,796.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_MSK,Рассчитать КАСКО онлайн,desktop,10,25,0,555.0,0,0,10,0,1,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,Выбираете страховую компанию?,desktop,6,12,2,73.0,0,0,0,0,3,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,КАСКО в Ренессанс страхование,mobile,1,1,0,176.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,КАСКО в Ренессанс страхование,tablet,1,3,0,425.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,Калькулятор КАСКО онлайн,mobile,1,1,0,8.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,Калькулятор КАСКО онлайн,tablet,1,2,0,431.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,ОСАГО от Ренессанс страхование,desktop,18,69,2,15382.0,0,10,0,0,7,9
+bankingFinance,Renins,renins.com,20170113,google,cpc,Competitors_Search_SPB,ОСАГО от Ренессанс страхование,tablet,3,13,0,1398.0,0,2,0,1,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Economatics_Partner_М25-34_SPB_all,Калькулятор КАСКО онлайн,mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,GDN_М35-44_SPB_all_OffRoad,text_oct|mobileapp::2-com.food.calories|m,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO | Remarketing | Allgeo,Molodaya 240x400.zip,desktop,1,2,0,16.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO | Remarketing | Allgeo,Offroad 320x50.zip,mobile,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO | Remarketing | Allgeo,Ренессанс страхование,desktop,4,11,0,251.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO | Remarketing | Allgeo,Ренессанс страхование,mobile,4,6,0,856.0,0,0,0,4,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Автострахование по КАСКО,mobile,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Ищете КАСКО?,desktop,1,7,0,527.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,КАСКО для авто с пробегом.,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,КАСКО на Датсун в Renins.com,desktop,1,9,0,225.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,КАСКО на Хендай Солярис онлайн,mobile,1,1,0,4.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Калькулятор КАСКО,desktop,2,7,0,38.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Калькулятор КАСКО,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Рассчитать КАСКО для в,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Страхование от угона онлайн,desktop,1,3,0,6.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Страховой калькулятор.,desktop,2,6,0,51.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Хотите узнать цену КАСКО?,mobile,1,1,0,3.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,KASKO_search_EKB_NEW,Цена страхования автомобиля?,mobile,2,2,1,41.0,0,0,0,2,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,Выгодное КАСКО за 2 мин,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,Выгодное КАСКО за 2 мин,mobile,13,13,1,71.0,0,0,0,11,10,11
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,Ищите выгодное КАСКО?,desktop,6,9,2,615.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,Ищите выгодное КАСКО?,mobile,7,7,0,41.0,0,0,0,7,7,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,Ищите выгодное КАСКО?,tablet,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,КАСКО в надежной компании,desktop,35,57,16,211.0,0,0,0,0,15,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,КАСКО в надежной компании,mobile,163,173,5,5788.0,0,0,0,158,153,102
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_EKB,КАСКО в надежной компании,tablet,9,13,3,963.0,0,0,0,4,6,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,Выгодное КАСКО за 2 мин,desktop,1,3,0,17.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,Выгодное КАСКО за 2 мин,mobile,4,4,0,25.0,0,0,0,4,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,Ищите выгодное КАСКО?,desktop,2,4,0,20.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,Ищите выгодное КАСКО?,mobile,5,5,0,8.0,0,0,0,5,5,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,КАСКО в надежной компании,desktop,48,98,18,2124.0,0,1,0,0,23,14
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,КАСКО в надежной компании,mobile,246,256,10,5076.0,1,0,0,239,232,121
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_MSK,КАСКО в надежной компании,tablet,20,24,5,429.0,1,0,0,11,14,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Выгодное КАСКО за 2 мин,desktop,30,65,11,1655.0,0,0,0,1,17,13
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Выгодное КАСКО за 2 мин,mobile,106,121,3,3994.0,1,0,0,102,99,53
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Выгодное КАСКО за 2 мин,tablet,9,13,4,32.0,0,0,0,4,5,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Ищите выгодное КАСКО?,desktop,15,22,8,55.0,0,0,0,0,3,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Ищите выгодное КАСКО?,mobile,42,42,2,944.0,0,0,0,41,39,26
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,Ищите выгодное КАСКО?,tablet,4,8,0,218.0,0,0,0,3,4,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,КАСКО в надежной компании,desktop,21,28,15,277.0,0,0,0,0,4,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,КАСКО в надежной компании,mobile,86,82,1,1510.0,0,0,0,77,76,45
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_network_SBP,КАСКО в надежной компании,tablet,8,8,3,15.0,0,0,0,5,5,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Renins: страховка КАСКО онлайн,mobile,1,2,0,639.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Автострахование по КАСКО,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Антикризисное КАСКО онлайн,mobile,1,2,0,1269.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Ищете КАСКО?,desktop,4,17,0,319.0,0,0,1,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Ищете КАСКО?,mobile,5,6,0,485.0,3,0,0,5,5,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Ищете КАСКО?,tablet,1,1,0,170.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО в рассрочку.,mobile,1,2,0,1349.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО в стабильной компании,desktop,1,3,0,20.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО в стабильной компании,mobile,2,2,0,28.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО для нового автомобиля,tablet,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Audi Q5,desktop,1,7,0,201.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Audi в Renins.com,mobile,2,1,0,925.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Hyundai Solaris,mobile,2,2,0,11.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Hyundai в Renins.com,desktop,1,2,0,9.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Renins.com,desktop,1,3,0,9.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Volvo в Renins.com,mobile,2,2,0,83.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на КИА Рио в Renins.com,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на ЛАДА Веста в Renins,tablet,1,3,0,33.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Лексус в Renins.com,tablet,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Рено в Renins.com,desktop,1,2,0,5.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Тойота в Renins.com,desktop,1,3,0,68.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Тойота в Renins.com,mobile,1,2,0,224.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Форд Фокус в Renins,mobile,1,2,0,178.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Хендай Крета. Renins,mobile,1,2,0,55.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Хендай Солярис онлайн,mobile,2,2,0,188.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на Хендай в Renins.com,mobile,1,1,0,19.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на машину,tablet,1,2,0,86.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО на подержанное авто,desktop,1,4,0,36.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО онлайн в Москве,desktop,1,10,0,266.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО от угона,desktop,1,6,0,435.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО от угона на Renins.com,mobile,1,2,0,10.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО с франшизой,desktop,3,10,0,28.0,0,0,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО с франшизой,mobile,2,2,0,13.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО с франшизой. Калькулятор,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,КАСКО/ОСАГО на Renins.com,tablet,1,2,0,10.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор КАСКО в Ренессанс,desktop,7,27,0,334.0,2,0,0,0,7,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор КАСКО в Ренессанс,mobile,3,4,0,909.0,2,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор КАСКО в Ренессанс,tablet,4,5,0,743.0,2,0,0,4,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор КАСКО онлайн,mobile,3,4,0,163.0,0,0,0,3,3,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор КАСКО онлайн,tablet,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Калькулятор страхования: КАСКО,mobile,2,2,0,444.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Онлайн-калькулятор КАСКО 24х7,mobile,1,2,0,154.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Оформите Авто КАСКО онлайн.,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Оформите КАСКО онлайн,desktop,1,6,0,28.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Оформите КАСКО онлайн,mobile,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Полис КАСКО на Renins.com,mobile,1,1,0,13.0,1,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать КАСКО онлайн,desktop,1,14,0,1226.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать полис КАСКО,desktop,6,12,0,136.0,0,0,2,0,1,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать стоимость КАСКО,desktop,9,29,0,306.0,0,0,0,0,3,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать стоимость КАСКО,mobile,2,2,0,178.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать стоимость КАСКО,tablet,1,6,0,291.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Рассчитать страховку КАСКО,mobile,1,3,0,970.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО онлайн,desktop,3,15,0,514.0,1,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО онлайн,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО онлайн.,desktop,4,21,0,692.0,2,0,1,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО онлайн.,mobile,4,4,0,339.0,1,0,0,4,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО онлайн.,tablet,1,2,0,28.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет КАСКО самостоятельно,tablet,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет стоимости КАСКО онлайн,mobile,1,2,0,740.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчет страховки на автомобиль,mobile,1,2,0,107.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Расчёт стоимости КАСКО онлайн,mobile,3,2,0,179.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Сколько стоит КАСКО?,desktop,1,1,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Сколько стоит КАСКО?,mobile,2,2,0,50.0,1,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Средняя стоимость КАСКО?,desktop,1,3,0,13.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховая компания КАСКО,mobile,1,1,0,110.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховка от угона?,desktop,2,15,0,414.0,1,0,1,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховка от угона?,mobile,1,1,0,154.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховка от угона?,tablet,1,5,0,673.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховой калькулятор.,desktop,7,27,0,473.0,0,5,1,0,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховой калькулятор.,mobile,5,7,0,738.0,0,0,0,5,5,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Страховые агенты КАСКО,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Хотите купить КАСКО дешевле?,tablet,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Хотите купить КАСКО?,desktop,1,3,0,13.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Хотите сэкономить на КАСКО?,mobile,1,2,0,62.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Цена страхования автомобиля?,desktop,1,3,0,24.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_msk_NEW,Что такое КАСКО?,mobile,2,2,0,15.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Выгодное КАСКО?,mobile,1,1,0,6.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Выгодное КАСКО?,tablet,1,1,0,32.0,0,0,0,0,0,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Ищете КАСКО?,desktop,3,28,0,1760.0,0,0,2,0,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Ищете КАСКО?,mobile,2,2,0,307.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО в рассрочку.,mobile,1,1,0,257.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО в стабильной компании,mobile,1,1,0,11.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на BMW в Renins.com,tablet,1,6,0,182.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Volvo в Renins.com,desktop,2,12,0,264.0,2,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на КИА Рио в Renins.com,desktop,1,8,0,183.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на ЛАДА Веста в Renins,mobile,1,3,0,408.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Мазда 6 в Renins.com,mobile,1,1,0,45.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Ниссан Жук в Renins,mobile,1,1,0,173.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Рено Дастер. Renins,tablet,2,1,0,2386.0,1,0,0,1,1,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Фольксваген Поло,desktop,1,3,0,17.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Форд Фокус в Renins,mobile,1,2,0,1799.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО на Хендай Крета. Renins,desktop,1,3,0,16.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО онлайн в Ренессанс,desktop,1,3,0,20.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО от угона,mobile,1,1,0,18.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО от угона,tablet,1,6,0,142.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО при покупке нового авто,mobile,1,1,0,49.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,КАСКО/ОСАГО на Renins.com,tablet,1,4,0,35.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО,desktop,2,9,0,167.0,1,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО,mobile,2,3,0,486.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО,tablet,2,4,0,41.0,0,0,0,0,2,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО в СПб онлайн,mobile,1,2,0,350.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО онлайн,desktop,1,3,0,25.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор КАСКО онлайн,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Калькулятор страхования авто,desktop,1,7,0,49.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Онлайн-калькулятор КАСКО 24х7,desktop,7,7,0,52.0,0,0,0,0,0,7
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Оформите КАСКО онлайн,desktop,1,4,0,89.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Оформить КАСКО онлайн,desktop,3,7,0,21.0,0,0,0,0,2,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Полис КАСКО в Санкт-Петербурге,tablet,1,3,0,699.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Полис КАСКО на Renins.com,tablet,1,27,0,1900.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Рассчитайте полис КАСКО в СПБ,desktop,1,9,0,350.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Рассчитать КАСКО для в СПб,desktop,1,3,0,31.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Рассчитать КАСКО для в СПб,mobile,3,4,1,308.0,2,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет КАСКО в СПб,desktop,1,9,0,487.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет КАСКО в СПб. Renins.com,mobile,1,3,0,286.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет КАСКО онлайн,desktop,4,25,0,951.0,1,0,1,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет КАСКО онлайн,mobile,6,9,0,4302.0,5,0,0,6,6,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет КАСКО онлайн,tablet,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчет страховки на автомобиль,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчёт стоимости КАСКО онлайн,desktop,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Расчёт стоимости КАСКО онлайн,mobile,1,1,0,9.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страхование автомобиля КАСКО,tablet,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страхование от угона онлайн,desktop,1,3,0,13.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страхование от угона онлайн,mobile,4,6,1,540.0,0,0,0,3,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховая компания КАСКО,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховка КАСКО от угона,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховка от угона?,desktop,1,6,0,49.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховка от угона?,mobile,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховой калькулятор.,desktop,1,4,0,25.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Страховой калькулятор.,mobile,1,1,0,211.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Удобный калькулятор КАСКО?,desktop,2,6,0,21.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Удобный калькулятор КАСКО?,mobile,4,4,0,259.0,2,0,0,4,4,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Удобный калькулятор КАСКО?,tablet,5,8,0,655.0,3,0,1,2,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Узнайте тариф КАСКО на 2016г,desktop,1,1,0,8.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Хотите купить КАСКО?,mobile,1,3,0,722.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Kasko_search_spb_New,Цена страхования автомобиля?,mobile,1,1,0,188.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Motor.Insuranse_Search_EKB,КАСКО в Ренессанс страхование,desktop,1,6,0,216.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Motor.Insuranse_Search_MSK,КАСКО в Ренессанс страхование,desktop,3,17,0,666.0,1,1,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Motor.Insuranse_Search_MSK,КАСКО в Ренессанс страхование,mobile,2,2,0,6.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Motor.Insuranse_Search_SPB,КАСКО в Ренессанс страхование,desktop,1,4,0,37.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_MSK,Онлайн калькулятор ОСАГО,mobile,4,3,0,19.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_MSK,Страховка ОСАГО на вашу машину,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_MSK,Хотите купить полис ОСАГО?,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Калькулятор полиса ОСАГО,tablet,1,2,0,696.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купит ОСАГО через интернет,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите ОСАГО онлайн сейчас,desktop,19,95,0,6008.0,0,5,0,0,8,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите ОСАГО онлайн сейчас,mobile,9,12,0,426.0,0,0,0,9,9,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите ОСАГО онлайн сейчас,tablet,4,12,1,227.0,0,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите ОСАГО по выгодной цене,desktop,7,46,1,5337.0,0,2,0,0,4,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите ОСАГО по выгодной цене,mobile,2,3,0,1139.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купите страховку ОСАГО онлайн,desktop,1,21,0,655.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купить электронный полис ОСАГО,desktop,3,27,0,2180.0,0,1,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купить электронный полис ОСАГО,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Купить электронный полис ОСАГО,tablet,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,ОСАГО в Ренессанс страхование,desktop,6,27,0,869.0,0,1,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,ОСАГО в Ренессанс страхование,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,ОСАГО в Ренессанс страхование,tablet,1,2,0,102.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,ОСАГО на официальном сайте,desktop,1,3,0,73.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,ОСАГО на официальном сайте,mobile,1,2,0,636.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор Renins.com,desktop,2,32,0,2460.0,0,2,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор Renins.com,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО,desktop,50,223,3,6517.0,0,17,1,0,37,35
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО,mobile,40,45,0,3913.0,0,0,0,40,40,31
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО,tablet,4,27,0,466.0,0,1,0,0,4,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО 24х7,desktop,4,12,1,132.0,0,0,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО 24х7,mobile,7,13,0,1755.0,0,0,0,7,7,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-калькулятор ОСАГО 24х7,tablet,3,4,1,19.0,0,0,0,1,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-расчёт ОСАГО 24х7,mobile,1,1,0,2.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-расчёт полиса ОСАГО,desktop,1,8,0,554.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-расчёт полиса ОСАГО,mobile,1,1,0,9.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Онлайн-расчёт страховки ОСАГО,mobile,8,10,0,1281.0,0,0,0,8,8,7
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить ОСАГО в Москве онлайн,desktop,1,3,0,7.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить ОСАГО на автомобиль,mobile,2,5,0,42.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить ОСАГО через интернет,desktop,1,8,0,140.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить полис ОСАГО онлайн,desktop,1,8,0,204.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить полис ОСАГО онлайн,mobile,2,6,0,2733.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить полис ОСАГО онлайн,tablet,2,13,1,2986.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Оформить страховку ОСАГО,mobile,2,3,0,346.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО онлайн с доставкой,desktop,7,82,0,5928.0,0,3,0,0,6,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО онлайн с доставкой,mobile,9,14,0,3050.0,0,0,0,8,8,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО онлайн с доставкой,tablet,2,5,0,709.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО по выгодной цене,desktop,8,27,0,3687.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО по выгодной цене,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО по интернету,tablet,2,2,0,12.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО с доставкой на дом,desktop,5,17,0,453.0,0,1,0,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Полис ОСАГО с расширениями,mobile,1,1,0,25.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Получение полиса ОСАГО,desktop,1,3,0,5.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте ОСАГО онлайн,desktop,1,12,0,306.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте ОСАГО онлайн,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте полис ОСАГО онлайн,mobile,5,5,0,357.0,0,0,0,5,5,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте стоимость ОСАГО,desktop,2,8,0,223.0,0,2,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте стоимость ОСАГО,mobile,5,8,0,2273.0,0,0,0,5,5,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте стоимость ОСАГО,tablet,1,6,0,197.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте страховку ОСАГО,desktop,11,71,3,3318.0,1,4,0,0,8,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте страховку ОСАГО,mobile,22,25,0,2220.0,0,0,0,21,22,17
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Рассчитайте страховку ОСАГО,tablet,2,8,0,821.0,0,0,0,1,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Расчёт стоимости ОСАГО онлайн,desktop,23,81,0,3304.0,0,15,0,0,11,11
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Расчёт стоимости ОСАГО онлайн,mobile,5,5,0,363.0,0,0,0,4,5,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Сделайте полис ОСАГО онлайн,tablet,2,10,0,721.0,0,1,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Страховка ОСАГО для автомобиля,mobile,3,5,0,537.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Страховка ОСАГО онлайн,mobile,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Страховой калькулятор ОСАГО,desktop,2,9,0,187.0,0,1,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Точный онлайн-расчёт ОСАГО,desktop,19,86,0,2526.0,0,8,0,0,16,16
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Точный онлайн-расчёт ОСАГО,mobile,15,19,1,1717.0,0,0,0,14,13,12
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Точный онлайн-расчёт ОСАГО,tablet,1,1,0,16.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Узнайте стоимость ОСАГО онлайн,desktop,1,9,0,289.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Узнайте цену ОСАГО в СПБ,mobile,1,1,0,19.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Узнайте цену на полис ОСАГО,desktop,2,5,1,12.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Узнайте цену на полис ОСАГО,mobile,1,1,0,209.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Узнайте цену страховки ОСАГО,mobile,2,3,0,201.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Электронный полис ОСАГО онлайн,desktop,8,18,0,525.0,0,1,0,0,4,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Электронный полис ОСАГО онлайн,mobile,13,16,1,2336.0,0,0,0,12,11,10
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_1st,Электронный полис ОСАГО онлайн,tablet,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Автострахование онлайн 24х7,desktop,1,7,0,194.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Все еще выбираете ОСАГО?,mobile,1,1,0,749.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Желаете оформить полис ОСАГО?,desktop,6,32,0,321.0,0,2,0,0,5,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Желаете оформить полис ОСАГО?,mobile,2,2,0,6.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Желаете оформить полис ОСАГО?,tablet,2,2,1,166.0,0,0,0,2,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Нужен полис ОСАГО в СПБ?,desktop,3,10,0,168.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Нужен полис ОСАГО в СПБ?,mobile,3,3,0,138.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО в СПБ круглосуточно,tablet,1,2,0,40.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО в надежной страховой,mobile,2,5,0,2173.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО на официальном сайте,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО онлайн или по телефону,mobile,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО по актуальным тарифам,desktop,1,12,0,300.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО по выгодным тарифам,desktop,2,5,0,9.0,0,0,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО по выгодным тарифам,mobile,4,3,0,670.0,0,0,0,3,3,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,ОСАГО по минимальной стоимости,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО,desktop,35,198,4,13802.0,0,16,0,0,25,26
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО,mobile,63,78,0,11572.0,2,0,0,61,61,50
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО,tablet,4,20,0,1093.0,0,3,0,1,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО 2016,desktop,1,8,0,347.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО 2016,mobile,5,6,0,1128.0,0,0,0,5,5,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Онлайн-калькулятор ОСАГО 24х7,desktop,1,4,0,419.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Полис ОСАГО в Санкт-Петербурге,mobile,1,1,0,328.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Страхование авто по ОСАГО,tablet,3,5,0,799.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Страхование автомобиля ОСАГО,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Страхование по ОСАГО онлайн,mobile,3,3,0,2116.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Страховка ОСАГО на вашу машину,desktop,1,10,0,1162.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Узнайте сколько стоит ОСАГО,desktop,5,20,0,1699.0,0,1,0,0,5,5
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Узнайте сколько стоит ОСАГО,mobile,6,13,0,1313.0,0,0,0,6,6,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Узнайте сколько стоит ОСАГО,tablet,2,13,0,690.0,0,2,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Узнайте стоимость ОСАГО онлайн,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Узнайте стоимость полиса ОСАГО,mobile,2,2,0,346.0,1,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Электронный полис ОСАГО онлайн,desktop,25,198,1,7569.0,0,7,0,0,22,18
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Электронный полис ОСАГО онлайн,mobile,22,43,0,6371.0,0,0,0,21,22,19
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_2nd,Электронный полис ОСАГО онлайн,tablet,1,2,0,18.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Купить страховку ОСАГО онлайн,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,ОСАГО в страховой компании,desktop,1,6,0,42.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,ОСАГО в страховой компании,mobile,1,2,0,603.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Оформить ОСАГО онлайн,desktop,5,22,1,1025.0,0,1,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Оформить ОСАГО онлайн,mobile,6,10,0,2850.0,0,0,0,6,6,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Оформить полис ОСАГО онлайн,mobile,1,2,0,19.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Полис ОСАГО по выгодной цене,tablet,3,5,0,254.0,0,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Полис ОСАГО с доставкой на дом,desktop,2,6,0,17.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Получить полис ОСАГО онлайн,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Рассчитайте ОСАГО онлайн,mobile,2,2,0,690.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Рассчитайте ОСАГО онлайн,tablet,1,2,0,285.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Расчёт и покупка ОСАГО онлайн,mobile,1,1,0,1919.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,OSAGO_search_SPB_3rd,Электронный полис ОСАГО онлайн,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Калькулятор ОСАГО,desktop,17,59,5,574.0,0,0,0,0,12,12
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Калькулятор ОСАГО,mobile,57,60,1,3967.0,0,0,0,51,50,41
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Полис ОСАГО с доставкой,desktop,19,51,9,622.0,0,1,0,0,10,7
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Полис ОСАГО с доставкой,mobile,46,48,1,751.0,0,0,0,46,45,21
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Полис ОСАГО с доставкой,tablet,5,6,1,2.0,0,0,0,2,3,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Рассчитайте ОСАГО онлайн,desktop,17,34,6,137.0,0,0,0,0,9,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Рассчитайте ОСАГО онлайн,mobile,35,36,0,1213.0,0,0,0,34,34,20
+bankingFinance,Renins,renins.com,20170113,google,cpc,Osago_network_MSKSBP,Рассчитайте ОСАГО онлайн,tablet,9,14,1,98.0,0,0,0,6,8,7
+bankingFinance,Renins,renins.com,20170113,google,cpc,Probeg_Partner_F45-54_SPB_top10,Калькулятор КАСКО онлайн,mobile,1,2,0,188.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Probeg_Partner_М45-54_MSK_top10,Калькулятор КАСКО онлайн,mobile,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Molodaya 160x600.zip,desktop,2,3,0,0.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Molodaya 250x250.zip,mobile,2,2,0,12.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Molodaya 728x90.zip,desktop,1,2,0,2.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Molodaya 728x90.zip,tablet,1,1,0,29.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Molodaya 970x250.zip,desktop,1,4,0,230.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 240x400.zip,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 240x400.zip,tablet,2,7,0,738.0,0,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 300x250.zip,desktop,2,5,0,19.0,0,0,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 300x250.zip,mobile,3,3,0,486.0,1,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 300x250.zip,tablet,1,1,0,10.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 336x280.zip,desktop,3,6,1,8.0,0,0,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 336x280.zip,mobile,2,3,0,213.0,1,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 336x280.zip,tablet,1,1,0,213.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Offroad 970x90.zip,mobile,1,1,0,17.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Probeg 240x400.zip,desktop,1,3,0,8.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Выгодное предложение от Renins,desktop,7,34,1,1221.0,1,0,1,0,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Выгодное предложение от Renins,mobile,7,8,0,419.0,1,0,0,7,7,6
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc,Выгодное предложение от Renins,tablet,4,9,0,245.0,0,0,1,3,4,4
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-count,Probeg 970x250.zip,desktop,1,4,0,16.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-count,Каско от Ренессанс Cтрахование,desktop,1,3,0,7.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-count,Каско от Ренессанс Cтрахование,mobile,17,13,0,212.0,1,0,0,11,11,8
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Molodaya 320x100.zip,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Molodaya 336x280.zip,mobile,2,2,0,16.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Probeg 300x250.zip,mobile,3,3,0,678.0,1,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Probeg 468x60.zip,mobile,1,1,0,11.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Калькулятор КАСКО в Renins.com,mobile,13,15,1,1850.0,1,0,0,13,12,9
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_calc-mistake,Калькулятор КАСКО в Renins.com,tablet,2,2,0,8.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_osago,Molodaya 200x200.zip,desktop,1,14,0,192.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_osago,Offroad 300x250.zip,desktop,1,3,0,11.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_osago,Offroad 970x90.zip,desktop,1,7,0,176.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_osago,Оформляйте ОСАГО на Renins.com,desktop,5,12,0,30.0,0,0,0,0,4,3
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_pages,Molodaya 300x250.zip,desktop,1,5,0,73.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_pages,Molodaya 728x90.zip,desktop,1,3,0,4.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,google,cpc,Retargeting_partner_pages,Offroad 300x600.zip,desktop,1,2,0,3.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,google,organic,(not set),(not set),desktop,1044,6353,187,459100.0,9,138,14,0,336,341
+bankingFinance,Renins,renins.com,20170113,google,organic,(not set),(not set),mobile,299,519,175,33144.0,2,0,0,20,20,16
+bankingFinance,Renins,renins.com,20170113,google,organic,(not set),(not set),tablet,64,284,29,21906.0,2,6,0,1,12,11
+bankingFinance,Renins,renins.com,20170113,hmserv.ru:8080,referral,(not set),(not set),desktop,3,59,0,5573.0,0,1,0,0,1,2
+bankingFinance,Renins,renins.com,20170113,howcarworks.ru,referral,(not set),(not set),desktop,83,745,9,53334.0,0,23,0,0,55,47
+bankingFinance,Renins,renins.com,20170113,howcarworks.ru,referral,(not set),(not set),mobile,7,13,3,1308.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,howcarworks.ru,referral,(not set),(not set),tablet,2,8,0,200.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,i.bspb.ru,referral,(not set),(not set),desktop,1,3,0,65.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,i.maxthon.com,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,incead.com,referral,(not set),(not set),desktop,1,20,0,1826.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,insur-info.ru,referral,(not set),(not set),desktop,1,3,0,22.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,izhevsk.insure-company.ru,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,kamishin.big-book-avto.ru,referral,(not set),(not set),desktop,1,14,0,861.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,kazan.spravker.ru,referral,(not set),(not set),desktop,1,2,0,24.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,krasnodar.insgid.ru,referral,(not set),(not set),desktop,1,4,0,88.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,krasnoyarsk.insure-company.ru,referral,(not set),(not set),tablet,1,8,0,113.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,lifevinet.ru,referral,(not set),(not set),desktop,3,6,0,25.0,0,0,0,0,1,2
+bankingFinance,Renins,renins.com,20170113,link.2gis.ru,referral,(not set),(not set),desktop,23,143,6,4818.0,0,4,0,0,8,8
+bankingFinance,Renins,renins.com,20170113,link.2gis.ru,referral,(not set),(not set),mobile,5,8,2,2233.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,link.2gis.ru,referral,(not set),(not set),tablet,1,4,0,38.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,localhost:8889,referral,(not set),(not set),desktop,5,11,2,3528.0,0,0,0,5,0,0
+bankingFinance,Renins,renins.com,20170113,m.vk.com,referral,(not set),(not set),mobile,6,23,0,2370.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,mail.rambler.ru,referral,(not set),(not set),desktop,1,5,0,313.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,mds.wi-fi.ru,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,medusl.ru,referral,(not set),(not set),mobile,1,2,0,1333.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,mestarf.ru,referral,(not set),(not set),desktop,1,4,0,136.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,mmc-time.ru,referral,(not set),(not set),desktop,1,7,0,134.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,msk.insgid.ru,referral,(not set),(not set),desktop,1,17,0,327.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,msk.spravker.ru,referral,(not set),(not set),desktop,1,2,0,1120.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,murmansk.big-book-avto.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,naitiko.ru,referral,(not set),(not set),desktop,1,2,0,29.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,naitiko.ru,referral,(not set),(not set),mobile,1,3,0,63.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,nnovgorod.insgid.ru,referral,(not set),(not set),desktop,2,21,0,1153.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,osagoonline.info,referral,(not set),(not set),desktop,274,2673,11,245355.0,0,73,0,0,182,140
+bankingFinance,Renins,renins.com,20170113,osagoonline.info,referral,(not set),(not set),mobile,9,12,0,1325.0,0,0,0,8,8,8
+bankingFinance,Renins,renins.com,20170113,osagoonline.info,referral,(not set),(not set),tablet,10,51,0,5205.0,0,2,0,4,10,7
+bankingFinance,Renins,renins.com,20170113,polisnn.ru,referral,(not set),(not set),desktop,2,9,0,396.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,prav-net.ru,referral,(not set),(not set),desktop,19,170,1,10579.0,0,6,0,0,16,11
+bankingFinance,Renins,renins.com,20170113,proins.ru,referral,(not set),(not set),desktop,10,92,0,4472.0,0,2,0,0,7,5
+bankingFinance,Renins,renins.com,20170113,proins.ru,referral,(not set),(not set),mobile,1,1,0,1.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,promokodus.com,referral,(not set),(not set),desktop,2,12,1,1644.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,promokodus.com,referral,(not set),(not set),tablet,2,4,0,22.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,proxykazan-pob:4080,referral,(not set),(not set),desktop,2,3,0,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,raexpert.ru,referral,(not set),(not set),desktop,2,5,1,51.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,rambler,organic,(not set),(not set),desktop,15,72,3,2563.0,0,1,0,0,4,4
+bankingFinance,Renins,renins.com,20170113,rating.msk.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,ren-intranet01,referral,(not set),(not set),desktop,80,229,22,7669.0,1,7,1,0,10,33
+bankingFinance,Renins,renins.com,20170113,ren-intranet01,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,renins.link.sendsay.ru,referral,(not set),(not set),desktop,10,20,3,1891.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,renins.link.sendsay.ru,referral,(not set),(not set),mobile,5,5,5,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,renlife.com,referral,(not set),(not set),desktop,2,7,0,220.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,renlife.com,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,revizorro.ru,referral,(not set),(not set),desktop,1,1,0,0.0,0,0,0,0,0,1
+bankingFinance,Renins,renins.com,20170113,revizorro.ru,referral,(not set),(not set),tablet,1,2,0,302.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,rosbank.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,rostov-nd.insgid.ru,referral,(not set),(not set),desktop,8,14,0,116.0,0,0,0,0,3,0
+bankingFinance,Renins,renins.com,20170113,rostov.blizko.ru,referral,(not set),(not set),tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,rostov.nashaspravka.ru,referral,(not set),(not set),desktop,1,4,0,27.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,ru.wikipedia.org,referral,(not set),(not set),desktop,2,18,1,1006.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,rubrikator.org,referral,(not set),(not set),desktop,2,14,0,543.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,sadko-online.ru,referral,(not set),(not set),desktop,1,2,0,6.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,samara.insure-company.ru,referral,(not set),(not set),mobile,3,4,2,84.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,sankt-peterburg.bizly.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,saratov.insure-company.ru,referral,(not set),(not set),tablet,2,56,0,3426.0,0,1,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,saratov.narule.ru,referral,(not set),(not set),desktop,1,21,0,1639.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,search.hi.ru,referral,(not set),(not set),desktop,1,7,0,77.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,search.snapdo.com,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,searchthis.com,referral,(not set),(not set),mobile,1,2,0,153.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,serpukhov.spravker.ru,referral,(not set),(not set),desktop,1,5,0,51.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,shahty.ru,referral,(not set),(not set),desktop,1,5,0,151.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,skisport.ru,referral,(not set),(not set),desktop,3,15,0,106.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,sochi.spravker.ru,referral,(not set),(not set),desktop,1,2,0,8.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,spb.info24.by,referral,(not set),(not set),mobile,2,2,2,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,spb.insure-company.ru,referral,(not set),(not set),mobile,2,2,2,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,sravni.ru,cpm,Kasko__mskspbekb,NYPKasko,desktop,1,4,0,29.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,sravni.ru,referral,(not set),(not set),desktop,4,20,0,276.0,0,0,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,syzran-small.ru,referral,(not set),(not set),desktop,2,7,0,60.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,szo.spr.ru,referral,(not set),(not set),desktop,1,8,0,214.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,tula.insure-company.ru,referral,(not set),(not set),mobile,1,2,0,378.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,vk.com,referral,(not set),(not set),desktop,22,177,0,32328.0,0,1,0,0,10,7
+bankingFinance,Renins,renins.com,20170113,vk.com,referral,(not set),(not set),tablet,3,25,0,2557.0,0,1,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,vnv.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,vnv.ru,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,volgograd.insure-company.ru,referral,(not set),(not set),mobile,2,3,1,48.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,volgograd.nashaspravka.ru,referral,(not set),(not set),desktop,1,12,0,744.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,wiki.teamliquid.net,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text_general|desktop,desktop,502,2863,93,163994.0,25,51,24,0,166,157
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text_general|desktop,mobile,3,66,0,5918.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text_general|mobile,mobile,139,270,86,15738.0,1,0,0,1,3,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text_general|tablet,tablet,40,152,14,6438.0,1,3,0,0,10,8
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text|desktop,desktop,17,112,1,5451.0,1,2,2,0,5,5
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text|mobile,mobile,4,15,0,815.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text|tablet,mobile,1,9,0,896.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search,text|tablet,tablet,1,10,0,1812.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Brand_search_BZ,text_general|mobile,mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_ekb,text_nyp|mobile,mobile,2,1,0,1586.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_ekb,text_oct|desktop,desktop,156,749,19,34299.0,0,39,0,0,116,104
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_ekb,text_oct|mobile,mobile,7,8,1,1006.0,0,0,0,6,6,4
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_ekb,text_oct|tablet,tablet,3,7,0,270.0,0,0,0,1,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_msk,text_oct|desktop,desktop,128,572,13,22744.0,2,25,2,0,104,82
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_msk,text_oct|mobile,mobile,28,32,1,2979.0,0,0,0,28,27,17
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_msk,text_oct|tablet,tablet,14,40,2,1567.0,0,0,0,6,12,10
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_spb,text_oct|desktop,desktop,61,357,7,16910.0,0,17,2,0,50,42
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_spb,text_oct|mobile,mobile,10,13,0,2339.0,0,0,0,10,10,10
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Competitors_search_spb,text_oct|tablet,tablet,5,14,0,516.0,0,1,0,2,5,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Ext.Inquiries_search,text_general|desktop,desktop,45,177,10,5491.0,0,6,0,0,33,28
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Ext.Inquiries_search,text_general|mobile,mobile,7,7,0,1963.0,0,0,0,7,7,6
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Ext.Inquiries_search,text_general|tablet,tablet,2,4,0,90.0,0,0,0,1,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_partner_MSK_new,text_oct|mobile,mobile,1,3,0,507.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_partner_MSK_new,text_oct|ru.auto.ara|mobile,mobile,1,2,0,745.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_EKB,text_oct|desktop,desktop,10,58,0,3211.0,3,0,2,0,8,9
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_EKB,text_oct|mobile,mobile,4,3,0,696.0,1,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_new_oct,text_oct|desktop,desktop,169,688,11,35921.0,13,0,22,0,101,109
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_new_oct,text_oct|mobile,mobile,30,37,0,10522.0,17,0,0,25,26,25
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_new_oct,text_oct|tablet,tablet,7,15,1,786.0,1,0,1,4,6,5
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_test18,text_economatica|desktop,desktop,6,24,1,1130.0,0,0,2,0,4,4
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_test18,text_economatica|mobile,mobile,2,2,0,88.0,0,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_MSK_test18,text_economatica|tablet,tablet,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_new_oct,text_oct|desktop,desktop,103,604,7,23230.0,27,1,16,0,81,79
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_new_oct,text_oct|mobile,mobile,20,21,0,6044.0,11,0,0,16,17,14
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_new_oct,text_oct|tablet,mobile,1,1,0,9.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_new_oct,text_oct|tablet,tablet,5,21,0,1533.0,3,0,0,1,5,5
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_test18,text_economatica|desktop,desktop,3,9,0,33.0,0,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_test18,text_economatica|mobile,mobile,2,3,0,460.0,1,0,0,2,2,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Kasko_search_spb_test18,text_economatica|tablet,tablet,1,3,0,20.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_partner_MSKSPBEKB,text_general|vk.com|desktop,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_EKB,text_general|desktop,desktop,18,103,3,4834.0,0,6,0,0,14,12
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_EKB,text_general|mobile,mobile,6,10,0,2194.0,0,0,0,6,6,5
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_EKB,text_general|tablet,tablet,1,1,0,145.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_MSK,text_general|desktop,desktop,45,205,2,11106.0,0,6,0,0,28,24
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_MSK,text_general|mobile,mobile,12,13,0,125.0,0,0,0,12,12,9
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_SPB,text_general|desktop,desktop,17,57,2,617.0,0,1,1,0,10,6
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_SPB,text_general|mobile,mobile,4,3,0,558.0,1,0,0,3,3,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Motor.Insuranse_search_SPB,text_general|tablet,tablet,1,1,0,445.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB,text_general|desktop,desktop,1,2,0,4.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB,text_general|tablet,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_1st,text_general|desktop,desktop,501,2371,45,110172.0,1,140,5,0,358,334
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_1st,text_general|mobile,desktop,1,3,0,8.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_1st,text_general|mobile,mobile,107,168,2,34357.0,0,0,0,103,101,90
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_1st,text_general|tablet,mobile,2,3,0,383.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_1st,text_general|tablet,tablet,34,146,1,11394.0,2,6,0,16,32,27
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_2nd,text_general|desktop,desktop,303,1509,31,76633.0,1,69,0,0,214,187
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_2nd,text_general|mobile,mobile,55,76,1,11630.0,0,0,0,53,52,49
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_2nd,text_general|tablet,mobile,1,1,0,9.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_2nd,text_general|tablet,tablet,28,118,1,8412.0,1,5,0,10,26,22
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_3rd,text_general|desktop,desktop,55,224,2,8193.0,0,6,0,0,49,42
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_3rd,text_general|mobile,mobile,4,8,0,919.0,0,0,0,4,4,4
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_3rd,text_general|tablet,mobile,2,1,0,343.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,OSAGO_search_MSKSPBEKB_3rd,text_general|tablet,tablet,5,13,1,467.0,0,1,0,3,4,4
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing-quote_MSKSPBEKB,TGD|desktop,desktop,3,21,0,685.0,0,0,2,0,3,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing-quote_MSKSPBEKB,TGD|mobile,mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing-quote_MSKSPBEKB,TGD|tablet,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ad.mail.ru|desktop,desktop,1,3,0,5.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|allboxing.ru|tablet,tablet,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|auto.ru|desktop,desktop,5,24,0,523.0,3,0,1,0,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|baruk.ru|desktop,desktop,1,8,0,181.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|com.200labs.lenta|mobile,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|deti-online.com|mobile,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|e.mail.ru|desktop,desktop,2,5,0,9.0,0,0,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|logist.ru|mobile,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|m.avito.ru|mobile,mobile,1,1,0,0.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|m.fishki.net|mobile,mobile,1,1,0,0.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|mail.yandex.ru|desktop,desktop,1,3,0,7.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|mail.yandex.ru|mobile,mobile,1,1,0,9.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|news-clck.yandex.ru|desktop,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|news.rambler.ru|desktop,desktop,1,3,0,7.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|news.yandex.ru|desktop,desktop,3,9,0,20.0,0,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ok.ru|desktop,desktop,1,3,0,6.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|passatworld.ru|mobile,mobile,1,1,0,1.0,0,0,0,1,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|pda.tv.yandex.ru|mobile,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|reklama.ngs.ru|desktop,desktop,1,7,0,380.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ru.rian.reader|mobile,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ru.yandex.mail|mobile,mobile,1,1,0,180.0,0,0,0,1,0,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ss.sport-express.ru|desktop,desktop,1,3,0,4.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|touch.mail.ru|mobile,mobile,1,1,0,4.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|ttfinance.ru|desktop,desktop,1,3,0,5.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|tv.yandex.ru|desktop,desktop,2,5,1,25.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|visasam.ru|mobile,mobile,1,1,0,5.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|vk.com|desktop,desktop,3,25,0,351.0,0,1,0,0,3,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.avito.ru|desktop,desktop,2,5,0,57.0,0,0,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.avito.ru|tablet,tablet,1,1,1,0.0,0,0,0,1,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.drive2.ru|desktop,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.gazeta.spb.ru|desktop,desktop,1,2,0,1.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.msn.com|desktop,desktop,1,2,0,1.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.piterauto.com|mobile,mobile,1,1,0,6.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.rambler.ru|desktop,desktop,1,11,0,318.0,0,1,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.rbc.ru|desktop,desktop,1,9,0,341.0,1,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.sravni.ru|mobile,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.u-mama.ru|desktop,desktop,1,3,0,8.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.vestifinance.ru|mobile,mobile,1,2,0,124.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|www.yandex.ru|desktop,desktop,1,6,0,245.0,0,0,1,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|yandex.ru|desktop,desktop,5,17,1,479.0,0,0,0,0,4,4
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|yandex.ru|mobile,mobile,3,6,0,512.0,1,0,0,3,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_calc_MSKSPBEKB,text_general|zen.yandex.ru|desktop,desktop,3,10,0,327.0,0,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_osago_MSKSPBEKB,text_general|com.yandex.browser|mobile,mobile,1,1,0,285.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_pages_MSKSPBEKB,text_general|ok.ru|desktop,desktop,1,1,0,1.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_pages_MSKSPBEKB,text_general|ss.sport-express.ru|desktop,desktop,1,4,0,62.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|com.yandex.browser|mobile,mobile,1,1,0,13.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|dota2.ru|desktop,desktop,1,5,0,65.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|lenta.ru|desktop,desktop,1,2,0,5.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|news.rambler.ru|desktop,desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|ru.autoru|mobile,mobile,4,3,0,53.0,0,0,0,3,3,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|ru.avito.app|mobile,mobile,1,1,0,2.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|topwar.ru|mobile,mobile,1,1,0,7.0,0,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|weekend.rambler.ru|desktop,desktop,1,3,0,10.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|www.forexpf.ru|desktop,desktop,2,15,0,141.0,1,0,0,0,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|www.gismeteo.ru|mobile,mobile,2,2,0,12.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|www.rbc.ru|desktop,desktop,3,15,0,85.0,0,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|www.tourism.gismeteo.ru|mobile,mobile,1,1,0,121.0,1,0,0,1,1,1
+bankingFinance,Renins,renins.com,20170113,y_direct,cpc,Remarketing_quote_MSKSPBEKB,text_general|yandex.ru|desktop,desktop,12,30,0,172.0,9,0,0,0,3,3
+bankingFinance,Renins,renins.com,20170113,yahoo,organic,(not set),(not set),desktop,1,3,0,103.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yahoo,organic,(not set),(not set),mobile,7,11,2,1387.0,0,0,0,2,2,2
+bankingFinance,Renins,renins.com,20170113,yahoo,organic,(not set),(not set),tablet,1,7,0,204.0,1,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Brand.Search,Calculate,desktop,1,5,0,158.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Brand.Search,NewYear,desktop,5,19,1,19459.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-1.Search,NewYear,desktop,2,12,0,1182.0,0,0,0,0,1,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-1.Search,NewYear,mobile,4,6,0,1301.0,2,0,0,3,3,2
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,Accident,desktop,1,3,0,120.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,Buy,desktop,2,4,0,6.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,NewYear,desktop,106,704,3,60396.0,1,13,0,0,33,22
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,NewYear,mobile,11,34,1,888.0,0,0,0,3,3,2
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,NewYear,tablet,2,5,0,14.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.BrandHF-2.Search,Property,desktop,1,2,0,4.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.City.Search,NewYear,desktop,1,2,0,525.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.City.Search,NewYear,mobile,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Competitors.Search,NewYear,desktop,8,21,0,1776.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Country.Search.MSK,NewYear,desktop,19,53,1,12041.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Country.Search.MSK,NewYear,mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Country.Search.MSK,NewYear,tablet,1,2,0,2.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.Country.Search.Reg,Promo,desktop,9,14,0,3098.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Net,240x400,desktop,13,28,0,19509.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Net,240x400,tablet,3,9,0,427.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Net,300x250,desktop,3,6,2,90.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Net,300x250,tablet,2,4,0,3.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,Buy,desktop,1,3,0,1079.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,Buy,mobile,3,2,0,59.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,Calculate,desktop,2,7,0,75.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,NewYear,desktop,72,265,2,93253.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,NewYear,mobile,10,27,1,2766.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.MSK,NewYear,tablet,1,4,0,214.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.Reg,Calculate,desktop,1,4,0,359.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.Reg,Options,desktop,1,1,0,5.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.Reg,Promo,desktop,76,202,1,50272.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.General.Search.Reg,Promo,mobile,1,2,0,1.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.HighFreq.Search,NewYear,desktop,3,6,0,13621.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.HighFreq.Search,NewYear,mobile,2,6,0,440.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.HighFreq.Search,NewYear,tablet,1,12,0,116.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.MKB,(not set),desktop,44,164,1,12899.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.MKB,(not set),tablet,2,5,0,168.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,cpc,VZR.NewAdded.Search,NewYear,desktop,2,10,0,458.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex,organic,(not set),(not set),desktop,1581,10663,244,802658.0,41,237,41,0,564,510
+bankingFinance,Renins,renins.com,20170113,yandex,organic,(not set),(not set),mobile,197,396,100,29981.0,1,0,0,4,5,3
+bankingFinance,Renins,renins.com,20170113,yandex,organic,(not set),(not set),tablet,60,202,25,14152.0,1,3,0,1,14,9
+bankingFinance,Renins,renins.com,20170113,yandex.ru,referral,(not set),(not set),desktop,38,247,5,9247.0,0,5,2,0,13,11
+bankingFinance,Renins,renins.com,20170113,yandex.ru,referral,(not set),(not set),mobile,1,2,0,90.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yandex.ru,referral,(not set),(not set),tablet,1,2,0,9.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,yarcom.ru,referral,(not set),(not set),desktop,1,4,0,28.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,yaroslavl.big-book-avto.ru,referral,(not set),(not set),desktop,1,5,0,114.0,0,0,0,0,1,1
+bankingFinance,Renins,renins.com,20170113,yell.ru,referral,(not set),(not set),desktop,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,zapmeta.ru,referral,(not set),(not set),desktop,3,23,1,1187.0,0,1,0,0,2,1
+bankingFinance,Renins,renins.com,20170113,zheleznodorozhnyi.spravker.ru,referral,(not set),(not set),mobile,1,1,1,0.0,0,0,0,0,0,0
+bankingFinance,Renins,renins.com,20170113,zoon.ru,referral,(not set),(not set),mobile,2,2,2,0.0,0,0,0,0,0,0
