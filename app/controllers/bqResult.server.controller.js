@@ -33,4 +33,5 @@ let queryReq = 'SELECT * FROM ' +
 
 // Optional Yandex Metrika request
 
-'"Metrika" AS Data_source, '
+// '"Metrika" AS Data_source, '
+//test
