@@ -47,8 +47,7 @@ img.loader {
 
 /*Main section*/
 .tableAppSection {
-    padding: 15px 15px;
-
+    padding: 15px 15px;	
     float: right;
     min-width: 87%;
     width: 87%;
@@ -181,6 +180,95 @@ img.loader {
     width: 100%;
     margin: 0;
 }
+
+.hoverMenuWithVariants {
+    width: 30%;
+    height: auto;
+    background-color: white;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    border-radius: 1px;
+    border: 1px solid #808080;
+	min-height: 300px;
+}
+
+.hoverMenuWithVariants p {
+	margin: 0;
+}
+
+.topSideMVW p{
+	padding: 2% 0 0 4%;
+    margin: 0;
+}
+
+.leftSideMVW, .rightSideMVW {
+	display: inline-block;
+    border: 1px solid #0c5297;
+	box-shadow: 0 0 1px 1px #0c5297;
+    width: 45%;
+    margin-top: 2%;
+    min-height: 200px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
+.leftSideMVW {
+	margin-left: 4%;
+}
+
+.rightSideMVW {
+	margin-left: 2%;
+}
+
+.elementToChooseMVW {
+	border: 1px solid #00b6e0;
+    margin: 2%;
+    border-radius: 2px;
+	color: #00b6e0;
+}
+
+.elementToChooseMVW:hover, .elementToChooseMVWActive {
+	background-color: #00b6e0;
+	color: white;
+}
+
+.elementToChooseMVW p {
+    padding: 2% 5%;
+    margin: 0;
+    
+}
+
+.elementChosenMVW {
+    display: inline-block;
+    border: 1px solid #00b6e0;
+    margin: 2%;
+    border-radius: 2px;
+    width: auto;
+}
+
+.eCMVWLInner {
+	display: inline-block;
+    border-right: 1px solid #00b6e0;
+    padding-right: 2px;
+}
+
+.eCMVWLInner p {
+	padding: 2% 5%;
+}
+
+.xContainer {
+	display: inline-block;
+}
+
+.xInEC {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
+	margin-right: 2px;
+}
+
 
 /*End menu section*/
 .hideElement {

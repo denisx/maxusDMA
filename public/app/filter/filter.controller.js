@@ -71,7 +71,17 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			}						
 		};
 		
-		
+		let sendCookiesOnNext = () => {
+			let whatWeWantToSee = ['industry', 'client', 'ad_goal'];
+			Object.keys(query).forEach((key)=>{
+				if (whatWeWantToSee.includes(key)) {
+					let valToSend = query[key].join(', ');
+					let timeToDestroy = Date.now() + 36000;
+					document.cookie = '"' + key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/filters;';
+				}
+			})
+			
+		};
         //filter for matching by the search field
         $scope.searchFilterFunc = (arr, val) => {
             return function(item) {
@@ -104,7 +114,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                         changeValues(query, eventTarget, keyName);
                     }
 
-                    
+                    console.log(query);
                     hideShowBoxes(eventTarget.nextElementSibling, eventTarget, 'none', 'inline-block');
 
                     document.removeEventListener('click', hideDrop);
@@ -126,6 +136,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 		};
 		
         // Refactore this \/
+		//Закостылено
         $scope.divClickCheck = (a, keyName) => {
             let d = document.getElementById(a).checked;
             document.addEventListener('click', function chkBox(e) {
@@ -146,7 +157,6 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                         }
                         checkedFieldColor(document.getElementById(a), 'active');
                     }
-                console.log(queryCurrent);
                 document.removeEventListener('click', chkBox);
             });
         };
@@ -191,7 +201,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
  
         $scope.nextPage = () => {
 			setTimeout(()=>{optionsFilter.sendQueryNextPage(query)}, 1);
-            
+			
         }
 		
         $scope.showHideAdvancedFilters = () => {

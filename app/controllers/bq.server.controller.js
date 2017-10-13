@@ -57,8 +57,6 @@ exports.showFiltersAnswer = (req, res) => {
     return res.send('success');
 }
 
-
-
 let resultToTable;
 let trigSendReq = false; // trigger for sending request
 
@@ -80,6 +78,35 @@ let bqInvocation = (query) => {
     return bqInvocationPromise;
 };
 
+let resultToJson = (inputArray) => {
+    let output = {};
+    let contentOfTable = inputArray.slice(1);
+    inputArray[0].forEach((elem)=>{
+        output[elem] = [];
+    });
+    contentOfTable.forEach((row)=>{
+        for (let i = 0; i<row.length; i++) {
+            output[Object.keys(output)[i]].push(row[i]);
+        }
+        console.log(output);
+    });
+    return output;
+}
+
+let resultToJson2 = (inputArray) => {
+    let output = [];
+    let contentOfTable = inputArray.slice(1);
+    contentOfTable.forEach((row)=>{
+        let rowObj = {};
+        for (let i = 0; i<row.length; i++) {
+            rowObj[inputArray[0][i]] = row[i];
+        }
+        output.push(rowObj);
+        console.log(output);
+    });
+    return output;
+}
+
   // Запишем в массив datasetArr все датасеты в аккаунте
 let datasetsInvocation = () => {
     let tablesObj = {}; // Объект с массивами с таблицами из датасетов
@@ -91,6 +118,7 @@ let datasetsInvocation = () => {
             // datasets is an array of Dataset objects.
             for (let i = 0; i < datasets.length; i++) {
                 let currentDatasetId = datasets[i].metadata.datasetReference.datasetId;
+
                 datasetsArr.push(currentDatasetId)
                 let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
                 dataset.getTables((err, tables)=>{
@@ -115,7 +143,8 @@ let datasetsInvocation = () => {
 
 let matchMetrics = (resultsArr, metricsArr) => {
     let returnArr = [];
-
+    console.log(resultsArr);
+    console.log(metricsArr);
     resultsArr.forEach((elem)=>{
         let typeClient = elem.Industry.toLowerCase() + '_' + elem.Client.toLowerCase();
         let elemValues = [];
@@ -139,7 +168,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
     });   
     console.log(returnArr);
 
-    resultToTable = returnArr;
+    resultToTable = resultToJson2(returnArr);
     trigSendReq = true;
 }
 
