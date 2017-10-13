@@ -10,9 +10,21 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="menuSection">
-			<div></div>
+	<div class="row mainPart">
+		<div class="menuSection hideElement">
+			<div class="customReportBoxMainArea" ng-repeat="types in menuElements" id={{types.id}}>
+				<div class="customReportBoxDropdownButton"  ng-click="showDropdown($event.target)">
+					<p class="customReportBoxDropdownButtonText">{{types.name}}</p> 			
+				</div>
+				<div class="customReportBoxDropdownContainer hideElement">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue" ng-repeat="elements in types.content track by $index" ng-click="divClickCheck($event.target)">
+							<p class="cRBDCValueP">{{elements}}</p>
+							<input class="cRBDCValueCheckbox" type="checkbox"> 
+						</div>			
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class="tableAppSection hideElement">
 			<div class="tableDiv">
