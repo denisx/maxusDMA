@@ -22,7 +22,6 @@ exports.showFiltersAnswer = (req, res) => {
     trigSendReq = false;
     let queryObj = req.body;
     let whereData = "";
-    console.log(queryObj);
     for (let key in queryObj) {
         if (whereData === "") {
             whereData += ' WHERE (';
@@ -68,7 +67,6 @@ let bqInvocation = (query) => {
         .on('error', console.error)
         .on('data', function (row) {    
             queryResult.push(row); 
-            // console.log(queryResult);
             // row is a result from your query.
         })
         .on('end', function () {
@@ -78,22 +76,21 @@ let bqInvocation = (query) => {
     return bqInvocationPromise;
 };
 
-let resultToJson = (inputArray) => {
-    let output = {};
-    let contentOfTable = inputArray.slice(1);
-    inputArray[0].forEach((elem)=>{
-        output[elem] = [];
-    });
-    contentOfTable.forEach((row)=>{
-        for (let i = 0; i<row.length; i++) {
-            output[Object.keys(output)[i]].push(row[i]);
-        }
-        console.log(output);
-    });
-    return output;
-}
+// let resultToJson = (inputArray) => {
+//     let output = {};
+//     let contentOfTable = inputArray.slice(1);
+//     inputArray[0].forEach((elem)=>{
+//         output[elem] = [];
+//     });
+//     contentOfTable.forEach((row)=>{
+//         for (let i = 0; i<row.length; i++) {
+//             output[Object.keys(output)[i]].push(row[i]);
+//         }
+//     });
+//     return output;
+// }
 
-let resultToJson2 = (inputArray) => {
+let resultToJson = (inputArray) => {
     let output = [];
     let contentOfTable = inputArray.slice(1);
     contentOfTable.forEach((row)=>{
@@ -102,7 +99,6 @@ let resultToJson2 = (inputArray) => {
             rowObj[inputArray[0][i]] = row[i];
         }
         output.push(rowObj);
-        console.log(output);
     });
     return output;
 }
@@ -143,8 +139,6 @@ let datasetsInvocation = () => {
 
 let matchMetrics = (resultsArr, metricsArr) => {
     let returnArr = [];
-    console.log(resultsArr);
-    console.log(metricsArr);
     resultsArr.forEach((elem)=>{
         let typeClient = elem.Industry.toLowerCase() + '_' + elem.Client.toLowerCase();
         let elemValues = [];
@@ -166,9 +160,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
         })
         returnArr.push(elemValues);
     });   
-    console.log(returnArr);
-
-    resultToTable = resultToJson2(returnArr);
+    resultToTable = resultToJson(returnArr);
     trigSendReq = true;
 }
 

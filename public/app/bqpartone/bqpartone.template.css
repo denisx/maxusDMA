@@ -271,6 +271,27 @@ img.loader {
 
 
 /*End menu section*/
+
+.tablePadding {
+	background-color: white;
+    padding: 0 10px 10px;
+    box-shadow: 0 0 1px black;
+}
+
+.fixed-table-container {
+	border: 0px;
+}
+
+.fixed-table-body {
+	border: 1px solid #dddddd;
+}
+
+.fixed-table-pagination {
+	padding: 0 10px;
+}
+
+
+
 .hideElement {
 	display: none;
 }

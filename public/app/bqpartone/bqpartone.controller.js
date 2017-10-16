@@ -80,12 +80,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			menuPopup.classList.toggle('hideElement');
 			
 			document.addEventListener('click', function closeModal (e) {
-				console.log(e.target);
 
 				if((e.target.closest('.hoverMenuWithVariants')==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
-					console.log(e.target.closest('.hoverMenuWithVariants'))
-					console.log(e.target.closest('.hoverToNewMenu'))
-//					clearChosen();
 					document.getElementsByClassName('hoverMenuWithVariants')[0].classList.toggle('hideElement');
 					document.removeEventListener('click', closeModal);
 				}

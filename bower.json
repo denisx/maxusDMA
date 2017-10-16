@@ -10,7 +10,11 @@
   "dependencies": {
     "angular": "^1.6.6",
     "angular-route": "^1.6.5",
-    "angular-filter":"latest" 
+    "angular-filter": "latest",
+    "table-export": "*",
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7",
+    "tableexport.jquery.plugin": "https://github.com/hhurz/tableExport.jquery.plugin.git#^1.9.6"
   },
   "resolutions": {
     "angular": "^1.6.5"

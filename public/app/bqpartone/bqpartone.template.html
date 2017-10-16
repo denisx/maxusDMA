@@ -117,23 +117,26 @@
 		</div>
 -->
 		<div class="tableAppSection hideElement">
-			<table id="table" data-toggle="table" data-search="true" class="table table-hover">
-				<thead>
-					<tr>
-						<th data-field="Industry">Industry</th>
-						<th data-field="Client">Client</th>
-						<th data-field="Campaign">Campaign</th>
-						<th data-field="Placement">Placement</th>
-						<th data-field="Medium">Medium</th>
-						<th data-field="Format">Format</th>
-						<th data-field="Postbuy_data">Postbuy_data</th>
-						<th data-field="google_analytics">google_analytics</th>
-						<th data-field="metrika">metrika</th>
-						<th data-field="tns">tns</th>
-						
-					</tr>
-				</thead>
-			</table>
+			<div class="tablePadding">
+				<table id="table" data-toggle="table" data-search="true" data-pagination="true" data-pagination-loop="true" data-page-number="1" data-page-size="3"	data-page-list="[3,25]" data-toolbar="#toolbar" data-show-export="true" data-filter-control="true" data-filter-show-clear="true" class="table table-hover">
+					<thead>
+						<tr>
+							<th data-field="Industry">Industry</th>
+							<th data-field="Client">Client</th>
+							<th data-checkbox="true"></th>
+							<th data-field="Campaign" data-filter-type="input">Campaign</th>
+							<th data-field="Placement">Placement</th>
+							<th data-field="Medium">Medium</th>
+							<th data-field="Format">Format</th>
+							<th data-field="Postbuy_data">Postbuy_data</th>
+							<th data-field="google_analytics">google_analytics</th>
+							<th data-field="metrika">metrika</th>
+							<th data-field="tns">tns</th>
+
+						</tr>
+					</thead>
+				</table>
+			</div>
 		</div>
 	</div>
 </div>
