@@ -78,7 +78,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 		};
 		
-		let answer = {}
+		let answer = {filters:{}}
 			
 		$scope.listenToHover = (currentBox) => {
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
@@ -118,10 +118,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						answer[innerKey] = $scope.menuElements[key][innerKey].chosen;
 					});
 				} else {
-					console.log(key);
-					console.log($scope.menuElements[key].chosen);
 					if ($scope.menuElements[key].chosen.length>0) {
-						answer[key] = $scope.menuElements[key].chosen;
+						answer.filters[key] = $scope.menuElements[key].chosen;
 					}
 				}
 			});
@@ -158,14 +156,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		};
 		
 		let fillBread = () => {
-			let breadObj = {
-				industry: [],
-				client: [],
-				ad_goal: []
-			};
+			let breadArr = ['industry','client','ad_goal']
 			document.cookie.split('; ').forEach((elem)=>{
 				let content = elem.split('=');
-				if (Object.keys(breadObj).includes(content[0])){
+				if (breadArr.includes(content[0])){
 					$scope.menuElements[content[0]].chosen = elem.split('=')[1].split(', ');
 				};
 			});
