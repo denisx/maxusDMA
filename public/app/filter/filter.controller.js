@@ -73,11 +73,17 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 		
 		let sendCookiesOnNext = () => {
 			let whatWeWantToSee = ['industry', 'client', 'ad_goal'];
+			let delete_cookie = (name) => {
+				document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/filters';
+			};
+			whatWeWantToSee.forEach((key)=>{
+				delete_cookie(key);
+			})
 			Object.keys(query).forEach((key)=>{
 				if (whatWeWantToSee.includes(key)) {
 					let valToSend = query[key].join(', ');
 					let timeToDestroy = Date.now() + 36000;
-					document.cookie = '"' + key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/filters;';
+					document.cookie =  key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/filters;';
 				}
 			})
 			
@@ -200,6 +206,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         }
  
         $scope.nextPage = () => {
+			sendCookiesOnNext();
 			setTimeout(()=>{optionsFilter.sendQueryNextPage(query)}, 1);
 			
         }

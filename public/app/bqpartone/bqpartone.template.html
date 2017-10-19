@@ -18,13 +18,13 @@
 				</div>
 				<div class="customReportBoxDropdownContainer">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.ga.id}} ng-click="listenToHover($event.target)">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ga.id}} ng-click="listenToHover($event.target)">
 							<p class="cRBDCValueP">Google Analytics</p> 
 						</div>
-						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.ym.id}} ng-click="listenToHover($event.target)">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ym.id}} ng-click="listenToHover($event.target)">
 							<p class="cRBDCValueP">Yandex Metrika</p> 
 						</div>	
-						<div class="cRBDCValue">
+						<div class="cRBDCValue" id={{menuElements.dataSource.postbuy.id}}>
 							<p class="cRBDCValueP">PostBuy</p> 
 						</div>	
 						<div class="cRBDCValue">
@@ -64,6 +64,59 @@
 				</div>
 			</div>
 			
+			<div class="createReport" ng-click="sendReport()">
+					<p>Создать отчет</p>
+					<img src="../../lib/pic/Continue_arrow.png">	
+			</div>
+			
+			
+			
+			
+		</div>
+		
+		<div class="menuHolder">
+			
+			<div class="hoverMenuWithMetrics hideElement">
+				<div class="topSideMVW">
+					<p>{{menuElements.dataSource[menuToShow].name}}</p>
+				</div>
+				<div class="leftSideMVW">
+					<div class="dimension">
+						<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
+							<p>{{elem}}</p>
+						</div>
+					</div>
+					<div class="metrics">
+						<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
+							<p>{{elem}}</p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="rightSideMVW">
+					<div class="dimension">
+						<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
+							<div class="eCMVWLInner">
+								<p>{{elem}}</p>	
+							</div>
+							<div class="xContainer">
+								<div class="xInEC"></div>	
+							</div>
+						</div>
+					</div>
+					<div class="metrics">
+						<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
+							<div class="eCMVWLInner">
+								<p>{{elem}}</p>	
+							</div>
+							<div class="xContainer">
+								<div class="xInEC"></div>	
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
 			<div class="hoverMenuWithVariants hideElement">
 				<div class="topSideMVW">
 					<p>{{menuElements[menuToShow].name}}</p>
@@ -85,9 +138,8 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
-		
-		
 <!--
 		<div class="tableAppSection hideElement">
 			<div class="tableDiv">

@@ -161,6 +161,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
         returnArr.push(elemValues);
     });   
     resultToTable = resultToJson(returnArr);
+    console.log(resultToTable);
     trigSendReq = true;
 }
 

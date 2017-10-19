@@ -122,7 +122,7 @@ img.loader {
     color: #808080;
     font-weight: 300;
     border-right: 1px outset #cdcdcd;
-    height: -webkit-fill-available;
+/*    height: -webkit-fill-available;*/
     background-color: #f2f2f2;
 }
 /*End menuSction*/
@@ -181,16 +181,41 @@ img.loader {
     margin: 0;
 }
 
-.hoverMenuWithVariants {
+
+.createReport {
+	background-color: #e22032;
+}
+
+.createReport > p {
+	color: white;
+    font-size: 20px;
+    margin: 6% 0 7% 15%;
+    display: inline-block;
+}
+
+.createReport > img {
+	display: inline-block;
+    margin: 0 0 1% 5%;
+}
+
+.menuHolder {
+	position: absolute;
+    display: inline-block;
     width: 30%;
+    z-index: 1;
+}
+
+.hoverMenuWithVariants, .hoverMenuWithMetrics {
+    /* width: 30%; */
     height: auto;
     background-color: white;
     display: block;
-    position: absolute;
-    z-index: 1;
+    position: relative;
+    /* z-index: 1; */
     border-radius: 1px;
     border: 1px solid #808080;
-	min-height: 300px;
+    min-height: 300px;
+    margin-top: 8%;
 }
 
 .hoverMenuWithVariants p {
@@ -221,6 +246,10 @@ img.loader {
 	margin-left: 2%;
 }
 
+.metrics {
+	border-top: 1px solid #808080;
+}
+
 .elementToChooseMVW {
 	border: 1px solid #00b6e0;
     margin: 2%;
@@ -236,7 +265,6 @@ img.loader {
 .elementToChooseMVW p {
     padding: 2% 5%;
     margin: 0;
-    
 }
 
 .elementChosenMVW {
