@@ -65,3 +65,46 @@ exports.deleteDataFromBQ = (req, res) => {
         });
     });
 }
+
+exports.getTablesFromBQDataset = (req, res) => {
+    let dataset = bigquery.dataset('google_analytics');
+    //let query = "select * from  'wr_live.__TABLES_SUMMARY__'"
+
+    /*dataset.getTables().then(function(data) {
+        let tables = data[0];
+        let result = [];
+        for (var i=0;i<tables.length;i++) {
+            let row = [];
+            for (var key in tables[i].) {
+                row.push(key); //metadata.id.split('mdma-175510:google_analytics.')[1]);
+            }
+            result.push(row);
+        }
+        let csvContent = result.join("\n");
+        res.send(csvContent);
+        console.log(csvContent)
+    })*/
+
+    /*dataset.getTables(function (err, tables) {
+        let result = [];
+
+        for (let key in tables) {
+            result.push(tables[key].id);
+        }
+        console.log(result);
+        res.send(result);
+    });*/
+    let metrika = 'metrika';
+    let test = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + metrika + '.__TABLES_SUMMARY__`;'
+    bigquery.query({
+        query: test, params: []
+    }, function (err, rows) {
+        let result = [];
+
+        for (let row of rows) {
+            result.push(row.tableName);
+        }
+        console.log(result);
+        res.send(result);
+    });
+}

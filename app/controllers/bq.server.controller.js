@@ -42,10 +42,10 @@ exports.showFiltersAnswer = (req, res) => {
     }
 
     let queryReq = 'SELECT ' +
-        'industry AS Industry, client AS Client, campaign AS Campaign, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
+        'industry AS Industry, client AS Client, site AS Site, campaign AS Campaign, successful AS Successful, date_start AS Date_start, date_end AS Date_end, duration as Duration, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
         whereData +
         'GROUP BY ' +
-        'Industry, Client, Campaign, Postbuy_data';
+        'Industry, Client, Site, Campaign, Successful, Date_start, Date_end, Duration, Postbuy_data';
     let resultsToChangeArr = [];
     resultsToChangeArr.push(bqInvocation(queryReq));
     resultsToChangeArr.push(datasetsInvocation());
@@ -117,16 +117,31 @@ let datasetsInvocation = () => {
 
                 datasetsArr.push(currentDatasetId)
                 let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
-                dataset.getTables((err, tables)=>{
+                /*dataset.getTables((err, tables)=> {
                     let idArr = [];
                     for (let k=0;k<tables.length;k++){
                         let nameOfId = tables[k].id.split('_20')[0];
-                        if (idArr.indexOf(nameOfId)==-1){
+                        if (idArr.indexOf(nameOfId)==-1) {
                             idArr.push(nameOfId);
                         }
                     }
                     tablesObj[currentDatasetId] = idArr;
                     if (Object.keys(tablesObj).length == datasets.length){
+                        resolve(tablesObj);
+                    } 
+                }); */
+                let tablesQuery = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
+                bigquery.query({
+                    query:tablesQuery, params: []
+                }, function (err, rows) {
+                    let tablesArr = [];
+
+                    for (i=0;i<rows.length;i++) {
+                        tablesArr.push(rows[i].tableName);
+                    }
+
+                    tablesObj[currentDatasetId] = tablesArr;
+                    if (Object.keys(tablesObj).length == datasets.length) {
                         resolve(tablesObj);
                     } 
                 });

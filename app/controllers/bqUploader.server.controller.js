@@ -44,16 +44,16 @@ exports.uploadDataToBQ = (req, res) => {
     console.log('test data ready');
 
     // Get all csv tables from selected dir
-    let dir = './config/CSVdata/google_analytics/renins/renins'
+    let dir = './config/CSVdata/yandex_metrika/sberbank/sberbank'
     let csvFilesArr = getFiles(dir)
     console.log(csvFilesArr);
 
     // Init necessary dataset    
-    let dataset = bigquery.dataset('google_analytics');
+    let dataset = bigquery.dataset('metrika');
 
     csvFilesArr.forEach(function (element, i) {
         // Name table with the selected filename (split by previous path name)
-        let tableId = element.split('renins/renins/')[1].split('.')[0];
+        let tableId = element.split('sberbank/sberbank/')[1].split('.')[0];
         console.log('result table: ' + tableId);
 
         // Init metadata for selected table
@@ -69,8 +69,8 @@ exports.uploadDataToBQ = (req, res) => {
 
         // Send data to BQ
         table.import(element, metadata).then((answ) => {
-            console.log("result: " + answ[0].metadata.configuration);
-            res.send(answ[0].metadata.configuration);
+            console.log("result: " + answ[0]);
+            res.send(answ[0]);
         });
     });
 }
