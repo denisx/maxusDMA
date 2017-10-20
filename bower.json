@@ -14,9 +14,13 @@
     "table-export": "*",
     "jquery": "^3.2.1",
     "bootstrap": "^3.3.7",
-    "tableexport.jquery.plugin": "https://github.com/hhurz/tableExport.jquery.plugin.git#^1.9.6"
+    "tableexport.jquery.plugin": "https://github.com/hhurz/tableExport.jquery.plugin.git#^1.9.6",
+    "daterangepicker": "^1.6.0",
+    "underscore": "^1.8.3",
+    "bootstrap-daterangepicker": "https://github.com/dangrossman/bootstrap-daterangepicker.git#^2.1.25"
   },
   "resolutions": {
-    "angular": "^1.6.5"
+    "angular": "^1.6.5",
+    "jquery": "^3.2.1"
   }
 }
