@@ -61,8 +61,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				content: [],
 				chosen : []
 			},
-			sites : {
-				id: 'sites',
+			site : {
+				id: 'site',
 				name: 'Сайты',
 				content: [],
 				chosen : []
@@ -158,7 +158,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
         };
 		
 		let fillMenuElements = (tableData) => {
-			let reqNames = ['Campaign', 'Placement', 'Medium', 'Format'];
+			let reqNames = ['Campaign', 'Placement', 'Medium', 'Format', 'Site'];
 			tableData.forEach((row)=>{
 				reqNames.forEach((columnName)=>{
 					row[columnName].split(',').forEach((elem)=>{

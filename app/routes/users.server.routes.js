@@ -13,9 +13,6 @@ module.exports = (app) => {
 	app.route('/signup/:authId')
 		.get(users.verificationSuccess);
 
-	app.route('/signin')
-		.post(passport.authenticate('local', users.giveUserName));
-
 	app.route('/login')
 		.get(users.login)
 		.post(passport.authenticate('local', users.giveUserName));

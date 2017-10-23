@@ -1,7 +1,4 @@
-// Invoke 'strict' JavaScript mode
 'use strict';
-
-// var a = {'industry': 'Industry2', 'campaign': 'Campaign2'};
 
 // Load the module dependencies
 const User = require('mongoose').model('User'),

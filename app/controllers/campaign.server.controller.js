@@ -21,7 +21,6 @@ exports.campaignCreate = function(req, res, next) {
         })
     res.send('message: success');
     next();
-
 };
 
 exports.campaignGetUnique = (req,res,next) => {
