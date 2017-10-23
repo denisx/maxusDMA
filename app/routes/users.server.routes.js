@@ -26,12 +26,6 @@ module.exports = (app) => {
 	app.route('/signout')
 		.get(users.signout);
 
-	app.route('/campaign')
-		.get(users.campaign)
-		.post(users.campaignCreate);
-
-	app.route('/campaignUnique')
-		.post(users.campaignGetUnique);
 		
 	app.param('authId', users.authByHash);
 };
