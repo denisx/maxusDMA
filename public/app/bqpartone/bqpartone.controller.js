@@ -149,7 +149,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
                 .then((data)=>{
 					let tableContent = {
 						data: data
-					}
+					};
 					$('#table').bootstrapTable(tableContent);
 					fillMenuElements(data);
 					fillBread();

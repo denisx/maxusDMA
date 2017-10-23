@@ -18,7 +18,7 @@ angular.module('pagehead').factory('headFactory' , [
             return returnedArray;
         }; 
         let query = '{"username":"'+user+'", "password":"'+pass+'"}';
-        return $http({method: 'POST', url: '/signin', data: query}).then(successCall, errorCall);
+        return $http({method: 'POST', url: '/login', data: query}).then(successCall, errorCall);
     }
     return exports;
         

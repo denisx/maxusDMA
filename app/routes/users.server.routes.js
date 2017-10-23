@@ -14,18 +14,14 @@ module.exports = (app) => {
 		.get(users.verificationSuccess);
 
 	app.route('/signin')
-		// .get(users.checkAuthentication, users.giveUserName)
-		.post(passport.authenticate('local', {
-/* 			successRedirect: '/',
-			failureRedirect: '/filters' */
-		}
-		), users.giveUserName);
+		.post(passport.authenticate('local', users.giveUserName));
+
 	app.route('/login')
-		.get(users.login);
+		.get(users.login)
+		.post(passport.authenticate('local', users.giveUserName));
 		
 	app.route('/signout')
 		.get(users.signout);
-
-		
+	
 	app.param('authId', users.authByHash);
 };

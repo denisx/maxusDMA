@@ -88,12 +88,13 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			})
 			
 		};
+		
         //filter for matching by the search field
-        $scope.searchFilterFunc = (arr, val) => {
-            return function(item) {
-                if (item[arr].match(RegExp(val, 'i'))) return true;
-            }
-        }
+//        $scope.searchFilterFunc = (arr, val) => {
+//            return function(item) {
+//                if (item.match(RegExp(val, 'i'))) return true;
+//            }
+//        }
 
         // tracking for opening and closing current div, calling 
         $scope.showDropdown =  (eventTarget , keyName) => {
@@ -231,4 +232,16 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         }
 
     }
-])
+]);
+
+angular.module('filter').filter('matchValue', [()=>{
+	return (input, value) => {
+		let output = [];
+		angular.forEach(input, (item) =>{
+			if (item.match(RegExp(value, 'i'))) {
+				output.push(item);
+			}
+		});
+		return output;
+	};
+}])
