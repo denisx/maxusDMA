@@ -75,10 +75,28 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			},
 			ad_goal : {
 				chosen : []
-			}
+			},
 		};
 		
-		let answer = {filters:{}}
+		let drp = $('input[name="daterange"]');	
+		drp.daterangepicker(
+			{
+				locale: {
+				  format: 'YYYY-MM-DD'
+				},
+				startDate: '2015-01-01',
+				endDate: '2016-12-01',
+				timepicker: false
+			}
+		);
+		
+		let convertDateFormat = (date) =>  {
+			return date.split('-').join('');
+		}
+		
+		let answer = {filters:{}, 
+					  startDate : convertDateFormat(drp.data('daterangepicker').startDate._i), 
+					  endDate : convertDateFormat(drp.data('daterangepicker').endDate._i) };
 			
 		$scope.listenToHover = (currentBox) => {
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
@@ -214,16 +232,14 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
         };
 		
-		$('input[name="daterange"]').daterangepicker(
-		{
-			locale: {
-			  format: 'YYYY-MM-DD'
-			},
-			startDate: '2013-01-01',
-			endDate: '2013-12-31',
-			timepicker: false
-		}
-		);
+
+
+		
+		drp.on('apply.daterangepicker', (ev, picker)=>{
+			answer.startDate = convertDateFormat(picker.startDate._i);
+			answer.endDate = convertDateFormat(picker.endDate._i);
+			
+		})
 		
 		getResults();
 		

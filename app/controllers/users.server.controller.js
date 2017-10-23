@@ -197,3 +197,7 @@ exports.campaignGetUnique = (req,res,next) => {
 	})
 };
 
+exports.login = (req, res, next) =>{
+	res.sendFile(path.join(__dirname, '../../public/', 'login.html'));
+}
+

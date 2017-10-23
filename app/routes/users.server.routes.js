@@ -20,7 +20,9 @@ module.exports = (app) => {
 			failureRedirect: '/filters' */
 		}
 		), users.giveUserName);
-
+	app.route('/login')
+		.get(users.login);
+		
 	app.route('/signout')
 		.get(users.signout);
 
