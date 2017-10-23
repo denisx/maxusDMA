@@ -28,6 +28,8 @@ const bigquery = require('@google-cloud/bigquery')({
 // Object with filter params
 
 let answer = {
+    "startDate": "20170101",
+    "endDate": "201705031",
     "ga": {
         "dimension": ["industry", "utm_source"],
         "goals": "no",
@@ -40,15 +42,18 @@ let answer = {
     },
     "postbuy": ["fact_impressions", "fact_video_view_25", "fact_video_view_100", "fact_video_view_75", "fact_video_view_50"],
     "filters": {
-        "industry": ["ecommerce","FMCG"],
-        "client": ["Karcher","Pepsico"],
+        "industry": ["ecommerce", "FMCG"],
+        "client": ["Karcher", "Pepsico"],
+        "site": ["karcher", "agulife"],
         "medium": ["cpm", "cpa"],
         "placement": ["yahoo", "OTM", "twitter", "DBM", "mail"],
         "campaign": ["lightbulb", "credits", "kasko", "molochko"],
         "format": ["banner", "search", "video_120", "video_45"]
     }
 };
+
 // Composing SELECT clause for GA or YM
+
 let selectConfig = (datasource) => {
 
     let selectClause = "SELECT ";
@@ -56,14 +61,14 @@ let selectConfig = (datasource) => {
         selectClause += datasource.dimension[key] + ", ";
     }
     for (let key in datasource.metrics) {
-        if (selectClause < datasource.metrics.length - 1) {
+        if (key < datasource.metrics.length - 1) {
             selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key] + ", ";
         } else {
             selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key];
         }
     }
     return selectClause;
-}
+};
 
 // Composing SELECT clause for postbuy
 
@@ -71,43 +76,86 @@ let postbuySelectConfig = () => {
 
     let selectClause = "SELECT ";
     for (let key in answer.postbuy) {
-		if (selectClause === "SELECT ") {
-        	selectClause += answer.postbuy[key] + ", ";
+        if (key < answer.postbuy.length - 1) {
+            selectClause += answer.postbuy[key] + ", ";
         } else {
-			selectClause += answer.postbuy[key];
+            selectClause += answer.postbuy[key];
         }
     }
     return selectClause;
-}
+};
 
+// Composing FROM clause
 
-// Composing FROM clause ДОДЕЛАТЬ ДОДЕЛАТЬ ДОДЕЛАТЬ ДОДЕЛАТЬ => использовать TABLE_QUERY(dataset, expr)
-// (TABLE_QUERY([mdma-175510:google_analytics],  "REGEXP_MATCH(table_id, r'_gEnergy_') AND CAST(REGEXP_EXTRACT(table_id, '.*_(20.*)') AS INTEGER) < 20170515 AND CAST(REGEXP_EXTRACT(table_id, '.*_(20.*)') AS INTEGER) >= 20170513"))
- let fromClause = "";
+let fromConfig = () => {
+    if (answer.filters.industry != []) {
+        industryRes = "";
+        for (let i=0;i<answer.filters.industry.length;i++) {
+            if (i === answer.filters.industry.length - 1) {
+                industryRes += ".*" + answer.filters.industry[i] + ".*";
+            } else {
+                industryRes += ".*" + answer.filters.industry[i] + ".*|";
+            }
+        }
+    }
 
-var fromConfig = (datasource, dateFrom, dateTo) => {
+    if (answer.filters.client != []) {
+        clientRes = "";
+        for (let i=0;i<answer.filters.client.length;i++) {
+            if (i === answer.filters.client.length - 1) {
+                clientRes += ".*" + answer.filters.client[i] + ".*";
+            } else {
+                clientRes += ".*" + answer.filters.client[i] + ".*|";
+            }
+        }
+    }
+
+    if (answer.filters.site != []) {
+        siteRes = "";
+        for (let i=0;i<answer.filters.site.length;i++) {
+            if (i === answer.filters.site.length - 1) {
+                siteRes += ".*" + answer.filters.site[i] + ".*";
+            } else {
+                siteRes += ".*" + answer.filters.site[i] + ".*|";
+            }
+        }
+    }
+	return "_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")"
+};
+
+let fromConfig = (datasource) => {
     switch (datasource) {
-        case "postbuy": "[mdma-175510:postbuy.all]";
-    break;
-        case "ga" : "[mdma-175510:google_analytics.Analytics_" + "Industry" + "Client" + "Site";
-    break;
-        case "ym" : "test3";
-    break;
-                      };
+        case "postbuy":
+            "[mdma-175510:postbuy.all]";
+            break;
+        case "ga":
+            "TABLE_QUERY([mdma-175510:google_analytics], 'REGEXP_MATCH(table_id, r'Analytics" + fromConfig() + "')'" + '")' 
+            break;
+        case "ym":
+            "TABLE_QUERY([mdma-175510:metrika], 'REGEXP_MATCH(table_id, r'Metrika" + fromConfig() + "')'" + '")' 
+            break;
+    };
 };
 
 // Composing WHERE clause
-let whereConfig = () => {
+
+let whereConfig = (datasource) => {
     let whereClause = "";
+    switch (datasource) {
+        case 'postbuy':
+            whereClause += "WHERE CAST(STRFTIME_UTC_USEC(TIMESTAMP_TO_USEC(CAST(CONCAT(CAST(date_start AS STRING), ' 00:00:00 UTC') AS TIMESTAMP)), '%Y%m%d') AS INTEGER) > " + answer.startDate + " AND CAST(STRFTIME_UTC_USEC(TIMESTAMP_TO_USEC(CAST(CONCAT(CAST(date_end AS STRING), ' 00:00:00 UTC') AS TIMESTAMP)), '%Y%m%d') AS INTEGER) < " + answer.endDate + " "
+            break;
+        case 'metrika':
+        case 'google_analytics':
+            whereClause += "date > " + answer.startDate + " AND date < " + answer.endDate + " "
+            break;
+    }
     for (let key in answer.filters) {
-        if (whereClause === "") {
-            whereClause += ' WHERE (';
-        } else {
-            whereClause += 'AND (';
-        }
         for (let i = 0; i < answer.filters[key].length; i++) {
             if (i != 0) {
                 whereClause += 'OR ';
+            } else {
+                whereClause += 'AND (';
             }
             whereClause += key + ' CONTAINS "' + answer.filters[key][i];
             if (i == answer.filters[key].length - 1) {
@@ -118,12 +166,21 @@ let whereConfig = () => {
         };
     };
     return whereClause;
+};
+
+// Composing GROUP BY clause
+
+let groupByConfig = (datasource) => {
+    let groupByClause = "";
+    for (let key in datasource.dimension) {
+        if (key < datasource.dimension.length - 1) {
+            groupByClause += datasource.dimension[key] + ", ";
+        } else {
+            groupByClause += datasource.dimension[key];
+        }
+    }
+    return groupByClause;
 }
-// Composing ORDER BY clause
-
-let orderByClause = "";
-
-// Compose query
 
 let queryReq = selectClause + fromClause + whereClause
 
@@ -131,25 +188,10 @@ let queryReq = selectClause + fromClause + whereClause
 
 let composeQuery = (req, res) => {
     // **
-}
+};
 
-// Postbuy query
+/* Postbuy query
 
-if (postbuyArr.length > 0) {
-    for (i=0;i<postbuyArr.length;i++) {
-        postbuySelect += ", " + postbuyArr[i]
-    }
-    postbuySelect = "SELECT " + postbuySelect + " FROM [mdma-175510:postbuy.all]"
-}
+Metrika query
 
-// Metrika query
-
-// Analytics query
-
-// SQL query config
-
-let queryReq = 'SELECT * FROM ' +
-
-// Optional Yandex Metrika request
-
-// '"Metrika" AS Data_source,'
+Analytics query */
