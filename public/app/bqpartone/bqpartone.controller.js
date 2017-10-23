@@ -147,12 +147,12 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
+					fillMenuElements(data);
+					fillBread();
 					let tableContent = {
 						data: data
 					};
 					$('#table').bootstrapTable(tableContent);
-					fillMenuElements(data);
-					fillBread();
 					killLoader();
                 });
         };
@@ -167,6 +167,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						}
 					});
 				});
+				row.Date_start = row.Date_start.value;
+				row.Date_end = row.Date_end.value;
 			});
 		};
 		
@@ -218,7 +220,6 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 //			paramName.chosen.push(value);
 //			paramName.content.splice($scope.menuElements[$scope.menuToShow].content.indexOf(value),1);
 		}
-		
 		
 		
 		let choosePopup = () => { 
