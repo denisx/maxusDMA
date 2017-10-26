@@ -32,11 +32,6 @@ let getFiles = function (dir, files_){
     return files_;
 };
 
-// Interface to upload data
-exports.showForm = (req, res) => {
-  res.sendFile(path.join(__dirname, '../../public/', 'index.html'));
-};
-
 /*------------------------------------------------------*/
 // API to upload data from tables from selected dir to BQ
 /*------------------------------------------------------*/
@@ -44,7 +39,7 @@ exports.uploadDataToBQ = (req, res) => {
     console.log('test data ready');
 
     // Get all csv tables from selected dir
-    let dir = './config/CSVdata/yandex_metrika/sberbank/sberbank'
+    let dir = './config/CSVdata/yandex_metrika/karcher'
     let csvFilesArr = getFiles(dir)
     console.log(csvFilesArr);
 
@@ -53,7 +48,7 @@ exports.uploadDataToBQ = (req, res) => {
 
     csvFilesArr.forEach(function (element, i) {
         // Name table with the selected filename (split by previous path name)
-        let tableId = element.split('sberbank/sberbank/')[1].split('.')[0];
+        let tableId = "Metrika_ecommerce_karcher_karcher" //element.split('sberbank/sberbank/')[1].split('.')[0];
         console.log('result table: ' + tableId);
 
         // Init metadata for selected table
@@ -61,7 +56,9 @@ exports.uploadDataToBQ = (req, res) => {
             allowJaggedRows: true,
             skipLeadingRows: 1,
             sourceFormat: 'CSV',
-            autodetect: true
+            autodetect: true,
+            createDisposition: 'CREATE_IF_NEEDED',
+            writeDisposition: 'WRITE_APPEND'
         };
 
         // Init table object
