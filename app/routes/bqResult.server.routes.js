@@ -1,8 +1,12 @@
 'use strict';
 
-let bq = require('../controllers/bqResult.server.controller')
+let bq = require('../controllers/bqResult.server.controller'),
+  index = require('../controllers/index.server.controller');
 
 module.exports = (app) => {
-    app.route('/query/results')
-		.get(bq.composeQuery);    
+  app.route('/query/result')
+    .get(bq.resultQuery);
+
+  app.route('/query/tables')
+    .get(bq.checkDataSources)  ;
 };

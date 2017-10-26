@@ -33,6 +33,7 @@ module.exports = function() {
     require('../app/routes/bq.server.routes.js')(app);
     require('../app/routes/bqUploader.server.routes.js')(app);
     require('../app/routes/bqDelete.server.routes.js')(app);
+    require('../app/routes/bqResult.server.routes.js')(app);
 
     app.use(express.static('./public'));
 
