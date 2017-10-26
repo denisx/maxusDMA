@@ -1,0 +1,106 @@
+/*LoginPopup start*/
+html {
+	background: url(../../lib/pic/login_bg.jpg);
+	background-size: cover;
+}
+
+
+body {
+	font-family: 'Roboto', sans-serif;
+	font-weight:300;
+}
+
+.loginPopupContainer {
+    width: 35%;
+    height: auto;
+    background-color: #fff;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 2%;
+    box-shadow: 0 0 2px #00b6e0;
+}
+
+.loginPopupLogoImg {
+	margin-top: 5%;
+    margin-left: 8%;
+    height: auto;
+    width: 35%;
+}
+
+.loginPopupForm {
+	margin-left: 15%;
+}
+
+.failMsg {
+	margin: 5% 20% 0 0px;
+	color: #e22536;
+    font-size: 20px;
+}
+
+.loginPopupInputText {
+    display: block;
+    margin-top: 6%;
+    border: 0px;
+    border-bottom: 1px solid #cccccc;
+    width: 80%;
+    font-size: 18px;
+    font-weight: 300;
+    color: #555;
+}
+
+.loginPopupInputText:active, .loginPopupInputText:focus {
+	outline: 0px;
+    border-bottom: 2px solid rgba(0, 182, 224, 0.5);
+}
+
+.loginPopupInputText::placeholder {
+	color: #999999;
+}
+
+.loginPopupInputButton {
+    display: block;
+    margin-top: 7%;
+    width: 80%;
+    height: auto;
+    padding: 10px;
+    background-color: #00b6e0;
+    border: 0px;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+	cursor: pointer;
+}
+
+.loginPopupInputButton:focus {
+	outline: 0;
+}
+
+.invalid::placeholder {
+	color: red;
+}
+
+.linksPopupDiv {
+    margin-top: 6%;
+    color: #999999;
+    font-size: 15px;
+    font-weight: 300;
+    text-decoration: underline;
+    display: block;
+}
+
+.loginPopupText {
+    cursor: pointer;
+    display: block;
+}
+
+.loginPopupText:hover {
+	color: black;
+}
+
+.successText {
+	margin: 7% 8% 0;
+    color: #51514b;
+}
+/*LoginPopup end*/
