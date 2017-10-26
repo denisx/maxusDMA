@@ -82,7 +82,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			Object.keys(query).forEach((key)=>{
 				if (whatWeWantToSee.includes(key)) {
 					let valToSend = query[key].join(', ');
-					let timeToDestroy = Date.now() + 36000;
+					let timeToDestroy = Date.now() + 600000;
 					document.cookie =  key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/filters;';
 				}
 			})

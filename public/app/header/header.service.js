@@ -3,22 +3,16 @@ angular.module('pagehead').factory('headFactory' , [
     
     let exports = {};
 
-    exports.login = (user, pass) => {
+    exports.getName = (user, pass) => {
         function successCall(data) {
-            let returnedArray=[];
-            returnedArray.push(data.status);
-            returnedArray.push(data.data.username);
-            return returnedArray;
+			console.log(data);
         };
         
         function errorCall(err){
-            let returnedArray=[];
-            returnedArray.push(err.status);
-            returnedArray.push(err.data);
-            return returnedArray;
+			console.log('err');
         }; 
-        let query = '{"username":"'+user+'", "password":"'+pass+'"}';
-        return $http({method: 'POST', url: '/login', data: query}).then(successCall, errorCall);
+
+        return $http({method: 'POST', url: '/signin/name', data: query}).then(successCall, errorCall);
     }
     return exports;
         

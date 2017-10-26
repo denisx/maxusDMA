@@ -9,7 +9,6 @@ const UserSchema = new Schema({
     name: String,
     email: {
         type: String,
-        match: [/.*\..*\@maxusglobal\.com/, 'Пожалуйста, укажите ваш рабочий e-mail'],
         unique: true,
         trim: true
     },

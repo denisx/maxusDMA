@@ -6,19 +6,23 @@ let users = require('../../app/controllers/users.server.controller'),
 
 module.exports = (app) => {
 
-	app.route('/signup')
-		.get(users.showSignup)
-		.post(users.signup);
+	app.route('/login')
+		.get(users.login)
+		.post(users.checkLogin);
+
+ 	app.route('/signup')
+		.post(users.signup); 
+
+	app.route('/signup/name')
+		.post(users.giveUserName); 
 
 	app.route('/signup/:authId')
 		.get(users.verificationSuccess);
 
-	app.route('/login')
-		.get(users.login)
-		.post(passport.authenticate('local', users.giveUserName));
-		
+	app.param('authId', users.authByHash);
+
 	app.route('/signout')
 		.get(users.signout);
 	
-	app.param('authId', users.authByHash);
+	
 };

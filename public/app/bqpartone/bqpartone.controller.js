@@ -75,7 +75,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			},
 			ad_goal : {
 				chosen : []
-			},
+			}
 		};
 		
 		let drp = $('input[name="daterange"]');	
@@ -149,6 +149,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
                 .then((data)=>{
 					fillMenuElements(data);
 					fillBread();
+					console.log(data);
 					let tableContent = {
 						data: data
 					};

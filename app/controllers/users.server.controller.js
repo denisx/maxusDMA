@@ -22,7 +22,7 @@ let getErrorMessage = function(err) {
 			// If a unique index error occurs set the message error
 			case 11000:
 			case 11001:
-				message = 'Username already exists';
+				message = 'Пользователь уже существует';
 				break;
 			// If a general error occurs set the message error
 			default:
@@ -58,7 +58,6 @@ let sendEmailVerification = function(sendEmail, verParam, webSite){
         "Html-part":"<h3>This message is automatically sent by server.</h3><br />Mdma project opening soon!<br />Пройдите по ссылке для подтверждения аккаунта: <a href='"+ webSite +'/'+ verParam+"'>",
         "Recipients":[{"Email":sendEmail}]
 	});
-	console.log();
 	request
     .then(result => {
         console.log(result.body)
@@ -71,7 +70,7 @@ let sendEmailVerification = function(sendEmail, verParam, webSite){
 exports.giveUserName = (req, res, next) => {
 	let name;
 	if (req.user) {
-		name = req.user.email;
+		name = req.user.name;
 	}
 	else {
 		name = '';
@@ -79,7 +78,7 @@ exports.giveUserName = (req, res, next) => {
 	res.json({'username' : name});
 };
 
-//signUp page sender
+/* //signUp page sender
 exports.showSignup = function(req, res, next) {
 	//Login check. If logged in, redir to main
 	if (!req.user) {
@@ -87,13 +86,27 @@ exports.showSignup = function(req, res, next) {
 	} else {
 		return res.redirect('/');
 	}
-};
+}; */
 
 //signup controller
 exports.signup = function(req, res, next) {
 	//Login check. If logged in, redir to main
 	if (!req.user) {
 		// Create a new 'User' model instance
+
+		if (req.body.password == null || req.body.email == null || req.body.name == null){
+			res.status('403');
+			res.json({'status':'falied'});
+			return false
+		} else {
+			let regMail = /^[a-z]+\.[a-z]+\@(maxusglobal|wavemaker)\.com/;
+			let regName = /[А-я]+/;
+			if(regMail.exec(req.body.email) == null || regName.exec(req.body.name) == null || req.body.password.length <8){
+				res.status('403');
+				res.json({'status':'falied'});
+				return false
+			}
+		}
 		var user = new User(req.body);
 		var message = null;
 		// Set the user provider property
@@ -102,16 +115,16 @@ exports.signup = function(req, res, next) {
 		user.save(function(err) {
 			if (err) {
 				var message = getErrorMessage(err);
-				console.log(message);
-				return res.redirect('/');
+				res.status('403');
+				return res.json({'message':message});
 			}
 			else{
 				sendEmailVerification(user.email, user.verHash, fullUrl(req));
+				return res.json({'message':'На вашу почту было выслано письмо для подтверждения регистрации'})
 			}
 		});
-		res.redirect('/');
 	} else {
-		return res.redirect('/');
+		return res.redirect('/login');
 	}
 };
 
@@ -128,7 +141,6 @@ exports.authByHash = function(req,res,next,h){
 	}, (err, user) => {
 		if (err || user == null){
 			res.json('error: Пользователь уже существует').redirect('/');
-			/* res.redirect('/'); */
 		} else {
 			req.user = user;
 			next();
@@ -142,7 +154,7 @@ exports.verificationSuccess = function(req, res, next) {
 			res.redirect('/');
 			return next(err);
 		} else {
-			res.redirect('/custom');
+			res.redirect('/');
 		}
 	}) 
 }; 
@@ -159,5 +171,17 @@ exports.checkAuthentication = function(req,res,next){
 
 exports.login = (req, res, next) =>{
 	res.sendFile(path.join(__dirname, '../../public/', 'login.html'));
+}
+
+exports.checkLogin = (req, res, next) => {
+	passport.authenticate('local', (err, user, info)=>{
+		console.log(info);
+		if (!user){
+			res.status('403');
+			res.json(info);
+			return false;
+		}
+		res.json(info);
+	})(req, res, next);
 }
 
