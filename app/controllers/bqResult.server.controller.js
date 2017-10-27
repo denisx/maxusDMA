@@ -128,10 +128,9 @@ let selectConfig = (datasource) => {
         selectClause += datasource.dimension[key] + ", ";
     }
     for (let key in datasource.metrics) {
+        selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key];
         if (key < datasource.metrics.length - 1) {
-            selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key] + ", ";
-        } else {
-            selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key];
+            selectClause += ", ";
         }
     }
     return selectClause;
@@ -311,34 +310,56 @@ exports.resultQuery = (req, res) => {
     })
 }
 
+let getTableId = (webAnal) => {
+    return new Promise((resolve, reject) => {
+        let answ = [];
+        bigquery.dataset(webAnal).getTables().then((data) => {
+            for (let j in data[0]) {
+                answ.push({
+                    'id': data[0][j].metadata.tableReference.tableId,
+                    'dataset': webAnal
+                });
+            }
+            resolve(answ);
+        });
+    });
+};
+
+let getSchemaById = (obj) => {
+    return new Promise((resolve, reject) => {
+        bigquery.dataset(obj.dataset).table(obj.id).getMetadata().then((data) => {
+            let schemaArr = {
+                'id': obj.id,
+                'fields': []
+            };
+            let apiResponse = data[1];
+            for (let k in apiResponse.schema.fields) {
+                schemaArr.fields.push(apiResponse.schema.fields[k].name)
+            }
+            resolve(schemaArr);
+        });
+    });
+};
+
 exports.checkDataSources = (req, res) => {
     let tablesArr = [];
     let splittedObjArr = []
     let webAnalArr = ['google_analytics', 'metrika'];
-    let pr = new Promise((resolve, reject) => {
-        let answ = [];
-        for (let i = 0; i < webAnalArr.length; i++) {
-            //let dataset = ;
-            bigquery.dataset(webAnalArr[i]).getTables().then((data) => {
-                for (let j in data[0]) {
-                    answ.push({
-                        'id': data[0][j].metadata.tableReference.tableId,
-                        'dataset': webAnalArr[i]
-                    });
-                }
-                if (i == webAnalArr.length - 1) {
-                    resolve(answ);
-                }
-            });
-        }
-
-
+    let answ = [];
+    webAnalArr.forEach((elem) => {
+        answ.push(getTableId(elem));
     });
-    pr.then((data) => {
 
+    Promise.all(answ).then((data) => {
+        let unpackedData = [];
+        data.forEach((d) => {
+            d.forEach((innerD) => {
+                unpackedData.push(innerD);
+            })
+        })
         var reg = new RegExp(".*_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")", "i")
 
-        for (let key of data) {
+        for (let key of unpackedData) {
             if (key.id.match(reg)) {
                 splittedObjArr.push(key);
             }
@@ -346,48 +367,24 @@ exports.checkDataSources = (req, res) => {
 
         console.log(splittedObjArr);
 
-            let prS = new Promise((resolve, reject) => {
-                for (let i = 0; i < splittedObjArr.length; i++) {
-                    bigquery.dataset(splittedObjArr[i].dataset).table(splittedObjArr[i].id).getMetadata().then(function (data) {
-                        let schemaArr = [];
-                        let apiResponse = data[1];
-                        for (let k in apiResponse.schema.fields) {
-                            schemaArr.push(apiResponse.schema.fields[k].name)
-                        }
-                        splittedObjArr[i].schema = schemaArr;
-                        if (i == splittedObjArr.length - 1) {
-                            resolve(splittedObjArr);
-                        }
-                    });
 
-                }
-            });
-            prS.then((data) => {
-                //console.log(schemaArr);
-                res.send(splittedObjArr);
-            });
+        let answ2 = []; //Надо переименовать (хранение результата второго промиса)
+
+        splittedObjArr.forEach((elem) => {
+            answ2.push(getSchemaById(elem));
+        })
+
+        Promise.all(answ2).then((data2) => {
+            data2.forEach((element) => {
+                splittedObjArr.forEach((a) => {
+                    if (a.id == element.id) {
+                        a['schema'] = element.fields;
+                    }
+                })
+            })
+            //console.log(schemaArr);
+            res.send(splittedObjArr);
+        });
     });
 
 };
-
-/*exports.getGoalsFromSchema = (req, res) => {
-    let schemaArr = [];
-    let pr = new Promise((resolve, reject) => {
-    let testArr = ['Analytics_bankingFinance_renins_renins', 'Analytics_ecommerce_osram_lampy']
-    for (let i = 0; i < testArr.length; i++) {
-        bigquery.dataset("google_" + testArr[i].split("_")[0].toLowerCase()).table(testArr[i]).getMetadata().then(function (data) {
-            let apiResponse = data[1];
-            for (let i in apiResponse.schema.fields) {
-                schemaArr.push(apiResponse.schema.fields[i].name)
-            }
-            if (i == testArr.length - 1) {
-                    resolve(schemaArr);
-                }
-        });
-    }
-    });
-    pr.then((data) => {
-        console.log(schemaArr);
-        res.send(schemaArr);
-    });
-}*/
