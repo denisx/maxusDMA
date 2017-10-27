@@ -8,5 +8,5 @@ module.exports = (app) => {
     .get(bq.resultQuery);
 
   app.route('/query/tables')
-    .get(bq.checkDataSources)  ;
+    .get(bq.checkDataSources);
 };

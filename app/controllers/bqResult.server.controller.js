@@ -13,16 +13,15 @@ const bigquery = require('@google-cloud/bigquery')({
     keyFilename: 'config/keys/mdma-17fcdb829378.json'
 });
 
-// Variables to record SQL query for each datasource
-
+// Variables to configure SQL query as text string for each datasource
 let queryConfigObj = {
     "postbuyResultQuery": "",
     "ymResultQuery": "",
     "gaResultQuery": ""
 }
 
-// Array to record query results
-
+// Array with objects to record query results
+// Each have 'data' property to receive data and 'name' property with datasource name
 let queryResultArr = [{
         'postbuy': {
             'data': [],
@@ -44,8 +43,7 @@ let queryResultArr = [{
 ]
 
 
-// Object with filter params
-
+// TEST object with filter params. Should be named 'answer'.
 let answer = {
     "startDate": "20170101",
     "endDate": "201705031",
@@ -70,6 +68,41 @@ let answer = {
     }
 };
 
+// Define variables to check for tables existance
+let industryRes = ""
+for (let i in answer.filters.industry) {
+    if (answer.filters.industry.length === 0) {
+        industryRes += ".*";
+    } else if (i < answer.filters.industry.length - 1) {
+        industryRes += answer.filters.industry[i] + "|"
+    } else {
+        industryRes += answer.filters.industry[i]
+    }
+}
+
+let clientRes = ""
+for (let i in answer.filters.client) {
+    if (answer.filters.client.length === 0) {
+        clientRes += ".*";
+    } else if (i < answer.filters.client.length - 1) {
+        clientRes += answer.filters.client[i] + "|"
+    } else {
+        clientRes += answer.filters.client[i]
+    }
+}
+
+let siteRes = ""
+for (let i in answer.filters.site) {
+    if (answer.filters.client.length === 0) {
+        siteRes += ".*";
+    } else if (i < answer.filters.site.length - 1) {
+        siteRes += answer.filters.site[i] + "|"
+    } else {
+        siteRes += answer.filters.site[i]
+    }
+}
+
+// Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
 let sqlArr = [];
 
 if (answer.postbuy.length > 0) {
@@ -87,8 +120,7 @@ for (let key in sqlArr) {
     sqlArrLen++;
 }
 
-// Composing SELECT clause for GA or YM
-
+// Funtion to configure SELECT clause for google_analytics or metrika datasources
 let selectConfig = (datasource) => {
 
     let selectClause = "SELECT '" + datasource.name + "' AS datasource, ";
@@ -105,8 +137,7 @@ let selectConfig = (datasource) => {
     return selectClause;
 };
 
-// Composing SELECT clause for postbuy
-
+// Function to configure SELECT clause for postbuy table
 let postbuySelectConfig = () => {
 
     let selectClause = "SELECT 'postbuy' AS datasource, ";
@@ -120,8 +151,7 @@ let postbuySelectConfig = () => {
     return selectClause;
 };
 
-// Composing FROM clause
-
+// Function  to configure FROM clause to each datasource
 let fromConfig = () => {
 
     let industryRes = "";
@@ -160,6 +190,7 @@ let fromConfig = () => {
     return "_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")"
 };
 
+// Function  to finally configure FROM clause to each datasource :)
 let fromConfigSplitted = (datasource) => {
     switch (datasource) {
         case "postbuy":
@@ -174,8 +205,7 @@ let fromConfigSplitted = (datasource) => {
     };
 };
 
-// Composing WHERE clause
-
+// Function to configure WHERE clause
 let whereConfig = (datasource) => {
     let whereClause = "";
     switch (datasource) {
@@ -207,8 +237,7 @@ let whereConfig = (datasource) => {
     return whereClause;
 };
 
-// Composing GROUP BY clause
-
+// Function to configure GROUP BY clause
 let groupByConfig = (datasource) => {
     let groupByClause = "GROUP BY ";
     for (let key in datasource.dimension) {
@@ -219,45 +248,9 @@ let groupByConfig = (datasource) => {
         }
     }
     return groupByClause;
-}
+};
 
-// Composing SQL query
-
-let result = "";
-/*for (let key in sqlArr) {
-
-    sqlCounter++;
-
-    if (sqlArrLen == 1) {
-        if (sqlArr[key] = 'postbuy') {
-            result += postbuySelectConfig() + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]);
-        } else {
-            result += selectConfig(answer[sqlArr[key]]) + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + groupByConfig(answer[sqlArr[key]]);
-        }
-    } else if (sqlCounter == 1) {
-        if (sqlArr[key] = 'postbuy') {
-            result += "SELECT * FROM ( " + postbuySelectConfig() + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + " ), "
-        } else {
-            result += "SELECT * FROM ( " + selectConfig(answer[sqlArr[key]]) + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + groupByConfig(answer[sqlArr[key]]) + " ), "
-        }
-    } else if (sqlCounter < sqlArrLen) {
-        if (sqlArr[key] == 'postbuy') {
-
-            result += '( ' + postbuySelectConfig() + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + ' ), '
-        } else {
-            result += '( ' + selectConfig(answer[sqlArr[key]]) + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + groupByConfig(answer[sqlArr[key]]) + ' ), '
-        }
-    } else if (sqlCounter == sqlArrLen) {
-        if (sqlArr[key] == 'postbuy') {
-            result += '( ' + postbuySelectConfig() + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + ' )'
-        } else {
-            result += '( ' + selectConfig(answer[sqlArr[key]]) + fromConfigSplitted(sqlArr[key]) + whereConfig(sqlArr[key]) + groupByConfig(answer[sqlArr[key]]) + ' )'
-        }
-    }
-}*/
-
-// Function to send query to BQ and receive results
-
+// Function to send query to BQ and receive results. Query loops through 'sqlArr' and switch 'bigquery.query' for each selected datasource
 let queryResult = [];
 exports.resultQuery = (req, res) => {
 
@@ -320,6 +313,7 @@ exports.resultQuery = (req, res) => {
 
 exports.checkDataSources = (req, res) => {
     let tablesArr = [];
+    let splittedObjArr = []
     let webAnalArr = ['google_analytics', 'metrika'];
     let pr = new Promise((resolve, reject) => {
         let answ = [];
@@ -327,7 +321,10 @@ exports.checkDataSources = (req, res) => {
             //let dataset = ;
             bigquery.dataset(webAnalArr[i]).getTables().then((data) => {
                 for (let j in data[0]) {
-                    answ.push(data[0][j].metadata.tableReference.tableId);
+                    answ.push({
+                        'id': data[0][j].metadata.tableReference.tableId,
+                        'dataset': webAnalArr[i]
+                    });
                 }
                 if (i == webAnalArr.length - 1) {
                     resolve(answ);
@@ -338,48 +335,59 @@ exports.checkDataSources = (req, res) => {
 
     });
     pr.then((data) => {
-        let industryRes = ""
-        for (let i in answer.filters.industry) {
-            if (answer.filters.industry.length === 0) {
-                industryRes += ".*";
-            } else if (i < answer.filters.industry.length - 1) {
-                industryRes += answer.filters.industry[i] + "|"
-            } else {
-                industryRes += answer.filters.industry[i]
-            }
-        }
-
-        let clientRes = ""
-        for (let i in answer.filters.client) {
-            if (answer.filters.client.length === 0) {
-                clientRes += ".*";
-            } else if (i < answer.filters.client.length - 1) {
-                clientRes += answer.filters.client[i] + "|"
-            } else {
-                clientRes += answer.filters.client[i]
-            }
-        }
-
-        let siteRes = ""
-        for (let i in answer.filters.site) {
-            if (answer.filters.client.length === 0) {
-                siteRes += ".*";
-            } else if (i < answer.filters.site.length - 1) {
-                siteRes += answer.filters.site[i] + "|"
-            } else {
-                siteRes += answer.filters.site[i]
-            }
-        }
 
         var reg = new RegExp(".*_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")", "i")
 
-        let splittedObjArr = []
         for (let key of data) {
-            if (key.match(reg)) {
+            if (key.id.match(reg)) {
                 splittedObjArr.push(key);
             }
         }
+
         console.log(splittedObjArr);
-        res.send(splittedObjArr);
+
+            let prS = new Promise((resolve, reject) => {
+                for (let i = 0; i < splittedObjArr.length; i++) {
+                    bigquery.dataset(splittedObjArr[i].dataset).table(splittedObjArr[i].id).getMetadata().then(function (data) {
+                        let schemaArr = [];
+                        let apiResponse = data[1];
+                        for (let k in apiResponse.schema.fields) {
+                            schemaArr.push(apiResponse.schema.fields[k].name)
+                        }
+                        splittedObjArr[i].schema = schemaArr;
+                        if (i == splittedObjArr.length - 1) {
+                            resolve(splittedObjArr);
+                        }
+                    });
+
+                }
+            });
+            prS.then((data) => {
+                //console.log(schemaArr);
+                res.send(splittedObjArr);
+            });
     });
+
 };
+
+/*exports.getGoalsFromSchema = (req, res) => {
+    let schemaArr = [];
+    let pr = new Promise((resolve, reject) => {
+    let testArr = ['Analytics_bankingFinance_renins_renins', 'Analytics_ecommerce_osram_lampy']
+    for (let i = 0; i < testArr.length; i++) {
+        bigquery.dataset("google_" + testArr[i].split("_")[0].toLowerCase()).table(testArr[i]).getMetadata().then(function (data) {
+            let apiResponse = data[1];
+            for (let i in apiResponse.schema.fields) {
+                schemaArr.push(apiResponse.schema.fields[i].name)
+            }
+            if (i == testArr.length - 1) {
+                    resolve(schemaArr);
+                }
+        });
+    }
+    });
+    pr.then((data) => {
+        console.log(schemaArr);
+        res.send(schemaArr);
+    });
+}*/
