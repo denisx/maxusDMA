@@ -40,12 +40,31 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             }
         };  
 
-        function clearSearchBox(id){
+        let  clearSearchBox = (id) => {
             if ($scope.searchFilter != undefined) {
                 $scope.searchFilter[id] = '';
             };
         }
 
+		
+		//Costyl for sending info to mongoose to non-refreshed schema
+		let costyl = () => {
+			if (Object.keys(query).length>0){
+				Object.keys(query).forEach((key)=>{
+					query[key].forEach((elem, i, arr)=>{
+						if (key == 'successful') {
+							arr[i] = (elem == 'yes')?'SUCCESSFUL':'WASTED'; //ПЕРЕЗАЛИТЬ В BQ
+							console.log(elem, arr[i]);
+						} else {
+							arr[i] = elem.toLowerCase();	
+						}
+					})
+					console.log(query[key]);
+				})
+			}
+			setTimeout(()=>{return true;}, 5000);
+			console.log(query);
+		};
 		
 		let changeTitleForBox = (element, keyName) => {			
 			let newString = '';
@@ -88,13 +107,6 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 			})
 			
 		};
-		
-        //filter for matching by the search field
-//        $scope.searchFilterFunc = (arr, val) => {
-//            return function(item) {
-//                if (item.match(RegExp(val, 'i'))) return true;
-//            }
-//        }
 
         // tracking for opening and closing current div, calling 
         $scope.showDropdown =  (eventTarget , keyName) => {
@@ -115,9 +127,13 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 					
                     clearSearchBox(keyName);
                     if (queryCurrent.length > 0){
-                        query[keyName] = queryCurrent;
+						if (keyName == 'brand') {
+							queryCurrent.forEach((elem, i, arr)=>{arr[i] = elem.slice(elem.indexOf('_')+1);})
+						}
+                        queryCurrent.forEach((li)=>{checkedFieldColor(document.getElementById(li),'passive')})
+						query[keyName] = queryCurrent;
 						changeTitleForBox(eventTarget.parentNode, keyName);
-                        queryCurrent = [];
+						queryCurrent = [];
                         changeValues(query, eventTarget, keyName);
                     }
 
@@ -157,9 +173,6 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
                         document.getElementById(a).checked = true;
                         if (queryCurrent.indexOf(a) == -1) {
 							let curVal = a;
-							if (a.includes('brand_')) {
-								curVal = a.slice(a.indexOf('_')+1);
-							}
                             queryCurrent.push(curVal);
                         }
                         checkedFieldColor(document.getElementById(a), 'active');
@@ -208,6 +221,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
  
         $scope.nextPage = () => {
 			sendCookiesOnNext();
+			costyl();
 			setTimeout(()=>{optionsFilter.sendQueryNextPage(query)}, 1);
 			
         }

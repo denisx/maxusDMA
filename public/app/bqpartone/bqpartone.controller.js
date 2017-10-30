@@ -115,14 +115,21 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				}
 				
 				if(e.target.closest('.xContainer')!=null) {
-					removeChosen(e.target.closest('.xContainer'));
+					chooseRemoveValue(e.target.closest('.xContainer'), 'chosen');
 					$scope.$apply();
 				}
 				
 				if(e.target.closest('.elementToChooseMVW')!=null) {
-					removeContent(e.target.closest('.elementToChooseMVW'));
+					chooseRemoveValue(e.target.closest('.elementToChooseMVW'), 'content');
 					$scope.$apply();
 				}
+				
+				if(e.target.closest('#addAllButton')!=null) {
+					chooseRemoveValue(e.target.closest('.elementToChooseMVW'), 'content');
+					$scope.$apply();
+				}
+				
+				
 
 			});
 		}
@@ -143,7 +150,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		};
 		
 
-		
+		// on page loads send req to get data from server, after fills table, bread, and kills loader
+		// return false
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
@@ -156,6 +164,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });
+			return false;
         };
 		
 		let fillMenuElements = (tableData) => {
@@ -173,6 +182,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			});
 		};
 		
+		
+		
 		let fillBread = () => {
 			let breadArr = ['industry','client','ad_goal']
 			document.cookie.split('; ').forEach((elem)=>{
@@ -183,55 +194,51 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			});
 		};
 		
-		
-		let removeChosen = (target) => {
-			let value = target.previousElementSibling.firstElementChild.textContent;
-			let chosen, content;
-			if (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow)){
-				let paramName = $scope.menuElements.dataSource[$scope.menuToShow];			
-				chosen = paramName.chosen[target.closest('.elementChosenMVW').parentNode.className];
-				content = paramName.content[target.closest('.elementChosenMVW').parentNode.className];
-			} else {
-				let paramName = $scope.menuElements[$scope.menuToShow];
-				chosen = paramName.chosen;
-				content = paramName.content;
-			}
-			content.push(value);
-			chosen.splice(chosen.indexOf(value),1);
+		// Adds choosed value to chosen array and removes from chosen on deleting
+		let chooseRemoveValue = (target, state) => {
+			let value = (state == 'content') ? target.firstElementChild.textContent : target.previousElementSibling.firstElementChild.textContent;
+			let className = (state == 'content') ? '.elementToChooseMVW' : '.elementChosenMVW';
+			let dataObj = whatToMove(target, className);
+			let toRemove = (state == 'content') ? dataObj.content : dataObj.chosen;
+			let toAdd = (state == 'content') ? dataObj.chosen : dataObj.content;
+			toAdd.push(value);
+			toRemove.splice(toRemove.indexOf(value),1);
 		};
 		
-		let removeContent = (target) => {
-			let value = target.firstElementChild.textContent;
-			let chosen, content;
-			if (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow)){
+		// indicates targets of deleting and adding arrays in menuElements Object on clicks in menu
+		// returns Obj with content and chosen params
+		let whatToMove = (target, className) => {
+			let answ = {};
+			if (metricsOrNot()){
 				let paramName = $scope.menuElements.dataSource[$scope.menuToShow];
-				chosen = paramName.chosen[target.closest('.elementToChooseMVW').parentNode.className];
-				content = paramName.content[target.closest('.elementToChooseMVW').parentNode.className];
+				answ.chosen = paramName.chosen[target.closest(className).parentNode.className];
+				answ.content = paramName.content[target.closest(className).parentNode.className];
 			} else {
 				let paramName = $scope.menuElements[$scope.menuToShow];
-				chosen = paramName.chosen;
-				content = paramName.content;
+				answ.chosen = paramName.chosen;
+				answ.content = paramName.content;
 			}
-			chosen.push(value);
-			content.splice(content.indexOf(value),1);
-//			
-//			
-//			
-//			let paramName = (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow))? $scope.menuElements.dataSource[$scope.menuToShow] : $scope.menuElements[$scope.menuToShow];
-//			paramName.chosen.push(value);
-//			paramName.content.splice($scope.menuElements[$scope.menuToShow].content.indexOf(value),1);
+			return answ;
 		}
 		
-		
+		// indicates opening menu with metrics, or normal variant
+		// returns className
 		let choosePopup = () => { 
-			return (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow))? 'hoverMenuWithMetrics' : 'hoverMenuWithVariants';
+			return metricsOrNot()? 'hoverMenuWithMetrics' : 'hoverMenuWithVariants';
+		}
+		
+		// indicates current state of opened menu
+		// returns bool
+		let metricsOrNot = () => {
+			return (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow));
 		}
 
-		
+		// removes html element with loader after and removes 'hide' from table
+		// returns none
         let killLoader = () => {
-            document.getElementsByClassName('loaderDiv')[0].innerHTML = '';
-			document.getElementsByClassName('tableAppSection')[0].classList.remove('hideElement');
-			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
+            document.getElementsByClassName('loaderDiv')[0].remove();
+			document.getElementsByClassName('tablePadding')[0].firstElementChild.classList.remove('hideElement');
+			return false;
         };
 		
 

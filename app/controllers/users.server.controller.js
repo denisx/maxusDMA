@@ -78,16 +78,6 @@ exports.giveUserName = (req, res, next) => {
 	res.json({'username' : name});
 };
 
-/* //signUp page sender
-exports.showSignup = function(req, res, next) {
-	//Login check. If logged in, redir to main
-	if (!req.user) {
-		res.sendFile(path.join(__dirname, '../../public/', 'signup.html'));
-	} else {
-		return res.redirect('/');
-	}
-}; */
-
 //signup controller
 exports.signup = function(req, res, next) {
 	//Login check. If logged in, redir to main
@@ -151,10 +141,10 @@ exports.authByHash = function(req,res,next,h){
 exports.verificationSuccess = function(req, res, next) {
 	 User.findByIdAndUpdate(req.user.id, {$set:{verificated : true, verHash : ''}},  function(err, user) {
 		if (err) {
-			res.redirect('/');
+			res.redirect('/login');
 			return next(err);
 		} else {
-			res.redirect('/');
+			res.redirect('/login');
 		}
 	}) 
 }; 

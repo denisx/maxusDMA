@@ -6,8 +6,8 @@
 		<input required type="password" class="loginPopupInputText" placeholder="Пароль" name="password" ng-model="user.password" data-place="Пароль">
 		<input type="submit" class="loginPopupInputButton" value="Войти">
 		<div class="linksPopupDiv">
-			<p class="loginPopupText" ng-click="registrationForm()">Регистрация</p>
-			<p class="loginPopupText" ng-click="lostPassForm()">Забыли пароль?</p>
+			<p class="loginPopupText" ng-click="changeState('registration')">Регистрация</p>
+			<p class="loginPopupText" ng-click="changeState('lostPass')">Забыли пароль?</p>
 		</div>
 	</form>
 
@@ -19,16 +19,16 @@
 		<input type="password" class="loginPopupInputText" placeholder="Повторите пароль" name="repeatPassword" data-place="Повторите пароль" required>
         <input type="submit" class="loginPopupInputButton" value="Зарегистрироваться">
         <div class="linksPopupDiv">
-			<p class="loginPopupText" ng-click="loginForm()">Войти</p>
-			<p class="loginPopupText" ng-click="lostPassForm()">Забыли пароль?</p>
+			<p class="loginPopupText" ng-click="changeState('login')">Войти</p>
+			<p class="loginPopupText" ng-click="changeState('lostPass')">Забыли пароль?</p>
 		</div>
 	</form>
 	<form class="loginPopupForm" ng-submit=lostPass() ng-switch-when="lostPass">
 		<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="username" data-place="E-mail">
         <input type="submit" class="loginPopupInputButton" value="Восстановить">
         <div class="linksPopupDiv">
-			<p class="loginPopupText" ng-click="loginForm()">Войти</p>
-			<p class="loginPopupText" ng-click="registrationForm()">Регистрация</p>
+			<p class="loginPopupText" ng-click="changeState('login')">Войти</p>
+			<p class="loginPopupText" ng-click="changeState('registration')">Регистрация</p>
 		</div>
 	</form>
 	<div ng-switch-when="success">

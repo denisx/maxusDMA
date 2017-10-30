@@ -22,6 +22,11 @@ img.loader {
 	display: block;
 }
 
+.loaderDiv {
+	min-height: 400px;
+    padding-top: 1%;
+}
+
 /*Bread row*/
 .bread {
 	height: 30px;
@@ -204,17 +209,15 @@ img.loader {
 .menuHolder {
 	position: absolute;
     display: inline-block;
-    width: 30%;
+    width: 40%;
     z-index: 1;
 }
 
 .hoverMenuWithVariants, .hoverMenuWithMetrics {
-    /* width: 30%; */
     height: auto;
     background-color: white;
     display: block;
     position: relative;
-    /* z-index: 1; */
     border-radius: 1px;
     border: 1px solid #808080;
     min-height: 300px;
@@ -230,12 +233,15 @@ img.loader {
     margin: 0;
 }
 
+.activeGroup {
+	margin-top: 2%;
+}
+
 .leftSideMVW, .rightSideMVW {
 	display: inline-block;
-    border: 1px solid #0c5297;
-	box-shadow: 0 0 1px 1px #0c5297;
-    width: 45%;
-    margin-top: 2%;
+    border: 1px solid #bebebe;
+    box-shadow: 0 0 1px 1px #d9d9d9;
+    width: 38%;
     min-height: 200px;
 	max-height: 200px;
 	overflow-y: auto;
@@ -243,6 +249,18 @@ img.loader {
 
 .leftSideMVW {
 	margin-left: 4%;
+}
+
+.buttonMVW {
+	display: inline-block;
+    width: 10%;
+    margin-left: 2%;
+	vertical-align: top;
+}
+
+.buttonMVW > input {
+	width: 100%;
+	margin-top: 75%;
 }
 
 .rightSideMVW {
@@ -279,13 +297,15 @@ img.loader {
 }
 
 .eCMVWLInner {
-	display: inline-block;
+    display: inline-block;
     border-right: 1px solid #00b6e0;
     padding-right: 2px;
+    background-color: #00b6e0;
+    color: white;
 }
 
 .eCMVWLInner p {
-	padding: 2% 5%;
+	padding: 3.7px 8.7px;
 }
 
 .xContainer {
@@ -295,7 +315,7 @@ img.loader {
 .xInEC {
     width: 10px;
     height: 10px;
-    background-color: black;
+    background-color: #00b6e0;
     clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
 	margin-right: 2px;
 }
@@ -307,6 +327,10 @@ img.loader {
 	background-color: white;
     padding: 0 10px 10px;
     box-shadow: 0 0 1px black;
+}
+
+.tableContainer {
+	min-height: 200px;
 }
 
 .fixed-table-container {

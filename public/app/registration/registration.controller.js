@@ -1,5 +1,5 @@
 angular.module('registration').controller('registrationController', [
-    '$scope', 'registrationFactory', ($scope, registrationFactory) => {	
+    '$scope', 'registrationFactory', '$window', ($scope, registrationFactory, $window) => {	
 		$scope.user = {
 			username: '',
 			password: '',
@@ -76,7 +76,8 @@ angular.module('registration').controller('registrationController', [
 			if(trig){
 				registrationFactory.login($scope.user.username, $scope.user.password).then((result)=>{
 					if (result[0]==200){
-						setNameCookie(result[1]);		
+						setNameCookie(result[1]);	
+						$window.location.href = '/';
 					} else { 
 						$scope.failMsg = result[1];
 					}
@@ -109,31 +110,19 @@ angular.module('registration').controller('registrationController', [
 			return false;	
 		};
         
-        $scope.loginForm = () => {
+		$scope.changeState = (state) => {
 			cleanInput();
-			$scope.popupState = 'login';
+			$scope.failMsg = '';
+			$scope.popupState = state;
 			changeValid();
-			
-		};
-
-		$scope.registrationForm = () => {
-			cleanInput();
-			$scope.popupState = 'registration';
-			changeValid();
-		};
-		
-		$scope.lostPassForm = () => {
-			cleanInput();
-			$scope.popupState = 'lostPass';
-			changeValid();
-		};
+		}
 		
 		let registrationSuccess = (msg) => {
 			$scope.popupState = 'success';
 			$scope.successMessage = msg;
 		}
 		
-		$scope.loginForm();
+		$scope.changeState('login');
 		
 		document.addEventListener('click', (e) => {
 			if (e.target.tagName == 'INPUT'){

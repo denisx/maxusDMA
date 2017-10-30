@@ -11,7 +11,7 @@
 		</div>
 	</div>
 	<div class="row mainPart">
-		<div class="menuSection hideElement">
+		<div class="menuSection">
 			<div class="customReportBoxMainArea hoverToNewMenu">
 				<div class="customReportBoxDropdownButton">
 					<p class="customReportBoxDropdownButtonText">Источники</p>	
@@ -80,40 +80,48 @@
 				<div class="topSideMVW">
 					<p>{{menuElements.dataSource[menuToShow].name}}</p>
 				</div>
-				<div class="leftSideMVW">
-					<div class="dimension">
-						<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
-							<p>{{elem}}</p>
+				<div class="activeGroup">
+					<div class="leftSideMVW">
+						<div class="dimension">
+							<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
+								<p>{{elem}}</p>
+							</div>
+						</div>
+						<div class="metrics">
+							<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
+								<p>{{elem}}</p>
+							</div>
 						</div>
 					</div>
-					<div class="metrics">
-						<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
-							<p>{{elem}}</p>
+					<div class="buttonMVW">
+						<input type="button">
+						<input type="button">
+					</div>
+					<div class="rightSideMVW">
+						<div class="dimension">
+							<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
+								<div class="eCMVWLInner">
+									<p>{{elem}}</p>	
+								</div>
+								<div class="xContainer">
+									<div class="xInEC"></div>	
+								</div>
+							</div>
+						</div>
+						<div class="metrics">
+							<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
+								<div class="eCMVWLInner">
+									<p>{{elem}}</p>	
+								</div>
+								<div class="xContainer">
+									<div class="xInEC"></div>	
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				
-				<div class="rightSideMVW">
-					<div class="dimension">
-						<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
-							<div class="eCMVWLInner">
-								<p>{{elem}}</p>	
-							</div>
-							<div class="xContainer">
-								<div class="xInEC"></div>	
-							</div>
-						</div>
-					</div>
-					<div class="metrics">
-						<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
-							<div class="eCMVWLInner">
-								<p>{{elem}}</p>	
-							</div>
-							<div class="xContainer">
-								<div class="xInEC"></div>	
-							</div>
-						</div>
-					</div>
+				<div class="bottomMVW">
+					<input type="checkbox" value="Цели">
 				</div>
 			</div>
 			
@@ -121,85 +129,64 @@
 				<div class="topSideMVW">
 					<p>{{menuElements[menuToShow].name}}</p>
 				</div>
-				<div class="leftSideMVW">
-					<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by elem">
-						<p>{{elem}}</p>
+				<div class="activeGroup">
+					<div class="leftSideMVW">
+						<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by elem">
+							<p>{{elem}}</p>
+						</div>
 					</div>
-				</div>
-				<div class="rightSideMVW">
-					<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
-						<div class="eCMVWLInner">
-							<p>{{elem}}</p>	
+					<div class="buttonMVW">
+						<input type="button" value="Туды" id="addAllButton">
+						<input type="button" value="Сюды" id="removeAllButton">
+					</div>
+					<div class="rightSideMVW">
+						<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
+							<div class="eCMVWLInner">
+								<p>{{elem}}</p>	
+							</div>
+							<div class="xContainer">
+								<div class="xInEC"></div>	
+							</div>
 						</div>
-						<div class="xContainer">
-							<div class="xInEC"></div>	
-						</div>
-						
 					</div>
 				</div>
 			</div>
 			
 		</div>
-<!--
-		<div class="tableAppSection hideElement">
-			<div class="tableDiv">
-				<div class="dateRow">
-					<div class="dateBoxDropdownButton">
-						<p class="dateBoxDropdownButtonText">01.01.1990-12.12.2017</p>
-						<div class="dateBoxDropdownButtonImgDiv">
-							<img class="dateBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-						</div>     			
-					</div>
-				</div>
-				<div class="tableRow">
-					<table class="table">
-						<thead>
-							<td ng-repeat="val in tableContentHeader">
-								{{val}}
-							</td>
-						</thead>
-						<tr ng-repeat="row in tableContent ">
-							<td ng-repeat="val in row track by $index">
-								{{val}}
-							</td>
-						</tr>
-					</table>
-				</div>				
-			</div>
-		</div>
--->
-		<div class="tableAppSection hideElement">
+
+		<div class="tableAppSection ">
 			<div class="tablePadding">
-			
-				<div id="toolbar">
-					<input name="daterange">
+				<div class="tableContainer hideElement">
+					<div id="toolbar">
+						<input name="daterange">
+					</div>
+					<table id="table" data-toggle="table" data-search="true" data-pagination="true" data-pagination-loop="true" data-page-number="1" data-page-list="[10,25,50,100]" data-toolbar="#toolbar" data-show-export="true" data-filter-control="true" data-filter-show-clear="true" class="table table-hover">
+						<thead>
+							<tr>
+								<th data-field="Industry">Industry</th>
+								<th data-field="Client">Client</th>
+								<th data-field="Campaign">Campaign</th>
+								<th data-field="Successful">Successful?</th>
+								<th data-field="Date_start">Date start</th>
+								<th data-field="Date_end">Date end</th>
+								<th data-field="Duration">Duration</th>
+								<th data-field="Site">Site</th>
+								<th data-field="Placement">Placement</th>
+								<th data-field="Medium">Medium</th>
+								<th data-field="Format">Format</th>
+								<th data-field="Postbuy_data">Postbuy_data</th>
+								<th data-field="google_analytics">google_analytics</th>
+								<th data-field="metrika">metrika</th>
+								<th data-field="tns">tns</th>
+
+							</tr>
+						</thead>
+					</table>
 				</div>
-				<table id="table" data-toggle="table" data-search="true" data-pagination="true" data-pagination-loop="true" data-page-number="1" data-page-list="[10,25,50,100]" data-toolbar="#toolbar" data-show-export="true" data-filter-control="true" data-filter-show-clear="true" class="table table-hover">
-					<thead>
-						<tr>
-							<th data-field="Industry">Industry</th>
-							<th data-field="Client">Client</th>
-							<th data-field="Campaign">Campaign</th>
-							<th data-field="Successful">Successful?</th>
-							<th data-field="Date_start">Date start</th>
-							<th data-field="Date_end">Date end</th>
-							<th data-field="Duration">Duration</th>
-							<th data-field="Site">Site</th>
-							<th data-field="Placement">Placement</th>
-							<th data-field="Medium">Medium</th>
-							<th data-field="Format">Format</th>
-							<th data-field="Postbuy_data">Postbuy_data</th>
-							<th data-field="google_analytics">google_analytics</th>
-							<th data-field="metrika">metrika</th>
-							<th data-field="tns">tns</th>
-							
-						</tr>
-					</thead>
-				</table>
+				<div class="loaderDiv">
+					<img class="loader" src="lib/pic/Logo_MDMA_Circle.svg">
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-<div class="loaderDiv">
-	<img class="loader" src="lib/pic/Logo_MDMA_Circle.svg">
 </div>
