@@ -10,3 +10,7 @@ exports.showFilters = (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/', 'filters.html'));
 };
 
+exports.showResults = (req, res) => {
+  // res.redirect('/filters');
+  res.sendFile(path.join(__dirname, '../../public/', 'result.html'));
+};
