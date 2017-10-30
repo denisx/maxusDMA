@@ -48,24 +48,168 @@ let answer = {
     "startDate": "20170101",
     "endDate": "201705031",
     "ga": {
-        "dimension": ["industry", "utm_source"],
+        "dimension": ["industry", "client", "utm_source"],
         "goals": "no",
         "metrics": ["visits", "pageviews"],
         "name": "google_analytics"
     },
     "ym": {
-        "dimension": ["time_on_site", "utm_campaign"],
+        "dimension": ["industry", "client", "time_on_site", "utm_campaign"],
         "goals": "no",
-        "metrics": [], //["users"],
+        "metrics": ["users"],
         "name": "yandex_metrika"
     },
     "postbuy": ["industry", "client", "brand", "site", "date_start", "date_end", "campaign", "placement", "medium", "clicks", "sessions", "unique_users"],
     "filters": {
-        "industry": ["ecommerce", "FMCG"],
-        "client": ["karcher", "pepsico", "osram"],
-        "site": ["karcher", "agulife", "lampy"],
+        "industry": ["ecommerce", "FMCG", "bankingFinance", "oilGaz"],
+        "client": ["karcher", "pepsico", "osram", "gazpromneft", "renins"],
+        "site": ["karcher", "agulife", "lampy", "renins", "gazpromneftOil", "gEnergy"],
         "medium": ["cpm", "cpa", "cpc"]
-    }
+    },
+    "datasets": [{
+            "id": "Analytics_bankingFinance_renins_renins",
+            "dataset": "google_analytics",
+            "schema": [
+                "industry",
+                "client",
+                "site",
+                "date",
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "device_category",
+                "visits",
+                "pageviews",
+                "bounces",
+                "session_duration",
+                "goal_quotation_kasko",
+                "goal_quotation_osago",
+                "goal_quotation_kaskoOsago",
+                "goal_request_osago",
+                "goal_request_kasko",
+                "goal_request_kaskoOsago"
+            ],
+            "goals": [
+                "goal_quotation_kasko",
+                "goal_quotation_osago",
+                "goal_quotation_kaskoOsago",
+                "goal_request_osago",
+                "goal_request_kasko",
+                "goal_request_kaskoOsago"
+            ],
+            "transactions": 0
+        },
+        {
+            "id": "Analytics_ecommerce_osram_lampy",
+            "dataset": "google_analytics",
+            "schema": [
+                "industry",
+                "client",
+                "site",
+                "date",
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "device_category",
+                "visits",
+                "pageviews",
+                "bounces",
+                "session_duration",
+                "goal_product_page_visit",
+                "goal_add_to_cart",
+                "goal_cart_visit",
+                "goal_checkout_visit",
+                "goal_order",
+                "transactions"
+            ],
+            "goals": [
+                "goal_product_page_visit",
+                "goal_add_to_cart",
+                "goal_cart_visit",
+                "goal_checkout_visit",
+                "goal_order"
+            ],
+            "transactions": 1
+        },
+        {
+            "id": "Analytics_oilGaz_gazpromneft_gEnergy",
+            "dataset": "google_analytics",
+            "schema": [
+                "industry",
+                "client",
+                "site",
+                "date",
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "device_category",
+                "visits",
+                "pageviews",
+                "bounces",
+                "session_duration"
+            ],
+            "goals": [],
+            "transactions": 0
+        },
+        {
+            "id": "Analytics_oilGaz_gazpromneft_gazpromneftOil",
+            "dataset": "google_analytics",
+            "schema": [
+                "industry",
+                "client",
+                "site",
+                "date",
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "device_category",
+                "visits",
+                "pageviews",
+                "bounces",
+                "session_duration"
+            ],
+            "goals": [],
+            "transactions": 0
+        },
+        {
+            "id": "Metrika_ecommerce_karcher_karcher",
+            "dataset": "metrika",
+            "schema": [
+                "industry",
+                "client",
+                "site",
+                "date",
+                "isBounce",
+                "time_on_site",
+                "utm_source",
+                "utm_medium",
+                "utm_campaign",
+                "utm_content",
+                "device_category",
+                "gender",
+                "age",
+                "visits",
+                "users",
+                "pageviews",
+                "goal_add_to_cart",
+                "goal_visit_cart",
+                "goal_checkout",
+                "goal_order",
+                "transactions"
+            ],
+            "goals": [
+                "goal_add_to_cart",
+                "goal_visit_cart",
+                "goal_checkout",
+                "goal_order"
+            ],
+            "transactions": 1
+        }
+    ]
 };
 
 // Define variables to check for tables existance
@@ -150,56 +294,29 @@ let postbuySelectConfig = () => {
     return selectClause;
 };
 
-// Function  to configure FROM clause to each datasource
-let fromConfig = () => {
-
-    let industryRes = "";
-    let clientRes = "";
-    let siteRes = "";
-
-    if (answer.filters.industry != []) {
-        for (let i = 0; i < answer.filters.industry.length; i++) {
-            if (i === answer.filters.industry.length - 1) {
-                industryRes += ".*" + answer.filters.industry[i] + ".*";
-            } else {
-                industryRes += ".*" + answer.filters.industry[i] + ".*|";
-            }
-        }
-    }
-
-    if (answer.filters.client != []) {
-        for (let i = 0; i < answer.filters.client.length; i++) {
-            if (i === answer.filters.client.length - 1) {
-                clientRes += ".*" + answer.filters.client[i] + ".*";
-            } else {
-                clientRes += ".*" + answer.filters.client[i] + ".*|";
-            }
-        }
-    }
-
-    if (answer.filters.site != []) {
-        for (let i = 0; i < answer.filters.site.length; i++) {
-            if (i === answer.filters.site.length - 1) {
-                siteRes += ".*" + answer.filters.site[i] + ".*";
-            } else {
-                siteRes += ".*" + answer.filters.site[i] + ".*|";
-            }
-        }
-    }
-    return "_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")"
-};
-
-// Function  to finally configure FROM clause to each datasource :)
+// Function to  configure FROM clause to each datasource
 let fromConfigSplitted = (datasource) => {
     switch (datasource) {
         case "postbuy":
             return " FROM [mdma-175510:postbuy.all] ";
             break;
         case "ga":
-            return ' FROM TABLE_QUERY([mdma-175510:google_analytics], "REGEXP_MATCH(table_id, r' + "'Analytics" + fromConfig() + "')" + '") '
+            let fromGAArr = " FROM "
+            for (let key in answer.datasets) {
+                if (answer.datasets[key].dataset === "google_analytics") {
+                    fromGAArr += '[mdma-175510:google_analytics.' + answer.datasets[key].id + '], '
+                }
+            }
+            return fromGAArr.replace(/\, $/, ' ');
             break;
         case "ym":
-            return ' FROM TABLE_QUERY([mdma-175510:metrika], "REGEXP_MATCH(table_id, r' + "'Metrika" + fromConfig() + "')" + '") '
+            let fromYMArr = " FROM "
+            for (let key in answer.datasets) {
+                if (answer.datasets[key].dataset === "metrika") {
+                    fromYMArr += '[mdma-175510:metrika.' + answer.datasets[key].id + '], '
+                }
+            }
+            return fromYMArr.replace(/\, $/, ' ');
             break;
     };
 };
@@ -271,6 +388,7 @@ exports.resultQuery = (req, res) => {
                     break;
                 case 'yandex_metrika':
                     queryConfigObj.ymResultQuery += selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
+                    console.log(queryConfigObj.ymResultQuery);
                     let prYM = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
                             if (!err) {
@@ -306,6 +424,7 @@ exports.resultQuery = (req, res) => {
             }
         }
         console.log(queryResultArr);
+        console.log(fromConfigSplitted('ym'))
         res.send(queryResultArr);
     })
 }
@@ -381,7 +500,19 @@ exports.checkDataSources = (req, res) => {
                         a['schema'] = element.fields;
                     }
                 })
-            })
+            });
+            for (let i in splittedObjArr) {
+                splittedObjArr[i]['goals'] = [];
+                splittedObjArr[i]['transactions'] = 0;
+                for (let k in splittedObjArr[i].schema) {
+                    if (splittedObjArr[i].schema[k].indexOf('goal') != -1) {
+                        splittedObjArr[i]['goals'].push(splittedObjArr[i].schema[k])
+                    } else if (splittedObjArr[i].schema[k].indexOf('transactions') != -1) {
+                        splittedObjArr[i]['transactions']++
+                    }
+                }
+            }
+
             //console.log(schemaArr);
             res.send(splittedObjArr);
         });

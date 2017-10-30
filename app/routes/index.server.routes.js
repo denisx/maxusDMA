@@ -9,4 +9,7 @@ module.exports = (app) => {
 
 	app.route('/filters')
 		.get(index.showFilters);
+
+	app.route('/result')
+		.get(index.showResults);
 };

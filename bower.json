@@ -17,10 +17,13 @@
     "tableexport.jquery.plugin": "https://github.com/hhurz/tableExport.jquery.plugin.git#^1.9.6",
     "daterangepicker": "^1.6.0",
     "underscore": "^1.8.3",
-    "bootstrap-daterangepicker": "https://github.com/dangrossman/bootstrap-daterangepicker.git#^2.1.25"
+    "bootstrap-daterangepicker": "https://github.com/dangrossman/bootstrap-daterangepicker.git#^2.1.25",
+    "file-saver": "^1.3.3",
+    "chart.js": "^2.7.1"
   },
   "resolutions": {
     "angular": "^1.6.5",
-    "jquery": "^3.2.1"
+    "jquery": "^3.2.1",
+    "jspdf": "1.1.239 || 1.3.2"
   }
 }
