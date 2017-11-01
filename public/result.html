@@ -1,9 +1,22 @@
 <head>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    
+    <script type="text/javascript" src="app/header/header.module.js"></script>
+    <script type="text/javascript" src="app/header/header.controller.js"></script>
+    <script type="text/javascript" src="app/header/header.component.js"></script>
+    <script type="text/javascript" src="app/header/header.service.js"></script>
+	<link rel="stylesheet" href="app/header/header.style.css">
+
     <script type="text/javascript" src="lib/chart.js/dist/Chart.min.js"></script>
     <link rel="stylesheet" href="app/bqResult/bqResult.template.css">
 </head>
 
 <body>
+    <div id="pageheadApp" ng-app="pagehead">
+        <pagehead></pagehead>
+    </div>
     <div class="chart">
         <canvas id="myChart"></canvas>
         <script>
