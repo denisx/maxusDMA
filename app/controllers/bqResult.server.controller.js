@@ -262,20 +262,16 @@ let siteResFunc = () => {
 
 // Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
 let sqlArr = [];
-
-if (answer.postbuy.length > 0) {
-    sqlArr.push('postbuy');
-}
-if (answer.ym.metrics.length > 0) {
-    sqlArr.push('yandex_metrika');
-}
-if (answer.ga.metrics.length > 0) {
-    sqlArr.push('google_analytics');
-}
-
-let sqlArrLen = 0;
-for (let key in sqlArr) {
-    sqlArrLen++;
+let sqlArrFunc = () => {
+    if (answer.postbuy.length > 0) {
+        sqlArr.push('postbuy');
+    }
+    if (answer.ym.metrics.length > 0) {
+        sqlArr.push('yandex_metrika');
+    }
+    if (answer.ga.metrics.length > 0) {
+        sqlArr.push('google_analytics');
+    }
 }
 
 // Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
@@ -397,6 +393,7 @@ let queryResult = [];
 exports.resultQuery = (req, res) => {
 
     let promAnsw = [];
+    sqlArrFunc();
     let pr = new Promise((resolve, reject) => {
         for (let key in sqlArr) {
             switch (sqlArr[key]) {
