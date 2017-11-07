@@ -9,4 +9,7 @@ module.exports = (app) => {
 
   app.route('/query/tables')
     .get(bq.checkDataSources);
+
+  app.route('/filters/answer')
+    .get(bq.getFiltersAnsw);
 };

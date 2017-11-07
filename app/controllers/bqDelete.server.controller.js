@@ -94,7 +94,7 @@ exports.getTablesFromBQDataset = (req, res) => {
         console.log(result);
         res.send(result);
     });*/
-    let metrika = 'metrika';
+    let metrika = 'yandex_metrika';
     let test = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + metrika + '.__TABLES_SUMMARY__`;'
     bigquery.query({
         query: test, params: []

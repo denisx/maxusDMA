@@ -42,20 +42,25 @@ let queryResultArr = [{
     },
 ]
 
+let answer;
+
+exports.getFiltersAnsw = (req, res) => {
+    answer = req.body;
+};
 
 // TEST object with filter params. Should be named 'answer'.
-let answer = {
+/* let answer = {
     "startDate": "20170101",
     "endDate": "201705031",
     "ga": {
         "dimension": ["industry", "client", "utm_source"],
-        "goals": "no",
+        "goals": "yes",
         "metrics": ["visits", "pageviews"],
         "name": "google_analytics"
     },
     "ym": {
         "dimension": ["industry", "client", "time_on_site", "utm_campaign"],
-        "goals": "no",
+        "goals": "yes",
         "metrics": ["users"],
         "name": "yandex_metrika"
     },
@@ -177,7 +182,7 @@ let answer = {
         },
         {
             "id": "Metrika_ecommerce_karcher_karcher",
-            "dataset": "metrika",
+            "dataset": "yandex_metrika",
             "schema": [
                 "industry",
                 "client",
@@ -210,40 +215,49 @@ let answer = {
             "transactions": 1
         }
     ]
-};
+}; */
 
 // Define variables to check for tables existance
-let industryRes = ""
-for (let i in answer.filters.industry) {
-    if (answer.filters.industry.length === 0) {
-        industryRes += ".*";
-    } else if (i < answer.filters.industry.length - 1) {
-        industryRes += answer.filters.industry[i] + "|"
-    } else {
-        industryRes += answer.filters.industry[i]
+let industryResFunc = () => {
+    let industryRes = ""
+    for (let i in answer.filters.industry) {
+        if (answer.filters.industry.length === 0) {
+            industryRes += ".*";
+        } else if (i < answer.filters.industry.length - 1) {
+            industryRes += answer.filters.industry[i] + "|"
+        } else {
+            industryRes += answer.filters.industry[i]
+        }
     }
+    return industryRes;
 }
 
-let clientRes = ""
-for (let i in answer.filters.client) {
-    if (answer.filters.client.length === 0) {
-        clientRes += ".*";
-    } else if (i < answer.filters.client.length - 1) {
-        clientRes += answer.filters.client[i] + "|"
-    } else {
-        clientRes += answer.filters.client[i]
+let clientResFunc = () => {
+    let clientRes = ""
+    for (let i in answer.filters.client) {
+        if (answer.filters.client.length === 0) {
+            clientRes += ".*";
+        } else if (i < answer.filters.client.length - 1) {
+            clientRes += answer.filters.client[i] + "|"
+        } else {
+            clientRes += answer.filters.client[i]
+        }
     }
+    return clientRes;
 }
 
-let siteRes = ""
-for (let i in answer.filters.site) {
-    if (answer.filters.client.length === 0) {
-        siteRes += ".*";
-    } else if (i < answer.filters.site.length - 1) {
-        siteRes += answer.filters.site[i] + "|"
-    } else {
-        siteRes += answer.filters.site[i]
+let siteResFunc = () => {
+    let siteRes = ""
+    for (let i in answer.filters.site) {
+        if (answer.filters.client.length === 0) {
+            siteRes += ".*";
+        } else if (i < answer.filters.site.length - 1) {
+            siteRes += answer.filters.site[i] + "|"
+        } else {
+            siteRes += answer.filters.site[i]
+        }
     }
+    return siteRes;
 }
 
 // Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
@@ -264,7 +278,7 @@ for (let key in sqlArr) {
     sqlArrLen++;
 }
 
-// Funtion to configure SELECT clause for google_analytics or metrika datasources
+// Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
 let selectConfig = (datasource) => {
 
     let selectClause = "SELECT '" + datasource.name + "' AS datasource, ";
@@ -272,12 +286,24 @@ let selectConfig = (datasource) => {
         selectClause += datasource.dimension[key] + ", ";
     }
     for (let key in datasource.metrics) {
-        selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key];
-        if (key < datasource.metrics.length - 1) {
-            selectClause += ", ";
-        }
+        selectClause += "SUM(" + datasource.metrics[key] + ") AS " + datasource.metrics[key] + ", ";
     }
-    return selectClause;
+    if (datasource.goals == "yes") {
+        for (let i in answer.datasets) {
+            let goalsArray = "";
+            if (answer.datasets[i].goals.length > 0 && answer.datasets[i].dataset == datasource.name) {
+                for (let k in answer.datasets[i].goals) {
+                    goalsArray += "SUM(" + answer.datasets[i].goals[k] + ") AS " + answer.datasets[i].goals[k] + ", ";
+                }
+                if (answer.datasets[i].transactions == 1 && selectClause.indexOf('transactions') == -1 && answer.datasets[i].dataset == datasource.name) {
+                    goalsArray += "SUM(transactions) AS transactions, ";
+                }
+            }
+            selectClause += goalsArray;
+        }
+
+    }
+    return selectClause.replace(/\, $/, ' ');
 };
 
 // Function to configure SELECT clause for postbuy table
@@ -312,8 +338,8 @@ let fromConfigSplitted = (datasource) => {
         case "ym":
             let fromYMArr = " FROM "
             for (let key in answer.datasets) {
-                if (answer.datasets[key].dataset === "metrika") {
-                    fromYMArr += '[mdma-175510:metrika.' + answer.datasets[key].id + '], '
+                if (answer.datasets[key].dataset === "yandex_metrika") {
+                    fromYMArr += '[mdma-175510:yandex_metrika.' + answer.datasets[key].id + '], '
                 }
             }
             return fromYMArr.replace(/\, $/, ' ');
@@ -463,7 +489,7 @@ let getSchemaById = (obj) => {
 exports.checkDataSources = (req, res) => {
     let tablesArr = [];
     let splittedObjArr = []
-    let webAnalArr = ['google_analytics', 'metrika'];
+    let webAnalArr = ['google_analytics', 'yandex_metrika'];
     let answ = [];
     webAnalArr.forEach((elem) => {
         answ.push(getTableId(elem));
@@ -476,7 +502,7 @@ exports.checkDataSources = (req, res) => {
                 unpackedData.push(innerD);
             })
         })
-        var reg = new RegExp(".*_(" + industryRes + ")_(" + clientRes + ")_(" + siteRes + ")", "i")
+        var reg = new RegExp(".*_(" + industryResFunc + ")_(" + clientResFunc + ")_(" + siteResFunc + ")", "i")
 
         for (let key of unpackedData) {
             if (key.id.match(reg)) {

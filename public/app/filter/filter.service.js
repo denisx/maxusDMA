@@ -3,31 +3,46 @@
 angular.module('filter').factory('optionsFilter', ['$http', '$window',
     ($http, $window) => {
 
-    let factoryMethods = {};
-    factoryMethods.refreshOptions = (query) => {
-        function successCall(data) {return data.data;};
+        let factoryMethods = {};
+        factoryMethods.refreshOptions = (query) => {
+            function successCall(data) {
+                return data.data;
+            };
 
-        function errorCall(err){return err;};
+            function errorCall(err) {
+                return err;
+            };
 
-        return $http({method: 'POST', url: '/campaignUnique', data: query}).then(successCall, errorCall);
-    };
-
-    factoryMethods.sendQueryNextPage = (query) => {
-        console.log(query);
-		
-		function successCall(data) {
-            
-            console.log(data.status);
-            if (data.status == 200) {
-                $window.location.href = 'filters';
-            }
-            return data;
+            return $http({
+                method: 'POST',
+                url: '/campaignUnique',
+                data: query
+            }).then(successCall, errorCall);
         };
 
-        function errorCall(err){return err;};
+        factoryMethods.sendQueryNextPage = (query) => {
+            console.log(query);
 
-        return $http({method: 'POST', url: '/filters', data: query}).then(successCall, errorCall);
+            function successCall(data) {
+
+                console.log(data.status);
+                if (data.status == 200) {
+                    $window.location.href = 'filters';
+                }
+                return data;
+            };
+
+            function errorCall(err) {
+                return err;
+            };
+
+            return $http({
+                method: 'POST',
+                url: '/filters',
+                data: query
+            }).then(successCall, errorCall);
+        }
+        return factoryMethods;
+
     }
-    return factoryMethods;
- 
-    }])
+])

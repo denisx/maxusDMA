@@ -1,11 +1,11 @@
 'use strict'
 
-angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
-    ($http, $window) => {
+angular.module('bqResult').factory('bqResultFactory', ['$http',
+    ($http) => {
 
         let factoryMethods = {};
 
-        factoryMethods.getResultsForTable = () => {
+        factoryMethods.getResultsForQuery = () => {
             function successCall(data) {
                 return data.data;
             };
@@ -16,35 +16,26 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
 
             return $http({
                 method: 'GET',
-                url: '/filters/gettablesobj'
+                url: '/query/tables'
             }).then(successCall, errorCall);
-
 
         };
 
-        factoryMethods.sendQueryNextPage = (query) => {
-            console.log(query);
-
+        factoryMethods.getAnswerForQuery = () => {
             function successCall(data) {
-
-                console.log(data.status);
-                if (data.status == 200) {
-                    $window.location.href = 'result';
-                }
-                return data;
+                return data.data;
             };
 
             function errorCall(err) {
                 return err;
-                console.log('err')
             };
 
             return $http({
                 method: 'GET',
-                url: '/filters/answer',
-                data: query
+                url: '/filters/answer'
             }).then(successCall, errorCall);
-        }
+
+        };
 
         return factoryMethods;
 

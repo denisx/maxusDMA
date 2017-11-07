@@ -191,7 +191,8 @@ img.loader {
 
 
 .createReport {
-	background-color: #e22032;
+    background-color: #e22032;
+    cursor: pointer;
 }
 
 .createReport > p {
