@@ -1,22 +1,35 @@
 <head>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <title>MDMA: Result - Benchmarking warehouse interface</title>
+    <link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
 
-    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/chart.js/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="app/bqResult/bqResult.template.css">
+    <link rel="stylesheet" href="app/header/header.style.css">
+
+    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+
     <script type="text/javascript" src="app/header/header.module.js"></script>
     <script type="text/javascript" src="app/header/header.controller.js"></script>
     <script type="text/javascript" src="app/header/header.component.js"></script>
     <script type="text/javascript" src="app/header/header.service.js"></script>
-	<link rel="stylesheet" href="app/header/header.style.css">
 
-    <script type="text/javascript" src="lib/chart.js/dist/Chart.min.js"></script>
-    <link rel="stylesheet" href="app/bqResult/bqResult.template.css">
+    <script type="text/javascript" src="app/bqResult/bqResult.module.js"></script>
+    <script type="text/javascript" src="app/bqResult/bqResult.controller.js"></script>
+    <script type="text/javascript" src="app/bqResult/bqResult.component.js"></script>
+    <script type="text/javascript" src="app/bqResult/bqResult.service.js"></script>
+
+    <link rel="stylesheet" href="lib/style/filters.style.css">
 </head>
 
 <body>
     <div id="pageheadApp" ng-app="pagehead">
         <pagehead></pagehead>
     </div>
+<<<<<<< HEAD
     <div class="chart">
         <canvas id="myChart"></canvas>
         <script>
@@ -58,5 +71,9 @@
                 }
             });
         </script>
+=======
+    <div id="tableResultApp" ng-app="bqResult">
+        <resulttable></resulttable>
+>>>>>>> 9d9f1ce614eae8f41a78d2c2f3ece5c83abe34f5
     </div>
 </body>

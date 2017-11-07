@@ -151,6 +151,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				}
 			});
 			console.log(answer);
+			setTimeout(()=>{bqpartoneFactory.sendQueryNextPage(answer)}, 1);
 		};
 		
 

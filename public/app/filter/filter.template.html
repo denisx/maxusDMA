@@ -1,18 +1,31 @@
+<div class="container">
+	<div class="row mainTextRow">
+		<div class="col-sm-7 col-sm-offset-2">
+			<div class="allExpDiv">
+				<p class="allExpP">Весь агентский опыт одним кликом!</p>
+			</div>
+			<div class="buildingDiv">
+				<p class="buildingP">Исторические и актуальные данные из postbuy-отчетов и систем аналитики с блэкджеком и фильтрами</p>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="container mainFilterContainer">
-    <div class="row">
-       	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="industry">
-       		<p class="selectBoxLabel">Выберите отрасль</p>
-       		<div class="selectBoxMainArea">
-       			
+	<div class="row">
+		<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="industry">
+			<p class="selectBoxLabel">Выберите отрасль</p>
+			<div class="selectBoxMainArea">
+
 				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'industry')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">industry</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
+					</div>
 				</div>
 
-				
-							
+
+
 				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'industry')">
@@ -25,104 +38,104 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.industry | matchValue:searchFilter.industry " ng-click="divClickCheck(elem, 'industry')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
-				
+
 				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="client">
-       		<p class="selectBoxLabel">Выберите клиента</p>
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'client')" ng-mousemove="showHoverDivInfo($event)">
-       			<p class="selectBoxDropdownButtonText">client</p>
-       			<div class="selectBoxDropdownButtonImgDiv">
-					<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-				</div>     			
-       		</div>
-       			
-        		<div class="selectBoxDropdownContainer ">
-				<div class="sBDCButtonContainer">
-					<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'client')">
-					<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'client')">
+
+		<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="client">
+			<p class="selectBoxLabel">Выберите клиента</p>
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'client')" ng-mousemove="showHoverDivInfo($event)">
+					<p class="selectBoxDropdownButtonText">client</p>
+					<div class="selectBoxDropdownButtonImgDiv">
+						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
+					</div>
 				</div>
-				<div>
-					<img src="../../lib/pic/search-icon.png" class="searchIcon">
-					<input class="sBDCSearchBox" type="text" ng-model="searchFilter.client">
+
+				<div class="selectBoxDropdownContainer ">
+					<div class="sBDCButtonContainer">
+						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'client')">
+						<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'client')">
+					</div>
+					<div>
+						<img src="../../lib/pic/search-icon.png" class="searchIcon">
+						<input class="sBDCSearchBox" type="text" ng-model="searchFilter.client">
+					</div>
+					<div class="sBDCValueContainer">
+						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.client | matchValue:searchFilter.client" ng-click="divClickCheck(elem, 'client')">
+							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
+					</div>
 				</div>
-				<div class="sBDCValueContainer">
-					<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.client | matchValue:searchFilter.client" ng-click="divClickCheck(elem, 'client')">
-						<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-						<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-					</div>			
-				</div>
-        	</div>
-        	
-        		<div class="selectBoxHoverDefault">
+
+				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="ad_goal">
-       		<p class="selectBoxLabel">Выберите тип компании</p>
-       		
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'ad_goal')" ng-mousemove="showHoverDivInfo($event)">
-       			<p class="selectBoxDropdownButtonText">ad_goal</p>
-       			<div class="selectBoxDropdownButtonImgDiv">
-					<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-				</div>     			
-       		</div>
-       		
-        		<div class="selectBoxDropdownContainer ">
-				<div class="sBDCButtonContainer">
-					<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'ad_goal')">
-					<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'ad_goal')">
+
+		<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="ad_goal">
+			<p class="selectBoxLabel">Выберите тип компании</p>
+
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'ad_goal')" ng-mousemove="showHoverDivInfo($event)">
+					<p class="selectBoxDropdownButtonText">ad_goal</p>
+					<div class="selectBoxDropdownButtonImgDiv">
+						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
+					</div>
 				</div>
-            	<div>
-					<img src="../../lib/pic/search-icon.png" class="searchIcon">
-					<input class="sBDCSearchBox" type="text" ng-model="searchFilter.ad_goal">
+
+				<div class="selectBoxDropdownContainer ">
+					<div class="sBDCButtonContainer">
+						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'ad_goal')">
+						<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'ad_goal')">
+					</div>
+					<div>
+						<img src="../../lib/pic/search-icon.png" class="searchIcon">
+						<input class="sBDCSearchBox" type="text" ng-model="searchFilter.ad_goal">
+					</div>
+					<div class="sBDCValueContainer">
+						<div class="sBDCValue sBDCVPassive " ng-repeat="elem in filters.ad_goal | matchValue:searchFilter.ad_goal" ng-click="divClickCheck(elem, 'ad_goal')">
+							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
+					</div>
 				</div>
-				<div class="sBDCValueContainer">
-					<div class="sBDCValue sBDCVPassive " ng-repeat="elem in filters.ad_goal | matchValue:searchFilter.ad_goal" ng-click="divClickCheck(elem, 'ad_goal')">
-						<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-						<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-					</div>			
-				</div>
-        	</div>
-        	
-        		<div class="selectBoxHoverDefault">
+
+				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-   
-    </div>
-    
-    <div class="row">
-    	<div class="refreshFiltersDiv col-sm-3">
-    	    <p class="refreshFiltersLink" ng-click="queryNull()">Сбросить все фильтры</p>
-    	</div>
-    </div>
+
+	</div>
+
+	<div class="row">
+		<div class="refreshFiltersDiv col-sm-3">
+			<p class="refreshFiltersLink" ng-click="queryNull()">Сбросить все фильтры</p>
+		</div>
+	</div>
 </div>
 
 
 <div class="container advancedFilterContainer hideElement">
-    <div class="row">
-       	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="medium">
-       		<p class="selectBoxLabel">Выберите medium</p>
-       		<div class="selectBoxMainArea">
+	<div class="row">
+		<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="medium">
+			<p class="selectBoxLabel">Выберите medium</p>
+			<div class="selectBoxMainArea">
 				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'medium')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">medium</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
+					</div>
 				</div>
 
 				<div class="selectBoxDropdownContainer ">
@@ -137,27 +150,27 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.medium | matchValue:searchFilter.medium" ng-click="divClickCheck(elem, 'medium')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
-				
+
 				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="placement">
-       		<p class="selectBoxLabel">Выберите placement</p>
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'placement')" ng-mousemove="showHoverDivInfo($event)">
+
+		<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="placement">
+			<p class="selectBoxLabel">Выберите placement</p>
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'placement')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">placement</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
-       			</div>
-       			
+					</div>
+				</div>
+
 				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'placement')">
@@ -170,8 +183,8 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.placement | matchValue:searchFilter.placement" ng-click="divClickCheck(elem, 'placement')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
 
@@ -180,19 +193,19 @@
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="brand">
-       		<p class="selectBoxLabel">Выберите brand</p>
-       		
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'brand')" ng-mousemove="showHoverDivInfo($event)">
+
+		<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="brand">
+			<p class="selectBoxLabel">Выберите brand</p>
+
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'brand')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">brand</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
-       			</div>
-       		
-        		<div class="selectBoxDropdownContainer ">
+					</div>
+				</div>
+
+				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'brand')">
 						<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'brand')">
@@ -204,29 +217,29 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive " ng-repeat="elem in filters.brand | matchValue:searchFilter.brand" ng-click="divClickCheck('brand_'+elem, 'brand')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{'brand_'+elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{'brand_'+elem}}">
+						</div>
 					</div>
-        		</div>
-        		
-        		<div class="selectBoxHoverDefault">
+				</div>
+
+				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
-        		
+
 			</div>
-			
-		</div>		
-    </div>
-     	
-    <div class="row">
-       	<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="device">
-       		<p class="selectBoxLabel">Выберите device</p>
-       		<div class="selectBoxMainArea">
+
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="selectBoxWithLabel selectBoxFirstInRow col-sm-3" id="device">
+			<p class="selectBoxLabel">Выберите device</p>
+			<div class="selectBoxMainArea">
 				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'device')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">device</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
+					</div>
 				</div>
 
 				<div class="selectBoxDropdownContainer ">
@@ -241,28 +254,28 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.device | matchValue:searchFilter.device" ng-click="divClickCheck(elem, 'device')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
-				
+
 				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="format">
-       		<p class="selectBoxLabel">Выберите format</p>
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'format')" ng-mousemove="showHoverDivInfo($event)">
+
+		<div class="selectBoxWithLabel selectBoxOtherInRow col-sm-3" id="format">
+			<p class="selectBoxLabel">Выберите format</p>
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'format')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">format</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
+					</div>
 				</div>
-       			
-        		<div class="selectBoxDropdownContainer ">
+
+				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'format')">
 						<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'format')">
@@ -274,29 +287,29 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive" ng-repeat="elem in filters.format | matchValue:searchFilter.format" ng-click="divClickCheck(elem, 'format')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
-				
+
 				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-       
-       	<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="successful">
-       		<p class="selectBoxLabel">Выберите successful</p>
-       		
-       		<div class="selectBoxMainArea">
-       			<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'successful')" ng-mousemove="showHoverDivInfo($event)">
+
+		<div class="selectBoxWithLabel  selectBoxOtherInRow col-sm-3" id="successful">
+			<p class="selectBoxLabel">Выберите successful</p>
+
+			<div class="selectBoxMainArea">
+				<div class="selectBoxDropdownButton" ng-click="showDropdown($event.target, 'successful')" ng-mousemove="showHoverDivInfo($event)">
 					<p class="selectBoxDropdownButtonText">successful</p>
 					<div class="selectBoxDropdownButtonImgDiv">
 						<img class="selectBoxDropdownButtonImg" src="../../lib/pic/filter-arrow.png">
-					</div>     			
+					</div>
 				</div>
-       		
-        		<div class="selectBoxDropdownContainer ">
+
+				<div class="selectBoxDropdownContainer ">
 					<div class="sBDCButtonContainer">
 						<input class="sBDCBCButtonOk" type="button" value="Выбрать все" ng-click="checkBoxSelectDismissAll($event.target, 'successful')">
 						<input class="sBDCBCButtonOtm" type="button" value="Очистить все" ng-click="checkBoxSelectDismissAll($event.target, 'successful')">
@@ -308,25 +321,25 @@
 					<div class="sBDCValueContainer">
 						<div class="sBDCValue sBDCVPassive " ng-repeat="elem in filters.successful | matchValue:searchFilter.successful" ng-click="divClickCheck(elem, 'successful')">
 							<p class="sBDCValueP sBDCVPPassive">{{elem}}</p>
-							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}"> 
-						</div>			
+							<input class="btn btn-success sBDCValueCheckbox" type="checkbox" id="{{elem}}">
+						</div>
 					</div>
 				</div>
-				
+
 				<div class="selectBoxHoverDefault">
 					<p class="selectBoxHoverInfoP"></p>
 				</div>
 			</div>
 		</div>
-   
-   		
-    </div>
-    
-    <div class="row">
-    	<div class="refreshFiltersDiv col-sm-3">
-        <p class="refreshFiltersLink" ng-click="queryNull()">Сбросить все фильтры</p>
-    	</div>
-    </div>
+
+
+	</div>
+
+	<div class="row">
+		<div class="refreshFiltersDiv col-sm-3">
+			<p class="refreshFiltersLink" ng-click="queryNull()">Сбросить все фильтры</p>
+		</div>
+	</div>
 </div>
 
 <div class="filtersOpener" ng-click="showHideAdvancedFilters()">

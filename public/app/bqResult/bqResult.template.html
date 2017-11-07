@@ -1,0 +1,159 @@
+<div class="container">
+    <div class="row">
+        <div class="bread">
+            <div class="breadContent">
+                <p class="breadText">Отрасль</p>
+                <img src="../../lib/pic/Arrow_Main_Bread.png" class="breadImg">
+                <p class="breadText">Клиент</p>
+                <img src="../../lib/pic/Arrow_Main_Bread.png" class="breadImg">
+                <p class="breadText">Тип кампании</p>
+            </div>
+        </div>
+    </div>
+    <div class="row mainPart">
+        <div class="menuSection">
+        </div>
+        <div class="menuHolder">
+
+            <div class="hoverMenuWithMetrics hideElement">
+                <div class="topSideMVW">
+                    <p>{{menuElements.dataSource[menuToShow].name}}</p>
+                </div>
+                <div class="activeGroup">
+                    <div class="leftSideMVW">
+                        <div class="dimension">
+                            <div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
+                                <p>{{elem}}</p>
+                            </div>
+                        </div>
+                        <div class="metrics">
+                            <div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
+                                <p>{{elem}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonMVW">
+                        <input type="button">
+                        <input type="button">
+                    </div>
+                    <div class="rightSideMVW">
+                        <div class="dimension">
+                            <div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
+                                <div class="eCMVWLInner">
+                                    <p>{{elem}}</p>
+                                </div>
+                                <div class="xContainer">
+                                    <div class="xInEC"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metrics">
+                            <div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
+                                <div class="eCMVWLInner">
+                                    <p>{{elem}}</p>
+                                </div>
+                                <div class="xContainer">
+                                    <div class="xInEC"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomMVW">
+                    <input type="checkbox" value="Цели">
+                </div>
+            </div>
+
+            <div class="hoverMenuWithVariants hideElement">
+                <div class="topSideMVW">
+                    <p>{{menuElements[menuToShow].name}}</p>
+                </div>
+                <div class="activeGroup">
+                    <div class="leftSideMVW">
+                        <div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by elem">
+                            <p>{{elem}}</p>
+                        </div>
+                    </div>
+                    <div class="buttonMVW">
+                        <input type="button" value="Туды" id="addAllButton">
+                        <input type="button" value="Сюды" id="removeAllButton">
+                    </div>
+                    <div class="rightSideMVW">
+                        <div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
+                            <div class="eCMVWLInner">
+                                <p>{{elem}}</p>
+                            </div>
+                            <div class="xContainer">
+                                <div class="xInEC"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="chartSection">
+            <div class="chartPanel">
+                <div class="chartDropdown">
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Test data<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>Test data 2</li>
+                            <li>Test data 3</li>
+                            <li>Test data 4</li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Test data 2<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>Test data</li>
+                            <li>Test data 3</li>
+                            <li>Test data 4</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+        <div class="resultTabs">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#postbuy" data-toggle="tab">Postbuy</a></li>
+                <li><a href="#google_analytics" data-toggle="tab">Google Analytics</a></li>
+                <li><a href="#yandex_metrika" data-toggle="tab">Yandex Metrika</a></li>
+            </ul>
+        </div>
+        		<div class="tableAppSection ">
+			<div class="tablePadding">
+				<div class="tableContainer hideElement">
+					<div id="toolbar">
+						<input name="daterange">
+					</div>
+					<table id="table" data-toggle="table" data-search="true" data-pagination="true" data-pagination-loop="true" data-page-number="1" data-page-list="[10,25,50,100]" data-toolbar="#toolbar" data-show-export="true" data-filter-control="true" data-filter-show-clear="true" class="table table-hover">
+						<thead>
+							<tr>
+								<th data-field="Industry">Industry</th>
+								<th data-field="Client">Client</th>
+								<th data-field="Campaign">Campaign</th>
+								<th data-field="Successful">Successful?</th>
+								<th data-field="Date_start">Date start</th>
+								<th data-field="Date_end">Date end</th>
+								<th data-field="Duration">Duration</th>
+								<th data-field="Site">Site</th>
+								<th data-field="Placement">Placement</th>
+								<th data-field="Medium">Medium</th>
+								<th data-field="Format">Format</th>
+								<th data-field="Postbuy_data">Postbuy_data</th>
+								<th data-field="google_analytics">google_analytics</th>
+								<th data-field="metrika">metrika</th>
+								<th data-field="tns">tns</th>
+
+							</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
