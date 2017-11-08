@@ -284,8 +284,7 @@ let siteSplitter = (site) => {
     site = site.slice(0, matches[matches.length - 1]);
     matches.pop();
     for (let i = matches.length - 1; i > -1; i--) {
-        site[matches[i] + 1] = site[(matches[i] + 1)].toUpperCase();
-        site = site.slice(0, matches[i]) + site.slice(matches[i] + 1, site.length);
+        site = site.split(site[matches[i]] + site[matches[i] + 1])[0] + site[matches[i] + 1].toUpperCase() + site.split(site[matches[i]] + site[matches[i] + 1])[1]
     }
     return site;
 }
@@ -298,16 +297,23 @@ let paramResFunc = (param) => {
     }
     if (param == 'site') {
         answer.filters[param].forEach((elem) => {
-            return siteSplitter(elem);
-        })
-    }
-    for (let i in answer.filters[param]) {
-        if (answer.filters[param].length === 0) {
-            answ += ".*";
-        } else if (i < answer.filters[param].length - 1) {
-            answ += answer.filters[param][i] + "|"
-        } else {
-            answ += answer.filters[param][i]
+            if (elem.length === 0) {
+                answ += ".*";
+            } else if (answer.filters[param].indexOf(elem) <= elem.length - 1) {
+                answ += siteSplitter(elem) + "|"
+            } else {
+                answ += siteSplitter(elem)
+            }
+        });
+    } else {
+        for (let i in answer.filters[param]) {
+            if (answer.filters[param].length === 0) {
+                answ += ".*";
+            } else if (i < answer.filters[param].length - 1) {
+                answ += answer.filters[param][i] + "|"
+            } else {
+                answ += answer.filters[param][i]
+            }
         }
     }
     return answ;
@@ -469,6 +475,7 @@ exports.resultQuery = async(req, res) => {
             switch (sqlArr[key]) {
                 case 'postbuy':
                     queryConfigObj.postbuyResultQuery = postbuySelectConfig() + fromConfigSplitted('postbuy') + whereConfig('postbuy');
+                    console.log(queryConfigObj.postbuyResultQuery);
                     let prPostBuy = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
                             if (!err) {
@@ -481,7 +488,7 @@ exports.resultQuery = async(req, res) => {
                     break;
                 case 'yandex_metrika':
                     queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
-                    // console.log(queryConfigObj.ymResultQuery);
+                    console.log(queryConfigObj.ymResultQuery);
                     let prYM = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
                             if (!err) {
@@ -493,6 +500,7 @@ exports.resultQuery = async(req, res) => {
                     break;
                 case 'google_analytics':
                     queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
+                    console.log(queryConfigObj.gaResultQuery);
                     let prGA = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
                             if (!err) {
@@ -584,7 +592,6 @@ let checkDataSources = () => {
             })
             // var reg = new RegExp(".*_(" + industryResFunc() + ")_(" + clientResFunc() + ")_(" + siteResFunc() + ")", "i")
             let reg = new RegExp(".*_(" + paramResFunc('industry') + ")_(" + paramResFunc('client') + ")_(" + paramResFunc('site') + ")", "i")
-
             for (let key of unpackedData) {
                 if (key.id.match(reg)) {
                     splittedObjArr.push(key);
