@@ -42,14 +42,16 @@ let queryResultArr = [{
     },
 ]
 
-let answer;
+ let answer;
 
 exports.getFiltersAnsw = (req, res) => {
     answer = req.body;
-};
+    res.status = 200;
+    res.send('');
+}; 
 
 // TEST object with filter params. Should be named 'answer'.
-/* let answer = {
+/*  let answer = {
     "startDate": "20170101",
     "endDate": "201705031",
     "ga": {
@@ -215,11 +217,12 @@ exports.getFiltersAnsw = (req, res) => {
             "transactions": 1
         }
     ]
-}; */
+};  */
 
 // Define variables to check for tables existance
 let industryResFunc = () => {
-    let industryRes = ""
+    let industryRes = "";
+    if (answer.filters.industry == undefined){industryRes='.*';return industryRes}
     for (let i in answer.filters.industry) {
         if (answer.filters.industry.length === 0) {
             industryRes += ".*";
@@ -234,6 +237,7 @@ let industryResFunc = () => {
 
 let clientResFunc = () => {
     let clientRes = ""
+    if (answer.filters.client == undefined){clientRes='.*';return clientRes}
     for (let i in answer.filters.client) {
         if (answer.filters.client.length === 0) {
             clientRes += ".*";
@@ -248,6 +252,7 @@ let clientResFunc = () => {
 
 let siteResFunc = () => {
     let siteRes = ""
+    if (answer.filters.site == undefined){siteRes='.*';return siteRes}
     for (let i in answer.filters.site) {
         if (answer.filters.client.length === 0) {
             siteRes += ".*";
@@ -260,18 +265,58 @@ let siteResFunc = () => {
     return siteRes;
 }
 
+let siteSplitter = (site) => {
+    let reg = new RegExp(/(\.|\-)/g);
+    let matches = [];
+    let match;
+    while ((match = reg.exec(site))!=null){
+        matches.push(match.index);
+    }
+    site = site.slice(0,matches[matches.length-1]);
+    matches.pop();
+    for (let i = matches.length-1; i > -1; i--){
+        site[matches[i]+1] = site[(matches[i]+1)].toUpperCase();
+        site = site.slice(0, matches[i]) + site.slice(matches[i]+1, site.length);
+    }
+    return site;
+}
+
+let paramResFunc = (param)=>{
+    let answ = ""
+    if (answer.filters[param] == undefined) {
+        answ='.*';
+        return answ;
+    }
+    if (param=='site'){
+        answer.filters[param].forEach((elem)=>{
+            return siteSplitter(elem);
+        })
+    }
+    for (let i in answer.filters[param]) {
+        if (answer.filters[param].length === 0) {
+            answ += ".*";
+        } else if (i < answer.filters[param].length - 1) {
+            answ += answer.filters[param][i] + "|"
+        } else {
+            answ += answer.filters[param][i]
+        }
+    }
+    return answ;
+}
 // Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
-let sqlArr = [];
+
 let sqlArrFunc = () => {
-    if (answer.postbuy.length > 0) {
-        sqlArr.push('postbuy');
+    let answ = [];
+    if (answer.postbuy!=undefined && answer.postbuy.length > 0) {
+        answ.push('postbuy');
     }
     if (answer.ym.metrics.length > 0) {
-        sqlArr.push('yandex_metrika');
+        answ.push('yandex_metrika');
     }
     if (answer.ga.metrics.length > 0) {
-        sqlArr.push('google_analytics');
+        answ.push('google_analytics');
     }
+    return answ;
 }
 
 // Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
@@ -304,7 +349,7 @@ let selectConfig = (datasource) => {
 
 // Function to configure SELECT clause for postbuy table
 let postbuySelectConfig = () => {
-
+    if (answer.postbuy == undefined) {return ''};
     let selectClause = "SELECT 'postbuy' AS datasource, ";
     for (let key in answer.postbuy) {
         if (key < answer.postbuy.length - 1) {
@@ -390,15 +435,19 @@ let groupByConfig = (datasource) => {
 
 // Function to send query to BQ and receive results. Query loops through 'sqlArr' and switch 'bigquery.query' for each selected datasource
 let queryResult = [];
-exports.resultQuery = (req, res) => {
-
+exports.resultQuery = async (req, res) => {
+    console.log('---------------------');
+    console.log(answer);
     let promAnsw = [];
-    sqlArrFunc();
+    let sqlArr = sqlArrFunc();
+    await checkDataSources().then((data)=>{
+        answer.datasets = data;
+    });
     let pr = new Promise((resolve, reject) => {
         for (let key in sqlArr) {
             switch (sqlArr[key]) {
                 case 'postbuy':
-                    queryConfigObj.postbuyResultQuery += postbuySelectConfig() + fromConfigSplitted('postbuy') + whereConfig('postbuy');
+                    queryConfigObj.postbuyResultQuery = postbuySelectConfig() + fromConfigSplitted('postbuy') + whereConfig('postbuy');
                     let prPostBuy = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
                             if (!err) {
@@ -410,8 +459,8 @@ exports.resultQuery = (req, res) => {
                     promAnsw.push(prPostBuy);
                     break;
                 case 'yandex_metrika':
-                    queryConfigObj.ymResultQuery += selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
-                    console.log(queryConfigObj.ymResultQuery);
+                    queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
+                    // console.log(queryConfigObj.ymResultQuery);
                     let prYM = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
                             if (!err) {
@@ -422,7 +471,7 @@ exports.resultQuery = (req, res) => {
                     promAnsw.push(prYM);
                     break;
                 case 'google_analytics':
-                    queryConfigObj.gaResultQuery += selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
+                    queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
                     let prGA = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
                             if (!err) {
@@ -438,20 +487,27 @@ exports.resultQuery = (req, res) => {
     })
     pr.then((data) => {
         for (let key in data) {
-            if (data[key][0].datasource == 'postbuy') {
-                queryResultArr[0].postbuy.data = data[key];
-            } else if (data[key][0].datasource == 'yandex_metrika') {
-                queryResultArr[1].yandex_metrika.data = data[key];
-            } else if (data[key][0].datasource == 'google_analytics') {
-                queryResultArr[2].google_analytics.data = data[key];
+            try{
+                if (data[key][0].datasource == 'postbuy') {
+                    queryResultArr[0].postbuy.data = data[key];
+                } else if (data[key][0].datasource == 'yandex_metrika') {
+                    queryResultArr[1].yandex_metrika.data = data[key];
+                } else if (data[key][0].datasource == 'google_analytics') {
+                    queryResultArr[2].google_analytics.data = data[key];
+                }
+            } catch (e){
+                data[key].data = "Данные по вашему запросу не были найдены :(((";
+                console.log(e);
             }
         }
+        console.log('queryResultArr');
         console.log(queryResultArr);
-        console.log(fromConfigSplitted('ym'))
+        // console.log(fromConfigSplitted('ym'))
         res.send(queryResultArr);
     })
 }
 
+// Get dataset of table in BQ
 let getTableId = (webAnal) => {
     return new Promise((resolve, reject) => {
         let answ = [];
@@ -467,6 +523,7 @@ let getTableId = (webAnal) => {
     });
 };
 
+// Get id and fields of table in BQ
 let getSchemaById = (obj) => {
     return new Promise((resolve, reject) => {
         bigquery.dataset(obj.dataset).table(obj.id).getMetadata().then((data) => {
@@ -483,62 +540,67 @@ let getSchemaById = (obj) => {
     });
 };
 
-exports.checkDataSources = (req, res) => {
-    let tablesArr = [];
-    let splittedObjArr = []
-    let webAnalArr = ['google_analytics', 'yandex_metrika'];
-    let answ = [];
-    webAnalArr.forEach((elem) => {
-        answ.push(getTableId(elem));
-    });
+let checkDataSources =  () => {
+    return new Promise ((resolve, reject)=>{
+        let tablesArr = [];
+        let splittedObjArr = []
+        let webAnalArr = ['google_analytics', 'yandex_metrika'];
+        let answ = [];
+        webAnalArr.forEach((elem) => {
+           /*  getTableId(elem).then((data)=>{
+                answ.push(data);
+            }); */
+            answ.push(getTableId(elem));
+            
+        });
 
-    Promise.all(answ).then((data) => {
-        let unpackedData = [];
-        data.forEach((d) => {
-            d.forEach((innerD) => {
-                unpackedData.push(innerD);
-            })
-        })
-        var reg = new RegExp(".*_(" + industryResFunc + ")_(" + clientResFunc + ")_(" + siteResFunc + ")", "i")
-
-        for (let key of unpackedData) {
-            if (key.id.match(reg)) {
-                splittedObjArr.push(key);
-            }
-        }
-
-        console.log(splittedObjArr);
-
-
-        let answ2 = []; //Надо переименовать (хранение результата второго промиса)
-
-        splittedObjArr.forEach((elem) => {
-            answ2.push(getSchemaById(elem));
-        })
-
-        Promise.all(answ2).then((data2) => {
-            data2.forEach((element) => {
-                splittedObjArr.forEach((a) => {
-                    if (a.id == element.id) {
-                        a['schema'] = element.fields;
-                    }
+        Promise.all(answ).then((data) => {
+            let unpackedData = [];
+            data.forEach((d) => {
+                d.forEach((innerD) => {
+                    unpackedData.push(innerD);
                 })
-            });
-            for (let i in splittedObjArr) {
-                splittedObjArr[i]['goals'] = [];
-                splittedObjArr[i]['transactions'] = 0;
-                for (let k in splittedObjArr[i].schema) {
-                    if (splittedObjArr[i].schema[k].indexOf('goal') != -1) {
-                        splittedObjArr[i]['goals'].push(splittedObjArr[i].schema[k])
-                    } else if (splittedObjArr[i].schema[k].indexOf('transactions') != -1) {
-                        splittedObjArr[i]['transactions']++
-                    }
+            })
+            // var reg = new RegExp(".*_(" + industryResFunc() + ")_(" + clientResFunc() + ")_(" + siteResFunc() + ")", "i")
+            let reg = new RegExp(".*_(" + paramResFunc('industry') + ")_(" + paramResFunc('client') + ")_(" + paramResFunc('site') + ")", "i")
+
+            for (let key of unpackedData) {
+                if (key.id.match(reg)) {
+                    splittedObjArr.push(key);
                 }
             }
 
-            //console.log(schemaArr);
-            res.send(splittedObjArr);
+            console.log('splittedObjArr');
+            console.log(splittedObjArr);
+
+
+            let answ2 = []; //Надо переименовать (хранение результата второго промиса)
+
+            splittedObjArr.forEach((elem) => {
+                answ2.push(getSchemaById(elem));
+            })
+
+            Promise.all(answ2).then((data2) => {
+                data2.forEach((element) => {
+                    splittedObjArr.forEach((a) => {
+                        if (a.id == element.id) {
+                            a['schema'] = element.fields;
+                        }
+                    })
+                });
+                for (let i in splittedObjArr) {
+                    splittedObjArr[i]['goals'] = [];
+                    splittedObjArr[i]['transactions'] = 0;
+                    for (let k in splittedObjArr[i].schema) {
+                        if (splittedObjArr[i].schema[k].indexOf('goal') != -1) {
+                            splittedObjArr[i]['goals'].push(splittedObjArr[i].schema[k])
+                        } else if (splittedObjArr[i].schema[k].indexOf('transactions') != -1) {
+                            splittedObjArr[i]['transactions']++
+                        }
+                    }
+                }
+                resolve(splittedObjArr);
+            });
         });
     });
-
 };

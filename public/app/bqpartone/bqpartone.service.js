@@ -28,6 +28,7 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
             function successCall(data) {
 
                 console.log(data.status);
+				$window.location.href = '/result';
                 return data;
             };
 
@@ -37,7 +38,7 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
             };
 
             return $http({
-                method: 'GET',
+                method: 'POST',
                 url: '/filters/answer',
                 data: query
             }).then(successCall, errorCall);

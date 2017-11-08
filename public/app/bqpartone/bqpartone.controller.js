@@ -14,6 +14,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					chosen : {
 						dimension : [],
 						metrics : [],
+						name : 'google_analytics',
 						goals : false
 					}
 				},
@@ -27,6 +28,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					chosen : {
 						dimension : [],
 						metrics : [],
+						name: 'yandex_metrika',
 						goals : false
 					}
 				}
@@ -85,7 +87,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				  format: 'YYYY-MM-DD'
 				},
 				startDate: '2015-01-01',
-				endDate: '2016-12-01',
+				endDate: moment().format('YYYY-MM-DD'),
 				timepicker: false
 			}
 		);
@@ -131,7 +133,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					$scope.$apply();
 				}
 				
-				document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
+				//document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
 				
 				
 
@@ -149,10 +151,14 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						answer.filters[key] = $scope.menuElements[key].chosen;
 					}
 				}
+				if (key == 'postbuy') {
+					answer['postbuy'] = answer.filters['postbuy'];
+					delete answer.filters['postbuy'];
+				}
 			});
 			console.log(answer);
 			setTimeout(()=>{bqpartoneFactory.sendQueryNextPage(answer)}, 1);
-			window.location.href = '/result';
+//			window.location.href = '/result';
 		};
 		
 

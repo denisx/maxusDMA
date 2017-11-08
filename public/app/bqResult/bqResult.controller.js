@@ -2,13 +2,13 @@
 
 angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory',
     ($scope, bqResultFactory) => {
-        let getResults = () => {
-            bqResultFactory.getResultsForQuery()
-                .then((data) => {
-                    console.log(data);
-                });
-            return false;
-        };
+//        let getResults = () => {
+//            bqResultFactory.getResultsForQuery()
+//                .then((data) => {
+//                    console.log(data);
+//                });
+//            return false;
+//        };
         let getAnswer =  () => {
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
@@ -16,7 +16,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
                 });
             return false;
         }
-        getResults();
+//        getResults();
         getAnswer();
 
         let ctx = document.getElementById('myChart').getContext('2d');

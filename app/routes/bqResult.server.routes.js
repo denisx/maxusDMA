@@ -7,9 +7,13 @@ module.exports = (app) => {
   app.route('/query/result')
     .get(bq.resultQuery);
 
-  app.route('/query/tables')
-    .get(bq.checkDataSources);
+  // app.route('/query/tables')
+  //   .get(bq.checkDataSources);
 
   app.route('/filters/answer')
-    .get(bq.getFiltersAnsw);
+    .post(bq.getFiltersAnsw);
+
+  app.route('/filters/getanswer')
+    .get(bq.resultQuery);
+
 };
