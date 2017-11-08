@@ -14,7 +14,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					chosen : {
 						dimension : [],
 						metrics : [],
-						goals : 'no'
+						name : 'google_analytics',
+						goals : false
 					}
 				},
 				ym: {
@@ -27,7 +28,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					chosen : {
 						dimension : [],
 						metrics : [],
-						goals : 'no'
+						name: 'yandex_metrika',
+						goals : false
 					}
 				}
 			},
@@ -85,7 +87,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				  format: 'YYYY-MM-DD'
 				},
 				startDate: '2015-01-01',
-				endDate: '2016-12-01',
+				endDate: moment().format('YYYY-MM-DD'),
 				timepicker: false
 			}
 		);
@@ -102,11 +104,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
 			$scope.menuToShow = currentMenuPoint.id;
 			let menuPopupClassName = choosePopup();
-			let menuPopup = document.getElementsByClassName(menuPopupClassName)[0];
-			
-			menuPopup.setAttribute('type', $scope.menuToShow);
-			menuPopup.classList.toggle('hideElement');
-			
+			document.getElementsByClassName(menuPopupClassName)[0].classList.toggle('hideElement');
+			if(workingWithData.metricsOrNot){workingWithData().checkGoals();}
 			document.addEventListener('click', function closeModal (e) {
 
 				if((e.target.closest('.'+menuPopupClassName)==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
@@ -115,19 +114,26 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				}
 				
 				if(e.target.closest('.xContainer')!=null) {
-					chooseRemoveValue(e.target.closest('.xContainer'), 'chosen');
+					workingWithData('chosen', e.target.closest('.xContainer')).toggleValues();
 					$scope.$apply();
 				}
 				
 				if(e.target.closest('.elementToChooseMVW')!=null) {
-					chooseRemoveValue(e.target.closest('.elementToChooseMVW'), 'content');
+					workingWithData('content', e.target.closest('.elementToChooseMVW')).toggleValues();
 					$scope.$apply();
 				}
 				
-				if(e.target.closest('#addAllButton')!=null) {
-					chooseRemoveValue(e.target.closest('.elementToChooseMVW'), 'content');
+				if(e.target.closest('.addAllButton')!=null) {
+					workingWithData('content', e.target).moveArrays();
 					$scope.$apply();
 				}
+				
+				if(e.target.closest('.removeAllButton')!=null) {
+					workingWithData('chosen', e.target).moveArrays();
+					$scope.$apply();
+				}
+				
+				//document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
 				
 				
 
@@ -145,15 +151,19 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						answer.filters[key] = $scope.menuElements[key].chosen;
 					}
 				}
+				if (key == 'postbuy') {
+					answer['postbuy'] = answer.filters['postbuy'];
+					delete answer.filters['postbuy'];
+				}
 			});
 			console.log(answer);
 			setTimeout(()=>{bqpartoneFactory.sendQueryNextPage(answer)}, 1);
-			window.location.href = 'result';
+//			window.location.href = '/result';
 		};
 		
 
-		// on page loads send req to get data from server, after fills table, bread, and kills loader
-		// return false
+		// on page loads send req to get data from server, after table&bread are loaded, kills loader
+		// void
 		let getResults = () => {
             bqpartoneFactory.getResultsForTable()
                 .then((data)=>{
@@ -166,9 +176,11 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });
-			return false;
         };
 		
+		
+		// Transforms data from table to push it to menu
+		// void
 		let fillMenuElements = (tableData) => {
 			let reqNames = ['Campaign', 'Placement', 'Medium', 'Format', 'Site'];
 			tableData.forEach((row)=>{
@@ -185,7 +197,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		};
 		
 		
-		
+		// Eats cookie info abouut choosen bread vals
+		// void
 		let fillBread = () => {
 			let breadArr = ['industry','client','ad_goal']
 			document.cookie.split('; ').forEach((elem)=>{
@@ -196,56 +209,82 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			});
 		};
 		
-		// Adds choosed value to chosen array and removes from chosen on deleting
-		let chooseRemoveValue = (target, state) => {
-			let value = (state == 'content') ? target.firstElementChild.textContent : target.previousElementSibling.firstElementChild.textContent;
-			let className = (state == 'content') ? '.elementToChooseMVW' : '.elementChosenMVW';
-			let dataObj = whatToMove(target, className);
-			let toRemove = (state == 'content') ? dataObj.content : dataObj.chosen;
-			let toAdd = (state == 'content') ? dataObj.chosen : dataObj.content;
-			toAdd.push(value);
-			toRemove.splice(toRemove.indexOf(value),1);
-		};
-		
-		// indicates targets of deleting and adding arrays in menuElements Object on clicks in menu
-		// returns Obj with content and chosen params
-		let whatToMove = (target, className) => {
-			let answ = {};
-			if (metricsOrNot()){
-				let paramName = $scope.menuElements.dataSource[$scope.menuToShow];
-				answ.chosen = paramName.chosen[target.closest(className).parentNode.className];
-				answ.content = paramName.content[target.closest(className).parentNode.className];
-			} else {
-				let paramName = $scope.menuElements[$scope.menuToShow];
-				answ.chosen = paramName.chosen;
-				answ.content = paramName.content;
+		// Class for 
+		let workingWithData = (state, target) => {
+			let obj = {};
+			
+			obj.metricsOrNot = () => {
+				return (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow));
 			}
-			return answ;
+			
+			obj.getValue = () => {
+				return (state == 'content') ? target.firstElementChild.textContent : target.previousElementSibling.firstElementChild.textContent;
+			}
+			
+			obj.getClassName = () => {
+				return (state == 'content') ? '.elementToChooseMVW' : '.elementChosenMVW';
+			};
+			
+			obj.getArraysAdress = () => {
+				let answ = {};
+				let chosen = [], content = [];
+				if (obj.metricsOrNot()){
+					let className = obj.getClassName();
+					let paramName = $scope.menuElements.dataSource[$scope.menuToShow];
+					let metricsDimensions = target.closest('.group').getAttribute('data-type');
+					chosen = paramName.chosen[metricsDimensions];
+					content = paramName.content[metricsDimensions];
+				} else {
+					let paramName = $scope.menuElements[$scope.menuToShow];
+					chosen = paramName.chosen;
+					content = paramName.content;
+				}
+				answ.toRemove = (state == 'content') ? content : chosen;
+				answ.toAdd = (state == 'content') ? chosen : content;
+				return answ;
+			}			
+			
+			obj.toggleValues = () => {
+				let container = obj.getArraysAdress();
+				let value = obj.getValue();
+				container.toAdd.push(value);
+				container.toRemove.splice(container.toRemove.indexOf(value),1);
+			}
+			
+			obj.moveArrays = () => {
+				let container = obj.getArraysAdress();
+				let length = container.toRemove.length;
+				for (let i = 0; i<container.toRemove.length; 0) {
+					container.toAdd.push(container.toRemove[i]);
+					container.toRemove.splice(i,1);
+				}
+			}
+			
+			obj.checkGoals = () => {
+				document.getElementById('goalCheck').checked = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
+			}
+			
+			obj.changeGoals = () => {
+				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = document.getElementById('goalCheck').checked;
+			}
+			
+			return obj;
 		}
 		
 		// indicates opening menu with metrics, or normal variant
 		// returns className
 		let choosePopup = () => { 
-			return metricsOrNot()? 'hoverMenuWithMetrics' : 'hoverMenuWithVariants';
-		}
-		
-		// indicates current state of opened menu
-		// returns bool
-		let metricsOrNot = () => {
-			return (Object.keys($scope.menuElements.dataSource).includes($scope.menuToShow));
+			return workingWithData().metricsOrNot()? 'hoverMenuWithMetrics' : 'hoverMenuWithVariants';
 		}
 
 		// removes html element with loader after and removes 'hide' from table
-		// returns none
+		// void
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].remove();
 			document.getElementsByClassName('tablePadding')[0].firstElementChild.classList.remove('hideElement');
-			return false;
         };
 		
-
-
-		
+		// indicates changing of dates in daterangepicker and pushes it to answer
 		drp.on('apply.daterangepicker', (ev, picker)=>{
 			answer.startDate = convertDateFormat(picker.startDate._i);
 			answer.endDate = convertDateFormat(picker.endDate._i);

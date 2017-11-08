@@ -225,6 +225,10 @@ img.loader {
     margin-top: 8%;
 }
 
+.hoverMenuWithMetrics .activeGroup {
+	margin: 0;
+}
+
 .hoverMenuWithVariants p {
 	margin: 0;
 }
@@ -236,6 +240,10 @@ img.loader {
 
 .activeGroup {
 	margin-top: 2%;
+}
+
+.groupName {
+	margin: 2% 0 2% 4%;
 }
 
 .leftSideMVW, .rightSideMVW {
@@ -266,10 +274,6 @@ img.loader {
 
 .rightSideMVW {
 	margin-left: 2%;
-}
-
-.metrics {
-	border-top: 1px solid #808080;
 }
 
 .elementToChooseMVW {
@@ -319,6 +323,14 @@ img.loader {
     background-color: #00b6e0;
     clip-path: polygon(10% 0, 0 10%, 40% 50%, 0 90%, 10% 100%, 50% 60%, 90% 100%, 100% 90%, 60% 50%, 100% 10%, 90% 0, 50% 40%);
 	margin-right: 2px;
+}
+
+.bottomMVW {
+	margin: 1% 0 2% 4%;
+}
+
+.bottomMVW p, .bottomMVW input {
+	display: inline;
 }
 
 

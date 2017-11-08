@@ -81,47 +81,62 @@
 					<p>{{menuElements.dataSource[menuToShow].name}}</p>
 				</div>
 				<div class="activeGroup">
-					<div class="leftSideMVW">
-						<div class="dimension">
-							<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
-								<p>{{elem}}</p>
+					<div class="group" data-type="dimension">
+						<p class="groupName">Параметры</p>
+						<div class="leftSideMVW">
+							<div class="dimension">
+								<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
+									<p>{{elem}}</p>
+								</div>
 							</div>
 						</div>
-						<div class="metrics">
-							<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
-								<p>{{elem}}</p>
+						<div class="buttonMVW">
+							<input type="button" class="addAllButton">
+							<input type="button" class="removeAllButton">
+						</div>
+						<div class="rightSideMVW">
+							<div class="dimension">
+								<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
+									<div class="eCMVWLInner">
+										<p>{{elem}}</p>	
+									</div>
+									<div class="xContainer">
+										<div class="xInEC"></div>	
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<div class="buttonMVW">
-						<input type="button">
-						<input type="button">
-					</div>
-					<div class="rightSideMVW">
-						<div class="dimension">
-							<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
-								<div class="eCMVWLInner">
-									<p>{{elem}}</p>	
-								</div>
-								<div class="xContainer">
-									<div class="xInEC"></div>	
+					<div class="group" data-type="metrics">
+						<p class="groupName">Показатели</p>
+						<div class="leftSideMVW">
+							<div class="metrics">
+								<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
+									<p>{{elem}}</p>
 								</div>
 							</div>
 						</div>
-						<div class="metrics">
-							<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
-								<div class="eCMVWLInner">
-									<p>{{elem}}</p>	
-								</div>
-								<div class="xContainer">
-									<div class="xInEC"></div>	
+						<div class="buttonMVW">
+							<input type="button" class="addAllButton">
+							<input type="button" class="removeAllButton">
+						</div>
+						<div class="rightSideMVW">
+							<div class="metrics">
+								<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
+									<div class="eCMVWLInner">
+										<p>{{elem}}</p>	
+									</div>
+									<div class="xContainer">
+										<div class="xInEC"></div>	
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="bottomMVW">
-					<input type="checkbox" value="Цели">
+					<p>Цели</p>
+					<input type="checkbox" value="Цели" id="goalCheck">
 				</div>
 			</div>
 			
@@ -136,8 +151,8 @@
 						</div>
 					</div>
 					<div class="buttonMVW">
-						<input type="button" value="Туды" id="addAllButton">
-						<input type="button" value="Сюды" id="removeAllButton">
+						<input type="button" value="Туды" class="addAllButton">
+						<input type="button" value="Сюды" class="removeAllButton">
 					</div>
 					<div class="rightSideMVW">
 						<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
