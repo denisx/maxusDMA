@@ -28,9 +28,6 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
             function successCall(data) {
 
                 console.log(data.status);
-                if (data.status == 200) {
-                    $window.location.href = 'result';
-                }
                 return data;
             };
 

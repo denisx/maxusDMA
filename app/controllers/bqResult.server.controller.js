@@ -262,21 +262,25 @@ let siteResFunc = () => {
 
 // Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
 let sqlArr = [];
+let sqlArrFunc = () => {
+    if (answer.postbuy.length > 0) {
+        sqlArr.push('postbuy');
+    }
+    if (answer.ym.metrics.length > 0) {
+        sqlArr.push('yandex_metrika');
+    }
+    if (answer.ga.metrics.length > 0) {
+        sqlArr.push('google_analytics');
+    }
+}
 
-if (answer.postbuy.length > 0) {
-    sqlArr.push('postbuy');
-}
-if (answer.ym.metrics.length > 0) {
-    sqlArr.push('yandex_metrika');
-}
-if (answer.ga.metrics.length > 0) {
-    sqlArr.push('google_analytics');
-}
-
-let sqlArrLen = 0;
-for (let key in sqlArr) {
-    sqlArrLen++;
-}
+/*let sqlArrLenFunc = () => {
+    let sqlArrLen = 0;
+    for (let key in sqlArr) {
+        sqlArrLen++;
+    }
+    return sqlArrLen;
+}*/
 
 // Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
 let selectConfig = (datasource) => {
