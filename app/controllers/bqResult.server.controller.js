@@ -22,23 +22,18 @@ let queryConfigObj = {
 
 // Array with objects to record query results
 // Each have 'data' property to receive data and 'name' property with datasource name
-let queryResultArr = [{
-        'postbuy': {
-            'data': [],
-            'name': 'postbuy'
-        }
+let queryResultArr = [
+    {
+        'data': [],
+        'name': 'postbuy'
     },
     {
-        'yandex_metrika': {
-            'data': [],
-            'name': 'yandex_metrika'
-        }
+        'data': [],
+        'name': 'yandex_metrika'   
     },
     {
-        'google_analytics': {
-            'data': [],
-            'name': 'google_analytics'
-        }
+        'data': [],
+        'name': 'google_analytics'
     },
 ]
 
@@ -220,60 +215,6 @@ exports.getFiltersAnsw = (req, res) => {
 }; */
 
 // Define variables to check for tables existance
-let industryResFunc = () => {
-    let industryRes = "";
-    if (answer.filters.industry == undefined) {
-        industryRes = '.*';
-        return industryRes
-    }
-    for (let i in answer.filters.industry) {
-        if (answer.filters.industry.length === 0) {
-            industryRes += ".*";
-        } else if (i < answer.filters.industry.length - 1) {
-            industryRes += answer.filters.industry[i] + "|"
-        } else {
-            industryRes += answer.filters.industry[i]
-        }
-    }
-    return industryRes;
-}
-
-let clientResFunc = () => {
-    let clientRes = ""
-    if (answer.filters.client == undefined) {
-        clientRes = '.*';
-        return clientRes
-    }
-    for (let i in answer.filters.client) {
-        if (answer.filters.client.length === 0) {
-            clientRes += ".*";
-        } else if (i < answer.filters.client.length - 1) {
-            clientRes += answer.filters.client[i] + "|"
-        } else {
-            clientRes += answer.filters.client[i]
-        }
-    }
-    return clientRes;
-}
-
-let siteResFunc = () => {
-    let siteRes = ""
-    if (answer.filters.site == undefined) {
-        siteRes = '.*';
-        return siteRes
-    }
-    for (let i in answer.filters.site) {
-        if (answer.filters.client.length === 0) {
-            siteRes += ".*";
-        } else if (i < answer.filters.site.length - 1) {
-            siteRes += answer.filters.site[i] + "|"
-        } else {
-            siteRes += answer.filters.site[i]
-        }
-    }
-    return siteRes;
-}
-
 let siteSplitter = (site) => {
     let reg = new RegExp(/(\.|\-)/g);
     let matches = [];
@@ -338,7 +279,8 @@ let sqlArrFunc = () => {
 // Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
 let selectConfig = (datasource) => {
 
-    let selectClause = "SELECT '" + datasource.name + "' AS datasource, ";
+    // let selectClause = "SELECT '" + datasource.name + "' AS datasource, ";
+    let selectClause = "SELECT ";
     for (let key in datasource.dimension) {
         selectClause += datasource.dimension[key] + ", ";
     }
@@ -368,7 +310,8 @@ let postbuySelectConfig = () => {
     if (answer.postbuy == undefined) {
         return ''
     };
-    let selectClause = "SELECT 'postbuy' AS datasource, ";
+    // let selectClause = "SELECT 'postbuy' AS datasource, ";
+    let selectClause = "SELECT ";
     for (let key in answer.postbuy) {
         if (key < answer.postbuy.length - 1) {
             selectClause += answer.postbuy[key] + ", ";
@@ -513,13 +456,16 @@ exports.resultQuery = async(req, res) => {
     pr.then((data) => {
         for (let key in data) {
             try {
-                if (data[key][0].datasource == 'postbuy') {
-                    queryResultArr[0].postbuy.data = data[key];
-                } else if (data[key][0].datasource == 'yandex_metrika') {
-                    queryResultArr[1].yandex_metrika.data = data[key];
-                } else if (data[key][0].datasource == 'google_analytics') {
-                    queryResultArr[2].google_analytics.data = data[key];
-                }
+                // if (data[key][0].datasource == 'postbuy') {
+                //     queryResultArr[0].postbuy.data = data[key];
+                // } else if (data[key][0].datasource == 'yandex_metrika') {
+                //     queryResultArr[1].yandex_metrika.data = data[key];
+                // } else if (data[key][0].datasource == 'google_analytics') {
+                //     queryResultArr[2].google_analytics.data = data[key];
+                // }
+                queryResultArr.forEach((elem,i)=>{
+                    elem.data = data[i];
+                })
             } catch (e) {
                 data[key].data = "Данные по вашему запросу не были найдены :(((";
                 console.log(e);

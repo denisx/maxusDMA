@@ -12,6 +12,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
         let getAnswer =  () => {
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
+				
                     console.log(data);
                 });
             return false;

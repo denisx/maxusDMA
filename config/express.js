@@ -6,6 +6,7 @@ const config = require('./config'),
     express = require('express'),
     methodOverride = require('method-override'),
     passport = require('passport'),
+    timeout = require('connect-timeout'),
     session = require('express-session');
 
 module.exports = function() {
@@ -16,7 +17,7 @@ module.exports = function() {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-
+    app.use(timeout(240000));
     app.use(session({
         saveUninitialized: true,
         resave: true,
