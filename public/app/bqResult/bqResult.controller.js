@@ -10,12 +10,46 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 //            return false;
 //        };
         let getAnswer =  () => {
+			fillBread();
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
                     console.log(data);
                 });
             return false;
         }
+		
+		let fillBread = () => {
+			let breadArr = ['industry','client','ad_goal'];
+			let breadText = {};
+			document.cookie.split('; ').forEach((elem)=>{
+				let content = elem.split('=');
+				if (breadArr.includes(content[0])){
+					breadText[content[0]]= elem.split('=')[1];
+				}
+			});
+			breadArr.forEach((elem)=>{
+				if (breadText[elem]==undefined) {
+					breadText[elem] = 'Все';
+				}
+			})
+			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
+			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
+			
+			document.addEventListener('mousemove', (e)=>{
+				if (e.target.closest('.breadText')!=null) {
+					let top = e.clientY + 20 + "px";
+					let left = e.clientX  - 50 + "px";
+					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
+					if (hovDiv == undefined) {
+						return false;
+					}
+					hovDiv.firstElementChild.textContent = breadText[e.target.id];
+					hovDiv.style.left = left;
+					hovDiv.style.top = top;
+				}
+			});
+			
+		};
 //        getResults();
         getAnswer();
 

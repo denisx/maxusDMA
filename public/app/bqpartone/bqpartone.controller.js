@@ -142,19 +142,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		
 		$scope.sendReport = () => {
 			Object.keys($scope.menuElements).forEach((key)=>{
-				if (key == 'dataSource') {
-					Object.keys($scope.menuElements[key]).forEach((innerKey)=>{
-						answer[innerKey] = $scope.menuElements[key][innerKey].chosen;
-					});
-				} else {
-					if ($scope.menuElements[key].chosen.length>0) {
-						answer.filters[key] = $scope.menuElements[key].chosen;
-					}
-				}
-				if (key == 'postbuy') {
-					answer['postbuy'] = answer.filters['postbuy'];
-					delete answer.filters['postbuy'];
-				}
+				costyl(key);
 			});
 			console.log(answer);
 			setTimeout(()=>{bqpartoneFactory.sendQueryNextPage(answer)}, 1);
@@ -283,6 +271,28 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
             document.getElementsByClassName('loaderDiv')[0].remove();
 			document.getElementsByClassName('tablePadding')[0].firstElementChild.classList.remove('hideElement');
         };
+		
+		//Костыль для перевода заглавных в строчные, пока Mongoose не перезаписан
+		let costyl = (key) => {
+			if (key == 'dataSource') {
+				Object.keys($scope.menuElements[key]).forEach((innerKey) => {
+					answer[innerKey] = $scope.menuElements[key][innerKey].chosen;
+				});
+			} else {
+				if ($scope.menuElements[key].chosen.length > 0) {
+					answer.filters[key] = $scope.menuElements[key].chosen;
+				}
+			}
+			if (key == 'postbuy') {
+				answer[key] = answer.filters[key];
+				delete answer.filters[key];
+			}
+			if ((key == 'client'||key == 'industry')&&answer.filters[key]!=undefined) {
+				answer.filters[key].forEach((elem,i,arr)=>{
+					arr[i] = elem.charAt(0).toLowerCase() + elem.slice(1);
+				});
+			}
+		};
 		
 		// indicates changing of dates in daterangepicker and pushes it to answer
 		drp.on('apply.daterangepicker', (ev, picker)=>{

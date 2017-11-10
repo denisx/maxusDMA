@@ -472,7 +472,8 @@ exports.resultQuery = async(req, res) => {
                              if (err) {
                                 reject(err);
                             } else {
-                                resolve(rows);
+                                let answ = {name:'postbuy', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
@@ -486,7 +487,8 @@ exports.resultQuery = async(req, res) => {
                              if (err) {
                                 reject(err);
                             } else {
-                                resolve(rows);
+                                let answ = {name:'yandex_metrika', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
@@ -500,7 +502,8 @@ exports.resultQuery = async(req, res) => {
                             if (err) {
                                 reject(err);
                             } else {
-                                resolve(rows);
+                                let answ = {name:'google_analytics', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
