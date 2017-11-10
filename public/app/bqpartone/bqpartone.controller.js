@@ -158,8 +158,12 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					fillBread();
 					console.log(data);
 					let tableContent = {
-						data: data
+						data: data,
+						columns : []
 					};
+					Object.keys(data[0]).forEach((key)=>{
+						tableContent.columns.push({field:key,title:key});
+					})
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });
@@ -318,12 +322,32 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 		};
 		
+		let initTable = () => {
+			let settings = {
+				"data-toggle":"table",
+				"data-search":"true",
+				"data-pagination":"true",
+				"data-pagination-loop":"true",
+				"data-page-number":"1",
+				"data-page-list":"[10,25,50,100]",
+				"data-toolbar":"#toolbar",
+				"data-show-export":"true",
+				"data-filter-control":"true",
+				"data-filter-show-clear":"true"
+			}
+			Object.keys(settings).forEach((key)=>{
+				document.getElementById('table').setAttribute(key, settings[key]);
+			})
+			
+		}
+		
 		// indicates changing of dates in daterangepicker and pushes it to answer
 		drp.on('apply.daterangepicker', (ev, picker)=>{
 			answer.startDate = convertDateFormat(picker.startDate._d.toISOString().split('T')[0]);
 			answer.endDate = convertDateFormat(picker.endDate._d.toISOString().split('T')[0]);
 		})
 		
+		initTable();
 		getResults();
 		
 		
