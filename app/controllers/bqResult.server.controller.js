@@ -478,9 +478,11 @@ exports.resultQuery = async(req, res) => {
                     console.log(queryConfigObj.postbuyResultQuery);
                     let prPostBuy = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
-                            if (!err) {
-                                resolve(rows);
-
+                             if (err) {
+                                reject(err);
+                            } else {
+                                let answ = {name:'postbuy', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
@@ -491,8 +493,11 @@ exports.resultQuery = async(req, res) => {
                     console.log(queryConfigObj.ymResultQuery);
                     let prYM = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
-                            if (!err) {
-                                resolve(rows);
+                             if (err) {
+                                reject(err);
+                            } else {
+                                let answ = {name:'yandex_metrika', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
@@ -503,8 +508,11 @@ exports.resultQuery = async(req, res) => {
                     console.log(queryConfigObj.gaResultQuery);
                     let prGA = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
-                            if (!err) {
-                                resolve(rows);
+                            if (err) {
+                                reject(err);
+                            } else {
+                                let answ = {name:'google_analytics', data: rows};
+                                resolve(answ);
                             }
                         });
                     });
