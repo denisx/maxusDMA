@@ -220,11 +220,9 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         }
  
         $scope.nextPage = () => {
-			setTimeout(()=>{
-				sendCookiesOnNext();
-				costyl();
-				optionsFilter.sendQueryNextPage(query)
-			}, 1);
+			sendCookiesOnNext();
+			costyl();
+			setTimeout(()=>{optionsFilter.sendQueryNextPage(query)}, 1);
 			
         }
 		
