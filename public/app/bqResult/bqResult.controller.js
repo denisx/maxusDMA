@@ -18,6 +18,22 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
             return false;
         }
 		
+//		let initTable = () => {
+//			let settings = {
+//				toggle:"table",
+//				search:"true",
+//				pagination:"true",
+//				"pagination-loop":"true",
+//				"page-number":"1",
+//				"page-list":"[10,25,50,100]",
+//				toolbar:"#toolbar",
+//				"show-export":"true",
+//				"filter-control":"true",
+//				"filter-show-clear"="true"
+//			}
+//			document.getElementById('postbuyTable').setAttribute()
+//		}
+		
 		let fillBread = () => {
 			let breadArr = ['industry','client','ad_goal'];
 			let breadText = {};
