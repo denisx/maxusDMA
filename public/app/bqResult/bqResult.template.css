@@ -88,6 +88,36 @@ img.loader {
 	color: white;
 	text-decoration: underline;
 }
+
+.breadText:hover {
+	cursor: help;
+}
+
+.breadHoverDefault {
+	display: none;
+}
+
+.breadHoverInfo {
+	display: none;
+}
+
+.breadText:hover ~ .breadHoverInfo {
+	display: block;
+    width: 150px;
+    height: auto;
+    background-color: white;
+    position: fixed;
+    z-index: 1;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px grey;
+}
+
+.breadHoverInfoP {
+	font-size: 14px;
+	margin: 5px 0 5px 5px;
+    color: #00b6e0;
+}
 /*End bread row*/
 
 .mainPart {

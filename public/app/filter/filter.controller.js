@@ -92,17 +92,22 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 		
 		let sendCookiesOnNext = () => {
 			let whatWeWantToSee = ['industry', 'client', 'ad_goal'];
-			let delete_cookie = (name) => {
-				document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/filters';
+			let pages = ['filters','result'];
+			let delete_cookie = (name, page) => {
+				document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/'+page;
 			};
 			whatWeWantToSee.forEach((key)=>{
-				delete_cookie(key);
+				pages.forEach((page)=>{
+					delete_cookie(key,page);	
+				})
 			})
 			Object.keys(query).forEach((key)=>{
 				if (whatWeWantToSee.includes(key)) {
 					let valToSend = query[key].join(', ');
 					let timeToDestroy = Date.now() + 600000;
-					document.cookie =  key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/filters;';
+					pages.forEach((page)=>{
+						document.cookie =  key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/'+page;
+					})
 				}
 			})
 			
