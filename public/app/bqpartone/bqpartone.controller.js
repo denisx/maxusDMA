@@ -161,6 +161,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 //			window.location.href = '/result';
 		};
 		
+
 		// on page loads send req to get data from server, after table&bread are loaded, kills loader
 		// void
 		let getResults = () => {
@@ -199,38 +200,13 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		// Eats cookie info abouut choosen bread vals
 		// void
 		let fillBread = () => {
-			let breadArr = ['industry','client','ad_goal'];
-			let breadText = {};
+			let breadArr = ['industry','client','ad_goal']
 			document.cookie.split('; ').forEach((elem)=>{
 				let content = elem.split('=');
 				if (breadArr.includes(content[0])){
 					$scope.menuElements[content[0]].chosen = elem.split('=')[1].split(', ');
-				}
+				};
 			});
-			breadArr.forEach((elem)=>{
-				if ($scope.menuElements[elem].chosen.length > 0) {
-					breadText[elem] = $scope.menuElements[elem].chosen.join(', ');
-				} else {
-					breadText[elem] = 'Все';
-				}
-			})
-			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
-			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
-			
-			document.addEventListener('mousemove', (e)=>{
-				if (e.target.closest('.breadText')!=null) {
-					let top = e.clientY + 20 + "px";
-					let left = e.clientX  - 50 + "px";
-					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
-					if (hovDiv == undefined) {
-						return false;
-					}
-					hovDiv.firstElementChild.textContent = breadText[e.target.id];
-					hovDiv.style.left = left;
-					hovDiv.style.top = top;
-				}
-			});
-			
 		};
 		
 		// Class for 
