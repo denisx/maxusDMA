@@ -320,9 +320,9 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		
 		// indicates changing of dates in daterangepicker and pushes it to answer
 		drp.on('apply.daterangepicker', (ev, picker)=>{
-			answer.startDate = convertDateFormat(picker.startDate._i);
-			answer.endDate = convertDateFormat(picker.endDate._i);
-			
+			answer.startDate = convertDateFormat(picker.startDate._d.toISOString().split('T')[0]);
+			answer.endDate = convertDateFormat(picker.endDate._d.toISOString().split('T')[0]);
+			console.log(answer.startDate);
 		})
 		
 		getResults();
