@@ -305,15 +305,15 @@ let paramResFunc = (param) => {
                 answ += siteSplitter(elem)
             }
         });
-        return answ;
-    } 
-    for (let i in answer.filters[param]) {
-        if (answer.filters[param].length === 0) {
-            answ += ".*";
-        } else if (i < answer.filters[param].length - 1) {
-            answ += answer.filters[param][i] + "|"
-        } else {
-            answ += answer.filters[param][i]
+    } else {
+        for (let i in answer.filters[param]) {
+            if (answer.filters[param].length === 0) {
+                answ += ".*";
+            } else if (i < answer.filters[param].length - 1) {
+                answ += answer.filters[param][i] + "|"
+            } else {
+                answ += answer.filters[param][i]
+            }
         }
     }
     return answ;
@@ -334,6 +334,15 @@ let sqlArrFunc = () => {
     }
     return answ;
 }
+// Init 'sqlArr' array to record if datasource have been chosen by user and we should query table(s) from this datasource
+
+/*let sqlArrLenFunc = () => {
+    let sqlArrLen = 0;
+    for (let key in sqlArr) {
+        sqlArrLen++;
+    }
+    return sqlArrLen;
+}*/
 
 // Funtion to configure SELECT clause for google_analytics or yandex_metrika datasources
 let selectConfig = (datasource) => {
