@@ -113,7 +113,7 @@ let resultToJson = (inputArray) => {
 }
 
 // Запишем в массив datasetArr все датасеты в аккаунте
-let datasetsInvocation = () => {
+let datasetsInvocation = async () => {
     let tablesObj = {}; // Объект с массивами с таблицами из датасетов
 
     let getDatasetsPromise = new Promise((resolve, reject) => {
@@ -126,11 +126,11 @@ let datasetsInvocation = () => {
                     let currentDatasetId = datasets[i].metadata.datasetReference.datasetId;
 
                     datasetsArr.push(currentDatasetId)
-                    let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
+                    let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасето
                     dataset.getTables((err, tables) => {
                         for (let k = 0; k < tables.length; k++) {
                             let nameOfId = tables[k].id;
-                            if (idArr.indexOf(nameOfId) == -1) {
+                            if (nameOfId.toLowerCase().indexOf(currentDatasetId.split("_")[1]) != -1) {
                                 idArr.push(nameOfId);
                             }
                         }
@@ -187,7 +187,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
         returnArr.push(elemValues);
     });
     resultToTable = resultToJson(returnArr);
-    console.log(resultToTable);
+    //console.log(resultToTable);
     trigSendReq = true;
 }
 
