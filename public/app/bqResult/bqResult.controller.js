@@ -2,55 +2,67 @@
 
 angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory',
     ($scope, bqResultFactory) => {
-//        let getResults = () => {
-//            bqResultFactory.getResultsForQuery()
-//                .then((data) => {
-//                    console.log(data);
-//                });
-//            return false;
-//        };
-        let getAnswer =  () => {
-			fillBread();
+        //        let getResults = () => {
+        //            bqResultFactory.getResultsForQuery()
+        //                .then((data) => {
+        //                    console.log(data);
+        //                });
+        //            return false;
+        //        };
+        let getAnswer = () => {
+            fillBread();
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
+                    for (let i = 0; i < data.length; i++) {
+                        data[i].headings = [];
+                        if (data[i].data != undefined) {
+                            for (let key in data[i].data.data[0]) {
+                                data[i].headings.push(key);
+                            }
+                        }
+                    }
                     console.log(data);
+                    let tableContent = {
+                        data: data[0].data.data
+                    };
+                    $('#table').bootstrapTable(tableContent);
                 });
             return false;
         }
-		
-		let fillBread = () => {
-			let breadArr = ['industry','client','ad_goal'];
-			let breadText = {};
-			document.cookie.split('; ').forEach((elem)=>{
-				let content = elem.split('=');
-				if (breadArr.includes(content[0])){
-					breadText[content[0]]= elem.split('=')[1];
-				}
-			});
-			breadArr.forEach((elem)=>{
-				if (breadText[elem]==undefined) {
-					breadText[elem] = 'Все';
-				}
-			})
-			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
-			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
-			
-			document.addEventListener('mousemove', (e)=>{
-				if (e.target.closest('.breadText')!=null) {
-					let top = e.clientY + 20 + "px";
-					let left = e.clientX  - 50 + "px";
-					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
-					if (hovDiv == undefined) {
-						return false;
-					}
-					hovDiv.firstElementChild.textContent = breadText[e.target.id];
-					hovDiv.style.left = left;
-					hovDiv.style.top = top;
-				}
-			});
-			
-		};
-//        getResults();
+
+        let fillBread = () => {
+            let breadArr = ['industry', 'client', 'ad_goal'];
+            let breadText = {};
+            document.cookie.split('; ').forEach((elem) => {
+                let content = elem.split('=');
+                if (breadArr.includes(content[0])) {
+                    breadText[content[0]] = elem.split('=')[1];
+                }
+            });
+            breadArr.forEach((elem) => {
+                if (breadText[elem] == undefined) {
+                    breadText[elem] = 'Все';
+                }
+            })
+            document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
+            document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
+
+            document.addEventListener('mousemove', (e) => {
+                if (e.target.closest('.breadText') != null) {
+                    let top = e.clientY + 20 + "px";
+                    let left = e.clientX - 50 + "px";
+                    let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
+                    if (hovDiv == undefined) {
+                        return false;
+                    }
+                    hovDiv.firstElementChild.textContent = breadText[e.target.id];
+                    hovDiv.style.left = left;
+                    hovDiv.style.top = top;
+                }
+            });
+
+        };
+        //        getResults();
         getAnswer();
 
         let ctx = document.getElementById('myChart').getContext('2d');

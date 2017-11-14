@@ -120,7 +120,6 @@ let datasetsInvocation = () => {
         bigquery.getDatasets((err, datasets) => {
 
             // Массив для списка датасетов
-
             if (!err) {
                 // datasets is an array of Dataset objects.
                 for (let i = 0; i < datasets.length; i++) {
@@ -140,7 +139,7 @@ let datasetsInvocation = () => {
                             resolve(tablesObj);
                         }
                     });
-                    let tablesQuery = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
+                    let tablesQuery = 'SELECT DISTINCT table_id FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
                     bigquery.query({
                         query: tablesQuery,
                         params: []
@@ -172,7 +171,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
             if (k != 'postbuy') {
                 elem[k] = '-';
                 metricsArr[k].forEach((typeMetrics) => {
-                    if (typeMetrics.split(k + '_')[1] == typeClient) {
+                    if (typeMetrics.indexOf(typeClient) != -1) {
                         elem[k] = '+';
                         return true;
                     }
