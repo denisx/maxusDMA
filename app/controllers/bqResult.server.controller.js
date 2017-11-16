@@ -280,7 +280,7 @@ let sqlArrFunc = () => {
 let selectConfig = (datasource) => {
 
     // let selectClause = "SELECT '" + datasource.name + "' AS datasource, ";
-    let selectClause = "SELECT ";
+    let selectClause = "SELECT industry, client, site, ";
     for (let key in datasource.dimension) {
         selectClause += datasource.dimension[key] + ", ";
     }
@@ -383,7 +383,7 @@ let whereConfig = (datasource) => {
 
 // Function to configure GROUP BY clause
 let groupByConfig = (datasource) => {
-    let groupByClause = "GROUP BY ";
+    let groupByClause = "GROUP BY industry, client, site, ";
     for (let key in datasource.dimension) {
         if (key < datasource.dimension.length - 1) {
             groupByClause += datasource.dimension[key] + ", ";
@@ -457,7 +457,18 @@ exports.resultQuery = async(req, res) => {
         resolve(Promise.all(promAnsw));
     })
     pr.then((data) => {
-        for (let key in data) {
+        queryResultArr.forEach((content)=>{
+            data.forEach((answ)=>{
+                if(content.name==answ.name){
+                    content.data = answ.data;
+                }
+            })
+            if (content.data.length == 0){
+                content.data = false;
+            }
+        })
+       /*  data.forEach((content)=>{
+            queryResultArr[content.name].data = 
             try {
                 // if (data[key][0].datasource == 'postbuy') {
                 //     queryResultArr[0].postbuy.data = data[key];
@@ -467,13 +478,13 @@ exports.resultQuery = async(req, res) => {
                 //     queryResultArr[2].google_analytics.data = data[key];
                 // }
                 queryResultArr.forEach((elem,i)=>{
-                    elem.data = data[i];
+                    elem.data = data[i].data;
                 })
             } catch (e) {
                 data[key].data = "Данные по вашему запросу не были найдены :(((";
                 console.log(e);
             }
-        }
+        }) */
         console.log('queryResultArr');
         console.log(queryResultArr);
         // console.log(fromConfigSplitted('ym'))

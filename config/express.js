@@ -17,7 +17,7 @@ module.exports = function() {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-    app.use(timeout(240000));
+    app.use(timeout('240s'));
     app.use(session({
         saveUninitialized: true,
         resave: true,

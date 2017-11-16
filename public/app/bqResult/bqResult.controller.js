@@ -14,25 +14,37 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
                     console.log(data);
+					let tableContent = {
+							data: data[0].data,
+							columns : []
+						};
+						Object.keys(data[0].data[0]).forEach((key)=>{
+							tableContent.columns.push({field:key,title:key});
+						});
+						initTable();
+						$('#postbuyTable').bootstrapTable(tableContent);
+						
                 });
             return false;
         }
 		
-//		let initTable = () => {
-//			let settings = {
-//				toggle:"table",
-//				search:"true",
-//				pagination:"true",
-//				"pagination-loop":"true",
-//				"page-number":"1",
-//				"page-list":"[10,25,50,100]",
-//				toolbar:"#toolbar",
-//				"show-export":"true",
-//				"filter-control":"true",
-//				"filter-show-clear"="true"
-//			}
-//			document.getElementById('postbuyTable').setAttribute()
-//		}
+		let initTable = () => {
+			let settings = {
+				"data-toggle":"table",
+				"data-search":"true",
+				"data-pagination":"true",
+				"data-pagination-loop":"true",
+				"data-page-number":"1",
+				"data-page-list":"[10,25,50,100]",
+				"data-toolbar":"#toolbar",
+				"data-show-export":"true",
+				"data-filter-control":"true",
+				"data-filter-show-clear":"true"
+			}
+			Object.keys(settings).forEach((key)=>{
+				document.getElementById('postbuyTable').setAttribute(key, settings[key]);
+			})
+		}
 		
 		let fillBread = () => {
 			let breadArr = ['industry','client','ad_goal'];
