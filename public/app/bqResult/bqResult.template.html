@@ -127,49 +127,20 @@
                 <li><a href="#yandex_metrika" data-toggle="tab">Yandex Metrika</a></li>
             </ul>
         </div>
-        <div class="tableAppSection ">
-            <div class="tablePadding">
-                <div class="tableContainer hideElement">
-                    <div id="toolbar">
-                        <input name="daterange">
-                    </div>
-                    <table id="table" data-toggle="table" data-search="true" data-pagination="true" data-pagination-loop="true" data-page-number="1"
-                        data-page-list="[10,25,50,100]" data-toolbar="#toolbar" data-show-export="true" data-filter-control="true"
-                        data-filter-show-clear="true" class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th data-field="Industry">1</th>
-                                <th data-field="Client">2</th>
-                                <th data-field="Campaign">3</th>
-                                <th data-field="Successful">4</th>
-                                <th data-field="Date_start">5</th>
-                                <th data-field="Date_end">6</th>
-                                <th data-field="Duration">7</th>
-                                <th data-field="Site">8</th>
-                                <th data-field="Placement">9</th>
-                                <th data-field="Medium">10</th>
-                                <th data-field="Format">11</th>
-                                <th data-field="Postbuy_data">12</th>
-                                <th data-field="google_analytics">13</th>
-                                <th data-field="metrika">14</th>
-                                <th data-field="tns">15</th>
-                                <th data-field="Industry">16</th>
-                                <th data-field="Client">17</th>
-                                <th data-field="Campaign">18</th>
-                                <th data-field="Successful">19</th>
-                                <th data-field="Date_start">20</th>
-                                <th data-field="Date_end">21</th>
-                                <th data-field="Duration">22</th>
-                                <th data-field="Site">23</th>
-                                <th data-field="Placement">24</th>
-                                <th data-field="Medium">25</th>
-                                <th data-field="Format">26</th>
-                                <th data-field="test">27</th>
-                            </tr>
-                        </thead>
-                    </table>
-                </div>
-            </div>
+        <div class="tab-content">
+			<div id="postbuy" class="tab-pane fade in active" >
+				<div class="tableAppSection ">
+					<div class="tablePadding">
+						<div class="tableContainer">
+							<div id="toolbar">
+								<input name="daterange">		
+							</div>
+							<table id="postbuyTable" class="table table-hover"></table>
+					</div>
+				</div>
+			</div>
+			<div id="google_analytics" class="tab-pane fade" ></div>
+			<div id="yandex_metrika" class="tab-pane fade" ></div>
         </div>
     </div>
 </div>

@@ -1,110 +1,73 @@
-<head>
-    <!-- Google Tag Manager -->
-    <script>
-        (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({
-                'gtm.start': new Date().getTime(),
-                event: 'gtm.js'
-            });
-            var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s),
-                dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src =
-                'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-KGHRSMJ');
-    </script>
-    <!-- End Google Tag Manager -->
-    <title>MDMA: Result - Benchmarking warehouse interface</title>
-    <link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
+<html>
+	<head>
+		<!-- Google Tag Manager -->
+		<script>
+			(function (w, d, s, l, i) {
+				w[l] = w[l] || [];
+				w[l].push({
+					'gtm.start': new Date().getTime(),
+					event: 'gtm.js'
+				});
+				var f = d.getElementsByTagName(s)[0],
+					j = d.createElement(s),
+					dl = l != 'dataLayer' ? '&l=' + l : '';
+				j.async = true;
+				j.src =
+					'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+				f.parentNode.insertBefore(j, f);
+			})(window, document, 'script', 'dataLayer', 'GTM-KGHRSMJ');
+		</script>
+		<!-- End Google Tag Manager -->
+		<title>MDMA: Result - Benchmarking warehouse interface</title>
+		<link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
 
-    <script type="text/javascript" src="lib/chart.js/dist/Chart.min.js"></script>
+		<script type="text/javascript" src="lib/chart.js/dist/Chart.min.js"></script>
 
-    <link rel="stylesheet" href="app/header/header.style.css">
+		<link rel="stylesheet" href="app/header/header.style.css">
 
-    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
-    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-    <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
+		<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+		<script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    <script type="text/javascript" src="lib/angular/angular.js"></script>
+		<script type="text/javascript" src="lib/angular/angular.js"></script>
+		
+		<script type="text/javascript" src="app/header/header.module.js"></script>
+		<script type="text/javascript" src="app/header/header.controller.js"></script>
+		<script type="text/javascript" src="app/header/header.component.js"></script>
+		<script type="text/javascript" src="app/header/header.service.js"></script>
 
-    <script type="text/javascript" src="lib/bootstrap-table/src/bootstrap-table.js"></script>
+<!--		btstrp table-->
 
-    <script type="text/javascript" src="lib/file-saver/FileSaver.min.js"></script>
-    <script type="text/javascript" src="lib/tableexport.jquery.plugin/tableExport.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap-table/src/bootstrap-table.js"></script>
+	
+	<script type="text/javascript" src="lib/file-saver/FileSaver.min.js"></script>
+    <script type="text/javascript" src="lib/tableexport.jquery.plugin/tableExport.min.js"></script>    
+	         
+	<script type="text/javascript" src="lib/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js"></script> 
+	<script type="text/javascript" src="lib/bootstrap-table/dist/extensions/select2-filter/bootstrap-table-select2-filter.min.js"></script> 
+	<link rel="stylesheet" href="lib/bootstrap-table/src/bootstrap-table.css">   
+<!--		end btrstrp table-->
 
-    <script type="text/javascript" src="lib/bootstrap-table/dist/extensions/export/bootstrap-table-export.min.js"></script>
-    <script type="text/javascript" src="lib/bootstrap-table/dist/extensions/select2-filter/bootstrap-table-select2-filter.min.js"></script>
+		<script type="text/javascript" src="app/bqResult/bqResult.module.js"></script>
+		<script type="text/javascript" src="app/bqResult/bqResult.controller.js"></script>
+		<script type="text/javascript" src="app/bqResult/bqResult.component.js"></script>
+		<script type="text/javascript" src="app/bqResult/bqResult.service.js"></script>
+		<link rel="stylesheet" href="app/bqResult/bqResult.template.css">
+		<link rel="stylesheet" href="lib/style/filters.style.css">
+	</head>
 
-    <script type="text/javascript" src="app/header/header.module.js"></script>
-    <script type="text/javascript" src="app/header/header.controller.js"></script>
-    <script type="text/javascript" src="app/header/header.component.js"></script>
-    <script type="text/javascript" src="app/header/header.service.js"></script>
+	<body>
+	    <!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGHRSMJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+		<div id="pageheadApp" ng-app="pagehead">
+			<pagehead></pagehead>
+		</div>
 
-    <script type="text/javascript" src="app/bqResult/bqResult.module.js"></script>
-    <script type="text/javascript" src="app/bqResult/bqResult.controller.js"></script>
-    <script type="text/javascript" src="app/bqResult/bqResult.component.js"></script>
-    <script type="text/javascript" src="app/bqResult/bqResult.service.js"></script>
-    <link rel="stylesheet" href="app/bqResult/bqResult.template.css">
-    <link rel="stylesheet" href="lib/style/filters.style.css">
-</head>
-
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript>
-        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGHRSMJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
-    </noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    <div id="pageheadApp" ng-app="pagehead">
-        <pagehead></pagehead>
-    </div>
-    <!--
-    <div class="chart">
-        <canvas id="myChart"></canvas>
-        <script>
-            var ctx = document.getElementById("myChart").getContext('2d');
-            var myChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                    datasets: [{
-                        label: 'test 1',
-                        data: [12, 19, 3, 5, 2, 3],
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.2)',
-                            'rgba(54, 162, 235, 0.2)',
-                            'rgba(255, 206, 86, 0.2)',
-                            'rgba(75, 192, 192, 0.2)',
-                            'rgba(153, 102, 255, 0.2)',
-                            'rgba(255, 159, 64, 0.2)'
-                        ],
-                        borderColor: [
-                            'rgba(255,99,132,1)',
-                            'rgba(54, 162, 235, 1)',
-                            'rgba(255, 206, 86, 1)',
-                            'rgba(75, 192, 192, 1)',
-                            'rgba(153, 102, 255, 1)',
-                            'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero: true
-                            }
-                        }]
-                    }
-                }
-            });
-        </script>
-    </div>
--->
-    <div id="tableResultApp" ng-app="bqResult">
-        <resulttable></resulttable>
-    </div>
-</body>
+		<div id="tableResultApp" ng-app="bqResult">
+			<resulttable></resulttable>
+		</div>
+	</body>
+</html>

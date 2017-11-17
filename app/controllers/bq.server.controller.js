@@ -85,20 +85,6 @@ let bqInvocation = (query) => {
     return bqInvocationPromise;
 };
 
-// let resultToJson = (inputArray) => {
-//     let output = {};
-//     let contentOfTable = inputArray.slice(1);
-//     inputArray[0].forEach((elem)=>{
-//         output[elem] = [];
-//     });
-//     contentOfTable.forEach((row)=>{
-//         for (let i = 0; i<row.length; i++) {
-//             output[Object.keys(output)[i]].push(row[i]);
-//         }
-//     });
-//     return output;
-// }
-
 let resultToJson = (inputArray) => {
     let output = [];
     let contentOfTable = inputArray.slice(1);

@@ -465,7 +465,18 @@ exports.resultQuery = async(req, res) => {
         resolve(Promise.all(promAnsw));
     })
     pr.then((data) => {
-        for (let key in data) {
+        queryResultArr.forEach((content)=>{
+            data.forEach((answ)=>{
+                if(content.name==answ.name){
+                    content.data = answ.data;
+                }
+            })
+            if (content.data.length == 0){
+                content.data = false;
+            }
+        })
+       /*  data.forEach((content)=>{
+            queryResultArr[content.name].data = 
             try {
                 // if (data[key][0].datasource == 'postbuy') {
                 //     queryResultArr[0].postbuy.data = data[key];
@@ -474,14 +485,19 @@ exports.resultQuery = async(req, res) => {
                 // } else if (data[key][0].datasource == 'google_analytics') {
                 //     queryResultArr[2].google_analytics.data = data[key];
                 // }
+<<<<<<< HEAD
                 queryResultArr.forEach((elem, i) => {
                     elem.data = data[i];
+=======
+                queryResultArr.forEach((elem,i)=>{
+                    elem.data = data[i].data;
+>>>>>>> 6cdeab68cd32f0c2de591018c7db6d1ecdd40404
                 })
             } catch (e) {
                 data[key].data = "Данные по вашему запросу не были найдены :(((";
                 console.log(e);
             }
-        }
+        }) */
         console.log('queryResultArr');
         console.log(queryResultArr);
         // console.log(fromConfigSplitted('ym'))
