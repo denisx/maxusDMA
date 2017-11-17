@@ -22,13 +22,14 @@ let queryConfigObj = {
 
 // Array with objects to record query results
 // Each have 'data' property to receive data and 'name' property with datasource name
-let queryResultArr = [{
+let queryResultArr = [
+    {
         'data': [],
         'name': 'postbuy'
     },
     {
         'data': [],
-        'name': 'yandex_metrika'
+        'name': 'yandex_metrika'   
     },
     {
         'data': [],
@@ -246,7 +247,7 @@ let paramResFunc = (param) => {
             }
         });
         return answ;
-    }
+    } 
     for (let i in answer.filters[param]) {
         if (answer.filters[param].length === 0) {
             answ += ".*";
@@ -310,7 +311,7 @@ let postbuySelectConfig = () => {
         return ''
     };
     // let selectClause = "SELECT 'postbuy' AS datasource, ";
-    let selectClause = "SELECT industry, client, site, ";
+    let selectClause = "SELECT ";
     for (let key in answer.postbuy) {
         if (key < answer.postbuy.length - 1) {
             selectClause += answer.postbuy[key] + ", ";
@@ -411,13 +412,10 @@ exports.resultQuery = async(req, res) => {
                     console.log(queryConfigObj.postbuyResultQuery);
                     let prPostBuy = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
-                            if (err) {
+                             if (err) {
                                 reject(err);
                             } else {
-                                let answ = {
-                                    name: 'postbuy',
-                                    data: rows
-                                };
+                                let answ = {name:'postbuy', data: rows};
                                 resolve(answ);
                             }
                         });
@@ -429,13 +427,10 @@ exports.resultQuery = async(req, res) => {
                     console.log(queryConfigObj.ymResultQuery);
                     let prYM = new Promise((resolve, reject) => {
                         bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
-                            if (err) {
+                             if (err) {
                                 reject(err);
                             } else {
-                                let answ = {
-                                    name: 'yandex_metrika',
-                                    data: rows
-                                };
+                                let answ = {name:'yandex_metrika', data: rows};
                                 resolve(answ);
                             }
                         });
@@ -450,10 +445,7 @@ exports.resultQuery = async(req, res) => {
                             if (err) {
                                 reject(err);
                             } else {
-                                let answ = {
-                                    name: 'google_analytics',
-                                    data: rows
-                                };
+                                let answ = {name:'google_analytics', data: rows};
                                 resolve(answ);
                             }
                         });
@@ -485,13 +477,8 @@ exports.resultQuery = async(req, res) => {
                 // } else if (data[key][0].datasource == 'google_analytics') {
                 //     queryResultArr[2].google_analytics.data = data[key];
                 // }
-<<<<<<< HEAD
-                queryResultArr.forEach((elem, i) => {
-                    elem.data = data[i];
-=======
                 queryResultArr.forEach((elem,i)=>{
                     elem.data = data[i].data;
->>>>>>> 6cdeab68cd32f0c2de591018c7db6d1ecdd40404
                 })
             } catch (e) {
                 data[key].data = "Данные по вашему запросу не были найдены :(((";

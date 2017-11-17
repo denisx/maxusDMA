@@ -6,6 +6,7 @@ const config = require('./config'),
     express = require('express'),
     methodOverride = require('method-override'),
     passport = require('passport'),
+    timeout = require('connect-timeout'),
     session = require('express-session');
 
 module.exports = function() {

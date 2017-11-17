@@ -99,24 +99,25 @@ let resultToJson = (inputArray) => {
 }
 
 // Запишем в массив datasetArr все датасеты в аккаунте
-let datasetsInvocation = async () => {
+let datasetsInvocation = () => {
     let tablesObj = {}; // Объект с массивами с таблицами из датасетов
 
     let getDatasetsPromise = new Promise((resolve, reject) => {
         bigquery.getDatasets((err, datasets) => {
 
             // Массив для списка датасетов
+
             if (!err) {
                 // datasets is an array of Dataset objects.
                 for (let i = 0; i < datasets.length; i++) {
                     let currentDatasetId = datasets[i].metadata.datasetReference.datasetId;
 
                     datasetsArr.push(currentDatasetId)
-                    let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасето
+                    let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
                     dataset.getTables((err, tables) => {
                         for (let k = 0; k < tables.length; k++) {
                             let nameOfId = tables[k].id;
-                            if (nameOfId.toLowerCase().indexOf(currentDatasetId.split("_")[1]) != -1) {
+                            if (idArr.indexOf(nameOfId) == -1) {
                                 idArr.push(nameOfId);
                             }
                         }
@@ -125,7 +126,7 @@ let datasetsInvocation = async () => {
                             resolve(tablesObj);
                         }
                     });
-                    let tablesQuery = 'SELECT DISTINCT table_id FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
+                    let tablesQuery = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
                     bigquery.query({
                         query: tablesQuery,
                         params: []
@@ -157,7 +158,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
             if (k != 'postbuy') {
                 elem[k] = '-';
                 metricsArr[k].forEach((typeMetrics) => {
-                    if (typeMetrics.indexOf(typeClient) != -1) {
+                    if (typeMetrics.split(k + '_')[1] == typeClient) {
                         elem[k] = '+';
                         return true;
                     }
@@ -173,7 +174,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
         returnArr.push(elemValues);
     });
     resultToTable = resultToJson(returnArr);
-    //console.log(resultToTable);
+    console.log(resultToTable);
     trigSendReq = true;
 }
 

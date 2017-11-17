@@ -2,25 +2,17 @@
 
 angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory',
     ($scope, bqResultFactory) => {
-        //        let getResults = () => {
-        //            bqResultFactory.getResultsForQuery()
-        //                .then((data) => {
-        //                    console.log(data);
-        //                });
-        //            return false;
-        //        };
-        let getAnswer = () => {
-            fillBread();
+//        let getResults = () => {
+//            bqResultFactory.getResultsForQuery()
+//                .then((data) => {
+//                    console.log(data);
+//                });
+//            return false;
+//        };
+        let getAnswer =  () => {
+			fillBread();
             bqResultFactory.getAnswerForQuery()
                 .then((data) => {
-                    for (let i = 0; i < data.length; i++) {
-                        data[i].headings = [];
-                        if (data[i].data != undefined) {
-                            for (let key in data[i].data.data[0]) {
-                                data[i].headings.push(key);
-                            }
-                        }
-                    }
                     console.log(data);
 					let tableContent = {
 							data: data[0].data,
