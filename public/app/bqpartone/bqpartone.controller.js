@@ -105,7 +105,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			$scope.menuToShow = currentMenuPoint.id;
 			let menuPopupClassName = choosePopup();
 			document.getElementsByClassName(menuPopupClassName)[0].classList.toggle('hideElement');
-			if(workingWithData.metricsOrNot){workingWithData().checkGoals();}
+			if(workingWithData().metricsOrNot() == true){
+//				document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals;
+				workingWithData().checkGoals();
+			}
 			document.addEventListener('click', function closeModal (e) {
 
 				if((e.target.closest('.'+menuPopupClassName)==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
@@ -133,7 +136,11 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					$scope.$apply();
 				}
 				
-				//document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
+				if(e.target.closest('#goalCheck')!=null){
+					workingWithData().changeGoals();
+				}
+				
+//				document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
 				
 				
 
@@ -244,7 +251,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			obj.getArraysAdress = () => {
 				let answ = {};
 				let chosen = [], content = [];
-				if (obj.metricsOrNot()){
+				if (obj.metricsOrNot){
 					let className = obj.getClassName();
 					let paramName = $scope.menuElements.dataSource[$scope.menuToShow];
 					let metricsDimensions = target.closest('.group').getAttribute('data-type');
@@ -277,11 +284,15 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 			
 			obj.checkGoals = () => {
+				console.log($scope.menuElements.dataSource[$scope.menuToShow]);
 				document.getElementById('goalCheck').checked = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
 			}
 			
 			obj.changeGoals = () => {
-				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = document.getElementById('goalCheck').checked;
+				let goal = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
+				console.log($scope.menuElements.dataSource[$scope.menuToShow].chosen.goals)
+				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = (goal)?false:true;
+				console.log($scope.menuElements.dataSource[$scope.menuToShow].chosen.goals)
 			}
 			
 			return obj;
