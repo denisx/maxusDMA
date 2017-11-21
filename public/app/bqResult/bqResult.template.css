@@ -28,6 +28,7 @@
     width: 85%;
     min-width: 85%;
     float: left;
+    display: inline-block;
 }
 
 .chartDropdown {
@@ -432,4 +433,14 @@ img.loader {
     padding: 6px 12px;
     border-radius: 4px;
     border: 1px solid #ccc;
+}
+
+#download {
+    height: 34px;
+    float: right;
+    margin-top: -83px;
+    margin-right: 25px;
+    position: relative;
+    background-color: #55b24c;
+    color: white;
 }

@@ -65,11 +65,13 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 				"data-pagination-loop": "true",
 				"data-page-number": "1",
 				"data-page-list": "[10,25,50,100]",
+				"data-page-size": 25,
 				"data-toolbar": "#toolbar",
-				"data-show-export": "true",
-				"data-export-data-type": "all",
+/* 				"data-show-export": "true",
+				"data-export-data-type": "all", */
 				"data-filter-control": "true",
 				"data-filter-show-clear": "true",
+				"data-sortable": true,
 				"height": 100
 			}
 			Object.keys(settings).forEach((key) => {
@@ -116,7 +118,12 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 
 		getAnswer();
 
-		let ctx = document.getElementById('myChart').getContext('2d');
+		let download = () => {
+			let pathToFile = '/lib/CSVData/' + $('.resultTabs > ul > li.active a').attr('id') + '_benchmarks_upload.csv';
+			
+		}
+
+		let ctx = document.getElementById('myChart').getContext('2d'); 
 		let chart = new Chart(ctx, {
 			// The type of chart we want to create
 			type: 'line',
