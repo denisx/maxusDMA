@@ -1,6 +1,34 @@
 .footer {
     width: 100%;
     height: 100px;
-    background-color: black;
-    margin-top: 5%;
+    background-color: #eaeaea;
+    margin-top: 8%;
+}
+
+.GCP {
+    width: 125px;
+    height: 77px;
+    float: right;
+    margin-top: -45px;
+    margin-right: 2%;
+}
+
+.WM {
+    float: left;
+    width: 125px;
+    height: 40px;
+    margin-top: 2%;
+    margin-left: 3%;
+}
+
+.credentials {
+    width: 175px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 3%;
+}
+
+.credentials a {
+    color: #333;
 }

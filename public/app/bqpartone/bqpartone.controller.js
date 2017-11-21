@@ -332,6 +332,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				"data-page-list":"[10,25,50,100]",
 				"data-toolbar":"#toolbar",
 				"data-show-export":"true",
+				"data-export-data-type": "all",
 				"data-filter-control":"true",
 				"data-filter-show-clear":"true"
 			}

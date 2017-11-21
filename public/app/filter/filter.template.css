@@ -1,19 +1,20 @@
 .mainFilterContainer {
-	background-color: #eaeaea;
-	padding-top: 20px;
+    background-color: #eaeaea;
+    padding-top: 20px;
 }
 
 .advancedFilterContainer {
-	background-color: lightgrey;
+    background-color: lightgrey;
 }
 
-.mainFilterContainer, .advancedFilterContainer {
-	font-size: 20px;
-	font-family: 'Roboto', sans-serif;
+.mainFilterContainer,
+.advancedFilterContainer {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .hideElement {
-	display: none;
+    display: none;
 }
 
 .selectBoxDropdownContainer {
@@ -23,23 +24,23 @@
     box-shadow: 0 0 5px grey;
     padding: 5px 0 5px 0;
     display: none;
-	background-color: white;
-	border-radius: 6px;
-	position: absolute;
-	z-index: 1;
-	padding-bottom: 5px;
+    background-color: white;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    padding-bottom: 5px;
 }
 
 .selectBoxHoverDefault {
-	display:none;
+    display: none;
 }
 
 .selectBoxHoverInfo {
-	display: none;
+    display: none;
 }
 
-.selectBoxDropdownButton:hover ~ .selectBoxHoverInfo {
-	display: block;
+.selectBoxDropdownButton:hover~.selectBoxHoverInfo {
+    display: block;
     width: 150px;
     height: auto;
     background-color: white;
@@ -51,78 +52,77 @@
 }
 
 .selectBoxHoverInfoP {
-	font-size: 14px;
-	margin: 5px 0 5px 5px;
+    font-size: 14px;
+    margin: 5px 0 5px 5px;
     color: #00b6e0;
 }
 
 .sBDCSearchBox {
-	width: 84%;
+    width: 84%;
     display: inline-block;
     margin: 0 0px 11px 0px;
     background-color: #e6e6e6;
     border-radius: 5px;
     border: 0px;
-	padding: 0 0 1px 7px;
+    padding: 0 0 1px 7px;
 }
 
 .searchIcon {
-	margin: 0 0 5px 10px;
-	display: inline-block;
+    margin: 0 0 5px 10px;
+    display: inline-block;
 }
 
-.sBDCValueContainer, .sBDCButtonContainer {
-	width: 95%;
-	margin: auto;
+.sBDCValueContainer,
+.sBDCButtonContainer {
+    width: 95%;
+    margin: auto;
 }
-
 
 .sBDCValueContainer {
-	margin-bottom: 5px;
+    margin-bottom: 5px;
     display: block;
     overflow-x: hidden;
     max-height: 240px;
-	padding-right: 5px;
+    padding-right: 5px;
 }
 
 .sBDCValue {
-	border: 1px solid #00b6e0;
-	margin-bottom: 8px;
-	border-radius: 10px;
-	cursor: pointer;
+    border: 1px solid #00b6e0;
+    margin-bottom: 8px;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 .sBDCVPassive:hover {
-	border: 1px solid #00b6e0;
-	background-color: #00b6e0;
+    border: 1px solid #00b6e0;
+    background-color: #00b6e0;
 }
 
 .sBDCVPassive:hover .sBDCVPPassive {
-	color: white;
+    color: white;
 }
 
-
 .sBDCVActive {
-	border: 1px solid #0c5297;
-	background-color: #0c5297;
+    border: 1px solid #0c5297;
+    background-color: #0c5297;
 }
 
 .sBDCValueCheckbox {
-	float: right;
-	clear: both;
-	margin-right: 2px!important;
-	display: none;
+    float: right;
+    clear: both;
+    margin-right: 2px!important;
+    display: none;
 }
 
 .sBDCBCButtonOtm {
-	margin-left: 5px;
+    margin-left: 5px;
     border: 0px solid #0c5297;
     border-radius: 5px;
     background-color: #00b6e0;
     color: white;
     font-size: 15px;
     padding: 2px 8px 2px 8px;
-	outline: none;
+    outline: none;
 }
 
 .sBDCBCButtonOk {
@@ -133,12 +133,11 @@
     color: white;
     font-size: 15px;
     padding: 2px 8px 2px 8px;
-	outline: none;
+    outline: none;
 }
 
-
 .sBDCButtonContainer {
-	display: block;
+    display: block;
     margin-bottom: 12px;
     margin-top: 5px;
     margin-left: 25px;
@@ -146,57 +145,54 @@
 }
 
 .sBDCValueP {
-	margin: 5px 0px 5px 10px;
-	width: 100%;
-	color: #00b6e0;
+    margin: 5px 0px 5px 10px;
+    width: 100%;
+    color: #00b6e0;
 }
 
 .sBDCValuePPassive {
-	color: #00b6e0;
+    color: #00b6e0;
 }
 
 .sBDCValuePActive {
-	color: #fff;
+    color: #fff;
 }
 
-
-.selectBoxFirstInRow {	
-	margin-left: 8.7%;
+.selectBoxFirstInRow {
+    margin-left: 8.7%;
 }
 
 .selectBoxOtherInRow {
-	margin-left: 30px;
+    margin-left: 30px;
 }
 
 .selectBoxWithLabel {
-	display: inline-block;
-	margin-top: 15px;
+    display: inline-block;
+    margin-top: 15px;
 }
-
-
 
 .selectBoxLabel {
-	margin-bottom: 15px;
-	color:  rgba(128, 128, 128, 255);
-	
+    margin-bottom: 4px;
+    color: rgba(128, 128, 128, 255);
+    font-size: 15px;
 }
 
-.refreshFiltersLink  {
+.refreshFiltersLink {
     margin-top: 5px;
     padding: 10px;
-	font-size: 16px;
-	text-decoration: underline;
-	cursor: pointer;
-	max-width: max-content;
+    font-size: 16px;
+    text-decoration: underline;
+    cursor: pointer;
+    max-width: max-content;
 }
 
 .refreshFiltersLink:hover {
-	color: grey; 
+    color: grey;
 }
 
 .refreshFiltersDiv {
-	margin-left: 38.8%;
-	margin-top: 1%;
+    margin-left: 38.8%;
+    margin-top: 1%;
 }
 
 .selectBoxDropdownButtonImgDiv {
@@ -214,9 +210,9 @@
 }
 
 .selectBoxDropdownButtonText {
-	display: inline-block;
+    display: inline-block;
     padding: 8px 0px 0px 15px;
-	color: #00b6e0;
+    color: #00b6e0;
 }
 
 .selectBoxDropdownButton {
@@ -227,12 +223,14 @@
     border-radius: 6px;
     cursor: pointer;
     box-shadow: 0 0 5px grey;
+    margin-bottom: 11px;
 }
 
 
 /*Continue button begin*/
+
 .contButP {
-	display: inline-block;
+    display: inline-block;
     font-size: 20px;
     color: #fff;
     margin: 4% 14% 4% 21%;
@@ -264,26 +262,30 @@
 }
 
 .nextPageRow {
-	margin-top: 5%;
+    margin-top: 5%;
 }
+
+
 /*Continue button end*/
 
+
 /*Гребаный ромбик*/
+
 .triangle {
-	height: 25px;
+    height: 25px;
     width: 25px;
     background-color: #13c33a;
     margin-left: 48.8%;
     position: absolute;
-	transform: rotate(45deg);
+    transform: rotate(45deg);
     margin-top: -0.7%;
     box-shadow: 0 0 2px green;
 }
 
 .triangle:hover {
-	background-color: #51c651;
-	cursor:pointer;
-	box-shadow: 0 0 4px #023302;
+    background-color: #51c651;
+    cursor: pointer;
+    box-shadow: 0 0 4px #023302;
 }
 
 .triangle:active {
@@ -292,7 +294,7 @@
 }
 
 .down-triangle {
-	width: 15px;
+    width: 15px;
     height: 15px;
     background-color: transparent;
     border: 2px solid transparent;
@@ -303,7 +305,7 @@
 }
 
 .up-triangle {
-	width: 15px;
+    width: 15px;
     height: 15px;
     background-color: transparent;
     border: 2px solid transparent;
@@ -312,7 +314,10 @@
     margin-top: -21px;
     margin-left: 2px;
 }
+
+
 /*Конец гребаного ромбика*/
+
 
 /*Начало гребаного прямоугольничка*/
 
@@ -322,7 +327,7 @@
     background-color: #00b6e0;
     border: solid 1px;
     border-radius: 3px;
-    border-color:  #c6c6c6;
+    border-color: #c6c6c6;
     position: absolute;
     margin-left: 48.3%;
     margin-top: -6px;
@@ -335,7 +340,7 @@
 
 #down-triangle {
     transform: rotate(45deg);
-	width: 10px;
+    width: 10px;
     height: 10px;
     background-color: transparent;
     border: 2px solid transparent;
@@ -347,7 +352,7 @@
 
 #up-triangle {
     transform: rotate(45deg);
-	width: 10px;
+    width: 10px;
     height: 10px;
     background-color: transparent;
     border: 2px solid transparent;
