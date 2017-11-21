@@ -95,7 +95,7 @@
             </div>
 
         </div>
-        <div class="chartSection">
+        <!--         <div class="chartSection">
             <div class="chartPanel">
                 <div class="chartDropdown">
                     <div class="btn-group">
@@ -119,14 +119,15 @@
             <div class="chart-container">
                 <canvas id="myChart"></canvas>
             </div>
-        </div>
+        </div> -->
         <div class="resultTabs">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#postbuy" data-toggle="tab">Postbuy</a></li>
-                <li><a href="#google_analytics" data-toggle="tab">Google Analytics</a></li>
-                <li><a href="#yandex_metrika" data-toggle="tab">Yandex Metrika</a></li>
+                <li class="active"><a href="#postbuy" data-toggle="tab" id="Postbuy">Postbuy</a></li>
+                <li><a href="#google_analytics" data-toggle="tab" id="Google Analytics">Google_Analytics</a></li>
+                <li><a href="#yandex_metrika" data-toggle="tab" id="Yandex_Metrika">Yandex Metrika</a></li>
             </ul>
         </div>
+        <div class="btn" id="download" ng-click="download()">Download</div>
         <div class="loaderDiv">
             <img class="loader" src="lib/pic/Logo_MDMA_Circle.svg">
         </div>
@@ -153,9 +154,6 @@
                 <div class="tableAppSection ">
                     <div class="tablePadding">
                         <div class="tableContainer">
-                            <div id="toolbar">
-                                <input name="daterange">
-                            </div>
                             <table id="yandexMetrikaTable" class="table table-hover"></table>
                         </div>
                     </div>

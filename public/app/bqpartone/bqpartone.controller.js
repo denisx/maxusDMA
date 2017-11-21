@@ -86,7 +86,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				locale: {
 				  format: 'YYYY-MM-DD'
 				},
-				startDate: '2015-01-01',
+				startDate: moment().subtract(60, 'days').format('YYYY-MM-DD'),
 				endDate: moment().format('YYYY-MM-DD'),
 				timepicker: false
 			}
