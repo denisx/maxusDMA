@@ -16,10 +16,16 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
 		//Refactore \/
         // open/close chosen div
-        function hideShowBoxes(currentBox, currentButton, state1, state2){
+        let hideShowBoxes = (currentBox, currentButton, state1, state2) => {
             currentBox.style.display = state1;
             currentButton.style.display = state2;
         };
+
+        //refactore $('.sBDCBCButtonSubmit') with some kind of '$(this)'
+        $scope.submitCloser = () => {
+            $('.sBDCBCButtonSubmit').parents('.selectBoxDropdownContainer').hide();
+            $('.sBDCBCButtonSubmit').parents('.selectBoxDropdownContainer').parent().children('.selectBoxDropdownButton').show();
+        }
 
         // recoloring checked option
 		//refactore \/

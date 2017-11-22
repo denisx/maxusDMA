@@ -73,7 +73,8 @@
 }
 
 .sBDCValueContainer,
-.sBDCButtonContainer {
+.sBDCButtonContainer
+.sBDCSubmitContainer {
     width: 95%;
     margin: auto;
 }
@@ -130,6 +131,20 @@
     border: 0px solid #0c5297;
     border-radius: 5px;
     background-color: #00b6e0;
+    color: white;
+    font-size: 15px;
+    padding: 2px 8px 2px 8px;
+    outline: none;
+}
+
+.sBDCBCButtonSubmit {
+    float: right;
+    margin-bottom: 10px;
+    margin-right: 8px;
+    width: 110px;
+    border: 0px solid #55b24c;
+    border-radius: 5px;
+    background-color: #55b24c;
     color: white;
     font-size: 15px;
     padding: 2px 8px 2px 8px;

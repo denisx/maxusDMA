@@ -496,29 +496,47 @@ exports.resultQuery = async(req, res) => {
         let PostbuyCSV = json2csv({
             data: exportData[0],
             fields: exportFields[0],
-            del: ';' 
+            del: ';'
         });
         let GACSV = json2csv({
             data: exportData[2],
             fields: exportFields[2],
-            del: ';' 
+            del: ';'
         });
         let YMCSV = json2csv({
             data: exportData[1],
             fields: exportFields[1],
-            del: ';' 
+            del: ';'
+        });
+        fs.unlink('./public/lib/CSVData/Postbuy_benchmarks_upload.csv', function (error) {
+            if (error) {
+                console.log('no postbuy file found');
+            }
+            console.log('Deleted!!');
+        });
+        fs.unlink('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', function (error) {
+            if (error) {
+                console.log('no GA file found');
+            }
+            console.log('Deleted!!');
+        });
+        fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', function (error) {
+            if (error) {
+                console.log('no YM file found');
+            }
+            console.log('Deleted!!');
         });
 
         fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
-            if (err) throw err;
+            if (err) console.log(err);
             console.log('postbuy file saved');
         });
         fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
-            if (err) throw err;
+            if (err) console.log(err);
             console.log('GA file saved');
         });
         fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
-            if (err) throw err;
+            if (err) console.log(err);
             console.log('YM file saved');
         });
     })
