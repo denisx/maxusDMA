@@ -402,6 +402,19 @@ let groupByConfig = (datasource) => {
 // Function to send query to BQ and receive results. Query loops through 'sqlArr' and switch 'bigquery.query' for each selected datasource
 let queryResult = [];
 exports.resultQuery = async(req, res) => {
+    queryResultArr = [{
+            'data': [],
+            'name': 'postbuy'
+        },
+        {
+            'data': [],
+            'name': 'yandex_metrika'
+        },
+        {
+            'data': [],
+            'name': 'google_analytics'
+        },
+    ]
     console.log('---------------------');
     console.log(answer);
     let promAnsw = [];
@@ -493,21 +506,27 @@ exports.resultQuery = async(req, res) => {
             exportFields.push(Object.keys(key.data[0]));
             exportData.push(key.data);
         }
-        let PostbuyCSV = json2csv({
-            data: exportData[0],
-            fields: exportFields[0],
-            del: ';'
-        });
-        let GACSV = json2csv({
-            data: exportData[2],
-            fields: exportFields[2],
-            del: ';'
-        });
-        let YMCSV = json2csv({
-            data: exportData[1],
-            fields: exportFields[1],
-            del: ';'
-        });
+        if (queryResultArr[0].data.length > 0) {
+            let PostbuyCSV = json2csv({
+                data: exportData[0],
+                fields: exportFields[0],
+                del: ';'
+            });
+        }
+        if (queryResultArr[1].data.length > 0) {
+            let GACSV = json2csv({
+                data: exportData[2],
+                fields: exportFields[2],
+                del: ';'
+            });
+        }
+        if (queryResultArr[2].data.length > 0) {
+            let YMCSV = json2csv({
+                data: exportData[1],
+                fields: exportFields[1],
+                del: ';'
+            });
+        }
         fs.unlink('./public/lib/CSVData/Postbuy_benchmarks_upload.csv', function (error) {
             if (error) {
                 console.log('no postbuy file found');
@@ -527,18 +546,24 @@ exports.resultQuery = async(req, res) => {
             console.log('Deleted!!');
         });
 
-        fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
-            if (err) console.log(err);
-            console.log('postbuy file saved');
-        });
-        fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
-            if (err) console.log(err);
-            console.log('GA file saved');
-        });
-        fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
-            if (err) console.log(err);
-            console.log('YM file saved');
-        });
+        if (queryResultArr[0].data.length > 0) {
+            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
+                if (err) console.log(err);
+                console.log('postbuy file saved');
+            });
+        }
+        if (queryResultArr[1].data.length > 0) {
+            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
+                if (err) console.log(err);
+                console.log('GA file saved');
+            });
+        }
+        if (queryResultArr[2].data.length > 0) {
+            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
+                if (err) console.log(err);
+                console.log('YM file saved');
+            });
+        }
     })
 }
 
