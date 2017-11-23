@@ -82,7 +82,8 @@
 			
 			<div class="hoverMenuWithMetrics hideElement">
 				<div class="topSideMVW">
-					<p>{{menuElements.dataSource[menuToShow].name}}</p>
+					<p><b>{{menuElements.dataSource[menuToShow].name}}</b></p>
+					<div class="btn" id="saveBtn">Save</div>
 				</div>
 				<div class="activeGroup">
 					<div class="group" data-type="dimension">
@@ -146,9 +147,11 @@
 			</div>
 			
 			<div class="hoverMenuWithVariants hideElement">
-				<div class="topSideMVW">
-					<p>{{menuElements[menuToShow].name}}</p>
+				<div class="topSideMVW" id="postbuyTopSideMVW">
+					<p><b>{{menuElements[menuToShow].name}}</b></p>
+					<div class="btn" id="saveBtn">Save</div>
 				</div>
+				<p class="groupName" id="postbuyGroupName">Параметры и показатели:</p>
 				<div class="activeGroup">
 					<div class="leftSideMVW">
 						<div class="elementToChooseMVW" ng-repeat="elem in menuElements[menuToShow].content track by elem">

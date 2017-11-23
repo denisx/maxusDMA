@@ -3,8 +3,6 @@
 // Require export packages
 let json2csv = require('json2csv');
 let fs = require('fs');
-let exportFields = [];
-let exportData = [];
 
 // Paths project, datasets, tables
 const projectId = 'mdma-175510';
@@ -444,40 +442,48 @@ exports.resultQuery = async(req, res) => {
                     promAnsw.push(prPostBuy);
                     break;
                 case 'yandex_metrika':
-                    queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
-                    console.log(queryConfigObj.ymResultQuery);
-                    let prYM = new Promise((resolve, reject) => {
-                        bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
-                            if (err) {
-                                reject(err);
-                            } else {
-                                let answ = {
-                                    name: 'yandex_metrika',
-                                    data: rows
-                                };
-                                resolve(answ);
-                            }
+                    if (fromConfigSplitted('ym') != " FROM ") {
+                        queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
+                        console.log(queryConfigObj.ymResultQuery);
+                        let prYM = new Promise((resolve, reject) => {
+                            bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    let answ = {
+                                        name: 'yandex_metrika',
+                                        data: rows
+                                    };
+                                    resolve(answ);
+                                }
+                            });
                         });
-                    });
-                    promAnsw.push(prYM);
+                        promAnsw.push(prYM);
+                    } else {
+                        console.log('no yandex metrika data')
+                    }
                     break;
                 case 'google_analytics':
-                    queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
-                    console.log(queryConfigObj.gaResultQuery);
-                    let prGA = new Promise((resolve, reject) => {
-                        bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
-                            if (err) {
-                                reject(err);
-                            } else {
-                                let answ = {
-                                    name: 'google_analytics',
-                                    data: rows
-                                };
-                                resolve(answ);
-                            }
+                    if (fromConfigSplitted('ga') != " FROM ") {
+                        queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
+                        console.log(queryConfigObj.gaResultQuery);
+                        let prGA = new Promise((resolve, reject) => {
+                            bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    let answ = {
+                                        name: 'google_analytics',
+                                        data: rows
+                                    };
+                                    resolve(answ);
+                                }
+                            });
                         });
-                    });
-                    promAnsw.push(prGA);
+                        promAnsw.push(prGA);
+                    } else {
+                        console.log('no google analytics data')
+                    }
                     break;
             }
         }
@@ -500,15 +506,17 @@ exports.resultQuery = async(req, res) => {
         console.log(queryResultArr);
         res.send(queryResultArr);
 
+        let exportFields = [];
+        let exportData = [];
 
         // Configure files for download
         for (let key of queryResultArr) {
-            if(key.data) {
-            exportFields.push(Object.keys(key.data[0]));
-            exportData.push(key.data);
+            if (key.data) {
+                exportFields.push(Object.keys(key.data[0]));
+                exportData.push(key.data);
             } else {
-            exportFields.push("no data");
-            exportData.push("no data");
+                exportFields.push("no data");
+                exportData.push("no data");
             }
         }
         console.log(exportFields);
@@ -524,8 +532,10 @@ exports.resultQuery = async(req, res) => {
             });
         } else {
             PostbuyCSV = json2csv({
-                data: [{'Все еще':'Пустота'}],
-                fields: ['Все еще'],
+                data: [{
+                    'Зачем': 'было это скачивать?'
+                }],
+                fields: ['Зачем'],
                 del: ';'
             });
         }
@@ -537,8 +547,10 @@ exports.resultQuery = async(req, res) => {
             });
         } else {
             GACSV = json2csv({
-                data: [{'Все еще':'Пустота'}],
-                fields: ['Все еще'],
+                data: [{
+                    'Зачем': 'было это скачивать?'
+                }],
+                fields: ['Зачем'],
                 del: ';'
             });
         }
@@ -550,8 +562,10 @@ exports.resultQuery = async(req, res) => {
             });
         } else {
             YMCSV = json2csv({
-                data: [{'Все еще':'Пустота'}],
-                fields: ['Все еще'],
+                data: [{
+                    'Зачем': 'было это скачивать?ес'
+                }],
+                fields: ['Зачем'],
                 del: ';'
             });
         }

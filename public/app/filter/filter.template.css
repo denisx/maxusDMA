@@ -151,6 +151,14 @@
     outline: none;
 }
 
+.sBDCBCButtonSubmit:hover {
+    background-color: #78d06f;
+}
+
+.sBDCBCButtonSubmit:active {
+    background-color: #369e2c;
+}
+
 .sBDCButtonContainer {
     display: block;
     margin-bottom: 12px;
@@ -262,9 +270,10 @@
     background-color: #00b6e0;
     border: 0px;
     border-radius: 5px;
-    margin-left: 16%;
+    margin-left: 17%;
     max-height: 45px;
     width: 92%;
+    margin-bottom: calc(100vh - 675px);
 }
 
 .continueButton:hover {

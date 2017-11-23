@@ -125,7 +125,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 			document.addEventListener('click', function closeModal (e) {
 
-				if((e.target.closest('.'+menuPopupClassName)==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint)) {
+				if((e.target.closest('.'+menuPopupClassName)==null)&&(e.target.closest('.hoverToNewMenu')!=currentMenuPoint) ||  e.target.id == 'saveBtn') {
 					document.getElementsByClassName(menuPopupClassName)[0].classList.toggle('hideElement');
 					document.removeEventListener('click', closeModal);
 				}
@@ -372,7 +372,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				"data-show-export":"true",
 				"data-export-data-type": "all",
 				"data-filter-control":"true",
-				"data-filter-show-clear":"true"
+				"data-filter-show-clear":"true",
+				"data-page-size": 25
 			}
 			Object.keys(settings).forEach((key)=>{
 				document.getElementById('table').setAttribute(key, settings[key]);

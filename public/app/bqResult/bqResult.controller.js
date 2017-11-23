@@ -11,7 +11,8 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 			fillBread();
 			bqResultFactory.getAnswerForQuery()
 				.then((data) => {
-					console.log(data);
+					console.log('успех');
+					//console.log(data);
 					let postbuyTableContent = {
 						data: data[0].data,
 						columns: []
@@ -71,8 +72,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 				"data-export-data-type": "all", */
 				"data-filter-control": "true",
 				"data-filter-show-clear": "true",
-				"data-sortable": true,
-				"height": 100
+				"data-sortable": true
 			}
 			Object.keys(settings).forEach((key) => {
 				document.getElementById('postbuyTable').setAttribute(key, settings[key]);

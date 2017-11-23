@@ -207,7 +207,7 @@ img.loader {
     position: sticky;
     top: 0px;
     margin: 1% 0;
-    box-shadow: 0 0 1px black;
+    border: 1px solid #b3b3b3;
 }
 /*End menuSction*/
 
@@ -443,4 +443,22 @@ img.loader {
     position: relative;
     background-color: #55b24c;
     color: white;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    border: 1px solid #b3b3b3;
+    border-bottom-color: transparent;
+    border-radius: 0px;
+}
+
+.nav-tabs>li>a:hover {
+    border-bottom: 1px solid #b3b3b3;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #b3b3b3;
+}
+
+li a, .nav-tabs>li.active>a {
+    color: black;
 }
