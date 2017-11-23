@@ -271,7 +271,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			obj.getArraysAdress = () => {
 				let answ = {};
 				let chosen = [], content = [];
-				if (obj.metricsOrNot){
+				if (obj.metricsOrNot() == true){
 					let className = obj.getClassName();
 					let paramName = $scope.menuElements.dataSource[$scope.menuToShow];
 					let metricsDimensions = target.closest('.group').getAttribute('data-type');

@@ -555,7 +555,7 @@ exports.resultQuery = async(req, res) => {
             });
         }
         if (fs.existsSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv')) {
-            fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', 'CP1250', function (error) {
+            fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', function (error) {
                 if (error) {
                     console.log('no YM file found');
                 }
@@ -565,19 +565,19 @@ exports.resultQuery = async(req, res) => {
         }
 
         if (exportFields[0]) {
-            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, 'CP1250', function (err) {
+            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, 'ascii', function (err) {
                 if (err) console.log(err);
                 console.log('postbuy file saved');
             });
         }
         if (exportFields[2]) {
-            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, 'CP1250', function (err) {
+            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, 'ascii', function (err) {
                 if (err) console.log(err);
                 console.log('GA file saved');
             });
         }
         if (exportFields[1]) {
-            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, 'CP1250', function (err) {
+            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, 'ascii', function (err) {
                 if (err) console.log(err);
                 console.log('YM file saved');
             });
