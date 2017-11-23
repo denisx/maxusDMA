@@ -512,7 +512,6 @@ exports.resultQuery = async(req, res) => {
             }
         }
         console.log(exportFields);
-        console.log(exportData);
         let PostbuyCSV;
         let GACSV;
         let YMCSV;
@@ -565,19 +564,19 @@ exports.resultQuery = async(req, res) => {
         }
 
         if (exportFields[0]) {
-            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, 'ascii', function (err) {
+            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
                 if (err) console.log(err);
                 console.log('postbuy file saved');
             });
         }
         if (exportFields[2]) {
-            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, 'ascii', function (err) {
+            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
                 if (err) console.log(err);
                 console.log('GA file saved');
             });
         }
         if (exportFields[1]) {
-            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, 'ascii', function (err) {
+            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
                 if (err) console.log(err);
                 console.log('YM file saved');
             });
