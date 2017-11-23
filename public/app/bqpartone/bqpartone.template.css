@@ -374,6 +374,16 @@ img.loader {
     cursor: pointer;
 }
 
+.bottomMVWSelected {
+	margin: 1% 0 2% 6%;
+    width: 35%;
+    height: 29px;
+    border: 1px solid #5bb7e1;
+    color: #5bb9e6;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
 .bottomMVW:hover {
     background-color: #5bb7e1;
     color: white;

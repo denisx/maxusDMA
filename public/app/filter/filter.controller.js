@@ -1,7 +1,6 @@
 'use strict'
 
-angular.module('filter').controller('filterController', ['$scope', 'optionsFilter', '$location',
-    ($scope, optionsFilter, $location) => {
+angular.module('filter').controller('filterController', ['$scope', 'optionsFilter', '$location', ($scope, optionsFilter, $location) => {
 
         let query = {};
         let queryCurrent = [];
@@ -126,6 +125,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
             }
             hideShowBoxes(eventTarget.nextElementSibling, eventTarget, 'inline-block', 'none');
             document.addEventListener('click', function hideDrop(e) {
+				console.log(e.target);
 				if(e.target.className == 'refreshFiltersLink'){
 					console.log('+');
 					$scope.queryNull();
@@ -134,7 +134,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 					return false;
 				};
 				
-                if (e.target.closest('.selectBoxMainArea')!= eventTarget.parentNode) {
+                if (e.target.closest('.selectBoxMainArea')!= eventTarget.parentNode || e.target.className == 'sBDCBCButtonSubmit') {
 					
                     clearSearchBox(keyName);
                     if (queryCurrent.length > 0){

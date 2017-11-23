@@ -112,7 +112,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				}
 			})
 		}
-		selectGoalsCheckbox();
+//		selectGoalsCheckbox();
 
 		$scope.listenToHover = (currentBox) => {
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
@@ -152,6 +152,12 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				
 				if(e.target.closest('#goalCheck')!=null){
 					workingWithData().changeGoals();
+				}
+				
+				if(e.target.closest('.bottomMVW')!=null && e.target.closest('#goalCheck')==null){
+					workingWithData().changeGoals();
+					workingWithData().checkGoals();
+					
 				}
 				
 //				document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
@@ -298,17 +304,24 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 			
 			obj.checkGoals = () => {
-				console.log($scope.menuElements.dataSource[$scope.menuToShow]);
-				document.getElementById('goalCheck').checked = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
+				let goal = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
+				document.getElementById('goalCheck').checked = goal;
+				obj.redrawButton(goal);
 			}
 			
 			obj.changeGoals = () => {
 				let goal = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
-				console.log($scope.menuElements.dataSource[$scope.menuToShow].chosen.goals)
 				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = (goal)?false:true;
-				console.log($scope.menuElements.dataSource[$scope.menuToShow].chosen.goals)
+				obj.redrawButton(goal);
 			}
 			
+			obj.redrawButton = (param) => {
+				if(document.getElementById('goalCheck').parentNode.classList.contains('bottomMVWSelected') && !param){
+					document.getElementById('goalCheck').parentNode.classList.remove('bottomMVWSelected');
+				} else {
+					document.getElementById('goalCheck').parentNode.classList.add('bottomMVWSelected');
+				}
+			}
 			return obj;
 		}
 		
