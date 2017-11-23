@@ -522,11 +522,23 @@ exports.resultQuery = async(req, res) => {
                 fields: exportFields[0],
                 del: ';'
             });
+        } else {
+            PostbuyCSV = json2csv({
+                data: [{'Все еще':'Пустота'}],
+                fields: ['Все еще'],
+                del: ';'
+            });
         }
         if (exportFields[2] != "no data") {
             GACSV = json2csv({
                 data: exportData[2],
                 fields: exportFields[2],
+                del: ';'
+            });
+        } else {
+            GACSV = json2csv({
+                data: [{'Все еще':'Пустота'}],
+                fields: ['Все еще'],
                 del: ';'
             });
         }
@@ -536,31 +548,21 @@ exports.resultQuery = async(req, res) => {
                 fields: exportFields[1],
                 del: ';'
             });
+        } else {
+            YMCSV = json2csv({
+                data: [{'Все еще':'Пустота'}],
+                fields: ['Все еще'],
+                del: ';'
+            });
         }
         if (fs.existsSync('./public/lib/CSVData/Postbuy_benchmarks_upload.csv')) {
-            fs.unlink('./public/lib/CSVData/Postbuy_benchmarks_upload.csv', function (error) {
-                if (error) {
-                    console.log('no postbuy file found');
-                }
-                console.log('Deleted!!');
-            });
+            fs.unlinkSync('./public/lib/CSVData/Postbuy_benchmarks_upload.csv');
         }
         if (fs.existsSync('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv')) {
-            fs.unlink('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', function (error) {
-                if (error) {
-                    console.log('no GA file found');
-                }
-                console.log('Deleted!!');
-            });
+            fs.unlinkSync('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv');
         }
         if (fs.existsSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv')) {
-            fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', function (error) {
-                if (error) {
-                    console.log('no YM file found');
-                }
-
-                console.log('Deleted!!');
-            });
+            fs.unlinkSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv');
         }
 
         if (exportFields[0]) {
