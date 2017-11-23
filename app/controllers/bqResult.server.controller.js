@@ -503,63 +503,81 @@ exports.resultQuery = async(req, res) => {
 
         // Configure files for download
         for (let key of queryResultArr) {
+            if(key.data) {
             exportFields.push(Object.keys(key.data[0]));
             exportData.push(key.data);
+            } else {
+            exportFields.push("no data");
+            exportData.push("no data");
+            }
         }
-        if (queryResultArr[0].data.length > 0) {
-            let PostbuyCSV = json2csv({
+        console.log(exportFields);
+        console.log(exportData);
+        let PostbuyCSV;
+        let GACSV;
+        let YMCSV;
+
+        if (exportFields[0] != "no data") {
+            PostbuyCSV = json2csv({
                 data: exportData[0],
                 fields: exportFields[0],
                 del: ';'
             });
         }
-        if (queryResultArr[1].data.length > 0) {
-            let GACSV = json2csv({
+        if (exportFields[2] != "no data") {
+            GACSV = json2csv({
                 data: exportData[2],
                 fields: exportFields[2],
                 del: ';'
             });
         }
-        if (queryResultArr[2].data.length > 0) {
-            let YMCSV = json2csv({
+        if (exportFields[1] != "no data") {
+            YMCSV = json2csv({
                 data: exportData[1],
                 fields: exportFields[1],
                 del: ';'
             });
         }
-        fs.unlink('./public/lib/CSVData/Postbuy_benchmarks_upload.csv', function (error) {
-            if (error) {
-                console.log('no postbuy file found');
-            }
-            console.log('Deleted!!');
-        });
-        fs.unlink('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', function (error) {
-            if (error) {
-                console.log('no GA file found');
-            }
-            console.log('Deleted!!');
-        });
-        fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', function (error) {
-            if (error) {
-                console.log('no YM file found');
-            }
-            console.log('Deleted!!');
-        });
+        if (fs.existsSync('./public/lib/CSVData/Postbuy_benchmarks_upload.csv')) {
+            fs.unlink('./public/lib/CSVData/Postbuy_benchmarks_upload.csv', function (error) {
+                if (error) {
+                    console.log('no postbuy file found');
+                }
+                console.log('Deleted!!');
+            });
+        }
+        if (fs.existsSync('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv')) {
+            fs.unlink('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', function (error) {
+                if (error) {
+                    console.log('no GA file found');
+                }
+                console.log('Deleted!!');
+            });
+        }
+        if (fs.existsSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv')) {
+            fs.unlink('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', 'CP1250', function (error) {
+                if (error) {
+                    console.log('no YM file found');
+                }
 
-        if (queryResultArr[0].data.length > 0) {
-            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
+                console.log('Deleted!!');
+            });
+        }
+
+        if (exportFields[0]) {
+            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, 'CP1250', function (err) {
                 if (err) console.log(err);
                 console.log('postbuy file saved');
             });
         }
-        if (queryResultArr[1].data.length > 0) {
-            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
+        if (exportFields[2]) {
+            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, 'CP1250', function (err) {
                 if (err) console.log(err);
                 console.log('GA file saved');
             });
         }
-        if (queryResultArr[2].data.length > 0) {
-            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
+        if (exportFields[1]) {
+            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, 'CP1250', function (err) {
                 if (err) console.log(err);
                 console.log('YM file saved');
             });
