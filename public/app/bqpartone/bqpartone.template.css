@@ -282,6 +282,16 @@ img.loader {
 	overflow-y: auto;
 }
 
+#goalsBlock {
+	display: inline-block;
+    border: 1px solid #bebebe;
+    box-shadow: 0 0 1px 1px #d9d9d9;
+    width: 38%;
+    min-height: 200px;
+	max-height: 200px;
+	overflow-y: auto;
+}
+
 .leftSideMVW {
 	margin-left: 4%;
 }
@@ -306,7 +316,8 @@ img.loader {
 	border: 1px solid #00b6e0;
     margin: 2%;
     border-radius: 2px;
-	color: #00b6e0;
+    color: #00b6e0;
+    cursor: pointer;
 }
 
 .elementToChooseMVW:hover, .elementToChooseMVWActive {
@@ -325,6 +336,7 @@ img.loader {
     margin: 2%;
     border-radius: 2px;
     width: auto;
+    cursor: pointer;
 }
 
 .eCMVWLInner {
@@ -333,6 +345,7 @@ img.loader {
     padding-right: 2px;
     background-color: #00b6e0;
     color: white;
+    height: 29px;
 }
 
 .eCMVWLInner p {
@@ -352,11 +365,23 @@ img.loader {
 }
 
 .bottomMVW {
-	margin: 1% 0 2% 4%;
+    margin: 1% 0 2% 6%;
+    width: 35%;
+    height: 29px;
+    border: 1px solid #5bb7e1;
+    color: #5bb7e1;
+    border-radius: 1px;
+    cursor: pointer;
+}
+
+.bottomMVW:hover {
+    background-color: #5bb7e1;
+    color: white;
 }
 
 .bottomMVW p, .bottomMVW input {
-	display: inline;
+    display: inline;
+    margin-left: 5px;
 }
 
 

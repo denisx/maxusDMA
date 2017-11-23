@@ -99,7 +99,21 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		let answer = {filters:{}, 
 					  startDate : convertDateFormat(drp.data('daterangepicker').startDate._i), 
 					  endDate : convertDateFormat(drp.data('daterangepicker').endDate._i) };
-			
+		
+					  
+		let selectGoalsCheckbox = () => {
+			$('.bottomMVW').click(function () {
+				if ($(this).children('#goalCheck')[0].checked == false) {
+					$(this).children('#goalCheck')[0].checked = true
+					$(this).css({"background-color": "#5bb7e1", "color": "white"});
+				} else {
+					$(this).children('#goalCheck')[0].checked = false
+					$(this).css({"background-color": "transparent", "color": "#5bb7e1"});
+				}
+			})
+		}
+		selectGoalsCheckbox();
+
 		$scope.listenToHover = (currentBox) => {
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
 			$scope.menuToShow = currentMenuPoint.id;

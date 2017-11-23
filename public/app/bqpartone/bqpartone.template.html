@@ -86,7 +86,7 @@
 				</div>
 				<div class="activeGroup">
 					<div class="group" data-type="dimension">
-						<p class="groupName">Параметры</p>
+						<p class="groupName">Параметры:</p>
 						<div class="leftSideMVW">
 							<div class="dimension">
 								<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.dimension track by elem">
@@ -95,8 +95,8 @@
 							</div>
 						</div>
 						<div class="buttonMVW">
-							<input type="button" class="addAllButton">
-							<input type="button" class="removeAllButton">
+							<input type="button" value="> > >" class="addAllButton">
+							<input type="button" value="< < <" class="removeAllButton">
 						</div>
 						<div class="rightSideMVW">
 							<div class="dimension">
@@ -112,7 +112,7 @@
 						</div>
 					</div>
 					<div class="group" data-type="metrics">
-						<p class="groupName">Показатели</p>
+						<p class="groupName">Показатели:</p>
 						<div class="leftSideMVW">
 							<div class="metrics">
 								<div class="elementToChooseMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].content.metrics track by elem">
@@ -121,8 +121,8 @@
 							</div>
 						</div>
 						<div class="buttonMVW">
-							<input type="button" class="addAllButton">
-							<input type="button" class="removeAllButton">
+							<input type="button" value="> > >" class="addAllButton">
+							<input type="button" value="< < <" class="removeAllButton">
 						</div>
 						<div class="rightSideMVW">
 							<div class="metrics">
@@ -138,9 +138,10 @@
 						</div>
 					</div>
 				</div>
+				<p class="groupName">Цели:</p>
 				<div class="bottomMVW">
-					<p>Цели</p>
 					<input type="checkbox" value="Цели" id="goalCheck">
+					<p>Включить в отчет</p>
 				</div>
 			</div>
 			
@@ -155,8 +156,8 @@
 						</div>
 					</div>
 					<div class="buttonMVW">
-						<input type="button" value="Туды" class="addAllButton">
-						<input type="button" value="Сюды" class="removeAllButton">
+						<input type="button" value="> > >" class="addAllButton">
+						<input type="button" value="< < <" class="removeAllButton">
 					</div>
 					<div class="rightSideMVW">
 						<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">

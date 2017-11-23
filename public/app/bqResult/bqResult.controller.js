@@ -118,12 +118,12 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 
 		getAnswer();
 
-		let download = () => {
-			let pathToFile = '/lib/CSVData/' + $('.resultTabs > ul > li.active a').attr('id') + '_benchmarks_upload.csv';
-			
+		$scope.download = () => {
+			let hrefToDownload = 'lib/CSVData/' + $('li.active a').attr('id') + '_benchmarks_upload.csv';
+			window.location.href = hrefToDownload;
 		}
 
-		let ctx = document.getElementById('myChart').getContext('2d'); 
+		/* let ctx = document.getElementById('myChart').getContext('2d'); 
 		let chart = new Chart(ctx, {
 			// The type of chart we want to create
 			type: 'line',
@@ -155,6 +155,6 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 					easing: 'easeOutCirc'
 				}
 			}
-		});
+		}); */
 	}
 ]);
