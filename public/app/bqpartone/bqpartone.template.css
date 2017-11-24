@@ -167,6 +167,7 @@ img.loader {
 
 .customReportBoxDropdownButtonText {
 	padding: 5% 0px 0px 10%;
+	display: inline-block;
 }
 
 .customReportBoxDropdownButton {
@@ -210,10 +211,22 @@ img.loader {
 
 .cRBDCValueP {
     padding: 0px 0px 0px 16%;
-    width: 100%;
     margin: 0;
+	display: inline-block;
 }
 
+.menuSection img {
+	height: 11px;
+    float: right;
+}
+
+.customReportBoxDropdownButton img {
+	margin: 7% 3% 0 0;
+}
+
+.cRBDCValueContainer img {
+	margin: 3% 3% 0 0;
+}
 
 .createReport {
     background-color: #e22032;
@@ -381,6 +394,7 @@ img.loader {
     height: 29px;
     border: 1px solid #5bb7e1;
     color: #5bb7e1;
+	background-color: white;
     border-radius: 1px;
     cursor: pointer;
 }
@@ -390,7 +404,8 @@ img.loader {
     width: 35%;
     height: 29px;
     border: 1px solid #5bb7e1;
-    color: #5bb9e6;
+	background-color: #5bb7e1;
+    color: white;
     border-radius: 1px;
     cursor: pointer;
 }

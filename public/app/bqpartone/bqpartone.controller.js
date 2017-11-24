@@ -296,17 +296,22 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			
 			obj.changeGoals = () => {
 				let goal = $scope.menuElements.dataSource[$scope.menuToShow].chosen.goals;
-				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = (goal)?false:true;
+				$scope.menuElements.dataSource[$scope.menuToShow].chosen.goals = (goal == true)?false:true;
 				obj.redrawButton(goal);
 			}
 			
 			obj.redrawButton = (param) => {
-				if(document.getElementById('goalCheck').parentNode.classList.contains('bottomMVWSelected') && !param){
-					document.getElementById('goalCheck').parentNode.classList.remove('bottomMVWSelected');
+				if(param){
+					if(!document.getElementById('goalCheck').parentNode.classList.contains('bottomMVWSelected')){
+						document.getElementById('goalCheck').parentNode.classList.add('bottomMVWSelected');
+					}
 				} else {
-					document.getElementById('goalCheck').parentNode.classList.add('bottomMVWSelected');
+					if(document.getElementById('goalCheck').parentNode.classList.contains('bottomMVWSelected')){
+						document.getElementById('goalCheck').parentNode.classList.remove('bottomMVWSelected');
+					}
 				}
 			}
+			
 			return obj;
 		}
 		
