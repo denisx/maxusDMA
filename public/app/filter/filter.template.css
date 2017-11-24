@@ -20,7 +20,7 @@
 .selectBoxDropdownContainer {
     width: 90%;
     height: auto;
-    max-height: 350px;
+    max-height: 380px;
     box-shadow: 0 0 5px grey;
     padding: 5px 0 5px 0;
     display: none;
@@ -139,8 +139,7 @@
 
 .sBDCBCButtonSubmit {
     float: right;
-    margin-bottom: 10px;
-    margin-right: 8px;
+	margin: 3% 2% 2% 0;
     width: 110px;
     border: 0px solid #55b24c;
     border-radius: 5px;
@@ -273,7 +272,6 @@
     margin-left: 17%;
     max-height: 45px;
     width: 92%;
-    margin-bottom: calc(100vh - 675px);
 }
 
 .continueButton:hover {
