@@ -152,13 +152,13 @@ let datasetsInvocation = () => {
 let matchMetrics = (resultsArr, metricsArr) => {
     let returnArr = [];
     resultsArr.forEach((elem) => {
-        let typeClient = elem.Industry.toLowerCase() + '_' + elem.Client.toLowerCase();
+        let typeClient = elem.Industry.toLowerCase() + '_' + elem.Client.toLowerCase() + '_' + siteSplitter(elem.Site).toLowerCase();
         let elemValues = [];
         Object.keys(metricsArr).forEach((k) => {
             if (k != 'postbuy') {
                 elem[k] = '-';
                 metricsArr[k].forEach((typeMetrics) => {
-                    if (typeMetrics.split(k + '_')[1] == typeClient) {
+                    if (typeMetrics.toLowerCase().split(k.split('_')[1] + '_')[1] == typeClient) {
                         elem[k] = '+';
                         return true;
                     }
@@ -176,6 +176,21 @@ let matchMetrics = (resultsArr, metricsArr) => {
     resultToTable = resultToJson(returnArr);
     console.log(resultToTable);
     trigSendReq = true;
+}
+
+let siteSplitter = (site) => {
+    let reg = new RegExp(/(\.|\-)/g);
+    let matches = [];
+    let match;
+    while ((match = reg.exec(site)) != null) {
+        matches.push(match.index);
+    }
+    site = site.slice(0, matches[matches.length - 1]);
+    matches.pop();
+    for (let i = matches.length - 1; i > -1; i--) {
+        site = site.split(site[matches[i]] + site[matches[i] + 1])[0] + site[matches[i] + 1].toUpperCase() + site.split(site[matches[i]] + site[matches[i] + 1])[1]
+    }
+    return site;
 }
 
 exports.getTablesObj = (req, res) => {
