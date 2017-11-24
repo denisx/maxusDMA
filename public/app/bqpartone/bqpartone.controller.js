@@ -363,7 +363,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				"data-export-data-type": "all",
 				"data-filter-control":"true",
 				"data-filter-show-clear":"true",
-				"data-page-size": 25
+				"data-page-size": 25,
+				"data-sortable": "true"
 			}
 			Object.keys(settings).forEach((key)=>{
 				document.getElementById('table').setAttribute(key, settings[key]);
