@@ -101,10 +101,10 @@ let sqlArrFunc = () => {
     if (answer.postbuy != undefined && answer.postbuy.length > 0) {
         answ.push('postbuy');
     }
-    if (answer.ym.metrics.length > 0) {
+    if (answer.ym.metrics.length > 0 || answer.ym.dimension.length > 0 || answer.ym.goals == true) {
         answ.push('yandex_metrika');
     }
-    if (answer.ga.metrics.length > 0) {
+    if (answer.ga.metrics.length > 0 || answer.ga.dimension.length > 0 || answer.ga.goals == true) {
         answ.push('google_analytics');
     }
     return answ;
