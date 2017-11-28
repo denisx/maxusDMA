@@ -32,7 +32,7 @@ angular.module('bqResult').factory('bqResultFactory', ['$http',
 
             return $http({
                 method: 'GET',
-                url: '/filters/getanswer'
+                url: '/filters/answer'
             }).then(successCall, errorCall);
 
         };

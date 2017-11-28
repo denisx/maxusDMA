@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 // Require export packages
 let json2csv = require('json2csv');
@@ -39,14 +39,7 @@ let queryResultArr = [{
     },
 ]
 
-let answer;
-
-exports.getFiltersAnsw = (req, res) => {
-    answer = req.body;
-    res.status = 200;
-    res.send('');
-    console.log(answer);
-};
+let answer = {};
 
 // Define variables to check for tables existance
 let siteSplitter = (site) => {
@@ -66,7 +59,7 @@ let siteSplitter = (site) => {
 
 let paramResFunc = (param) => {
     let answ = ""
-    if (answer.filters[param] == undefined) {
+    if (answer.filters == undefined || answer.filters[param] == undefined ) {
         answ = '.*';
         return answ;
     }
@@ -101,10 +94,10 @@ let sqlArrFunc = () => {
     if (answer.postbuy != undefined && answer.postbuy.length > 0) {
         answ.push('postbuy');
     }
-    if (answer.ym.metrics.length > 0 || answer.ym.dimension.length > 0 || answer.ym.goals == true) {
+    if (answer.ym!= undefined && (answer.ym.metrics.length > 0 || answer.ym.dimension.length > 0 || answer.ym.goals == true)) {
         answ.push('yandex_metrika');
     }
-    if (answer.ga.metrics.length > 0 || answer.ga.dimension.length > 0 || answer.ga.goals == true) {
+    if (answer.ga!= undefined && (answer.ga.metrics.length > 0 || answer.ga.dimension.length > 0 || answer.ga.goals == true)) {
         answ.push('google_analytics');
     }
     return answ;
@@ -230,206 +223,6 @@ let groupByConfig = (datasource) => {
 
 // Function to send query to BQ and receive results. Query loops through 'sqlArr' and switch 'bigquery.query' for each selected datasource
 let queryResult = [];
-exports.resultQuery = async(req, res) => {
-    queryResultArr = [{
-            'data': [],
-            'name': 'postbuy'
-        },
-        {
-            'data': [],
-            'name': 'yandex_metrika'
-        },
-        {
-            'data': [],
-            'name': 'google_analytics'
-        },
-    ]
-    console.log('---------------------');
-    console.log(answer);
-    let promAnsw = [];
-    let sqlArr = sqlArrFunc();
-    await checkDataSources().then((data) => {
-        answer.datasets = data;
-    });
-    let pr = new Promise((resolve, reject) => {
-        for (let key in sqlArr) {
-            switch (sqlArr[key]) {
-                case 'postbuy':
-                    queryConfigObj.postbuyResultQuery = postbuySelectConfig() + fromConfigSplitted('postbuy') + whereConfig('postbuy');
-                    console.log(queryConfigObj.postbuyResultQuery);
-                    let prPostBuy = new Promise((resolve, reject) => {
-                        bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
-                            if (err) {
-                                reject(err);
-                            } else {
-                                let answ = {
-                                    name: 'postbuy',
-                                    data: rows
-                                };
-                                resolve(answ);
-                            }
-                        });
-                    });
-                    promAnsw.push(prPostBuy);
-                    break;
-                case 'yandex_metrika':
-                    if (fromConfigSplitted('ym') != " FROM ") {
-                        queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
-                        console.log(queryConfigObj.ymResultQuery);
-                        let prYM = new Promise((resolve, reject) => {
-                            bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
-                                if (err) {
-                                    reject(err);
-                                } else {
-                                    let answ = {
-                                        name: 'yandex_metrika',
-                                        data: rows
-                                    };
-                                    resolve(answ);
-                                }
-                            });
-                        });
-                        promAnsw.push(prYM);
-                    } else {
-                        console.log('no yandex metrika data')
-                    }
-                    break;
-                case 'google_analytics':
-                    if (fromConfigSplitted('ga') != " FROM ") {
-                        queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
-                        console.log(queryConfigObj.gaResultQuery);
-                        let prGA = new Promise((resolve, reject) => {
-                            bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
-                                if (err) {
-                                    reject(err);
-                                } else {
-                                    let answ = {
-                                        name: 'google_analytics',
-                                        data: rows
-                                    };
-                                    resolve(answ);
-                                }
-                            });
-                        });
-                        promAnsw.push(prGA);
-                    } else {
-                        console.log('no google analytics data')
-                    }
-                    break;
-            }
-        }
-        resolve(Promise.all(promAnsw));
-    })
-    pr.then((data) => {
-        queryResultArr.forEach((content) => {
-            data.forEach((answ) => {
-                if (content.name == answ.name) {
-                    content.data = answ.data;
-                }
-            })
-            if (content.data.length == 0) {
-                content.data = false;
-            }
-        })
-
-        // Return results
-        console.log('queryResultArr');
-        console.log(queryResultArr);
-        res.send(queryResultArr);
-
-        let exportFields = [];
-        let exportData = [];
-
-        // Configure files for download
-        for (let key of queryResultArr) {
-            if (key.data) {
-                exportFields.push(Object.keys(key.data[0]));
-                exportData.push(key.data);
-            } else {
-                exportFields.push("no data");
-                exportData.push("no data");
-            }
-        }
-        console.log(exportFields);
-        let PostbuyCSV;
-        let GACSV;
-        let YMCSV;
-
-        if (exportFields[0] != "no data") {
-            PostbuyCSV = json2csv({
-                data: exportData[0],
-                fields: exportFields[0],
-                del: ';'
-            });
-        } else {
-            PostbuyCSV = json2csv({
-                data: [{
-                    'Зачем': 'было это скачивать?'
-                }],
-                fields: ['Зачем'],
-                del: ';'
-            });
-        }
-        if (exportFields[2] != "no data") {
-            GACSV = json2csv({
-                data: exportData[2],
-                fields: exportFields[2],
-                del: ';'
-            });
-        } else {
-            GACSV = json2csv({
-                data: [{
-                    'Зачем': 'было это скачивать?'
-                }],
-                fields: ['Зачем'],
-                del: ';'
-            });
-        }
-        if (exportFields[1] != "no data") {
-            YMCSV = json2csv({
-                data: exportData[1],
-                fields: exportFields[1],
-                del: ';'
-            });
-        } else {
-            YMCSV = json2csv({
-                data: [{
-                    'Зачем': 'было это скачивать?ес'
-                }],
-                fields: ['Зачем'],
-                del: ';'
-            });
-        }
-        if (fs.existsSync('./public/lib/CSVData/Postbuy_benchmarks_upload.csv')) {
-            fs.unlinkSync('./public/lib/CSVData/Postbuy_benchmarks_upload.csv');
-        }
-        if (fs.existsSync('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv')) {
-            fs.unlinkSync('./public/lib/CSVData/Google_Analytics_benchmarks_upload.csv');
-        }
-        if (fs.existsSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv')) {
-            fs.unlinkSync('./public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv');
-        }
-
-        if (exportFields[0]) {
-            fs.writeFile('public/lib/CSVData/Postbuy_benchmarks_upload.csv', PostbuyCSV, function (err) {
-                if (err) console.log(err);
-                console.log('postbuy file saved');
-            });
-        }
-        if (exportFields[2]) {
-            fs.writeFile('public/lib/CSVData/Google_Analytics_benchmarks_upload.csv', GACSV, function (err) {
-                if (err) console.log(err);
-                console.log('GA file saved');
-            });
-        }
-        if (exportFields[1]) {
-            fs.writeFile('public/lib/CSVData/Yandex_Metrika_benchmarks_upload.csv', YMCSV, function (err) {
-                if (err) console.log(err);
-                console.log('YM file saved');
-            });
-        }
-    })
-}
 
 // Get dataset of table in BQ
 let getTableId = (webAnal) => {
@@ -471,12 +264,9 @@ let checkDataSources = () => {
         let webAnalArr = ['google_analytics', 'yandex_metrika'];
         let answ = [];
         webAnalArr.forEach((elem) => {
-            /*  getTableId(elem).then((data)=>{
-                 answ.push(data);
-             }); */
             answ.push(getTableId(elem));
-
         });
+        console.log('getTableId прошел');
 
         Promise.all(answ).then((data) => {
             let unpackedData = [];
@@ -484,8 +274,7 @@ let checkDataSources = () => {
                 d.forEach((innerD) => {
                     unpackedData.push(innerD);
                 })
-            })
-            // var reg = new RegExp(".*_(" + industryResFunc() + ")_(" + clientResFunc() + ")_(" + siteResFunc() + ")", "i")
+            });
             let reg = new RegExp(".*_(" + paramResFunc('industry') + ")_(" + paramResFunc('client') + ")_(" + paramResFunc('site') + ")", "i")
             for (let key of unpackedData) {
                 if (key.id.match(reg)) {
@@ -502,7 +291,7 @@ let checkDataSources = () => {
             splittedObjArr.forEach((elem) => {
                 answ2.push(getSchemaById(elem));
             })
-
+            console.log('')
             Promise.all(answ2).then((data2) => {
                 data2.forEach((element) => {
                     splittedObjArr.forEach((a) => {
@@ -527,4 +316,189 @@ let checkDataSources = () => {
         });
     });
 
+};
+
+let createDownloadFiles = () => {
+    return new Promise((res,rej)=>{
+        let filesObjArr = [{
+        name:"postbuy",
+        address:"Postbuy_benchmarks_upload.csv",
+        file:undefined,
+        nameIndex:0
+        }, {
+            name:"yandex_metrika",
+            address:"Yandex_Metrika_benchmarks_upload.csv",
+            file:undefined,
+            nameIndex:1
+        }, {
+            name:"google_analytics",
+            address:"Google_Analytics_benchmarks_upload.csv",
+            file:undefined,
+            nameIndex:2
+        }];
+        let scsArr = [];
+        let filePromise = (filesObj) => {
+            return new Promise((resolve,reject)=>{
+                console.log('Зашел в filePromise');
+                fs.accessSync('./public/lib/CSVData/'+filesObj.address, (err)=>{
+                    if(!err) fs.unlinkSync('./public/lib/CSVData/'+filesObj.address);
+                });
+                if (queryResultArr[filesObj.nameIndex].data){
+                    filesObj.file = json2csv({
+                        data: queryResultArr[filesObj.nameIndex].data,
+                        fields: Object.keys(queryResultArr[filesObj.nameIndex].data[0]),
+                        del: ';'
+                    });
+                } else {
+                    filesObj.file = json2csv({
+                        data: [{'Зачем': 'было это скачивать?'}],
+                        fields: ['Зачем'],
+                        del: ';'
+                    });
+                }
+                fs.writeFile('public/lib/CSVData/'+filesObj.address, filesObj.file, (err) => {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        resolve();
+                    }
+                });
+            })
+        };
+        filesObjArr.forEach((file)=>{
+            scsArr.push(filePromise(file));
+        });
+        Promise.all(scsArr).then(()=>{res();})
+    })
+    
+
+};
+
+let resultQuery = () => {
+    return new Promise(async (resolve,reject)=>{
+        queryResultArr = [{
+            'data': [],
+            'name': 'postbuy'
+        },
+        {
+            'data': [],
+            'name': 'yandex_metrika'
+        },
+        {
+            'data': [],
+            'name': 'google_analytics'
+        },
+        ];
+    /* console.log('---------------------');
+    console.log(answer); */
+        let promAnsw = [];
+        console.log('Дошел до sqlArr');
+        let sqlArr = sqlArrFunc();
+        console.log('sqlArr прошел');
+        answer.datasets = await checkDataSources();
+        console.log(answer);
+        console.log('checkDataSources прошел');
+        let pr = new Promise((resolve, reject) => {
+            for (let key in sqlArr) {
+                switch (sqlArr[key]) {
+                    case 'postbuy':
+                        queryConfigObj.postbuyResultQuery = postbuySelectConfig() + fromConfigSplitted('postbuy') + whereConfig('postbuy');
+                        console.log(queryConfigObj.postbuyResultQuery);
+                        let prPostBuy = new Promise((resolve, reject) => {
+                            bigquery.query(queryConfigObj.postbuyResultQuery, function (err, rows) {
+                                if (err) {
+                                    reject(err);
+                                } else {
+                                    let answ = {
+                                        name: 'postbuy',
+                                        data: rows
+                                    };
+                                    resolve(answ);
+                                }
+                            });
+                        });
+                        promAnsw.push(prPostBuy);
+                        break;
+                    case 'yandex_metrika':
+                        if (fromConfigSplitted('ym') != " FROM ") {
+                            queryConfigObj.ymResultQuery = selectConfig(answer.ym) + fromConfigSplitted('ym') + whereConfig('ym') + groupByConfig(answer.ym);
+                            console.log(queryConfigObj.ymResultQuery);
+                            let prYM = new Promise((resolve, reject) => {
+                                bigquery.query(queryConfigObj.ymResultQuery, function (err, rows) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                        let answ = {
+                                            name: 'yandex_metrika',
+                                            data: rows
+                                        };
+                                        resolve(answ);
+                                    }
+                                });
+                            });
+                            promAnsw.push(prYM);
+                        } else {
+                            console.log('no yandex metrika data')
+                        }
+                        break;
+                    case 'google_analytics':
+                        if (fromConfigSplitted('ga') != " FROM ") {
+                            queryConfigObj.gaResultQuery = selectConfig(answer.ga) + fromConfigSplitted('ga') + whereConfig('ga') + groupByConfig(answer.ga);
+                            console.log(queryConfigObj.gaResultQuery);
+                            let prGA = new Promise((resolve, reject) => {
+                                bigquery.query(queryConfigObj.gaResultQuery, function (err, rows) {
+                                    if (err) {
+                                        reject(err);
+                                    } else {
+                                        let answ = {
+                                            name: 'google_analytics',
+                                            data: rows
+                                        };
+                                        resolve(answ);
+                                    }
+                                });
+                            });
+                            promAnsw.push(prGA);
+                        } else {
+                            console.log('no google analytics data')
+                        }
+                        break;
+                }
+            }
+            console.log(promAnsw);
+            resolve(Promise.all(promAnsw));
+        })
+        pr.then(async (data) => {
+            console.log('Зашел в then');
+            console.log(data);
+            queryResultArr.forEach((content) => {
+                data.forEach((answ) => {
+                    console.log('Зашел второй foreach')
+                    if (content.name == answ.name) {
+                        content.data = answ.data;
+                    }
+                })
+                console.log('Прошел второй foreach')
+                if (content.data.length == 0) {
+                    content.data = false;
+                }
+                console.log('Прошел if')
+            })
+            console.log('Прошел foreach')
+            await createDownloadFiles();
+            resolve(queryResultArr);
+        });
+    })
+}
+
+
+exports.getFiltersAnsw = (req, res) => {
+    answer = req.body;
+    res.status = 200;
+    res.send('');
+    console.log(answer);
+};
+
+exports.sendResult = async (req,res) => {
+    res.send(await resultQuery());
 };
