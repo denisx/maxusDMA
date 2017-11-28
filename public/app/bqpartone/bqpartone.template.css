@@ -152,29 +152,30 @@ img.loader {
     width: 13%;
     font-weight: 300;
     height: -webkit-fill-available;
-    background-color: #f2f2f2;
+    background-color: white;
     position: sticky;
     top: 0px;
     margin: 1% 0;
-    border: 1px solid #b3b3b3;
+    /* border: 1px solid #b3b3b3; */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 }
 /*End menuSction*/
 
 /*Menu section*/
 .customReportBoxMainArea {
-	font-size: 13pt;
+    font-size: 13pt;;
 }
 
 .customReportBoxDropdownButtonText {
-	padding: 5% 0px 0px 10%;
-	display: inline-block;
+    padding: 5% 0px 0px 5%;
+    display: inline-block;
+    font-weight: 500;
 }
 
 .customReportBoxDropdownButton {
     width: 100%;
-    border-bottom: 1px solid #b3b3b3;
-	cursor: pointer;
-	background-color: #f2f2f2;
+    cursor: pointer;
+    background-color: #e6e6e6;
 }
 
 .customReportBoxDropdownContainer {
@@ -184,7 +185,6 @@ img.loader {
     padding: 5px 0 5px 0;
     background-color: white;
     padding-bottom: 5px;
-	border-bottom: 1px solid #b3b3b3;
 	display: block;
 }
 
@@ -200,7 +200,7 @@ img.loader {
 	cursor: pointer;
 }
 
-.customReportBoxDropdownButton:hover, .cRBDBPActive, .cRBDCValue:hover, .cRBDCVActive {
+.cRBDBPActive, .cRBDCValue:hover, .cRBDCVActive {
 	background-color: #e6e6e6;
 	color: #00b6e0;
 }
@@ -426,8 +426,7 @@ img.loader {
 .tablePadding {
 	background-color: white;
     padding: 0 10px 10px;
-    border-top: 1px solid #b3b3b3;
-    border-bottom: 1px solid #b3b3b3;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 .tableContainer {
@@ -459,6 +458,10 @@ img.loader {
     border: 1px solid #ccc;
 }
 
+#toolbar input:active {
+    border: 1px solid #5bb7e1;
+}
+
 #saveBtn {
     width: 100px;
     height: 35px;
@@ -475,4 +478,8 @@ img.loader {
 
 #saveBtn:active {
     background-color: #369e2c;
+}
+
+.daterangepicker .input-mini.active {
+    border: 1px solid #5bb7e1;
 }
