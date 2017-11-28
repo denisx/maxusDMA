@@ -17,75 +17,95 @@
 		<div class="menuSection">
 			<div class="customReportBoxMainArea hoverToNewMenu">
 				<div class="customReportBoxDropdownButton">
-					<p class="customReportBoxDropdownButtonText">Источники</p>	
+					<p class="customReportBoxDropdownButtonText">Конфигурация отчета:</p>
 				</div>
 				<div class="customReportBoxDropdownContainer">
 					<div class="cRBDCValueContainer">
-						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ga.id}} ng-click="listenToHover($event.target)">
-							<p class="cRBDCValueP">Google Analytics</p>
-							<img src="../../lib/pic/1.png">
+						<div class="customReportBoxDropdownContainer">
+							<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ga.id}} ng-click="listenToHover($event.target)">
+								<p class="cRBDCValueP">Google Analytics</p>
+								<img src="../../lib/pic/1.png">
+							</div>
 						</div>
-						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ym.id}} ng-click="listenToHover($event.target)">
-							<p class="cRBDCValueP">Yandex Metrika</p>
-							<img src="../../lib/pic/1.png">
-						</div>	
-						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.postbuy.id}} ng-click="listenToHover($event.target)">
-							<p class="cRBDCValueP">PostBuy</p>
-							<img src="../../lib/pic/1.png">
-						</div>	
-						<div class="cRBDCValue">
-							<p class="cRBDCValueP">Tns</p>
-						</div>				
+						<div class="customReportBoxDropdownContainer">
+							<div class="cRBDCValue hoverToNewMenu" id={{menuElements.dataSource.ym.id}} ng-click="listenToHover($event.target)">
+								<p class="cRBDCValueP">Yandex Metrika</p>
+								<img src="../../lib/pic/1.png">
+							</div>
+						</div>
+						<div class="customReportBoxDropdownContainer">
+							<div class="cRBDCValue hoverToNewMenu" id={{menuElements.postbuy.id}} ng-click="listenToHover($event.target)">
+								<p class="cRBDCValueP">PostBuy</p>
+								<img src="../../lib/pic/1.png">
+							</div>
+						</div>
+						<div class="customReportBoxDropdownContainer">
+							<div class="cRBDCValue">
+								<p class="cRBDCValueP">Tns</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-			
-			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.campaign.id}} >
-				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.campaign.name}}</p>
-					<img src="../../lib/pic/1.png">
+
+			<div class="customReportBoxMainArea hoverToNewMenu">
+				<div class="customReportBoxDropdownButton">
+					<p class="customReportBoxDropdownButtonText">Фильтры для postbuy:</p>
+				</div>
+				<div class="customReportBoxDropdownContainer">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.campaign.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">{{menuElements.campaign.name}}</p>
+							<img src="../../lib/pic/1.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="customReportBoxDropdownContainer">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.placement.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">{{menuElements.placement.name}}</p>
+							<img src="../../lib/pic/1.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="customReportBoxDropdownContainer">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.medium.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">{{menuElements.medium.name}}</p>
+							<img src="../../lib/pic/1.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="customReportBoxDropdownContainer">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.format.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">{{menuElements.format.name}}</p>
+							<img src="../../lib/pic/1.png">
+						</div>
+					</div>
+				</div>
+
+				<div class="customReportBoxDropdownContainer">
+					<div class="cRBDCValueContainer">
+						<div class="cRBDCValue hoverToNewMenu" id={{menuElements.site.id}} ng-click="listenToHover($event.target)">
+							<p class="cRBDCValueP">{{menuElements.site.name}}</p>
+							<img src="../../lib/pic/1.png">
+						</div>
+					</div>
 				</div>
 			</div>
-			
-			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.placement.id}} >
-				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.placement.name}}</p>
-					<img src="../../lib/pic/1.png">
-				</div>
-			</div>
-			
-			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.medium.id}}>
-				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.medium.name}}</p>
-					<img src="../../lib/pic/1.png">	
-				</div>
-			</div>
-			
-			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.format.id}}>
-				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.format.name}}</p>
-					<img src="../../lib/pic/1.png">	
-				</div>
-			</div>
-			
-			<div class="customReportBoxMainArea hoverToNewMenu" id={{menuElements.site.id}}>
-				<div class="customReportBoxDropdownButton" ng-click="listenToHover($event.target)">
-					<p class="customReportBoxDropdownButtonText">{{menuElements.site.name}}</p>
-					<img src="../../lib/pic/1.png">
-				</div>
-			</div>
-			
+
 			<div class="createReport" ng-click="sendReport()">
-					<p>Создать отчет</p>	
+				<p>Создать отчет</p>
 			</div>
-			
-			
-			
-			
+
 		</div>
-		
+
 		<div class="menuHolder">
-			
+
 			<div class="hoverMenuWithMetrics hideElement">
 				<div class="topSideMVW">
 					<p><b>{{menuElements.dataSource[menuToShow].name}}</b></p>
@@ -109,10 +129,10 @@
 							<div class="dimension">
 								<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.dimension track by $index">
 									<div class="eCMVWLInner">
-										<p>{{elem}}</p>	
+										<p>{{elem}}</p>
 									</div>
 									<div class="xContainer">
-										<div class="xInEC"></div>	
+										<div class="xInEC"></div>
 									</div>
 								</div>
 							</div>
@@ -135,10 +155,10 @@
 							<div class="metrics">
 								<div class="elementChosenMVW" ng-repeat="elem in menuElements.dataSource[menuToShow].chosen.metrics track by $index">
 									<div class="eCMVWLInner">
-										<p>{{elem}}</p>	
+										<p>{{elem}}</p>
 									</div>
 									<div class="xContainer">
-										<div class="xInEC"></div>	
+										<div class="xInEC"></div>
 									</div>
 								</div>
 							</div>
@@ -151,7 +171,7 @@
 					<p>Включить в отчет</p>
 				</div>
 			</div>
-			
+
 			<div class="hoverMenuWithVariants hideElement">
 				<div class="topSideMVW" id="postbuyTopSideMVW">
 					<p><b>{{menuElements[menuToShow].name}}</b></p>
@@ -171,16 +191,16 @@
 					<div class="rightSideMVW">
 						<div class="elementChosenMVW" ng-repeat="elem in menuElements[menuToShow].chosen track by $index">
 							<div class="eCMVWLInner">
-								<p>{{elem}}</p>	
+								<p>{{elem}}</p>
 							</div>
 							<div class="xContainer">
-								<div class="xInEC"></div>	
+								<div class="xInEC"></div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			
+
 		</div>
 
 		<div class="tableAppSection ">
@@ -190,7 +210,6 @@
 						<input name="daterange">
 					</div>
 					<table id="table" class="table table-hover">
-						
 					</table>
 				</div>
 				<div class="loaderDiv">
