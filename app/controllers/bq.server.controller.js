@@ -25,53 +25,47 @@ let idArr = [];
 
 let datasetsArr = [];
 
-// Цикл по объекту с данными из формы (queryObj), который формирует содержимое оператора WHERE 
-exports.showFiltersAnswer = (req, res) => {
-    trigSendReq = false;
-    let queryObj = req.body;
-    let whereData = "";
-    for (let key in queryObj) {
-        if (whereData === "") {
-            whereData += ' WHERE (';
-        } else {
-            whereData += 'AND (';
-        }
-        for (let i = 0; i < queryObj[key].length; i++) {
-            if (i != 0) {
-                whereData += 'OR ';
-            }
-            whereData += key + ' CONTAINS "' + queryObj[key][i];
-            if (i == queryObj[key].length - 1) {
-                whereData += '") ';
-            } else {
-                whereData += '" ';
+// Запрос в BQ 
+let query = {};
+
+// Цикл по объекту с данными из формы (query), который формирует содержимое оператора WHERE 
+let showFiltersAnswer = () => {
+    return new Promise((resolve,reject)=>{
+        let whereData = "";
+        for (let key in query) {
+            whereData+=(whereData==="")?' WHERE (':'AND (';
+            for (let i = 0; i < query[key].length; i++) {
+                if (i != 0) {
+                    whereData += 'OR ';
+                }
+                whereData += key + ' CONTAINS "' + query[key][i];
+                whereData += (i == query[key].length - 1)?'") ':'" ';
             }
         }
-    }
 
-    let queryReq = 'SELECT ' +
-        'industry AS Industry, client AS Client, site AS Site, campaign AS Campaign, successful AS Successful, date_start AS Date_start, date_end AS Date_end, duration as Duration, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
-        whereData +
-        'GROUP BY ' +
-        'Industry, Client, Site, Campaign, Successful, Date_start, Date_end, Duration, Postbuy_data';
-    let resultsToChangeArr = [];
-    resultsToChangeArr.push(bqInvocation(queryReq));
-    resultsToChangeArr.push(datasetsInvocation());
+        let queryReq = 'SELECT ' +
+            'industry AS Industry, client AS Client, site AS Site, campaign AS Campaign, successful AS Successful, date_start AS Date_start, date_end AS Date_end, duration as Duration, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
+            whereData +
+            'GROUP BY ' +
+            'Industry, Client, Site, Campaign, Successful, Date_start, Date_end, Duration, Postbuy_data';
+        let resultsToChangeArr = [];
+        resultsToChangeArr.push(bqInvocation(queryReq));
+        resultsToChangeArr.push(datasetsInvocation());
 
-    Promise.all(resultsToChangeArr).then((data) => {
-        matchMetrics(data[0], data[1]);
+        Promise.all(resultsToChangeArr).then((data) => {
+            resolve(matchMetrics(data[0], data[1]));
+        });
     });
-    return res.send('success');
 }
 
 let resultToTable;
 let trigSendReq = false; // trigger for sending request
 
 // Запишем в переменную queryResults ответ bigquery на sql-запрос (queryreq) в формате JSON
-let bqInvocation = (query) => {
+let bqInvocation = (bqQuery) => {
     let queryResult = []; // Массив для результатов SQL-запроса
     let bqInvocationPromise = new Promise((resolve, reject) => {
-        bigquery.createQueryStream(query)
+        bigquery.createQueryStream(bqQuery)
             .on('error', console.error)
             .on('data', function (row) {
                 queryResult.push(row);
@@ -173,9 +167,7 @@ let matchMetrics = (resultsArr, metricsArr) => {
         })
         returnArr.push(elemValues);
     });
-    resultToTable = resultToJson(returnArr);
-    console.log(resultToTable);
-    trigSendReq = true;
+    return resultToJson(returnArr);
 }
 
 let siteSplitter = (site) => {
@@ -193,11 +185,12 @@ let siteSplitter = (site) => {
     return site;
 }
 
-exports.getTablesObj = (req, res) => {
-    let sendRes = setInterval(() => {
-        if (trigSendReq) {
-            res.send(resultToTable);
-            clearInterval(sendRes);
-        }
-    }, 2000);
-};
+exports.sendData = async (req,res) => {
+    res.send(await showFiltersAnswer());
+}
+
+exports.getQuery = (req,res) => {
+    query = req.body;
+    res.status(200);
+    res.send('');
+}

@@ -5,8 +5,8 @@ let bq = require('../controllers/bq.server.controller'),
 
 module.exports = (app) => {
 	app.route('/filters')
-		.post(bq.showFiltersAnswer);
+		.post(bq.getQuery);
 
 	app.route('/filters/gettablesobj')
-		.get(bq.getTablesObj);
+		.get(bq.sendData);
 };
