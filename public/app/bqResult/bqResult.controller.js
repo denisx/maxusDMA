@@ -115,6 +115,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		};
 
 		getAnswer();
+		console.log('test for azure deploy');
 
 		$scope.download = () => {
 			let hrefToDownload = 'lib/CSVData/' + $('li.active a').attr('id') + '_benchmarks_upload.csv';
