@@ -1,6 +1,6 @@
 'use strict'
 
-require('@google-cloud/debug-agent').start();
+/* require('@google-cloud/debug-agent').start(); */
 
 const mongoose = require('./config/mongoose'),
     express = require('./config/express'),

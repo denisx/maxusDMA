@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "engines":{"node":"v8.9.0"},
   "author": "Maxus",
   "license": "ISC",
   "dependencies": {
@@ -18,13 +19,15 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-session": "^1.15.6",
+    "iconv-lite": "^0.4.19",
     "json2csv": "^3.11.5",
     "method-override": "^2.3.10",
     "mongoose": "^4.12.5",
     "morgan": "^1.9.0",
     "node-mailjet": "^3.2.1",
     "passport": "^0.4.0",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "popper.js": "^1.12.9"
   },
   "devDependencies": {
     "webpack": "^3.8.1"

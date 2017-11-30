@@ -174,7 +174,6 @@ img.loader {
 
 .customReportBoxDropdownButton {
     width: 100%;
-    cursor: pointer;
     background-color: #e6e6e6;
 }
 
@@ -197,7 +196,8 @@ img.loader {
 }
 
 .cRBDCValue {
-	cursor: pointer;
+    cursor: pointer;
+    transition-duration: 0.25s;
 }
 
 .cRBDBPActive, .cRBDCValue:hover, .cRBDCVActive {
@@ -231,12 +231,21 @@ img.loader {
 .createReport {
     background-color: #e22032;
     cursor: pointer;
+    transition-duration: 0.25s;
+}
+
+.createReport:hover {
+    background-color: #ec4555;
+}
+
+.createReport:active {
+    background-color: #b70011;
 }
 
 .createReport > p {
 	color: white;
     font-size: 20px;
-    margin: 6% 0 7% 15%;
+    margin: 6% 0 7% 20%;
     display: inline-block;
 }
 
@@ -260,7 +269,7 @@ img.loader {
     border-radius: 1px;
     border: 1px solid #bbbbbb;
     min-height: 300px;
-    margin-top: 8%;
+    margin-top: 16%;
     box-shadow: 9px 10px 52px -14px rgba(0,0,0,0.75);
 }
 
@@ -451,15 +460,19 @@ img.loader {
 	display: none;
 }
 
-#toolbar input {
+.customReportBoxDropdownContainer input {
     height: 34px;
     padding: 6px 12px;
     border-radius: 4px;
     border: 1px solid #ccc;
+    width: 95%;
+    font-size: 15.5px;
+    margin: 2.5%;
 }
 
-#toolbar input:active {
+.customReportBoxDropdownContainer input:hover {
     border: 1px solid #5bb7e1;
+    color: #5bb7e1;
 }
 
 #saveBtn {
