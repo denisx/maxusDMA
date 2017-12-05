@@ -180,7 +180,7 @@ let siteSplitter = (site) => {
 }
 
 let mongoDeleteAndUpdate = async () => {
-    // Campaign.remove({});
+    await Campaign.remove({});
     let query = 'SELECT industry, client, ad_goal, medium, placement, brand, device, format, successful FROM [mdma-175510:postbuy.all]';
     let info = await bigquery.query(query);
     info.forEach((obj)=>{

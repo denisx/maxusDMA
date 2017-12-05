@@ -4,8 +4,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
     ($scope, bqpartoneFactory) => {
 		$scope.menuElements = {
 			dataSource : {
-				ga: {
-					id : 'ga',
+				google_analytics: {
+					id : 'google_analytics',
 					name: 'Google Analytics',
 					content : {
 						dimension : ['date', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'device_category'],
@@ -18,8 +18,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						goals : false
 					}
 				},
-				ym: {
-					id : 'ym',
+				yandex_metrika: {
+					id : 'yandex_metrika',
 					name: 'Yandex Metrika',
 					content : {
 						dimension : ['date', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'isBounce', 'time_on_site', 'device_category', 'gender', 'age'],
