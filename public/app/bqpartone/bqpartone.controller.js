@@ -173,9 +173,11 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 						data: data,
 						columns : []
 					};
-					Object.keys(data[0]).forEach((key)=>{
-						tableContent.columns.push({field:key,title:key});
-					})
+					if (data.length!=0){
+						Object.keys(data[0]).forEach((key)=>{
+							tableContent.columns.push({field:key,title:key});
+						})
+					}
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });

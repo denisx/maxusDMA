@@ -266,7 +266,7 @@ let checkDataSources = () => {
         webAnalArr.forEach((elem) => {
             answ.push(getTableId(elem));
         });
-        console.log('getTableId прошел');
+        console.debug('getTableId прошел');
 
         Promise.all(answ).then((data) => {
             let unpackedData = [];
@@ -282,7 +282,7 @@ let checkDataSources = () => {
                 }
             }
 
-            console.log('splittedObjArr');
+            console.debug('splittedObjArr');
             console.log(splittedObjArr);
 
 
@@ -339,7 +339,7 @@ let createDownloadFiles = () => {
         let scsArr = [];
         let filePromise = (filesObj) => {
             return new Promise((resolve,reject)=>{
-                console.log('Зашел в filePromise');
+                console.debug('Зашел в filePromise');
                 fs.accessSync('./public/lib/CSVData/'+filesObj.address, (err)=>{
                     if(!err) fs.unlinkSync('./public/lib/CSVData/'+filesObj.address);
                 });
@@ -392,12 +392,12 @@ let resultQuery = () => {
     /* console.log('---------------------');
     console.log(answer); */
         let promAnsw = [];
-        console.log('Дошел до sqlArr');
+        console.debug('Дошел до sqlArr');
         let sqlArr = sqlArrFunc();
-        console.log('sqlArr прошел');
+        console.debug('sqlArr прошел');
         answer.datasets = await checkDataSources();
         console.log(answer);
-        console.log('checkDataSources прошел');
+        console.debug('checkDataSources прошел');
         let pr = new Promise((resolve, reject) => {
             for (let key in sqlArr) {
                 switch (sqlArr[key]) {
@@ -469,22 +469,22 @@ let resultQuery = () => {
             resolve(Promise.all(promAnsw));
         })
         pr.then(async (data) => {
-            console.log('Зашел в then');
+            console.debug('Зашел в then');
             console.log(data);
             queryResultArr.forEach((content) => {
                 data.forEach((answ) => {
-                    console.log('Зашел второй foreach')
+                    console.debug('Зашел второй foreach')
                     if (content.name == answ.name) {
                         content.data = answ.data;
                     }
                 })
-                console.log('Прошел второй foreach')
+                console.debug('Прошел второй foreach')
                 if (content.data.length == 0) {
                     content.data = false;
                 }
-                console.log('Прошел if')
+                console.debug('Прошел if')
             })
-            console.log('Прошел foreach')
+            console.debug('Прошел foreach')
             await createDownloadFiles();
             resolve(queryResultArr);
         });
