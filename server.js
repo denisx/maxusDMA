@@ -1,6 +1,6 @@
 'use strict'
 
-// require('@google-cloud/debug-agent').start({allowExpressions:true});
+require('@google-cloud/debug-agent').start({allowExpressions:true});
 
 const mongoose = require('./config/mongoose'),
     express = require('./config/express'),
@@ -15,7 +15,8 @@ const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
   console.log('Press Ctrl+C to quit.');
-}); 
+})
+.timeout = 500000;
 
 module.exports = app;
 
