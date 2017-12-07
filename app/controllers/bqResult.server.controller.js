@@ -40,7 +40,7 @@ let queryResultArr = [{
 ]
 
 let answer = {};
-
+let startTime;
 // Define variables to check for tables existance
 let siteSplitter = (site) => {
     let reg = new RegExp(/(\.|\-)/g);
@@ -375,12 +375,17 @@ let bigQueryPromise = (param) => {
             name: param,
             data: undefined
         };
+        console.info((new Date()).getTime() - startTime.getTime());
+        console.info('Начал запрос в bq для '+param);
         answ.data = await bigquery.query(query);
+        console.info((new Date()).getTime() - startTime.getTime());
+        console.info('Записал данные из bq для '+param);
         resolve(answ);
     });
 };
 
 let resultQuery = () => {
+    startTime = new Date();
     return new Promise(async (resolve,reject)=>{
         queryResultArr = [{
             'data': [],
@@ -483,7 +488,11 @@ let resultQuery = () => {
                     content.data = false;
                 }
             })
+            console.info((new Date()).getTime() - startTime.getTime());
+            console.info('Начал создавать данные для загрузки');
             await createDownloadFiles();
+            console.info((new Date()).getTime() - startTime.getTime());
+            console.info('Отдаю для загрузки');
             resolve(queryResultArr);
         });
     })
