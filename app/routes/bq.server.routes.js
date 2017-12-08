@@ -9,4 +9,7 @@ module.exports = (app) => {
 
 	app.route('/filters/gettablesobj')
 		.get(bq.sendData);
+
+	app.route('/mongoupdate')
+		.post(bq.updateMongo);
 };

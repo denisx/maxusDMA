@@ -246,7 +246,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
     $scope.nextPage = () => {
         setTimeout(() => {
             sendCookiesOnNext();
-            costyl();
+            // costyl();
             optionsFilter.sendQueryNextPage(query)
         }, 1);
 

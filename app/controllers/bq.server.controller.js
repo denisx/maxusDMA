@@ -8,7 +8,8 @@ const tableId = 'all';
 
 // Request просто нужен)
 
-const request = require('request');
+const request = require('request'),
+    Campaign = require('mongoose').model('Campaign');
 
 // Прописываем путь к json-токену
 
@@ -65,16 +66,16 @@ let trigSendReq = false; // trigger for sending request
 let bqInvocation = (bqQuery) => {
     let queryResult = []; // Массив для результатов SQL-запроса
     let bqInvocationPromise = new Promise((resolve, reject) => {
-        bigquery.createQueryStream(bqQuery)
-            .on('error', console.error)
-            .on('data', function (row) {
-                queryResult.push(row);
-                // row is a result from your query.
-            })
-            .on('end', function () {
-                resolve(queryResult);
-                // All rows retrieved.
-            });
+             bigquery.query(bqQuery)
+                .then((data)=>{
+                    resolve(data[0]);
+                })
+                .catch((err)=>{
+                    console.log(err.message);
+                    reject(queryResult);
+                })
+            ;
+             
     });
     return bqInvocationPromise;
 };
@@ -97,7 +98,7 @@ let datasetsInvocation = () => {
     let tablesObj = {}; // Объект с массивами с таблицами из датасетов
 
     let getDatasetsPromise = new Promise((resolve, reject) => {
-        bigquery.getDatasets((err, datasets) => {
+        bigquery.getDatasets(async (err, datasets) => {
 
             // Массив для списка датасетов
 
@@ -108,8 +109,9 @@ let datasetsInvocation = () => {
 
                     datasetsArr.push(currentDatasetId)
                     let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
-                    dataset.getTables((err, tables) => {
-                        for (let k = 0; k < tables.length; k++) {
+                    let tables1 = await dataset.getTables();
+                    let tables = tables1[0];
+                    for (let k = 0; k < tables.length; k++) {
                             let nameOfId = tables[k].id;
                             if (idArr.indexOf(nameOfId) == -1) {
                                 idArr.push(nameOfId);
@@ -119,24 +121,16 @@ let datasetsInvocation = () => {
                         if (Object.keys(tablesObj).length == datasets.length) {
                             resolve(tablesObj);
                         }
-                    });
                     let tablesQuery = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
-                    bigquery.query({
-                        query: tablesQuery,
-                        params: []
-                    }, function (err, rows) {
-                        let tablesArr = [];
+                    let rows = await bigquery.query({query: tablesQuery, params:[]});
+                    rows = rows[0];
+                    let tablesArr = [];
 
-                        for (i = 0; i < rows.length; i++) {
-                            tablesArr.push(rows[i].tableName);
-                        }
-
-                        tablesObj[currentDatasetId] = tablesArr;
-                        if (Object.keys(tablesObj).length == datasets.length) {
-                            resolve(tablesObj);
-                        }
-                    });
+                    for (let j = 0; j < rows.length; j++) {
+                        tablesArr.push(rows[j].tableName);
+                    }
                 }
+                resolve(tablesObj);
             }
         })
     });
@@ -185,6 +179,16 @@ let siteSplitter = (site) => {
     return site;
 }
 
+let mongoDeleteAndUpdate = async () => {
+    await Campaign.remove({});
+    let query = 'SELECT industry, client, ad_goal, medium, placement, brand, device, format, successful FROM [mdma-175510:postbuy.all]';
+    let info = await bigquery.query(query);
+    info.forEach((obj)=>{
+        Campaign.create(obj,(err,res)=>{
+        })
+    });
+}
+
 exports.sendData = async (req,res) => {
     res.send(await showFiltersAnswer());
 }
@@ -193,4 +197,9 @@ exports.getQuery = (req,res) => {
     query = req.body;
     res.status(200);
     res.send('');
+}
+
+exports.updateMongo = (req,res) => {
+    mongoDeleteAndUpdate();
+    res.send('ok');
 }
