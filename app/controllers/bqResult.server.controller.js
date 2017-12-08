@@ -59,7 +59,7 @@ let siteSplitter = (site) => {
 
 let paramResFunc = (param) => {
     let answ = ""
-    if (answer.filters == undefined || answer.filters[param] == undefined ) {
+    if (answer.filters == undefined || answer.filters[param] == undefined) {
         answ = '.*';
         return answ;
     }
@@ -94,10 +94,10 @@ let sqlArrFunc = () => {
     if (answer.postbuy != undefined && answer.postbuy.length > 0) {
         answ.push('postbuy');
     }
-    if (answer.yandex_metrika!= undefined && (answer.yandex_metrika.metrics.length > 0 || answer.yandex_metrika.dimension.length > 0 || answer.yandex_metrika.goals == true)) {
+    if (answer.yandex_metrika != undefined && (answer.yandex_metrika.metrics.length > 0 || answer.yandex_metrika.dimension.length > 0 || answer.yandex_metrika.goals == true)) {
         answ.push('yandex_metrika');
     }
-    if (answer.google_analytics!= undefined && (answer.google_analytics.metrics.length > 0 || answer.google_analytics.dimension.length > 0 || answer.google_analytics.goals == true)) {
+    if (answer.google_analytics != undefined && (answer.google_analytics.metrics.length > 0 || answer.google_analytics.dimension.length > 0 || answer.google_analytics.goals == true)) {
         answ.push('google_analytics');
     }
     return answ;
@@ -162,7 +162,7 @@ let fromConfigSplitted = (datasource) => {
             let answ = " FROM "
             for (let key in answer.datasets) {
                 if (answer.datasets[key].dataset === datasource) {
-                    answ += '[mdma-175510:'+datasource+'.' + answer.datasets[key].id + '], '
+                    answ += '[mdma-175510:' + datasource + '.' + answer.datasets[key].id + '], '
                 }
             }
             return answ.replace(/\, $/, ' ');
@@ -309,40 +309,42 @@ let checkDataSources = () => {
 };
 
 let createDownloadFiles = () => {
-    return new Promise((res,rej)=>{
+    return new Promise((res, rej) => {
         let filesObjArr = [{
-        name:"postbuy",
-        address:"Postbuy_benchmarks_upload.csv",
-        file:undefined,
-        nameIndex:0
+            name: "postbuy",
+            address: "Postbuy_benchmarks_upload.csv",
+            file: undefined,
+            nameIndex: 0
         }, {
-            name:"yandex_metrika",
-            address:"Yandex_Metrika_benchmarks_upload.csv",
-            file:undefined,
-            nameIndex:1
+            name: "yandex_metrika",
+            address: "Yandex_Metrika_benchmarks_upload.csv",
+            file: undefined,
+            nameIndex: 1
         }, {
-            name:"google_analytics",
-            address:"Google_Analytics_benchmarks_upload.csv",
-            file:undefined,
-            nameIndex:2
+            name: "google_analytics",
+            address: "Google_Analytics_benchmarks_upload.csv",
+            file: undefined,
+            nameIndex: 2
         }];
         let scsArr = [];
 
-        filesObjArr.forEach((file)=>{
+        filesObjArr.forEach((file) => {
             scsArr.push(filePromise(file));
         });
-        Promise.all(scsArr).then(()=>{res();})
+        Promise.all(scsArr).then(() => {
+            res();
+        })
     })
-    
+
 
 };
 
 let filePromise = (filesObj) => {
-    return new Promise((resolve,reject)=>{
-        fs.accessSync('./public/lib/CSVData/'+filesObj.address, (err)=>{
-            if(!err) fs.unlinkSync('./public/lib/CSVData/'+filesObj.address);
+    return new Promise((resolve, reject) => {
+        fs.accessSync('./public/lib/CSVData/' + filesObj.address, (err) => {
+            if (!err) fs.unlinkSync('./public/lib/CSVData/' + filesObj.address);
         });
-        if (queryResultArr[filesObj.nameIndex].data){
+        if (queryResultArr[filesObj.nameIndex].data) {
             filesObj.file = json2csv({
                 data: queryResultArr[filesObj.nameIndex].data,
                 fields: Object.keys(queryResultArr[filesObj.nameIndex].data[0]),
@@ -350,12 +352,14 @@ let filePromise = (filesObj) => {
             });
         } else {
             filesObj.file = json2csv({
-                data: [{'Зачем': 'было это скачивать?'}],
+                data: [{
+                    'Зачем': 'было это скачивать?'
+                }],
                 fields: ['Зачем'],
                 del: ';'
             });
         }
-        fs.writeFile('public/lib/CSVData/'+filesObj.address, filesObj.file, (err) => {
+        fs.writeFile('public/lib/CSVData/' + filesObj.address, filesObj.file, (err) => {
             if (err) {
                 console.log(err);
             } else {
@@ -367,38 +371,38 @@ let filePromise = (filesObj) => {
 
 let bigQueryPromise = (param) => {
     let query = selectConfig(param) + fromConfigSplitted(param) + whereConfig(param);
-    if(param!='postbuy'){
+    if (param != 'postbuy') {
         query += groupByConfig(param);
     }
-    return new Promise(async (resolve, reject) => {
+    return new Promise(async(resolve, reject) => {
         let answ = {
             name: param,
             data: undefined
         };
         console.info((new Date()).getTime() - startTime.getTime());
-        console.info('Начал запрос в bq для '+param);
+        console.info('Начал запрос в bq для ' + param);
         answ.data = await bigquery.query(query);
         console.info((new Date()).getTime() - startTime.getTime());
-        console.info('Записал данные из bq для '+param);
+        console.info('Записал данные из bq для ' + param);
         resolve(answ);
     });
 };
 
 let resultQuery = () => {
     startTime = new Date();
-    return new Promise(async (resolve,reject)=>{
+    return new Promise(async(resolve, reject) => {
         queryResultArr = [{
-            'data': [],
-            'name': 'postbuy'
-        },
-        {
-            'data': [],
-            'name': 'yandex_metrika'
-        },
-        {
-            'data': [],
-            'name': 'google_analytics'
-        },
+                'data': [],
+                'name': 'postbuy'
+            },
+            {
+                'data': [],
+                'name': 'yandex_metrika'
+            },
+            {
+                'data': [],
+                'name': 'google_analytics'
+            },
         ];
         let promAnsw = [];
         let sqlArr = sqlArrFunc();
@@ -477,7 +481,7 @@ let resultQuery = () => {
             promAnsw.push(bigQueryPromise(sqlArr[key]));
         }
         // pr.then(async (data) => {
-        Promise.all(promAnsw).then(async (data)=>{
+        Promise.all(promAnsw).then(async(data) => {
             queryResultArr.forEach((content) => {
                 data.forEach((answ) => {
                     if (content.name == answ.name) {
@@ -505,6 +509,6 @@ exports.getFiltersAnsw = (req, res) => {
     res.send('');
 };
 
-exports.sendResult = async (req,res) => {
+exports.sendResult = async(req, res) => {
     res.send(await resultQuery());
 };
