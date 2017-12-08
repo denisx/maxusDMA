@@ -3,7 +3,9 @@
 // Require export packages
 let json2csv = require('json2csv');
 let fs = require('fs');
-let iconv = require('iconv-lite');
+let Buffer = require('buffer').Buffer;
+let Iconv = require('iconv').Iconv;
+let assert = require('assert');
 
 // Paths project, datasets, tables
 const projectId = 'mdma-175510';
@@ -357,7 +359,7 @@ let createDownloadFiles = () => {
                         del: ';'
                     });
                 }
-                fs.writeFile('public/lib/CSVData/'+ filesObj.address, iconv.decode(Buffer(filesObj.file), 'utf8'), (err) => {
+                fs.writeFile('public/lib/CSVData/'+ filesObj.address, filesObj.file, (err) => {
                     if (err) {
                         console.log(err);
                     } else {
