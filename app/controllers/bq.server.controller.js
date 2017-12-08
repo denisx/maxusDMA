@@ -26,27 +26,39 @@ let idArr = [];
 
 let datasetsArr = [];
 
-// Запрос в BQ 
-let query = {};
+let config = undefined;
+
+class queryBuilder {
+    constructor(query) {
+        this.query = query;
+    }
+
+    get where(){
+        return this.whereBuild();
+    }
+
+    whereBuild() {
+        let whereData = "";
+        for (let key in this.query) {
+            whereData+=(whereData==="")?' WHERE (':'AND (';
+            for (let i = 0; i < this.query[key].length; i++) {
+                if (i != 0) {
+                    whereData += 'OR ';
+                }
+                whereData += key + ' CONTAINS "' + this.query[key][i];
+                whereData += (i == this.query[key].length - 1)?'") ':'" ';
+            }
+        }
+        return whereData;
+    }
+}
 
 // Цикл по объекту с данными из формы (query), который формирует содержимое оператора WHERE 
 let showFiltersAnswer = () => {
     return new Promise((resolve,reject)=>{
-        let whereData = "";
-        for (let key in query) {
-            whereData+=(whereData==="")?' WHERE (':'AND (';
-            for (let i = 0; i < query[key].length; i++) {
-                if (i != 0) {
-                    whereData += 'OR ';
-                }
-                whereData += key + ' CONTAINS "' + query[key][i];
-                whereData += (i == query[key].length - 1)?'") ':'" ';
-            }
-        }
-
         let queryReq = 'SELECT ' +
             'industry AS Industry, client AS Client, site AS Site, campaign AS Campaign, successful AS Successful, date_start AS Date_start, date_end AS Date_end, duration as Duration, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
-            whereData +
+            config.where +
             'GROUP BY ' +
             'Industry, Client, Site, Campaign, Successful, Date_start, Date_end, Duration, Postbuy_data';
         let resultsToChangeArr = [];
@@ -194,7 +206,7 @@ exports.sendData = async (req,res) => {
 }
 
 exports.getQuery = (req,res) => {
-    query = req.body;
+    config = new queryBuilder(req.body);
     res.status(200);
     res.send('');
 }
