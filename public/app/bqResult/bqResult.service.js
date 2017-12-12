@@ -21,7 +21,7 @@ angular.module('bqResult').factory('bqResultFactory', ['$http',
 //
 //        };
 
-        factoryMethods.getAnswerForQuery = () => {
+        factoryMethods.getAnswerForQuery = (query) => {
             function successCall(data) {
                 return data.data;
             };
@@ -31,8 +31,9 @@ angular.module('bqResult').factory('bqResultFactory', ['$http',
             };
 
             return $http({
-                method: 'GET',
-                url: '/filters/answer'
+                method: 'POST',
+                url: '/filters/answer',
+				data: query
             }).then(successCall, errorCall);
 
         };

@@ -104,26 +104,16 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
         }
     };
 
-    let sendCookiesOnNext = () => {
-        let whatWeWantToSee = ['industry', 'client', 'ad_goal'];
-        let pages = ['filters', 'result'];
-        let delete_cookie = (name, page) => {
-            document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT; path=/' + page;
-        };
-        whatWeWantToSee.forEach((key) => {
-            pages.forEach((page) => {
-                delete_cookie(key, page);
-            })
-        })
-        Object.keys(query).forEach((key) => {
-            if (whatWeWantToSee.includes(key)) {
-                let valToSend = query[key].join(', ');
-                let timeToDestroy = Date.now() + 600000;
-                pages.forEach((page) => {
-                    document.cookie = key + '=' + valToSend + '; expires=' + timeToDestroy.toString() + '; path=/' + page;
-                })
-            }
-        })
+    let setLocalStorage = () => {
+//        Object.keys($scope.filters).forEach((key) => {
+//			window.localStorage.removeItem(key);
+//        });
+		window.localStorage.removeItem('filters');
+//        Object.keys(query).forEach((key) => {
+//            let value = query[key].join(', ');
+//				window.localStorage.setItem(key, value);
+//        })
+		window.localStorage.setItem('filters', JSON.stringify(query));
 
     };
 
@@ -147,14 +137,15 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
                 clearSearchBox(keyName);
                 if (queryCurrent.length > 0) {
+                    
+                    queryCurrent.forEach((li) => {
+                        checkedFieldColor(document.getElementById(li), 'passive')
+                    })
                     if (keyName == 'brand') {
                         queryCurrent.forEach((elem, i, arr) => {
                             arr[i] = elem.slice(elem.indexOf('_') + 1);
                         })
                     }
-                    queryCurrent.forEach((li) => {
-                        checkedFieldColor(document.getElementById(li), 'passive')
-                    })
                     query[keyName] = queryCurrent;
                     changeTitleForBox(eventTarget.parentNode, keyName);
                     queryCurrent = [];
@@ -245,9 +236,8 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 
     $scope.nextPage = () => {
         setTimeout(() => {
-            sendCookiesOnNext();
-            // costyl();
-            optionsFilter.sendQueryNextPage(query)
+			setLocalStorage();
+            window.location.href = 'filters';
         }, 1);
 
     }

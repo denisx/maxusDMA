@@ -144,11 +144,6 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					workingWithData().checkGoals();
 					
 				}
-				
-//				document.querySelector('input[id="goalCheck"]').onchange = workingWithData().changeGoals();
-				
-				
-
 			});
 		}
 		
@@ -157,17 +152,16 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				costyl(key);
 			});
 			console.log(answer);
-			setTimeout(()=>{bqpartoneFactory.sendQueryNextPage(answer)}, 1);
-//			window.location.href = '/result';
+			setLocalStorage();
+			window.location.href = '/result';
 		};
 		
 		// on page loads send req to get data from server, after table&bread are loaded, kills loader
 		// void
-		let getResults = () => {
-            bqpartoneFactory.getResultsForTable()
+		let getResults = (query) => {
+            bqpartoneFactory.getResultsForTable(query)
                 .then((data)=>{
 					fillMenuElements(data);
-					fillBread();
 					console.log(data);
 					let tableContent = {
 						data: data,
@@ -199,44 +193,6 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				row.Date_start = row.Date_start.value;
 				row.Date_end = row.Date_end.value;
 			});
-		};
-		
-		
-		// Eats cookie info abouut choosen bread vals
-		// void
-		let fillBread = () => {
-			let breadArr = ['industry','client','ad_goal'];
-			let breadText = {};
-			document.cookie.split('; ').forEach((elem)=>{
-				let content = elem.split('=');
-				if (breadArr.includes(content[0])){
-					$scope.menuElements[content[0]].chosen = elem.split('=')[1].split(', ');
-				}
-			});
-			breadArr.forEach((elem)=>{
-				if ($scope.menuElements[elem].chosen.length > 0) {
-					breadText[elem] = $scope.menuElements[elem].chosen.join(', ');
-				} else {
-					breadText[elem] = 'Все';
-				}
-			})
-			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
-			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
-			
-			document.addEventListener('mousemove', (e)=>{
-				if (e.target.closest('.breadText')!=null) {
-					let top = e.clientY + 20 + "px";
-					let left = e.clientX  - 50 + "px";
-					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
-					if (hovDiv == undefined) {
-						return false;
-					}
-					hovDiv.firstElementChild.textContent = breadText[e.target.id];
-					hovDiv.style.left = left;
-					hovDiv.style.top = top;
-				}
-			});
-			
 		};
 		
 		// Class for 
@@ -352,6 +308,48 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 		};
 		
+		let readLocalStorage = () => {
+			let query = JSON.parse(window.localStorage.getItem('filters'));
+			fillBread(query);
+			return query;
+		}
+		
+		let setLocalStorage = () => {
+			window.localStorage.setItem('query', JSON.stringify(answer));
+		}
+		
+		// Eats cookie info abouut choosen bread vals
+		// void
+		let fillBread = (query) => {
+			let breadArr = ['industry','client','ad_goal'];
+			let breadText = {};
+			
+			breadArr.forEach((elem)=>{
+				if (query[elem] != undefined) {
+					$scope.menuElements[elem].chosen = query[elem];
+					breadText[elem] = query[elem].join(', ');
+				} else {
+					breadText[elem] = 'Все';
+				}
+			})
+			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
+			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
+			
+			document.addEventListener('mousemove', (e)=>{
+				if (e.target.closest('.breadText')!=null) {
+					let top = e.clientY + 20 + "px";
+					let left = e.clientX  - 50 + "px";
+					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
+					if (hovDiv == undefined) {
+						return false;
+					}
+					hovDiv.firstElementChild.textContent = breadText[e.target.id];
+					hovDiv.style.left = left;
+					hovDiv.style.top = top;
+				}
+			});
+		};
+		
 		let initTable = () => {
 			let settings = {
 				"data-toggle":"table",
@@ -380,7 +378,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		})
 		
 		initTable();
-		getResults();
+		getResults(readLocalStorage());
 		
 		
 

@@ -5,7 +5,7 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
 
         let factoryMethods = {};
 
-        factoryMethods.getResultsForTable = () => {
+        factoryMethods.getResultsForTable = (query) => {
             function successCall(data) {
                 return data.data;
             };
@@ -15,14 +15,13 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
             };
 
             return $http({
-                method: 'GET',
-                url: '/filters/gettablesobj'
+                method: 'POST',
+                url: '/filters/gettablesobj',
+				data: query
             }).then(successCall, errorCall);
-
-
         };
 
-        factoryMethods.sendQueryNextPage = (query) => {
+/*        factoryMethods.sendQueryNextPage = (query) => {
             console.log(query);
 
             function successCall(data) {
@@ -42,7 +41,7 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
                 url: '/filters/answer',
                 data: query
             }).then(successCall, errorCall);
-        }
+        }*/
 
         return factoryMethods;
 

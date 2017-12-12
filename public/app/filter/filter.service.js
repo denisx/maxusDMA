@@ -20,28 +20,6 @@ angular.module('filter').factory('optionsFilter', ['$http', '$window',
             }).then(successCall, errorCall);
         };
 
-        factoryMethods.sendQueryNextPage = (query) => {
-            console.log(query);
-
-            function successCall(data) {
-
-                console.log(data.status);
-                if (data.status == 200) {
-                    $window.location.href = 'filters';
-                }
-                return data;
-            };
-
-            function errorCall(err) {
-                return err;
-            };
-
-            return $http({
-                method: 'POST',
-                url: '/filters',
-                data: query
-            }).then(successCall, errorCall);
-        }
         return factoryMethods;
 
     }

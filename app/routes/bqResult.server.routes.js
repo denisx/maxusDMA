@@ -5,9 +5,9 @@ let bq = require('../controllers/bqResult.server.controller'),
 
 module.exports = (app) => {
   app.route('/filters/answer')
-    .get(bq.sendResult);
+    .post(bq.sendResult);
 
-  app.route('/filters/answer')
-    .post(bq.getFiltersAnsw);
+/*   app.route('/filters/answer')
+    .post(bq.getFiltersAnsw); */
 
 };

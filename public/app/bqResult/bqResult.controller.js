@@ -1,15 +1,14 @@
 'use strict'
 
-angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory',
-	($scope, bqResultFactory) => {
+angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory', ($scope, bqResultFactory) => {
 
 		let killLoader = () => {
 			document.getElementsByClassName('loaderDiv')[0].remove();
 		};
 
-		let getAnswer = () => {
-			fillBread();
-			bqResultFactory.getAnswerForQuery()
+		let getAnswer = (query) => {
+			fillBread(query);
+			bqResultFactory.getAnswerForQuery(query)
 				.then((data) => {
 					let postbuyTableContent = {
 						data: data[0].data,
@@ -79,21 +78,17 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 			});
 		}
 
-		let fillBread = () => {
+		let fillBread = (query) => {
 			let breadArr = ['industry', 'client', 'ad_goal'];
 			let breadText = {};
-			document.cookie.split('; ').forEach((elem) => {
-				let content = elem.split('=');
-				if (breadArr.includes(content[0])) {
-					breadText[content[0]] = elem.split('=')[1];
-				}
-			});
 
-			breadArr.forEach((elem) => {
-				if (breadText[elem] == undefined) {
+			breadArr.forEach((elem)=>{
+				if (query.filters[elem] != undefined) {
+					breadText[elem] = query.filters[elem].join(', ');
+				} else {
 					breadText[elem] = 'Все';
 				}
-			});
+			})
 
 			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
 			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
@@ -114,8 +109,11 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 
 		};
 
-		getAnswer();
-		console.log('test for azure deploy');
+		let readLocalStorage = () => {
+			return JSON.parse(window.localStorage.getItem('query'));
+		}
+		
+		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
 			let hrefToDownload = 'lib/CSVData/' + $('li.active a').attr('id') + '_benchmarks_upload.csv';

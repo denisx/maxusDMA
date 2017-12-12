@@ -18,15 +18,11 @@ const bigquery = require('@google-cloud/bigquery')({
     keyFilename: 'config/keys/mdma-17fcdb829378.json'
 })
 
-// Массив с названиями таблиц
 
-let idArr = [];
 
 // Массив в названиями датасетов
 
-let datasetsArr = [];
-
-let config = undefined;
+// let datasetsArr = [];
 
 class queryBuilder {
     constructor(query) {
@@ -54,7 +50,9 @@ class queryBuilder {
 }
 
 // Цикл по объекту с данными из формы (query), который формирует содержимое оператора WHERE 
-let showFiltersAnswer = () => {
+let showFiltersAnswer = (info) => {
+    let config = new queryBuilder(info);
+
     return new Promise((resolve,reject)=>{
         let queryReq = 'SELECT ' +
             'industry AS Industry, client AS Client, site AS Site, campaign AS Campaign, successful AS Successful, date_start AS Date_start, date_end AS Date_end, duration as Duration, GROUP_CONCAT(UNIQUE(Placement)) AS Placement, GROUP_CONCAT(UNIQUE(Medium)) AS Medium, GROUP_CONCAT(UNIQUE(Format)) AS Format, "+" AS Postbuy_data FROM [mdma-175510:postbuy.all]' +
@@ -71,8 +69,7 @@ let showFiltersAnswer = () => {
     });
 }
 
-let resultToTable;
-let trigSendReq = false; // trigger for sending request
+// let resultToTable;
 
 // Запишем в переменную queryResults ответ bigquery на sql-запрос (queryreq) в формате JSON
 let bqInvocation = (bqQuery) => {
@@ -119,20 +116,23 @@ let datasetsInvocation = () => {
                 for (let i = 0; i < datasets.length; i++) {
                     let currentDatasetId = datasets[i].metadata.datasetReference.datasetId;
 
-                    datasetsArr.push(currentDatasetId)
+                    // datasetsArr.push(currentDatasetId)
                     let dataset = bigquery.dataset(currentDatasetId); // Запишем в массив tablesArr все таблицы из датасетов  
                     let tables1 = await dataset.getTables();
                     let tables = tables1[0];
+                    // Массив с названиями таблиц
+
+                    let idArr = [];
                     for (let k = 0; k < tables.length; k++) {
                             let nameOfId = tables[k].id;
                             if (idArr.indexOf(nameOfId) == -1) {
                                 idArr.push(nameOfId);
                             }
                         }
-                        tablesObj[currentDatasetId] = idArr;
-                        if (Object.keys(tablesObj).length == datasets.length) {
-                            resolve(tablesObj);
-                        }
+                    tablesObj[currentDatasetId] = idArr;
+                    if (Object.keys(tablesObj).length == datasets.length) {
+                        resolve(tablesObj);
+                    }
                     let tablesQuery = 'SELECT DISTINCT SPLIT(table_id,"_20")[ORDINAL(1)] as tableName FROM `' + currentDatasetId + '.__TABLES_SUMMARY__`;'
                     let rows = await bigquery.query({query: tablesQuery, params:[]});
                     rows = rows[0];
@@ -202,13 +202,7 @@ let mongoDeleteAndUpdate = async () => {
 }
 
 exports.sendData = async (req,res) => {
-    res.send(await showFiltersAnswer());
-}
-
-exports.getQuery = (req,res) => {
-    config = new queryBuilder(req.body);
-    res.status(200);
-    res.send('');
+    res.send(await showFiltersAnswer(req.body));
 }
 
 exports.updateMongo = (req,res) => {
