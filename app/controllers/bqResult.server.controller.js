@@ -397,8 +397,8 @@ let resultQuery = (a) => {
             data = null;
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Начал создавать данные для загрузки');
-            let createFile = new FileWork(queryResultArr);
-            await createFile.createDownloadFiles();
+            /* let createFile = new FileWork(queryResultArr);
+            await createFile.createDownloadFiles(); */
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Отдаю для загрузки');
             resolve(queryResultArr);
