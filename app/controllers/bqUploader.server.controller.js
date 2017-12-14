@@ -44,7 +44,7 @@ exports.uploadDataToBQ = (req, res) => {
     console.log(csvFilesArr);
 
     // Init necessary dataset    
-    let dataset = bigquery.dataset('yandex_metrika');
+    let dataset = bigquery.dataset('test');
 
     csvFilesArr.forEach(function (element, i) {
         // Name table with the selected filename (split by previous path name)

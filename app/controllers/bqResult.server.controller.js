@@ -372,15 +372,18 @@ let resultQuery = (a) => {
         Promise.all(promAnsw).then(async(data) => {
             let queryResultArr = [{
                 'data': [],
-                'name': 'postbuy'
+                'name': 'postbuy',
+                'filename': ''
             },
             {
                 'data': [],
-                'name': 'yandex_metrika'
+                'name': 'yandex_metrika',
+                'filename': ''
             },
             {
                 'data': [],
-                'name': 'google_analytics'
+                'name': 'google_analytics',
+                'filename': ''
             },
             ];
             data.forEach((answ) => {
@@ -397,8 +400,8 @@ let resultQuery = (a) => {
             data = null;
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Начал создавать данные для загрузки');
-            /* let createFile = new FileWork(queryResultArr);
-            await createFile.createDownloadFiles(); */
+            let createFile = new FileWork(queryResultArr);
+            await createFile.createDownloadFiles();
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Отдаю для загрузки');
             resolve(queryResultArr);
