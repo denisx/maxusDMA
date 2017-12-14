@@ -113,10 +113,20 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 			return JSON.parse(window.localStorage.getItem('query'));
 		}
 		
+		let eatId = () => {
+			let a = 0;
+			document.cookie.split(';').forEach((elem)=>{
+				if(elem.split('=')[0] == 'id') {
+					a =  elem.split('=')[1];
+				}
+			})
+			return a;
+		}
+		
 		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
-			let hrefToDownload = 'lib/CSVData/' + $('li.active a').attr('id') + '_benchmarks_upload.csv';
+			let hrefToDownload = 'lib/CSVData/' + eatId() + '_'+ $('li.active a').attr('id') + '_benchmarks_upload.csv';
 			window.location.href = hrefToDownload;
 		}
 
