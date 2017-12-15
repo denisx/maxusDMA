@@ -113,7 +113,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
 //            let value = query[key].join(', ');
 //				window.localStorage.setItem(key, value);
 //        })
-		window.localStorage.setItem('filters', JSON.stringify(query));
+		window.localStorage.setItem('filters', JSON.stringify($scope.filters));
 
     };
 

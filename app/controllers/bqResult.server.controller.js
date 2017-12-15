@@ -21,13 +21,14 @@ let startTime;
 
 
 class Data {
-    constructor (type, data, datasets, startDate, endDate, filters){
+    constructor (type, data, datasets, startDate, endDate, filters, id){
         this.type = type;
         this.data = data;
         this.datasets = datasets;
         this.startDate = startDate;
         this.endDate = endDate;
         this.filters = filters;
+        this.id = id;
     }
 
     selectConfig () {
@@ -117,15 +118,32 @@ class Data {
         return new Promise(async(resolve, reject) => {
             let answ = {
                 name: this.type,
-                data: undefined
+                data: []
             };
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Начал запрос в bq для ' + this.type);
-            answ.data = await bigquery.query(query);
-            console.info((new Date()).getTime() - startTime.getTime());
+            // answ.data = await bigquery.query(query);
+            bigquery.createQueryStream(query)
+                .on('error', (err)=>{
+                    console.error(err);
+                    reject({name:this.type,data:[]});
+                })
+                .on('data', (row)=>{
+                    if (this.type == 'postbuy'){
+                        row.date_start = row.date_start.value;
+                        row.date_end = row.date_end.value;
+                    }
+                    answ.data.push(row);
+                })
+                .on('end', ()=>{
+                    console.info((new Date()).getTime() - startTime.getTime());
+                    console.info('Записал данные из bq для ' + this.type);
+
+                    resolve(answ);
+                }) 
+           /*  console.info((new Date()).getTime() - startTime.getTime());
             console.info('Записал данные из bq для ' + this.type);
-            resolve(answ);
-            reject({name:this.type,data:''});
+            resolve(answ); */
         });
     };
 
@@ -163,18 +181,6 @@ class Datasources {
         if (param=='source'){
             answ = (this.datasource.length!=0)?this.datasource.join('|'):"";
         }
-        /* if (param == 'site') {
-            filters[param].forEach((elem) => {
-                if (elem.length === 0) {
-                    answ += ".*";
-                } else if (filters[param].indexOf(elem) <= elem.length - 1) {
-                    answ += this.siteSplitter(elem) + "|";
-                } else {
-                    answ += this.siteSplitter(elem);
-                }
-            });
-            return answ;
-        } */
         answ += (filters[param].length!=0)? filters[param].join('|'):".*";
         return answ;
     }
@@ -258,14 +264,13 @@ class FileWork {
 
     filePromise (filesObj) {
         return new Promise((resolve, reject) => {
-            /* fs.accessSync('./public/lib/CSVData/' + filesObj.address, (err) => {
-                if (!err) fs.unlinkSync('./public/lib/CSVData/' + filesObj.address);
-            }); */
             if (this.data[filesObj.nameIndex].data) {
                 filesObj.file = json2csv({
                     data: this.data[filesObj.nameIndex].data,
-                    fields: Object.keys(this.data[filesObj.nameIndex].data[0]),
+                    fields: Object.keys(this.data[filesObj.nameIndex].data[0]),                    
                     del: ';'
+                }, (err, string)=>{
+                    console.log(string.split('\n'));
                 });
             } else {
                 filesObj.file = json2csv({
@@ -393,7 +398,7 @@ let resultQuery = (a, id) => {
                 data.forEach((answ) => {
                     queryResultArr.forEach((content) => {
                         if (content.name == answ.name) {
-                            content.data = answ.data[0];
+                            content.data = answ.data;
                         }
                         if (content.data.length == 0) {
                             content.data = false;
