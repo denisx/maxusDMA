@@ -21,28 +21,6 @@ angular.module('bqpartone').factory('bqpartoneFactory', ['$http', '$window',
             }).then(successCall, errorCall);
         };
 
-/*        factoryMethods.sendQueryNextPage = (query) => {
-            console.log(query);
-
-            function successCall(data) {
-
-                console.log(data.status);
-				$window.location.href = '/result';
-                return data;
-            };
-
-            function errorCall(err) {
-                return err;
-                console.log('err')
-            };
-
-            return $http({
-                method: 'POST',
-                url: '/filters/answer',
-                data: query
-            }).then(successCall, errorCall);
-        }*/
-
         return factoryMethods;
 
     }

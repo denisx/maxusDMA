@@ -321,15 +321,13 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		// Eats cookie info abouut choosen bread vals
 		// void
 		let fillBread = (query) => {
-			let breadArr = ['industry','client','ad_goal'];
+			let breadArr = Object.keys(query);
 			let breadText = {};
 			
 			breadArr.forEach((elem)=>{
-				if (query[elem] != undefined) {
+				breadText[elem] = query[elem].join(', ');
+				if (elem == 'industry' || elem == 'client' || elem == 'ad_goal'){
 					$scope.menuElements[elem].chosen = query[elem];
-					breadText[elem] = query[elem].join(', ');
-				} else {
-					breadText[elem] = 'Все';
 				}
 			})
 			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
@@ -343,7 +341,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					if (hovDiv == undefined) {
 						return false;
 					}
-					hovDiv.firstElementChild.textContent = breadText[e.target.id];
+					hovDiv.firstElementChild.textContent = breadText[e.target.id.split('bread_')[1]];
 					hovDiv.style.left = left;
 					hovDiv.style.top = top;
 				}

@@ -7,7 +7,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		};
 
 		let getAnswer = (query) => {
-			fillBread(query);
+			fillBread(readBread());
 			bqResultFactory.getAnswerForQuery(query)
 				.then((data) => {
 					let tableContent = {
@@ -67,29 +67,24 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		}
 
 		let fillBread = (query) => {
-			let breadArr = ['industry', 'client', 'ad_goal'];
+			let breadArr = Object.keys(query);
 			let breadText = {};
-
+			
 			breadArr.forEach((elem)=>{
-				if (query.filters[elem] != undefined) {
-					breadText[elem] = query.filters[elem].join(', ');
-				} else {
-					breadText[elem] = 'Все';
-				}
+				breadText[elem] = query[elem].join(', ');
 			})
-
 			document.getElementsByClassName('breadHoverDefault')[0].classList.add('breadHoverInfo');
 			document.getElementsByClassName('breadHoverInfo')[0].classList.remove('breadHoverDefault');
-
-			document.addEventListener('mousemove', (e) => {
-				if (e.target.closest('.breadText') != null) {
+			
+			document.addEventListener('mousemove', (e)=>{
+				if (e.target.closest('.breadText')!=null) {
 					let top = e.clientY + 20 + "px";
-					let left = e.clientX - 50 + "px";
+					let left = e.clientX  - 50 + "px";
 					let hovDiv = e.target.closest('.bread').getElementsByClassName('breadHoverInfo')[0];
 					if (hovDiv == undefined) {
 						return false;
 					}
-					hovDiv.firstElementChild.textContent = breadText[e.target.id];
+					hovDiv.firstElementChild.textContent = breadText[e.target.id.split('bread_')[1]];
 					hovDiv.style.left = left;
 					hovDiv.style.top = top;
 				}
@@ -99,6 +94,10 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 
 		let readLocalStorage = () => {
 			return JSON.parse(window.localStorage.getItem('query'));
+		}
+		
+		let readBread = () => {
+			return JSON.parse(window.localStorage.getItem('filters'));
 		}
 		
 		let eatId = () => {
