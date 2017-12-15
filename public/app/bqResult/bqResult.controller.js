@@ -10,46 +10,34 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 			fillBread(query);
 			bqResultFactory.getAnswerForQuery(query)
 				.then((data) => {
-					let postbuyTableContent = {
-						data: data[0].data,
-						columns: []
+					let tableContent = {
+						"postbuy":{
+							data: data.postbuy,
+							columns: []
+						},
+						"yandexMetrika":{
+							data: data.yandex_metrika,
+							columns: []
+						},
+						"googleAnalytics": {
+							data: data.google_analytics,
+							columns: []
+						}
 					};
-					let googleAnalyticsTableContent = {
-						data: data[2].data,
-						columns: []
-					};
-					let yandexMetrikaTableContent = {
-						data: data[1].data,
-						columns: []
-					};
-					if (data[0].data !== false) {
-						Object.keys(data[0].data[0]).forEach((key) => {
-							postbuyTableContent.columns.push({
-								field: key,
-								title: key
-							});
-						});
-					}
-					if (data[2].data !== false) {
-						Object.keys(data[2].data[0]).forEach((key) => {
-							googleAnalyticsTableContent.columns.push({
-								field: key,
-								title: key
-							});
-						});
-					}
-					if (data[1].data !== false) {
-						Object.keys(data[1].data[0]).forEach((key) => {
-							yandexMetrikaTableContent.columns.push({
-								field: key,
-								title: key
-							});
-						});
-					}
+					Object.keys(tableContent).forEach((table)=>{
+						if (tableContent[table].data!=false){
+							Object.keys(tableContent[table].data[0]).forEach((key)=>{
+								tableContent[table].columns.push({
+									field: key,
+									title: key
+								})
+							})
+						}
+					});
 					initTable();
-					$('#postbuyTable').bootstrapTable(postbuyTableContent);
-					$('#googleAnalyticsTable').bootstrapTable(googleAnalyticsTableContent);
-					$('#yandexMetrikaTable').bootstrapTable(yandexMetrikaTableContent);
+					$('#postbuyTable').bootstrapTable(tableContent.postbuy);
+					$('#googleAnalyticsTable').bootstrapTable(tableContent.googleAnalytics);
+					$('#yandexMetrikaTable').bootstrapTable(tableContent.yandexMetrika);
 					killLoader();
 				});
 			return false;
