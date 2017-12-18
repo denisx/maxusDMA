@@ -2,6 +2,7 @@
 
 const config = require('./config'),
     bodyParser = require('body-parser'),
+    directory = require('serve-index'),
     morgan = require('morgan'),
     express = require('express'),
     methodOverride = require('method-override'),
@@ -38,6 +39,7 @@ module.exports = function() {
     require('../app/routes/bqResult.server.routes.js')(app);
 
     app.use(express.static('./public'));
+    app.use('/csv', express.static('./public/lib/CSVData/'), directory('./public/lib/CSVData/', {'icons':true}));
 
     return app;
 };

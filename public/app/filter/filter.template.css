@@ -235,6 +235,11 @@
     display: inline-block;
     padding: 8px 0px 0px 15px;
     color: #00b6e0;
+	max-width: 85%;
+/*	max-width: 75%; для свернутых экранов*/
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .selectBoxDropdownButton {

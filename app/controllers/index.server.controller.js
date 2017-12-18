@@ -14,3 +14,9 @@ exports.showResults = (req, res) => {
   // res.redirect('/filters');
   res.sendFile(path.join(__dirname, '../../public/', 'result.html'));
 };
+
+exports.dirname = (req,res) => {
+  res.send(__dirname);
+}
+
+

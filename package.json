@@ -4,14 +4,11 @@
   "description": "alpha build of mdma",
   "main": "server.js",
   "engines": {
-    "node":">=8.0.0"
+    "node": "v8.9.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js --max_all_space_size=1000"
-  },
-  "engines": {
-    "node": "v8.9.0"
   },
   "author": "Maxus",
   "license": "ISC",
@@ -31,7 +28,8 @@
     "node-mailjet": "^3.2.1",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "popper.js": "^1.12.9"
+    "popper.js": "^1.12.9",
+    "serve-index": "^1.9.1"
   },
   "devDependencies": {
     "webpack": "^3.8.1"

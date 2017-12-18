@@ -359,6 +359,8 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				"data-toolbar":"#toolbar",
 				"data-show-export":"true",
 				"data-export-data-type": "all",
+				"data-export-types":"['csv']",
+				"data-export-options":"{'csvSeparator': ';'}",
 				"data-filter-control":"true",
 				"data-filter-show-clear":"true",
 				"data-page-size": 25,
