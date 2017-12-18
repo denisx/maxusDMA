@@ -427,7 +427,13 @@ let resultQuery = (a, id) => {
 };
 
 exports.sendResult = async(req, res) => {
-    let id = parseInt(Math.random()*10000);
-    res.cookie('id',id, {path:'/result'});
+    let id = null;
+    if (req.body.id == undefined) {
+        id = parseInt(Math.random()*10000);
+        res.cookie('id',id, {path:'/result'});
+    } else {
+        id = req.body.id;
+    }
+    delete req.body.id;
     res.send(await resultQuery(req.body, id));
 };

@@ -93,15 +93,25 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		};
 
 		let readLocalStorage = () => {
-			return JSON.parse(window.localStorage.getItem('query'));
+			let a = JSON.parse(window.localStorage.getItem('query'));
+			setId(a);
+			return a;
 		}
 		
 		let readBread = () => {
 			return JSON.parse(window.localStorage.getItem('filters'));
 		}
 		
+		let setId = (a) => {
+			if (eatId() == undefined) {
+				a.id = undefined;
+			} else {
+				a.id = eatId();
+			}
+		}
+		
 		let eatId = () => {
-			let a = 0;
+			let a = undefined;
 			document.cookie.split(';').forEach((elem)=>{
 				if(elem.split('=')[0] == 'id') {
 					a =  elem.split('=')[1];
