@@ -148,12 +148,12 @@ class Data {
                             console.info((new Date()).getTime() - startTime.getTime());
                             console.info('Записал данные из bq для ' + this.type);
                             table.endWriting();
-                            resolve(answ);
                         }) 
                 })
                 .on('finish', ()=>{
-                    console.log('finish')}
-                )
+                    console.log('finish');
+                    resolve(answ);
+                })
                 .on('error',(e)=>{
                     console.error(e)}
                 )
@@ -247,7 +247,7 @@ class FileWork {
 
     createDownloadFile() {
         let rand = this.id;
-        let adr = __dirname + 'public/lib/CSVData/';
+        let adr = './public/lib/CSVData/';
         let filesObj = {
             "postbuy" : {
                 address: rand + "_Postbuy_benchmarks_upload.csv",
@@ -437,3 +437,11 @@ exports.sendResult = async(req, res) => {
     delete req.body.id;
     res.send(await resultQuery(req.body, id));
 };
+
+exports.sendTable = (req,res) => {
+    res.download('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err)=>{
+        if(err){
+            console.info(err);
+        }
+    });
+}

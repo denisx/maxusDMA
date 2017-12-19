@@ -121,8 +121,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
-			let hrefToDownload = 'lib/CSVData/' + eatId() + '_'+ $('li.active a').attr('id') + '_benchmarks_upload.csv';
-			window.location.href = hrefToDownload;
+			window.location.href = '/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id');
 		}
 
 	}
