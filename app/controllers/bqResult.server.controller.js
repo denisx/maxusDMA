@@ -9,6 +9,7 @@ const projectId = 'mdma-175510';
 
 // Methods init
 const request = require('request');
+const app = require('express');
 
 // JSON-token path
 const bigquery = require('@google-cloud/bigquery')({
@@ -219,14 +220,14 @@ class Datasources {
 }
 
 class FileWork {
-    constructor (data) {
+    constructor (data, id) {
         this.data = data;
+        this.id = id;
     }
 
     createDownloadFiles () {
         return new Promise((res, rej) => {
-            let rand = parseInt(Math.random()*10000);
-            // let rand = 6549;
+            let rand = this.id;
             let filesObjArr = [{
                 name: "postbuy",
                 address: rand + "_Postbuy_benchmarks_upload.csv",
@@ -248,6 +249,7 @@ class FileWork {
             filesObjArr.forEach((file) => {
                 scsArr.push(this.filePromise(file));
             });
+
             Promise.all(scsArr).then(() => {
                 res();
             })
@@ -346,7 +348,7 @@ let checkDataSources = (answer) => {
 
 
 
-let resultQuery = (a) => {
+let resultQuery = (a, id) => {
     startTime = new Date();
     let sqlArrFunc = (answer) => {
         let answ = [];
@@ -386,22 +388,33 @@ let resultQuery = (a) => {
                 'filename': ''
             },
             ];
-            data.forEach((answ) => {
+            if (data.length == 0) {
                 queryResultArr.forEach((content) => {
-                    if (content.name == answ.name) {
-                        content.data = answ.data[0];
-                    }
-                    if (content.data.length == 0) {
-                        content.data = false;
-                    }
+                    content.data = false;        
                 })
-                answ = null;
-            })
-            data = null;
+            } else {
+                data.forEach((answ) => {
+                    queryResultArr.forEach((content) => {
+                        if (content.name == answ.name) {
+                            content.data = answ.data[0];
+                        }
+                        if (content.data.length == 0) {
+                            content.data = false;
+                        }
+                    })
+                    answ = null;
+                })
+                data = null;
+            }            
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Начал создавать данные для загрузки');
+<<<<<<< HEAD
             let createFile = new FileWork(queryResultArr);
             await createFile.createDownloadFiles();
+=======
+            let createFile = new FileWork(queryResultArr, id);
+            await createFile.createDownloadFiles(); 
+>>>>>>> 2820e51e2a9f3bffa25eaca831485204ee566dc4
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Отдаю для загрузки');
             resolve(queryResultArr);
@@ -410,5 +423,7 @@ let resultQuery = (a) => {
 };
 
 exports.sendResult = async(req, res) => {
-    res.send(await resultQuery(req.body));
+    let id = parseInt(Math.random()*10000);
+    res.cookie('id',id, {path:'/result'});
+    res.send(await resultQuery(req.body, id));
 };
