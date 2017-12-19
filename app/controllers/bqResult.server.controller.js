@@ -21,13 +21,14 @@ let startTime;
 
 
 class Data {
-    constructor (type, data, datasets, startDate, endDate, filters){
+    constructor (type, data, datasets, startDate, endDate, filters, id){
         this.type = type;
         this.data = data;
         this.datasets = datasets;
         this.startDate = startDate;
         this.endDate = endDate;
         this.filters = filters;
+        this.id = id;
     }
 
     selectConfig () {
@@ -117,15 +118,45 @@ class Data {
         return new Promise(async(resolve, reject) => {
             let answ = {
                 name: this.type,
-                data: undefined
+                data: []
             };
             console.info((new Date()).getTime() - startTime.getTime());
             console.info('Начал запрос в bq для ' + this.type);
-            answ.data = await bigquery.query(query);
-            console.info((new Date()).getTime() - startTime.getTime());
-            console.info('Записал данные из bq для ' + this.type);
-            resolve(answ);
-            reject({name:this.type,data:''});
+            let table = new FileWork(this.id, this.type);
+            table.stream
+                .on('open', () => {
+                    let trig = true;
+                    bigquery.createQueryStream(query)
+                        .on('error', (err)=>{
+                            console.error(err);
+                            table.writeEmpty();
+                            reject({name:this.type,data:[]});
+                        })
+                        .on('data', (row)=>{
+                            if (this.type == 'postbuy'){
+                                row.date_start = row.date_start.value;
+                                row.date_end = row.date_end.value;
+                            }
+                            if (trig) {
+                                table.writeFile(table.csvStringHeader(row));
+                                trig = false;
+                            }
+                            table.writeFile(table.csvString(row));
+                            answ.data.push(row);
+                        })
+                        .on('end', ()=>{
+                            console.info((new Date()).getTime() - startTime.getTime());
+                            console.info('Записал данные из bq для ' + this.type);
+                            table.endWriting();
+                        }) 
+                })
+                .on('finish', ()=>{
+                    console.log('finish');
+                    resolve(answ);
+                })
+                .on('error',(e)=>{
+                    console.error(e)}
+                )
         });
     };
 
@@ -163,18 +194,6 @@ class Datasources {
         if (param=='source'){
             answ = (this.datasource.length!=0)?this.datasource.join('|'):"";
         }
-        /* if (param == 'site') {
-            filters[param].forEach((elem) => {
-                if (elem.length === 0) {
-                    answ += ".*";
-                } else if (filters[param].indexOf(elem) <= elem.length - 1) {
-                    answ += this.siteSplitter(elem) + "|";
-                } else {
-                    answ += this.siteSplitter(elem);
-                }
-            });
-            return answ;
-        } */
         answ += (filters[param].length!=0)? filters[param].join('|'):".*";
         return answ;
     }
@@ -220,71 +239,72 @@ class Datasources {
 }
 
 class FileWork {
-    constructor (data, id) {
-        this.data = data;
+    constructor (id, type) {
         this.id = id;
+        this.type = type;
+        this.stream = this.createDownloadFile();
     }
 
-    createDownloadFiles () {
-        return new Promise((res, rej) => {
-            let rand = this.id;
-            let filesObjArr = [{
-                name: "postbuy",
+    createDownloadFile() {
+        let rand = this.id;
+        let adr = './public/lib/CSVData/';
+        let filesObj = {
+            "postbuy" : {
                 address: rand + "_Postbuy_benchmarks_upload.csv",
-                file: undefined,
-                nameIndex: 0
-            }, {
-                name: "yandex_metrika",
+                file: undefined
+            },
+            "yandex_metrika" : {
                 address: rand + "_Yandex_Metrika_benchmarks_upload.csv",
-                file: undefined,
-                nameIndex: 1
-            }, {
-                name: "google_analytics",
+                file: undefined
+            },
+            "google_analytics" : {
                 address: rand + "_Google_Analytics_benchmarks_upload.csv",
-                file: undefined,
-                nameIndex: 2
-            }];
-            let scsArr = [];
+                file: undefined
+            }
+        };
+        console.info((new Date()).getTime() - startTime.getTime());
+        console.info('Начал создавать данные для загрузки ' + this.type);
+        return fs.createWriteStream(adr + filesObj[this.type].address);
+    }
 
-            filesObjArr.forEach((file) => {
-                scsArr.push(this.filePromise(file));
-            });
+    writeFile (str) {
+        this.stream.write(str);
+    }
 
-            Promise.all(scsArr).then(() => {
-                res();
-            })
-        })
-    };
-
-    filePromise (filesObj) {
-        return new Promise((resolve, reject) => {
-            /* fs.accessSync('./public/lib/CSVData/' + filesObj.address, (err) => {
-                if (!err) fs.unlinkSync('./public/lib/CSVData/' + filesObj.address);
-            }); */
-            if (this.data[filesObj.nameIndex].data) {
-                filesObj.file = json2csv({
-                    data: this.data[filesObj.nameIndex].data,
-                    fields: Object.keys(this.data[filesObj.nameIndex].data[0]),
+    csvString (obj) {
+        return json2csv({
+                    data: obj,
+                    fields: Object.keys(obj),                    
                     del: ';'
-                });
-            } else {
-                filesObj.file = json2csv({
+                }).split('\n')[1] + ('\n');
+    }
+
+    csvStringHeader (obj) {
+        return json2csv({
+                    data: obj,
+                    fields: Object.keys(obj),                    
+                    del: ';'
+                }).split('\n')[0];
+    }
+
+    endWriting () {
+        this.stream.end(''); 
+        console.info((new Date()).getTime() - startTime.getTime());
+        console.info('Отдаю для загрузки ' + this.type);
+    }
+
+    writeEmpty () {
+        this.stream.write(json2csv({
                     data: [{
                         'Зачем': 'было это скачивать?'
                     }],
                     fields: ['Зачем'],
                     del: ';'
-                });
-            }
-            fs.writeFile('public/lib/CSVData/' + filesObj.address, filesObj.file, (err) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    resolve();
-                }
-            });
-        })
-    };
+                }));
+        console.info((new Date()).getTime() - startTime.getTime());
+        console.info('Отдаю для загрузки пустой ' + this.type);
+        this.stream.end('');
+    }
 }
 
 let checkDataSources = (answer) => {
@@ -368,7 +388,7 @@ let resultQuery = (a, id) => {
         answer.datasets = await checkDataSources(answer);
         let sqlArr = sqlArrFunc(answer);
         for (let key in sqlArr) {
-            let query = new Data(sqlArr[key], answer[sqlArr[key]], answer.datasets, answer.startDate, answer.endDate, answer.filters);
+            let query = new Data(sqlArr[key], answer[sqlArr[key]], answer.datasets, answer.startDate, answer.endDate, answer.filters, id);
             promAnsw.push(query.getData());
         }
         Promise.all(promAnsw).then(async(data) => {
@@ -389,41 +409,50 @@ let resultQuery = (a, id) => {
             },
             ];
             if (data.length == 0) {
-                queryResultArr.forEach((content) => {
-                    content.data = false;        
+                Object.keys(queryResult).forEach((content) => {
+                    queryResult[content] = false;
+                    let emptyFile = new FileWork(id, content);
+                    emptyFile.writeEmpty();
                 })
             } else {
-                data.forEach((answ) => {
-                    queryResultArr.forEach((content) => {
-                        if (content.name == answ.name) {
-                            content.data = answ.data[0];
-                        }
-                        if (content.data.length == 0) {
-                            content.data = false;
-                        }
-                    })
-                    answ = null;
+                let obj = {};
+                data.forEach((d)=>{
+                    obj[d.name] = d.data;
                 })
                 data = null;
+                Object.keys(queryResult).forEach((result)=>{
+                    if(obj[result] == undefined) {
+                        queryResult[result] = false;
+                        let emptyFile = new FileWork(id, result);
+                        emptyFile.writeEmpty();
+                    } else {
+                        queryResult[result] = obj[result];
+                        obj[result] = null;
+                    }
+                })
             }            
-            console.info((new Date()).getTime() - startTime.getTime());
-            console.info('Начал создавать данные для загрузки');
-<<<<<<< HEAD
-            let createFile = new FileWork(queryResultArr);
-            await createFile.createDownloadFiles();
-=======
-            let createFile = new FileWork(queryResultArr, id);
-            await createFile.createDownloadFiles(); 
->>>>>>> 2820e51e2a9f3bffa25eaca831485204ee566dc4
-            console.info((new Date()).getTime() - startTime.getTime());
-            console.info('Отдаю для загрузки');
-            resolve(queryResultArr);
+            console.info('Отправляю на фронт');
+            resolve(queryResult);
         });
     })
 };
 
 exports.sendResult = async(req, res) => {
-    let id = parseInt(Math.random()*10000);
-    res.cookie('id',id, {path:'/result'});
+    let id = null;
+    if (req.body.id == undefined) {
+        id = parseInt(Math.random()*10000);
+        res.cookie('id',id, {path:'/result'});
+    } else {
+        id = req.body.id;
+    }
+    delete req.body.id;
     res.send(await resultQuery(req.body, id));
 };
+
+exports.sendTable = (req,res) => {
+    res.download('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err)=>{
+        if(err){
+            console.info(err);
+        }
+    });
+}

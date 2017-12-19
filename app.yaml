@@ -1,2 +1,5 @@
 env: flex
 runtime: nodejs
+resources:
+  cpu: 2
+  memory_gb: 8

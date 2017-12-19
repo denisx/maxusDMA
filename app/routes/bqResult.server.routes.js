@@ -7,6 +7,8 @@ module.exports = (app) => {
   app.route('/filters/answer')
     .post(bq.sendResult);
 
+  app.route('/filedownload')
+    .get(bq.sendTable);  
 /*   app.route('/filters/answer')
     .post(bq.getFiltersAnsw); */
 
