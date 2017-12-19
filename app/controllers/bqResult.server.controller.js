@@ -247,7 +247,7 @@ class FileWork {
 
     createDownloadFile() {
         let rand = this.id;
-        let adr = 'public/lib/CSVData/';
+        let adr = __dirname + 'public/lib/CSVData/';
         let filesObj = {
             "postbuy" : {
                 address: rand + "_Postbuy_benchmarks_upload.csv",
