@@ -439,9 +439,18 @@ exports.sendResult = async(req, res) => {
 };
 
 exports.sendTable = (req,res) => {
-    res.download('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err)=>{
-        if(err){
-            console.info(err);
-        }
-    });
+    let fileSend = () => {
+        fs.access('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv',(err)=>{
+            if(err){
+                setTimeout(()=>{return fileSend()}, 1000);
+                } else {
+                    res.download('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err)=>{
+                        if(err){
+                            console.info(err);
+                        }
+                    });
+                }
+        }) 
+    }
+    fileSend();
 }
