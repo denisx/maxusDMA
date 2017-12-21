@@ -288,7 +288,7 @@ class FileWork {
                     data: obj,
                     fields: Object.keys(obj),                    
                     del: ';'
-                }).split('\n')[0];
+                }).split('\n')[0]  + ('\n');
     }
 
     endWriting () {
