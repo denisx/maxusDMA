@@ -78,7 +78,7 @@ img.loader {
 
 /*Main section*/
 .tableAppSection {
-	padding: 1% 1%;
+	padding: 0 1% 1%;
     float: right;
     min-width: 87%;
     width: 87%;
@@ -151,13 +151,18 @@ img.loader {
     float: left;
     width: 13%;
     font-weight: 300;
-    height: -webkit-fill-available;
+/*    height: -webkit-fill-available;*/
+	min-height: 600px;
     background-color: white;
     position: sticky;
-    top: 0px;
+    top: 5px;
     margin: 1% 0;
     /* border: 1px solid #b3b3b3; */
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
+}
+
+.customReportBoxMainArea:nth-child(3){
+/*	margin-bottom: 95px;*/
 }
 /*End menuSction*/
 
@@ -229,9 +234,13 @@ img.loader {
 }
 
 .createReport {
-    background-color: #e22032;
+	background-color: #e22032;
     cursor: pointer;
     transition-duration: 0.25s;
+    display: block;
+    width: 100%;
+	position: absolute;
+    bottom: 15px;
 }
 
 .createReport:hover {
@@ -255,22 +264,24 @@ img.loader {
 }
 
 .menuHolder {
-	position: absolute;
+    position: sticky;
     display: inline-block;
     width: 40%;
     z-index: 1;
+    top: 0px;
 }
 
 .hoverMenuWithVariants, .hoverMenuWithMetrics {
-    height: auto;
+	height: auto;
     background-color: white;
     display: block;
-    position: relative;
+    position: absolute;
     border-radius: 1px;
     border: 1px solid #bbbbbb;
     min-height: 300px;
-    margin-top: 16%;
+    margin-top: 14%;
     box-shadow: 9px 10px 52px -14px rgba(0,0,0,0.75);
+    width: 100%;
 }
 
 .hoverMenuWithMetrics .activeGroup {
@@ -473,6 +484,21 @@ img.loader {
 .customReportBoxDropdownContainer input:hover {
     border: 1px solid #5bb7e1;
     color: #5bb7e1;
+}
+
+.emptyWarning {
+	position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: #e6e6e6;
+    width: 15%;
+    padding: 10px;
+    box-shadow: 2px 1px 2px black;
+}
+
+.xInEW  {
+	float: right;
+    cursor: pointer;
 }
 
 #saveBtn {

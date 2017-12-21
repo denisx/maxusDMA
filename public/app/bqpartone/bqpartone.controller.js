@@ -151,6 +151,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			Object.keys($scope.menuElements).forEach((key)=>{
 				costyl(key);
 			});
+			if (checkEmptyQuery()){
+				document.getElementsByClassName('emptyWarning')[0].classList.remove('hideElement');
+				return false;
+			}
 			console.log(answer);
 			setLocalStorage();
 			window.location.href = '/result';
@@ -316,6 +320,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		
 		let setLocalStorage = () => {
 			window.localStorage.setItem('query', JSON.stringify(answer));
+		}
+		
+		let checkEmptyQuery = () => {
+			return (answer.google_analytics.dimension.length == 0 && answer.google_analytics.metrics.length == 0 && answer.google_analytics.goals == false && answer.yandex_metrika.dimension.length == 0 && answer.yandex_metrika.metrics.length == 0 && answer.yandex_metrika.goals == false && answer.postbuy == undefined)?true:false;
 		}
 		
 		// Eats cookie info abouut choosen bread vals
