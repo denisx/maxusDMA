@@ -134,8 +134,12 @@ class Data {
                         })
                         .on('data', (row)=>{
                             if (this.type == 'postbuy'){
-                                row.date_start = row.date_start.value;
-                                row.date_end = row.date_end.value;
+                                if (row.date_start != undefined) {
+                                    row.date_start = row.date_start.value;
+                                }
+                                if (row.date_end != undefined) {
+                                    row.date_end = row.date_end.value;
+                                }
                             }
                             if (trig) {
                                 table.writeFile(table.csvStringHeader(row));
