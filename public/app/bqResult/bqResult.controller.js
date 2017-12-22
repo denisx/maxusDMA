@@ -121,12 +121,15 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
-			window.location.href = '/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id');
+			window.open('/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id'));
 		}
 		
 		window.onbeforeunload = () => {
-			bqResultFactory.unlinkFiles(eatId());
+//			bqResultFactory.unlinkFiles(eatId());
+			console.log('+');
 		}
-
+//		document.addEventListener('beforeunload',(e)=>{
+//			console.log(e);
+//		}, false)
 	}
 ]);

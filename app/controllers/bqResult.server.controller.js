@@ -146,7 +146,7 @@ class Data {
                                 trig = false;
                             }
                             table.writeFile(table.csvString(row));
-                            answ.data.push(row);
+                            if(answ.data.length<5000){answ.data.push(row);};
                         })
                         .on('end', ()=>{
                             console.info((new Date()).getTime() - startTime.getTime());
@@ -463,6 +463,10 @@ exports.unlinkFiles = (req, res) => {
     let id = req.body.id;
     let arr = ['Postbuy', 'Google_Analytics', 'Yandex_Metrika'];
     arr.forEach((elem)=>{
-        fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv')
+        fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv', (err)=>{
+            if(err){
+                console.log(err);
+            }
+        })
     })
 }
