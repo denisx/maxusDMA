@@ -9,7 +9,8 @@ module.exports = (app) => {
 
   app.route('/filedownload')
     .get(bq.sendTable);  
-/*   app.route('/filters/answer')
-    .post(bq.getFiltersAnsw); */
+
+  app.route('/filesunload')
+    .post(bq.unlinkFiles);
 
 };

@@ -22,6 +22,14 @@ angular.module('bqResult').factory('bqResultFactory', ['$http',
 
         };
 		
+		factoryMethods.unlinkFiles = (id) => {
+			return $http({
+				method: 'POST',
+				url: '/filesunload',
+				data: {id:id}
+			})
+		}
+		
         return factoryMethods;
 
     }

@@ -123,6 +123,10 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		$scope.download = () => {
 			window.location.href = '/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id');
 		}
+		
+		window.onbeforeunload = () => {
+			bqResultFactory.unlinkFiles(eatId());
+		}
 
 	}
 ]);

@@ -458,3 +458,11 @@ exports.sendTable = (req,res) => {
     }
     fileSend();
 }
+
+exports.unlinkFiles = (req, res) => {
+    let id = req.body.id;
+    let arr = ['Postbuy', 'Google_Analytics', 'Yandex_Metrika'];
+    arr.forEach((elem)=>{
+        fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv')
+    })
+}
