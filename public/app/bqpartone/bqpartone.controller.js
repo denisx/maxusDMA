@@ -80,7 +80,12 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 		};
 		
-		let drp = $('input[name="daterange"]');	
+		let drp = $('input[name="daterange"]');
+		
+		let g_startDate = null;
+		let g_endDate = null;
+			
+		
 		drp.daterangepicker(
 			{
 				locale: {
@@ -157,6 +162,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 			console.log(answer);
 			setLocalStorage();
+//			clearFirstLocalStorage();
 			window.location.href = '/result';
 		};
 		
@@ -176,6 +182,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 							tableContent.columns.push({field:key,title:key});
 						})
 					}
+					changeSettings(JSON.parse(window.localStorage.getItem('query')));
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });
@@ -322,6 +329,10 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			window.localStorage.setItem('query', JSON.stringify(answer));
 		}
 		
+		let clearFirstLocalStorage = () => {
+			window.localStorage.removeItem('filters');
+		}
+		
 		let checkEmptyQuery = () => {
 			return (answer.google_analytics.dimension.length == 0 && answer.google_analytics.metrics.length == 0 && answer.google_analytics.goals == false && answer.yandex_metrika.dimension.length == 0 && answer.yandex_metrika.metrics.length == 0 && answer.yandex_metrika.goals == false && answer.postbuy == undefined)?true:false;
 		}
@@ -376,6 +387,51 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			}
 			Object.keys(settings).forEach((key)=>{
 				document.getElementById('table').setAttribute(key, settings[key]);
+			})
+		}
+		
+		let changeSettings = (settings) => {
+			let transformDate = (dateString)=>{
+				return dateString.slice(0,4) + '-' + dateString.slice(5,7) + '-' + dateString.slice(8,10); 
+			}
+			g_startDate = transformDate(settings.startDate);
+			g_endDate = transformDate(settings.endDate);
+			let datasource = ['google_analytics', 'yandex_metrika'];
+			
+			drp.daterangepicker(
+				{
+					locale: {
+					  format: 'YYYY-MM-DD'
+					},
+					startDate: g_startDate,
+					endDate: g_endDate
+				}
+			);
+			
+			answer.startDate = convertDateFormat(g_startDate);
+			answer.endDate = convertDateFormat(g_endDate);
+			
+			Object.keys(settings.filters).forEach((elem)=>{
+				settings.filters[elem].forEach((val)=>{
+					if (elem != 'client' && elem != 'industry' && elem != 'ad_goal') {
+						$scope.menuElements[elem].content.splice($scope.menuElements[elem].content.indexOf(val),1)
+					}
+					$scope.menuElements[elem].chosen.push(val);
+				})
+			})
+			datasource.forEach((source)=>{
+				let fields = ['dimension', 'metrics'];
+				fields.forEach((field)=>{
+					settings[source][field].forEach((val)=>{
+						$scope.menuElements.dataSource[source].chosen[field].push(val);
+						$scope.menuElements.dataSource[source].content[field].splice($scope.menuElements.dataSource[source].content[field].indexOf(val),1);
+					})
+					$scope.menuElements.dataSource[source].goals = settings[source].goals;
+				})
+			})
+			settings.postbuy.forEach((elem)=>{
+				$scope.menuElements.postbuy.chosen.push(elem);
+				$scope.menuElements.postbuy.content.splice($scope.menuElements.postbuy.content.indexOf(elem),1)
 			})
 		}
 		
