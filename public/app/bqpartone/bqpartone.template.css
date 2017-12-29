@@ -522,3 +522,12 @@ img.loader {
 .daterangepicker .input-mini.active {
     border: 1px solid #5bb7e1;
 }
+
+.tableHeader {
+    margin-bottom: -3%;
+    margin-top: 2%;
+    margin-left: 1%;
+    color: #40b6e0;
+    font-weight: 500;
+    text-decoration: underline dotted;
+}
