@@ -3,7 +3,7 @@
     margin-top: 1%;
     margin-left: 1%;
     height: 80px;
-    width: 100%;
+    width: 99%;
     float: left;
     display: inline-block;
 }
@@ -108,7 +108,7 @@ img.loader {
     vertical-align: top;
     padding: 3.5px 0;
     border-bottom: 1px solid #b4b4b4;
-    width: 73.5%;
+    width: 74.5%;
     margin-left: -4px;
 }
 
@@ -127,7 +127,7 @@ img.loader {
 
 .tablePadding {
 	background-color: white;
-    padding: 0 10px 10px;
+    padding: 0 10px 10px 0;
 }
 
 .tableContainer {
