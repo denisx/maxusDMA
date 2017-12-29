@@ -26,7 +26,6 @@ exports.campaignCreate = function(req, res, next) {
 exports.campaignGetUnique = (req,res,next) => {
     let query = req.body;
     let filtered = {};
-	console.log(query);
 	Campaign.find(query, (err, campaign) => {
 		if (err){
 			console.log(err);
@@ -47,7 +46,6 @@ exports.campaignGetUnique = (req,res,next) => {
                     }
                 });
             });
-			console.log(filtered);
 			res.json(filtered);
 			next();
 		}

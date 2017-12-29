@@ -82,28 +82,24 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		
 		let drp = $('input[name="daterange"]');
 		
-		let g_startDate = null;
-		let g_endDate = null;
-			
-		
-		drp.daterangepicker(
-			{
-				locale: {
-				  format: 'YYYY-MM-DD'
-				},
-				startDate: moment().subtract(60, 'days').format('YYYY-MM-DD'),
-				endDate: moment().format('YYYY-MM-DD'),
-				timepicker: false
-			}
-		);
+		let answer = {
+			filters:{}
+		};
 		
 		let convertDateFormat = (date) =>  {
-			return date.split('-').join('');
+			let year = date.getFullYear();
+			let month = date.getMonth() + 1;
+			let day = date.getDate();
+			if (month.toString().length == 1){
+				month = '0' + month.toString();
+			}
+			if (day.toString().length == 1){
+				day = '0' + day.toString();
+			}
+			return year + month + day;
 		}
 		
-		let answer = {filters:{}, 
-					  startDate : convertDateFormat(drp.data('daterangepicker').startDate._i), 
-					  endDate : convertDateFormat(drp.data('daterangepicker').endDate._i) };
+		
 
 		$scope.listenToHover = (currentBox) => {
 			let currentMenuPoint = (currentBox.classList.contains('hoverToNewMenu')) ? currentBox : currentBox.closest('.hoverToNewMenu');
@@ -172,7 +168,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
             bqpartoneFactory.getResultsForTable(query)
                 .then((data)=>{
 					fillMenuElements(data);
-					console.log(data);
+					settingsInit();
 					let tableContent = {
 						data: data,
 						columns : []
@@ -182,12 +178,74 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 							tableContent.columns.push({field:key,title:key});
 						})
 					}
-					changeSettings(JSON.parse(window.localStorage.getItem('query')));
 					$('#table').bootstrapTable(tableContent);
 					killLoader();
                 });
         };
 		
+		
+		let settingsInit = () => {
+			let changeSettingsBool = () => {
+				return (readCookie('changeSettings')!=undefined)?true:false;
+			}			
+					
+			let g_startDate = null;
+			let g_endDate = null;
+			
+			let transformDate = (dateString)=>{
+				return dateString.slice(0,4) + '-' + dateString.slice(4,6) + '-' + dateString.slice(6,8); 
+			}
+			
+			if (changeSettingsBool() == true) {
+				let settings = JSON.parse(window.localStorage.getItem('query'));
+				
+				g_startDate = settings.startDate;
+				g_endDate = settings.endDate;
+				let datasource = ['google_analytics', 'yandex_metrika'];
+				
+				Object.keys(settings.filters).forEach((elem)=>{
+					settings.filters[elem].forEach((val)=>{
+						if (elem != 'client' && elem != 'industry' && elem != 'ad_goal') {
+							$scope.menuElements[elem].content.splice($scope.menuElements[elem].content.indexOf(val),1)
+						}
+						$scope.menuElements[elem].chosen.push(val);
+					})
+				})
+				
+				datasource.forEach((source)=>{
+					let fields = ['dimension', 'metrics'];
+					fields.forEach((field)=>{
+						settings[source][field].forEach((val)=>{
+							$scope.menuElements.dataSource[source].chosen[field].push(val);
+							$scope.menuElements.dataSource[source].content[field].splice($scope.menuElements.dataSource[source].content[field].indexOf(val),1);
+						})
+						$scope.menuElements.dataSource[source].goals = settings[source].goals;
+					})
+				})
+				
+				settings.postbuy.forEach((elem)=>{
+					$scope.menuElements.postbuy.chosen.push(elem);
+					$scope.menuElements.postbuy.content.splice($scope.menuElements.postbuy.content.indexOf(elem),1)
+				})
+				
+			} else {
+				g_startDate = moment().subtract(60, 'days').format('YYYYMMDD');
+				g_endDate = moment().format('YYYYMMDD');
+			}
+			
+			
+			drp.daterangepicker(
+			{
+				locale: {
+				  format: 'YYYY-MM-DD'
+				},
+				startDate: transformDate(g_startDate),
+				endDate: transformDate(g_endDate),
+				timepicker: false
+			})
+			answer.startDate = g_startDate;
+			answer.endDate = g_endDate;
+		}
 		
 		// Transforms data from table to push it to menu
 		// void
@@ -294,7 +352,9 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 		// void
         let killLoader = () => {
             document.getElementsByClassName('loaderDiv')[0].remove();
-			document.getElementsByClassName('tablePadding')[0].firstElementChild.classList.remove('hideElement');
+			document.getElementsByClassName('tableAppSection')[0].classList.remove('hideElement');
+			document.getElementsByClassName('menuSection')[0].classList.remove('hideElement');
+			
         };
 		
 		//Костыль для перевода заглавных в строчные, пока Mongoose не перезаписан
@@ -367,6 +427,16 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			});
 		};
 		
+		let readCookie = (name) => {
+			let a = undefined;
+			document.cookie.split(';').forEach((elem)=>{
+				if(elem.split('=')[0] == name) {
+					a =  elem.split('=')[1];
+				}
+			})
+			return a;
+		}
+		
 		let initTable = () => {
 			let settings = {
 				"data-toggle":"table",
@@ -390,60 +460,18 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			})
 		}
 		
-		let changeSettings = (settings) => {
-			let transformDate = (dateString)=>{
-				return dateString.slice(0,4) + '-' + dateString.slice(5,7) + '-' + dateString.slice(8,10); 
-			}
-			g_startDate = transformDate(settings.startDate);
-			g_endDate = transformDate(settings.endDate);
-			let datasource = ['google_analytics', 'yandex_metrika'];
-			
-			drp.daterangepicker(
-				{
-					locale: {
-					  format: 'YYYY-MM-DD'
-					},
-					startDate: g_startDate,
-					endDate: g_endDate
-				}
-			);
-			
-			answer.startDate = convertDateFormat(g_startDate);
-			answer.endDate = convertDateFormat(g_endDate);
-			
-			Object.keys(settings.filters).forEach((elem)=>{
-				settings.filters[elem].forEach((val)=>{
-					if (elem != 'client' && elem != 'industry' && elem != 'ad_goal') {
-						$scope.menuElements[elem].content.splice($scope.menuElements[elem].content.indexOf(val),1)
-					}
-					$scope.menuElements[elem].chosen.push(val);
-				})
-			})
-			datasource.forEach((source)=>{
-				let fields = ['dimension', 'metrics'];
-				fields.forEach((field)=>{
-					settings[source][field].forEach((val)=>{
-						$scope.menuElements.dataSource[source].chosen[field].push(val);
-						$scope.menuElements.dataSource[source].content[field].splice($scope.menuElements.dataSource[source].content[field].indexOf(val),1);
-					})
-					$scope.menuElements.dataSource[source].goals = settings[source].goals;
-				})
-			})
-			settings.postbuy.forEach((elem)=>{
-				$scope.menuElements.postbuy.chosen.push(elem);
-				$scope.menuElements.postbuy.content.splice($scope.menuElements.postbuy.content.indexOf(elem),1)
-			})
-		}
+		
+		
+		
 		
 		// indicates changing of dates in daterangepicker and pushes it to answer
 		drp.on('apply.daterangepicker', (ev, picker)=>{
-			answer.startDate = convertDateFormat(picker.startDate._d.toISOString().split('T')[0]);
-			answer.endDate = convertDateFormat(picker.endDate._d.toISOString().split('T')[0]);
+			answer.startDate = convertDateFormat(picker.startDate._d);
+			answer.endDate = convertDateFormat(picker.endDate._d);
 		})
 		
 		initTable();
-		getResults(readLocalStorage());
-		
+		getResults(readLocalStorage());		
 		
 
     }]);

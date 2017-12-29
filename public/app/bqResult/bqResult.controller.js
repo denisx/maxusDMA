@@ -34,6 +34,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 							})
 						}
 					});
+					deleteCookie('changeSettings', '/filters');
 					initTable();
 					$('#postbuyTable').bootstrapTable(tableContent.postbuy);
 					$('#googleAnalyticsTable').bootstrapTable(tableContent.googleAnalytics);
@@ -118,14 +119,31 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 			return a;
 		}
 		
+		let changeSettingsCookie = () => {
+			document.cookie = "changeSettings=true; expires=Fri, 31 Dec 2050 23:59:59 GMT; path=/filters";
+		}
+		
 		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
 			window.open('/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id'));
 		}
 		
+		$scope.changeSettings = () => {
+			changeSettingsCookie();
+			window.location = '/filters'
+		}
+		
+		let deleteCookie = (name, path) => {
+			let pathstring = '';
+			if (path!=''){
+				pathstring = 'path = ' + path;
+			}
+			document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;' + pathstring;
+		}
+		
 		window.onbeforeunload = () => {
-//			bqResultFactory.unlinkFiles(eatId());
+			bqResultFactory.unlinkFiles(eatId());
 			console.log('+');
 		}
 //		document.addEventListener('beforeunload',(e)=>{
