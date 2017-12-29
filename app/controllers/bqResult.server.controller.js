@@ -396,11 +396,22 @@ let resultQuery = (a, id) => {
             promAnsw.push(query.getData());
         }
         Promise.all(promAnsw).then(async(data) => {
-            let queryResult = {
-                "postbuy":undefined,
-                "yandex_metrika":undefined,
-                "google_analytics":undefined
-            }
+            let queryResultArr = [{
+                'data': [],
+                'name': 'postbuy',
+                'filename': ''
+            },
+            {
+                'data': [],
+                'name': 'yandex_metrika',
+                'filename': ''
+            },
+            {
+                'data': [],
+                'name': 'google_analytics',
+                'filename': ''
+            },
+            ];
             if (data.length == 0) {
                 Object.keys(queryResult).forEach((content) => {
                     queryResult[content] = false;

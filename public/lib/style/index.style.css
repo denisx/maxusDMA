@@ -22,3 +22,10 @@ body {
 .allExpDiv {
 	padding: 35px 0 0 0;
 }
+
+.iframe {
+	margin: auto;
+	width: 1170px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
