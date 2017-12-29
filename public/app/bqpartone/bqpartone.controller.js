@@ -379,11 +379,11 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				answer[key] = answer.filters[key];
 				delete answer.filters[key];
 			}
-			if ((key == 'client'||key == 'industry')&&answer.filters[key]!=undefined) {
-				answer.filters[key].forEach((elem,i,arr)=>{
-					arr[i] = elem.charAt(0).toLowerCase() + elem.slice(1);
-				});
-			}
+//			if ((key == 'client'||key == 'industry')&&answer.filters[key]!=undefined) {
+//				answer.filters[key].forEach((elem,i,arr)=>{
+//					arr[i] = elem.charAt(0).toLowerCase() + elem.slice(1);
+//				});
+//			}
 		};
 		
 		let readLocalStorage = () => {
