@@ -203,14 +203,18 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				g_endDate = settings.endDate;
 				let datasource = ['google_analytics', 'yandex_metrika'];
 				
-				Object.keys(settings.filters).forEach((elem)=>{
-					settings.filters[elem].forEach((val)=>{
-						if (elem != 'client' && elem != 'industry' && elem != 'ad_goal') {
-							$scope.menuElements[elem].content.splice($scope.menuElements[elem].content.indexOf(val),1)
-						}
-						$scope.menuElements[elem].chosen.push(val);
+				
+				if (settings.filters != undefined) {
+					Object.keys(settings.filters).forEach((elem)=>{
+						settings.filters[elem].forEach((val)=>{
+							if (elem != 'client' && elem != 'industry' && elem != 'ad_goal') {
+								$scope.menuElements[elem].content.splice($scope.menuElements[elem].content.indexOf(val),1)
+							}
+							$scope.menuElements[elem].chosen.push(val);
+						})
 					})
-				})
+				}
+				
 				
 				datasource.forEach((source)=>{
 					let fields = ['dimension', 'metrics'];
@@ -223,10 +227,13 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 					})
 				})
 				
-				settings.postbuy.forEach((elem)=>{
-					$scope.menuElements.postbuy.chosen.push(elem);
-					$scope.menuElements.postbuy.content.splice($scope.menuElements.postbuy.content.indexOf(elem),1)
-				})
+				if (settings.postbuy!=undefined){
+					settings.postbuy.forEach((elem)=>{
+						$scope.menuElements.postbuy.chosen.push(elem);
+						$scope.menuElements.postbuy.content.splice($scope.menuElements.postbuy.content.indexOf(elem),1)
+					})	
+				}
+				
 				
 			} else {
 				g_startDate = moment().subtract(60, 'days').format('YYYYMMDD');
