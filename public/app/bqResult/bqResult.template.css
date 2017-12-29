@@ -135,7 +135,7 @@ img.loader {
 }
 
 .btnPrevious {
-	background-color: #e22f31;
+	background-color: #5bb7e1;
     float: right;
     margin-right: 2%;
 }
@@ -198,4 +198,8 @@ img.loader {
 
 li a, .nav-tabs>li.active>a {
     color: black;
+}
+
+.btn.btnPrevious {
+    color: white;
 }

@@ -21,7 +21,7 @@ let startTime;
 
 
 class Data {
-    constructor (type, data, datasets, startDate, endDate, filters, id){
+    constructor(type, data, datasets, startDate, endDate, filters, id) {
         this.type = type;
         this.data = data;
         this.datasets = datasets;
@@ -31,7 +31,7 @@ class Data {
         this.id = id;
     }
 
-    selectConfig () {
+    selectConfig() {
         if (this.type == 'postbuy') {
             return "SELECT " + this.data.join(', ');
         }
@@ -60,7 +60,7 @@ class Data {
         return selectClause.replace(/\, $/, ' ');
     };
 
-    fromConfigSplitted () {
+    fromConfigSplitted() {
         switch (this.type) {
             case "postbuy":
                 return " FROM [mdma-175510:postbuy.all] ";
@@ -78,7 +78,7 @@ class Data {
         };
     };
 
-    whereConfig () {
+    whereConfig() {
         let whereClause = "";
         switch (this.type) {
             case 'postbuy':
@@ -106,11 +106,11 @@ class Data {
         }
     };
 
-    groupByConfig () {
+    groupByConfig() {
         return "GROUP BY industry, client, site, " + this.data.dimension.join(', ');
     };
 
-    getData () {
+    getData() {
         let query = this.selectConfig() + this.fromConfigSplitted() + this.whereConfig();
         if (this.type != 'postbuy') {
             query += this.groupByConfig();
@@ -127,13 +127,16 @@ class Data {
                 .on('open', () => {
                     let trig = true;
                     bigquery.createQueryStream(query)
-                        .on('error', (err)=>{
+                        .on('error', (err) => {
                             console.error(err);
                             table.writeEmpty();
-                            reject({name:this.type,data:[]});
+                            reject({
+                                name: this.type,
+                                data: []
+                            });
                         })
-                        .on('data', (row)=>{
-                            if (this.type == 'postbuy'){
+                        .on('data', (row) => {
+                            if (this.type == 'postbuy') {
                                 if (row.date_start != undefined) {
                                     row.date_start = row.date_start.value;
                                 }
@@ -146,34 +149,36 @@ class Data {
                                 trig = false;
                             }
                             table.writeFile(table.csvString(row));
-                            if(answ.data.length<5000){answ.data.push(row);};
+                            if (answ.data.length < 5000) {
+                                answ.data.push(row);
+                            };
                         })
-                        .on('end', ()=>{
+                        .on('end', () => {
                             console.info((new Date()).getTime() - startTime.getTime());
                             console.info('Записал данные из bq для ' + this.type);
                             table.endWriting();
-                        }) 
+                        })
                 })
-                .on('finish', ()=>{
+                .on('finish', () => {
                     console.log('finish');
                     resolve(answ);
                 })
-                .on('error',(e)=>{
-                    console.error(e)}
-                )
+                .on('error', (e) => {
+                    console.error(e)
+                })
         });
     };
 
-} 
+}
 
 class Datasources {
-    constructor (filters, datasource){
+    constructor(filters, datasource) {
         this.filters = filters;
         this.datasource = datasource;
     }
 
 
-    getTableId (webAnal) {
+    getTableId(webAnal) {
         return new Promise((resolve, reject) => {
             let answ = [];
             bigquery.dataset(webAnal).getTables().then((data) => {
@@ -188,21 +193,21 @@ class Datasources {
         });
     };
 
-    paramResFunc (param) {
+    paramResFunc(param) {
         let filters = this.filters;
         let answ = "";
         if (filters == undefined || filters[param] == undefined) {
             answ = '.*';
             return answ;
         }
-        if (param=='source'){
-            answ = (this.datasource.length!=0)?this.datasource.join('|'):"";
+        if (param == 'source') {
+            answ = (this.datasource.length != 0) ? this.datasource.join('|') : "";
         }
-        answ += (filters[param].length!=0)? filters[param].join('|'):".*";
+        answ += (filters[param].length != 0) ? filters[param].join('|') : ".*";
         return answ;
     }
 
-    siteSplitter (site) {
+    siteSplitter(site) {
         let reg = new RegExp(/(\.|\-)/g);
         let matches = [];
         let match;
@@ -217,15 +222,15 @@ class Datasources {
         return site;
     }
 
-    get reg () {
+    get reg() {
         return this.regFunc();
     }
 
-    regFunc () {
-        return new RegExp(".*"/* ("+this.paramResFunc('source')+") */+"_(" + this.paramResFunc('industry') + ")_(" + this.paramResFunc('client') + ")_(" + this.paramResFunc('site') + ")", "i");
+    regFunc() {
+        return new RegExp(".*" /* ("+this.paramResFunc('source')+") */ + "_(" + this.paramResFunc('industry') + ")_(" + this.paramResFunc('client') + ")_(" + this.paramResFunc('site') + ")", "i");
     }
 
-    getSchemaById (obj) {
+    getSchemaById(obj) {
         return new Promise((resolve, reject) => {
             bigquery.dataset(obj.dataset).table(obj.id).getMetadata().then((data) => {
                 let schemaArr = {
@@ -243,7 +248,7 @@ class Datasources {
 }
 
 class FileWork {
-    constructor (id, type) {
+    constructor(id, type) {
         this.id = id;
         this.type = type;
         this.stream = this.createDownloadFile();
@@ -253,15 +258,15 @@ class FileWork {
         let rand = this.id;
         let adr = './public/lib/CSVData/';
         let filesObj = {
-            "postbuy" : {
+            "postbuy": {
                 address: rand + "_Postbuy_benchmarks_upload.csv",
                 file: undefined
             },
-            "yandex_metrika" : {
+            "yandex_metrika": {
                 address: rand + "_Yandex_Metrika_benchmarks_upload.csv",
                 file: undefined
             },
-            "google_analytics" : {
+            "google_analytics": {
                 address: rand + "_Google_Analytics_benchmarks_upload.csv",
                 file: undefined
             }
@@ -271,40 +276,40 @@ class FileWork {
         return fs.createWriteStream(adr + filesObj[this.type].address);
     }
 
-    writeFile (str) {
+    writeFile(str) {
         this.stream.write(str);
     }
 
-    csvString (obj) {
+    csvString(obj) {
         return json2csv({
-                    data: obj,
-                    fields: Object.keys(obj),                    
-                    del: ';'
-                }).split('\n')[1] + ('\n');
+            data: obj,
+            fields: Object.keys(obj),
+            del: ';'
+        }).split('\n')[1] + ('\n');
     }
 
-    csvStringHeader (obj) {
+    csvStringHeader(obj) {
         return json2csv({
-                    data: obj,
-                    fields: Object.keys(obj),                    
-                    del: ';'
-                }).split('\n')[0]  + ('\n');
+            data: obj,
+            fields: Object.keys(obj),
+            del: ';'
+        }).split('\n')[0] + ('\n');
     }
 
-    endWriting () {
-        this.stream.end(''); 
+    endWriting() {
+        this.stream.end('');
         console.info((new Date()).getTime() - startTime.getTime());
         console.info('Отдаю для загрузки ' + this.type);
     }
 
-    writeEmpty () {
+    writeEmpty() {
         this.stream.write(json2csv({
-                    data: [{
-                        'Зачем': 'было это скачивать?'
-                    }],
-                    fields: ['Зачем'],
-                    del: ';'
-                }));
+            data: [{
+                'Зачем': 'было это скачивать?'
+            }],
+            fields: ['Зачем'],
+            del: ';'
+        }));
         console.info((new Date()).getTime() - startTime.getTime());
         console.info('Отдаю для загрузки пустой ' + this.type);
         this.stream.end('');
@@ -314,8 +319,12 @@ class FileWork {
 let checkDataSources = (answer) => {
     return new Promise((resolve, reject) => {
         let sourcesArr = [];
-        if (answer.google_analytics.dimension.length!=0||answer.google_analytics.metrics.length!=0||answer.google_analytics.goals==true){sourcesArr.push('google_analytics')};
-        if (answer.yandex_metrika.dimension.length!=0||answer.yandex_metrika.metrics.length!=0||answer.yandex_metrika.goals==true){sourcesArr.push('yandex_metrika')};
+        if (answer.google_analytics.dimension.length != 0 || answer.google_analytics.metrics.length != 0 || answer.google_analytics.goals == true) {
+            sourcesArr.push('google_analytics')
+        };
+        if (answer.yandex_metrika.dimension.length != 0 || answer.yandex_metrika.metrics.length != 0 || answer.yandex_metrika.goals == true) {
+            sourcesArr.push('yandex_metrika')
+        };
         let datasources = new Datasources(answer.filters);
         let splittedObjArr = [];
         let answ = [];
@@ -331,7 +340,7 @@ let checkDataSources = (answer) => {
                 })
             });
             data = null;
-            
+
             let reg = datasources.reg;
             for (let key of unpackedData) {
                 if (key.id.match(reg)) {
@@ -379,8 +388,8 @@ let resultQuery = (a, id) => {
         if (answer.postbuy != undefined && answer.postbuy.length > 0) {
             answ.push('postbuy');
         }
-        answer.datasets.forEach((obj)=>{
-            if(!answ.includes(obj.dataset)) {
+        answer.datasets.forEach((obj) => {
+            if (!answ.includes(obj.dataset)) {
                 answ.push(obj.dataset);
             }
         })
@@ -396,22 +405,11 @@ let resultQuery = (a, id) => {
             promAnsw.push(query.getData());
         }
         Promise.all(promAnsw).then(async(data) => {
-            let queryResultArr = [{
-                'data': [],
-                'name': 'postbuy',
-                'filename': ''
-            },
-            {
-                'data': [],
-                'name': 'yandex_metrika',
-                'filename': ''
-            },
-            {
-                'data': [],
-                'name': 'google_analytics',
-                'filename': ''
-            },
-            ];
+            let queryResult = {
+                "postbuy": undefined,
+                "yandex_metrika": undefined,
+                "google_analytics": undefined
+            }
             if (data.length == 0) {
                 Object.keys(queryResult).forEach((content) => {
                     queryResult[content] = false;
@@ -420,12 +418,12 @@ let resultQuery = (a, id) => {
                 })
             } else {
                 let obj = {};
-                data.forEach((d)=>{
+                data.forEach((d) => {
                     obj[d.name] = d.data;
                 })
                 data = null;
-                Object.keys(queryResult).forEach((result)=>{
-                    if(obj[result] == undefined) {
+                Object.keys(queryResult).forEach((result) => {
+                    if (obj[result] == undefined) {
                         queryResult[result] = false;
                         let emptyFile = new FileWork(id, result);
                         emptyFile.writeEmpty();
@@ -434,7 +432,7 @@ let resultQuery = (a, id) => {
                         obj[result] = null;
                     }
                 })
-            }            
+            }
             console.info('Отправляю на фронт');
             resolve(queryResult);
         });
@@ -444,8 +442,10 @@ let resultQuery = (a, id) => {
 exports.sendResult = async(req, res) => {
     let id = null;
     if (req.body.id == undefined) {
-        id = parseInt(Math.random()*10000);
-        res.cookie('id',id, {path:'/result'});
+        id = parseInt(Math.random() * 10000);
+        res.cookie('id', id, {
+            path: '/result'
+        });
     } else {
         id = req.body.id;
     }
@@ -453,19 +453,21 @@ exports.sendResult = async(req, res) => {
     res.send(await resultQuery(req.body, id));
 };
 
-exports.sendTable = (req,res) => {
+exports.sendTable = (req, res) => {
     let fileSend = () => {
-        fs.access('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv',(err)=>{
-            if(err){
-                setTimeout(()=>{return fileSend()}, 1000);
-                } else {
-                    res.download('./public/lib/CSVData/' + req.query.id + '_' +req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err)=>{
-                        if(err){
-                            console.info(err);
-                        }
-                    });
-                }
-        }) 
+        fs.access('./public/lib/CSVData/' + req.query.id + '_' + req.query.type + '_benchmarks_upload.csv', (err) => {
+            if (err) {
+                setTimeout(() => {
+                    return fileSend()
+                }, 1000);
+            } else {
+                res.download('./public/lib/CSVData/' + req.query.id + '_' + req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err) => {
+                    if (err) {
+                        console.info(err);
+                    }
+                });
+            }
+        })
     }
     fileSend();
 }
@@ -473,9 +475,9 @@ exports.sendTable = (req,res) => {
 exports.unlinkFiles = (req, res) => {
     let id = req.body.id;
     let arr = ['Postbuy', 'Google_Analytics', 'Yandex_Metrika'];
-    arr.forEach((elem)=>{
-        fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv', (err)=>{
-            if(err){
+    arr.forEach((elem) => {
+        fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv', (err) => {
+            if (err) {
                 console.log(err);
             }
         })
