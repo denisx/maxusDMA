@@ -1,9 +1,5 @@
-.modal-open {
-/*	overflow-y: scroll;*/
-}
-
 .logo {
-	width: 90%;
+	width: 288px;
     max-width: 324px;
 }
 
@@ -12,141 +8,62 @@
     font-weight:300;
 }
 
+.headContainer p {
+	margin: 0;
+}
+
 .headerRightSection {
 	float: right;
-	margin: 28px 5% 0;
+    margin: 52.5px 1% 0 0;
 }
 
-.savedWorks {
-	background-color: #2eb14b;
-	width: 100%;
-    padding: 10px 40px 10px 40px;
-	border: 0px;
-	border-radius: 7px;
-	box-shadow: 0px 0px 0px;
-	outline: none;
-	color: #fff;
-	font-size: 20px;
-	
-}
-
-.savedWorksDiv {
-	border-right: 1px solid #000;
-	margin-top: 3px;
+.headerRightSection p {
 	display: inline-block;
-	padding-right: 15px;
 }
 
-.headerIcon {
-	width: 35px;
-    display: inline-block;
-    margin-left: 10px;
-    margin-bottom: 3px;
+.headerRightSection:hover span {
+	color: #0eb6e0;
 }
 
-.loginP {
+.headerRightSection span:hover {
+/*	cursor:pointer;*/
+}
+
+.headerRightSection img {
 	display: inline-block;
-	font-size: 15px;
-	padding-top: 2px;
-	text-decoration: underline;
+    width: 12px;
+}
+
+.headerRightSection:hover .personMenu {
+	display: block;
+}
+
+
+.personMenu {
+    clear: both;
+    float: right;
+    margin-right: 3%;
+    max-width: 100px;
+    padding: 2px;
+    position: absolute;
+    right: 10px;
+    display: none;
+    border-radius: 2px;
+    box-shadow: 0 0 2px grey;
+    background-color: #f3f3f3;
+}
+
+.personMenu div div:hover {
+	background-color: white;
+}
+
+.personMenu a{
+	margin-left: 19%;
 	color: #808080;
+}
+
+.personMenu a:hover {
+	color: #0853a0;
 	cursor: pointer;
-}
-
-.loginP:hover {
-	color:#454545;
-}
-
-.loginDiv {
-    margin-top: 6px;
-    margin-left: 7px;
-    padding-top: 7px;
-    display: inline-block;
-}
-
-/*LoginPopup start*/
-.loginPopupContainer {
-    width: 419px;
-    height: auto;
-	background-color: #fff;
-    margin-top: 10%;
-    margin-left: auto;
-    margin-right: auto;
-    padding-bottom: 2%;
-}
-
-.loginPopupLogoImg {
-	margin-top: 10%;
-    margin-left: 12%;
-    height: auto;
-    width: 61%;
-}
-
-.loginPopupForm {
-	margin-left: 24%;
-}
-
-.loginPopupInputText {
-    display: block;
-    margin-top: 10%;
-    border: 0px;
-    border-bottom: 1px solid #cccccc;
-    width: 75%;
-    font-size: 18px;
-    font-weight: 300;
-    color: #7b7b73;
-}
-
-.loginPopupInputText:active, .loginPopupInputText:focus {
-	outline: 0px;
-    border-bottom: 2px solid #00b6e0;
-}
-
-.loginPopupInputText::placeholder {
-	color: #cccccc;
-}
-
-.loginPopupInputButton {
-    display: block;
-    margin-top: 10%;
-    width: 60%;
-    height: auto;
-    padding: 10px;
-    background-color: #00b6e0;
-    border: 0px;
-    border-radius: 4px;
-    color: white;
-    font-size: 18px;
-    font-weight: 300;
-}
-
-.loginPopupInputButton:focus {
-	outline: 0;
-}
-
-.linksPopupDiv {
-	margin-top: 9%;
-	color: #cccccc;
-    font-size: 15px;
-    font-weight: 300;
-	text-decoration: underline;
-}
-
-.loginPopupText {
-	cursor: pointer;
-	width: fit-content;
-}
-
-.loginPopupText:hover {
-	color: black;
-}
-/*LoginPopup end*/
-
-.beta {
-    width: 50px;
-    height: 50px;
-}
-
-.btnSignOut {
-    background-color: #eaeaea;
+	text-decoration: none;
 }

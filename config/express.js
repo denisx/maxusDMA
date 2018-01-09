@@ -21,7 +21,10 @@ module.exports = function() {
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret
+        secret: config.sessionSecret,
+        cookie: {
+            maxAge: new Date(Date.now()+3600000)
+        }
     }));
 
     app.use(passport.initialize());

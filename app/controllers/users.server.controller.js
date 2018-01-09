@@ -121,7 +121,7 @@ exports.signup = function(req, res, next) {
 //signout controller
 exports.signout = function(req, res) {
 	req.logout();
-	res.redirect('/');
+	res.redirect('/login');
 };
 
 //email verification controller
@@ -150,10 +150,12 @@ exports.verificationSuccess = function(req, res, next) {
 }; 
 
 exports.checkAuthentication = function(req,res,next){
+	// Дикий костыль, исправить как будет понятно, почему не работает
     if(req.isAuthenticated()){
+	// if(req._passport.instance._userProperty!=undefined){
         next();
     } else{
-        res.redirect("/");
+        res.redirect("/login");
     }
 }
 
