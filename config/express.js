@@ -18,7 +18,6 @@ module.exports = function() {
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-    // app.use(timeout('240s'));
     app.use(session({
         saveUninitialized: true,
         resave: true,
@@ -27,8 +26,6 @@ module.exports = function() {
 
     app.use(passport.initialize());
     app.use(passport.session());
-
-//    app.set('views', './app/views');
 
     require('../app/routes/index.server.routes.js')(app);
     require('../app/routes/users.server.routes.js')(app);
