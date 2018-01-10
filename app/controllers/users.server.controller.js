@@ -151,13 +151,13 @@ exports.verificationSuccess = function(req, res, next) {
 }; 
 
 exports.checkAuthentication = function(req,res,next){
-	req.session.save(()=>{
+	// req.session.save(()=>{
 		if(req.isAuthenticated()){
 			next();
 		} else{	
 			res.redirect("/login");
 		}
-	})
+	// })
 
 }
 

@@ -24,12 +24,12 @@ module.exports = function() {
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret
-        // cookie: {
-        //     maxAge: new Date(Date.now()+3600000),
-        //     httpOnly: false,
-        //     secure: false
-        // }
+        secret: config.sessionSecret,
+        cookie: {
+            maxAge: new Date(Date.now()+3600000),
+            httpOnly: true,
+            secure: true
+        }
     }));
 
     app.use(passport.initialize());
