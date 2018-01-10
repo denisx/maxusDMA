@@ -18,11 +18,11 @@ module.exports = (app) => {
 		.get(index.showIndex);
 
 	app.route('/filters')
-		// .get(user.checkAuthentication)
+		.get(user.checkAuthentication)
 		.get(index.showFilters);
 
 	app.route('/result')
-		// .get(user.checkAuthentication)
+		.get(user.checkAuthentication)
 		.get(index.showResults);
 
 	app.route('/dirname')

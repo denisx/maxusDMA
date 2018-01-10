@@ -24,7 +24,8 @@
 		</div>
 	</form>
 	<form class="loginPopupForm" ng-submit=lostPass() ng-switch-when="lostPass">
-		<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="username" data-place="E-mail">
+		<p class="failMsg">{{failMsg}}</p>
+		<input type="text" class="loginPopupInputText" placeholder="E-mail" name="username" ng-model="user.username" data-place="E-mail">
         <input type="submit" class="loginPopupInputButton" value="Восстановить">
         <div class="linksPopupDiv">
 			<p class="loginPopupText" ng-click="changeState('login')">Войти</p>

@@ -12,7 +12,10 @@ module.exports = (app) => {
 		.post(users.checkLogin);
 
  	app.route('/signup')
-		.post(users.signup); 
+		.post(users.signup);
+		
+	app.route('/lostpass')
+		.post(users.lostPassword)
 
 	app.route('/signup/name')
 		.post(users.giveUserName); 

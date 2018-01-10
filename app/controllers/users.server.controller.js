@@ -6,6 +6,7 @@ const User = require('mongoose').model('User'),
 	passport = require('passport'),
 	config = require('../../config/config'),
 	local = require('../../config/strategies/local'),
+	crypto = require('crypto'),
 	url = require('url'),
 	path = require('path'),
 	mailjet = require ('node-mailjet').connect(config.mailJetsecret0, config.mailJetsecret1);
@@ -153,8 +154,7 @@ exports.checkAuthentication = function(req,res,next){
 	req.session.save(()=>{
 		if(req.isAuthenticated()){
 			next();
-		} else{
-			
+		} else{	
 			res.redirect("/login");
 		}
 	})
@@ -188,4 +188,35 @@ exports.noLogin = (req, res, next) => {
 	} else {
 		next();
 	}
+}
+
+exports.lostPassword = (req, res, next) => {
+	let email = req.body.email;
+	User.findOne({email : email},  (err, user) => {
+		if (err) {
+			res.redirect('/login');
+			return next(err);
+		} else {
+			let pass = crypto.randomBytes(10).toString('base64');
+			User.update(user, {password : crypto.pbkdf2Sync(pass, user.salt, 10000, 64, 'SHA1').toString('base64')}, (err, raw)=> {})
+			const request = mailjet
+			.post("send")
+			.request({
+				"FromEmail":"tech.maxus.ru@gmail.com",
+				"FromName":"MaxusTech",
+				"Subject":"E-mail verification",
+				"Text-part":"Вы запрашивали смену пароля. Новый пароль: ",
+				"Html-part":"Вы запрашивали смену пароля. Новый пароль: "+ pass,
+				"Recipients":[{"Email":email}]
+			});
+			request
+			.then(result => {
+				console.log(result.body)
+			})
+			.catch(err => {
+				console.log(err.statusCode)
+			})
+			return res.json({'message':'На вашу почту был выслан новый пароль'})
+		}
+	})
 }

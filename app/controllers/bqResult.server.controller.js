@@ -440,8 +440,8 @@ let resultQuery = (a, id) => {
 };
 
 exports.sendResult = async(req, res) => {
-    let id = null;
-    if (req.body.id == undefined) {
+    let id = req.sessionID;
+/*     if (req.body.id == undefined) {
         id = parseInt(Math.random() * 10000);
         res.cookie('id', id, {
             path: '/result'
@@ -449,19 +449,21 @@ exports.sendResult = async(req, res) => {
     } else {
         id = req.body.id;
     }
-    delete req.body.id;
+    delete req.body.id; */
     res.send(await resultQuery(req.body, id));
 };
 
 exports.sendTable = (req, res) => {
     let fileSend = () => {
-        fs.access('./public/lib/CSVData/' + req.query.id + '_' + req.query.type + '_benchmarks_upload.csv', (err) => {
+        let id = req.sessionID;
+        let type = req.query.type;
+        fs.access('./public/lib/CSVData/' + id + '_' + type + '_benchmarks_upload.csv', (err) => {
             if (err) {
                 setTimeout(() => {
                     return fileSend()
                 }, 1000);
             } else {
-                res.download('./public/lib/CSVData/' + req.query.id + '_' + req.query.type + '_benchmarks_upload.csv', req.query.type + '_benchmarks_upload.csv', (err) => {
+                res.download('./public/lib/CSVData/' + id + '_' + type + '_benchmarks_upload.csv', type + '_benchmarks_upload.csv', (err) => {
                     if (err) {
                         console.info(err);
                     }
@@ -473,7 +475,7 @@ exports.sendTable = (req, res) => {
 }
 
 exports.unlinkFiles = (req, res) => {
-    let id = req.body.id;
+    let id = req.sessionID;
     let arr = ['Postbuy', 'Google_Analytics', 'Yandex_Metrika'];
     arr.forEach((elem) => {
         fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv', (err) => {

@@ -126,7 +126,7 @@ angular.module('bqResult').controller('resulttable', ['$scope', 'bqResultFactory
 		getAnswer(readLocalStorage());
 
 		$scope.download = () => {
-			window.open('/filedownload?id=' + eatId() + '&type=' + $('li.active a').attr('id'));
+			window.open('/filedownload?type=' + $('li.active a').attr('id'));
 		}
 		
 		$scope.changeSettings = () => {
