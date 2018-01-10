@@ -220,3 +220,19 @@ exports.lostPassword = (req, res, next) => {
 		}
 	})
 }
+
+exports.changePassword = (req,res, next) => {
+	User.findById(req.user.id, (err, user)=>{
+		if(err){
+			res.redirect('/');
+			return next(err);
+		} else {
+			if (crypto.pbkdf2Sync(req.body.oldPass, user.salt, 10000, 64, 'SHA1').toString('base64') == user.password){
+				User.update(user, {password : crypto.pbkdf2Sync(pass, user.salt, 10000, 64, 'SHA1').toString('base64')}, (err, raw)=> {})
+				return res.json({'message':'Пароль был успешно сброшен. Вы будете автоматически отключены от системы через некоторое время'})
+			} else {
+				return res.json({'message':'Введен неправильный пароль'});
+			}
+		}
+	})
+}

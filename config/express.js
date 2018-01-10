@@ -6,7 +6,8 @@ const config = require('./config'),
     morgan = require('morgan'),
     express = require('express'),
     methodOverride = require('method-override'),
-    session = require('express-session'),
+    // session = require('express-session'),
+    cookieSession = require('cookie-session'),
     passport = require('passport'),
     timeout = require('connect-timeout'),
     cookieParser = require('cookie-parser');
@@ -21,16 +22,24 @@ module.exports = function() {
     app.use(bodyParser.json());
     
     app.use(methodOverride());
-    app.use(session({
-        saveUninitialized: true,
-        resave: true,
+    // app.use(session({
+    //     saveUninitialized: true,
+    //     resave: true,
+    //     secret: config.sessionSecret,
+    //     cookie: {
+    //         maxAge: new Date(Date.now()+3600000),
+    //         httpOnly: true,
+    //         secure: true
+    //     }
+    // }));
+
+
+    //httpOnly - на локалхост false, на сервер true
+    app.use(cookieSession({
         secret: config.sessionSecret,
-        cookie: {
-            maxAge: new Date(Date.now()+3600000),
-            httpOnly: true,
-            secure: true
-        }
-    }));
+        overwrite: true,
+        httpOnly: true
+    }))
 
     app.use(passport.initialize());
     app.use(passport.session());

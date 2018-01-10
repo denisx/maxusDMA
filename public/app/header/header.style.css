@@ -46,20 +46,31 @@
     max-width: 100px;
     padding: 2px;
     position: absolute;
-    right: 10px;
+    right: 0px;
     display: none;
     border-radius: 2px;
     box-shadow: 0 0 2px grey;
-    background-color: #f3f3f3;
+/*    background-color: #f3f3f3;*/
+	background-color: white;
 }
 
 .personMenu div div:hover {
 	background-color: white;
 }
 
+.personMenu div div {
+	border-bottom: 1px solid #e6e6e6;
+	padding: 3px;
+}
+
+.personMenu div div:last-child {
+	border:none;
+}
+
 .personMenu a{
 	margin-left: 19%;
-	color: #808080;
+/*	color: #808080;*/
+	color:black;
 }
 
 .personMenu a:hover {
