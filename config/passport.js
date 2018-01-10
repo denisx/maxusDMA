@@ -6,17 +6,17 @@ const passport = require('passport'),
 module.exports = ()=>{
     const User = mongoose.model('User');
 
+    require('./strategies/local.js')();
+
     passport.serializeUser((user,done)=>{
         done(null, user.id);
     });
 
     passport.deserializeUser((id,done)=>{
-        User.findOne({
-            _id: id
-        }, '-password -salt', (err, user)=>{
+        User.findById(id, '-password -salt', (err, user)=>{
             done(err,user);
         });
     });
 
-    require('./strategies/local.js')();
+    
 };

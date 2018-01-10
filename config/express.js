@@ -6,25 +6,30 @@ const config = require('./config'),
     morgan = require('morgan'),
     express = require('express'),
     methodOverride = require('method-override'),
+    session = require('express-session'),
     passport = require('passport'),
     timeout = require('connect-timeout'),
-    session = require('express-session');
+    cookieParser = require('cookie-parser');
 
 module.exports = function() {
     const app = express();
     app.use(morgan('dev'));
+    app.use(cookieParser(config.sessionSecret));
     app.use(bodyParser.urlencoded({
-        extended: true
+        extended: false
     }));
     app.use(bodyParser.json());
+    
     app.use(methodOverride());
     app.use(session({
         saveUninitialized: true,
         resave: true,
-        secret: config.sessionSecret,
-        cookie: {
-            maxAge: new Date(Date.now()+3600000)
-        }
+        secret: config.sessionSecret
+        // cookie: {
+        //     maxAge: new Date(Date.now()+3600000),
+        //     httpOnly: false,
+        //     secure: false
+        // }
     }));
 
     app.use(passport.initialize());

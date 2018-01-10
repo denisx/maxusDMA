@@ -150,13 +150,15 @@ exports.verificationSuccess = function(req, res, next) {
 }; 
 
 exports.checkAuthentication = function(req,res,next){
-	// Дикий костыль, исправить как будет понятно, почему не работает
-    if(req.isAuthenticated()){
-	// if(req._passport.instance._userProperty!=undefined){
-        next();
-    } else{
-        res.redirect("/login");
-    }
+	req.session.save(()=>{
+		if(req.isAuthenticated()){
+			next();
+		} else{
+			
+			res.redirect("/login");
+		}
+	})
+
 }
 
 
@@ -166,14 +168,24 @@ exports.login = (req, res, next) =>{
 }
 
 exports.checkLogin = (req, res, next) => {
-	passport.authenticate('local', (err, user, info)=>{
+	passport.authenticate('local', {session:true},(err, user, info)=>{
 		console.log(info);
 		if (!user){
 			res.status('403');
 			res.json(info);
 			return false;
 		}
-		res.json(info);
+		req.login(user, ()=>{
+			res.json(info);
+			next();
+		})
 	})(req, res, next);
 }
 
+exports.noLogin = (req, res, next) => {
+	if (req.isAuthenticated()) {
+		res.redirect('/')
+	} else {
+		next();
+	}
+}

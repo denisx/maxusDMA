@@ -7,6 +7,7 @@ let users = require('../../app/controllers/users.server.controller'),
 module.exports = (app) => {
 
 	app.route('/login')
+		.get(users.noLogin)
 		.get(users.login)
 		.post(users.checkLogin);
 
@@ -22,6 +23,7 @@ module.exports = (app) => {
 	app.param('authId', users.authByHash);
 
 	app.route('/signout')
+		.get(users.checkAuthentication)
 		.get(users.signout);
 	
 	
