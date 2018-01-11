@@ -127,3 +127,12 @@
 .invalid::placeholder {
 	color: red;
 }
+
+.modal-dialog {
+	margin-top: 10%;
+}
+
+.modal-body {
+	padding-left: 100px;
+    padding-bottom: 35px;
+}

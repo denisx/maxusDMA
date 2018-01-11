@@ -159,7 +159,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			console.log(answer);
 			setLocalStorage();
 //			clearFirstLocalStorage();
-			window.location.href = '/result';
+			window.location.href = '/result' + makeGet();
 		};
 		
 		// on page loads send req to get data from server, after table&bread are loaded, kills loader
@@ -442,6 +442,17 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 				}
 			})
 			return a;
+		}
+		
+		let makeGet = () => {
+//			let get = '?';
+//			let query = JSON.parse(window.localStorage.getItem('filters'));
+//			Object.keys(query).forEach((param)=>{
+//				get+= param+'='+query[param].join(',')+'&';
+//			})
+//			get.slice(0,-1)
+//			return get;
+			return '?param=' + window.localStorage.getItem('query');
 		}
 		
 		let initTable = () => {

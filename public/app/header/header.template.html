@@ -34,11 +34,12 @@
 								<input type="password" class="loginPopupInputText" placeholder="Новый пароль" name="password" ng-model="user.password" data-place="Пароль" required>
 								<input type="password" class="loginPopupInputText" placeholder="Повторите пароль" name="repeatPassword" data-place="Повторите пароль" required>
 							<input type="submit" class="loginPopupInputButton" value="Сменить">
-						</form>	
+						</form>
+						<div ng-switch-when="success">
+							<p class="successText">{{successMessage}}</p>
+						</div>	
 					</div>
-					<div ng-switch-when="success">
-						<p class="successText">{{successMessage}}</p>
-					</div>
+					
 				</div>
 			</div>
 		</div>

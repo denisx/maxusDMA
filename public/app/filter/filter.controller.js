@@ -237,7 +237,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
     $scope.nextPage = () => {
         setTimeout(() => {
 			setLocalStorage();
-            window.location.href = 'filters';
+            window.location.href = '/filters' + makeGet();
         }, 1);
 
     }
@@ -256,6 +256,10 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
     };
 
 
+	let makeGet = () => {
+		return '?param=' + window.localStorage.getItem('filters');
+	}
+	
     //Getting all values in start, initialization of filters
     if (!$scope.filters) {
         $scope.filters = changeValues(query);
