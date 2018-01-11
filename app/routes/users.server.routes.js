@@ -20,6 +20,10 @@ module.exports = (app) => {
 	app.route('/signup/name')
 		.post(users.giveUserName); 
 
+	app.route('/changepass')
+		.post(users.checkAuthentication)
+		.post(users.changePassword)
+
 	app.route('/signup/:authId')
 		.get(users.verificationSuccess);
 

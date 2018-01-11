@@ -38,6 +38,7 @@ module.exports = function() {
     app.use(cookieSession({
         secret: config.sessionSecret,
         overwrite: true,
+        // httpOnly: false
         httpOnly: true
     }))
 

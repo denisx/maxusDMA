@@ -14,10 +14,33 @@
 						<div>
 							<a href="/signout">Log out</a>	
 						</div>
+						<div>
+							<a data-toggle="modal" data-target="#changePass">Change</a>	
+						</div>
 					</div>
 				</div>
 			</div>
 			
+		</div>
+	</div>
+	<div id="changePass" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-body">
+					<div ng-switch="popupState">
+						<form class="changePassForm" ng-submit="changePass()" ng-switch-when="changePass">
+							<p class="failMsg">{{failMsg}}</p>
+								<input type="password" class="loginPopupInputText" placeholder="Текущий пароль" name="oldPassword" ng-model="user.oldPassword" data-place="Пароль" required>
+								<input type="password" class="loginPopupInputText" placeholder="Новый пароль" name="password" ng-model="user.password" data-place="Пароль" required>
+								<input type="password" class="loginPopupInputText" placeholder="Повторите пароль" name="repeatPassword" data-place="Повторите пароль" required>
+							<input type="submit" class="loginPopupInputButton" value="Сменить">
+						</form>	
+					</div>
+					<div ng-switch-when="success">
+						<p class="successText">{{successMessage}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

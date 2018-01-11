@@ -204,7 +204,7 @@ exports.lostPassword = (req, res, next) => {
 			.request({
 				"FromEmail":"tech.maxus.ru@gmail.com",
 				"FromName":"MaxusTech",
-				"Subject":"E-mail verification",
+				"Subject":"Password change",
 				"Text-part":"Вы запрашивали смену пароля. Новый пароль: ",
 				"Html-part":"Вы запрашивали смену пароля. Новый пароль: "+ pass,
 				"Recipients":[{"Email":email}]
@@ -228,11 +228,15 @@ exports.changePassword = (req,res, next) => {
 			return next(err);
 		} else {
 			if (crypto.pbkdf2Sync(req.body.oldPass, user.salt, 10000, 64, 'SHA1').toString('base64') == user.password){
-				User.update(user, {password : crypto.pbkdf2Sync(pass, user.salt, 10000, 64, 'SHA1').toString('base64')}, (err, raw)=> {})
+				User.update(user, {password : crypto.pbkdf2Sync(req.body.pass, user.salt, 10000, 64, 'SHA1').toString('base64')}, (err, raw)=> {})
 				return res.json({'message':'Пароль был успешно сброшен. Вы будете автоматически отключены от системы через некоторое время'})
 			} else {
+				res.status('403');
 				return res.json({'message':'Введен неправильный пароль'});
 			}
 		}
 	})
 }
+
+
+

@@ -78,3 +78,52 @@
 	cursor: pointer;
 	text-decoration: none;
 }
+
+.failMsg {
+	margin: 5% 20% 0 0px;
+	color: #e22536;
+    font-size: 20px;
+}
+
+.loginPopupInputText {
+    display: block;
+    margin-top: 6%;
+    border: 0px;
+    border-bottom: 1px solid #cccccc;
+    width: 80%;
+    font-size: 18px;
+    font-weight: 300;
+    color: #555;
+}
+
+.loginPopupInputText:active, .loginPopupInputText:focus {
+	outline: 0px;
+    border-bottom: 2px solid rgba(0, 182, 224, 0.5);
+}
+
+.loginPopupInputText::placeholder {
+	color: #999999;
+}
+
+.loginPopupInputButton {
+    display: block;
+    margin-top: 7%;
+    width: 80%;
+    height: auto;
+    padding: 10px;
+    background-color: #00b6e0;
+    border: 0px;
+    border-radius: 4px;
+    color: white;
+    font-size: 18px;
+    font-weight: 300;
+	cursor: pointer;
+}
+
+.loginPopupInputButton:focus {
+	outline: 0;
+}
+
+.invalid::placeholder {
+	color: red;
+}
