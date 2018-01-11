@@ -440,7 +440,7 @@ let resultQuery = (a, id) => {
 };
 
 exports.sendResult = async(req, res) => {
-    let id = req.sessionID;
+    let id = req.user.id;
 /*     if (req.body.id == undefined) {
         id = parseInt(Math.random() * 10000);
         res.cookie('id', id, {
@@ -455,7 +455,7 @@ exports.sendResult = async(req, res) => {
 
 exports.sendTable = (req, res) => {
     let fileSend = () => {
-        let id = req.sessionID;
+        let id = req.user.id;
         let type = req.query.type;
         fs.access('./public/lib/CSVData/' + id + '_' + type + '_benchmarks_upload.csv', (err) => {
             if (err) {
