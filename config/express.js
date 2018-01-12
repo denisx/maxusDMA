@@ -13,7 +13,9 @@ const config = require('./config'),
     cookieParser = require('cookie-parser');
 
 module.exports = function() {
+    const yes = require('yes-https');
     const app = express();
+    // const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
     app.use(morgan('dev'));
     app.use(cookieParser(config.sessionSecret));
     app.use(bodyParser.urlencoded({
@@ -38,12 +40,16 @@ module.exports = function() {
     app.use(cookieSession({
         secret: config.sessionSecret,
         overwrite: true,
-        httpOnly: false
-        // httpOnly: true
+        // httpOnly: false
+        httpOnly: true
     }))
 
     app.use(passport.initialize());
     app.use(passport.session());
+    // Redirect to https from http
+    app.use(yes());
+    // Uncomment code below to allow redirect
+    // app.use(redirectToHTTPS([/localhost:(\d{4})/], [/\/login/]));
 
     require('../app/routes/index.server.routes.js')(app);
     require('../app/routes/users.server.routes.js')(app);
@@ -57,4 +63,5 @@ module.exports = function() {
     app.use('/csv', express.static('./public/lib/CSVData/'), directory('./public/lib/CSVData/', {'icons':true}));
 
     return app;
+
 };
