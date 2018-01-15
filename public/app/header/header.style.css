@@ -50,6 +50,7 @@
     display: none;
     border-radius: 2px;
     box-shadow: 0 0 2px grey;
+	z-index: 10;
 /*    background-color: #f3f3f3;*/
 	background-color: white;
 }
