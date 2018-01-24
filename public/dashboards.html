@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>WM Dashboards</title>
+    <link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+
+    <link rel="stylesheet" href="../lib/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="../lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="../lib/angular/angular.js"></script>
+
+    <script type="text/javascript" src="../app/dashboardHeader/header.module.js"></script>
+    <script type="text/javascript" src="../app/dashboardHeader/header.component.js"></script>
+    <script type="text/javascript" src="../app/dashboardHeader/header.controller.js"></script>
+    <link rel="stylesheet" href="../app/dashboardHeader/header.template.css">
+
+    <script type="text/javascript" src="../app/dbContainer/dbContainer.module.js"></script>
+    <script type="text/javascript" src="../app/dbContainer/dbContainer.component.js"></script>
+    <script type="text/javascript" src="../app/dbContainer/dbContainer.controller.js"></script>
+    <link rel="stylesheet" href="../app/dbContainer/dbContainer.template.css">
+
+    <script type="text/javascript" src="../app/footer/footer.module.js"></script>
+    <script type="text/javascript" src="../app/footer/footer.component.js"></script>
+    <script type="text/javascript" src="../app/footer/footer.controller.js"></script>
+    <link rel="stylesheet" href="../app/footer/footer.template.css">
+    
+    <link rel="stylesheet" href="../lib/style/dbContainer.style.css">
+</head>
+
+<body>
+    <div id="headerApp" ng-app="header">
+        <header></header>
+    </div>
+    <div id="dbContainerApp" ng-app="dbContainer">
+        <dbсontainer></dbсontainer>
+    </div>
+<!--
+	<div id="footerApp" ng-app="pagefooter">
+        <pagefooter></pagefooter>
+    </div>
+-->
+</body>
+
+</html>

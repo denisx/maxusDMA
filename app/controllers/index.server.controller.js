@@ -20,6 +20,10 @@ exports.showBenchmarksResults = (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/', 'result.html'));
 };
 
+exports.showDashboards = (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/', 'dashboards.html'));
+}
+
 exports.dirname = (req,res) => {
   res.send(__dirname);
 }

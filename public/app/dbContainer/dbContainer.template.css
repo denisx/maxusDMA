@@ -1,0 +1,64 @@
+.scrollTracker {
+    position: fixed;
+    width: 50px;
+    height: 450px;
+    border: 1px solid red;
+    right: 0;
+    margin-top: 150px;
+    margin-right: 25%;
+}
+
+.reportContainer {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    margin-top: 150px;
+    margin-left: 3%;
+}
+
+.reports {
+    width: 100%;
+    height: 350px;
+    position: relative;
+    display: inline-block;
+}
+
+.heading {
+    width: 100%;
+    height: 50px;
+    background-color: #1485CC;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.caption {
+    text-align: center;
+    margin-left: 1%;
+    color: white;
+    font-size: 20px;
+}
+
+.reportFooter {
+    display: table;
+    width: 100%;
+}
+
+.buttonPlace {
+    width: 100%;
+    height: 50px;
+    position: relative;
+    display: table-cell;
+    vertical-align: middle;
+    border-bottom: 1px solid grey;
+}
+
+.btn {
+    background-color: #b52929;
+    color: white;
+    float: right;
+}
+
+#anotherReport {
+    margin-top: 10%;
+}

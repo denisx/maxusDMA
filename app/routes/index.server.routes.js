@@ -25,6 +25,10 @@ module.exports = (app) => {
 		.get(user.checkAuthentication)
 		.get(index.showBenchmarksResults);
 
+	app.route('/dashboards')
+		.get(user.checkAuthentication)
+		.get(index.showDashboards);
+
 	app.route('/')
 		.get(user.checkAuthentication)
 		.get(index.showIndex);
