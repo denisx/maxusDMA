@@ -14,7 +14,8 @@
     "jquery": "^3.2.1",
     "bootstrap-table": "^1.11.1",
     "tableexport.jquery.plugin": "^1.9.7",
-    "chart.js": "^2.7.1"
+    "chart.js": "^2.7.1",
+    "socket.io": "^2.0.4"
   },
   "resolutions": {
     "angular": "^1.6.5",

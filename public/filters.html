@@ -89,6 +89,12 @@
     <div id="footerApp" ng-app="pagefooter">
         <pagefooter></pagefooter>
     </div>
+    
+        <script src="lib/socket.io-client/dist/socket.io.js"></script>
+<script>
+  var socket = io();
+	socket.emit('hello', 'filter');
+</script>
 </body>
 
 </html>

@@ -65,6 +65,13 @@
 <!--     <div class="iframe">
         <iframe width="1170" height="700" src="https://datastudio.google.com/embed/reporting/1RL4NmJCyecq1HJTaBpABkbAmno3-yJFf/page/vXXL" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div> -->
+    <script src="lib/socket.io-client/dist/socket.io.js"></script>
+<script>
+	var socket = io();
+	socket.on('count', (count)=>{
+		console.log(count.count);
+	})
+</script>
 </body>
 
 </html>

@@ -5,17 +5,28 @@ const config = require('./config'),
     directory = require('serve-index'),
     morgan = require('morgan'),
     express = require('express'),
+    socketio = require('socket.io'),
     methodOverride = require('method-override'),
-    // session = require('express-session'),
+    events = require('events'),
     cookieSession = require('cookie-session'),
     passport = require('passport'),
     timeout = require('connect-timeout'),
-    cookieParser = require('cookie-parser');
+    cookieParser = require('cookie-parser'),
+    yes = require('yes-https');
 
 module.exports = function() {
-    const yes = require('yes-https');
     const app = express();
+    const server = require('http').createServer(app);
+    const io = socketio.listen(server);
     // const redirectToHTTPS = require('express-http-to-https').redirectToHTTPS;
+
+    let streamMemUse = require('fs').createWriteStream('stream.log', {flags:'a'});
+    /* setInterval(()=>{
+        let d = new Date();
+        streamMemUse.write(d.getHours()+":"+d.getMinutes()+":"+d.getSeconds() + ' ' + require('process').memoryUsage().heapUsed / require('os').totalmem() * 100 + '\n');
+        // console.log(global.COUNTER_HTTP_CLIENT_REQUEST);
+    }, 1000) */
+    
     app.use(morgan('dev'));
     app.use(cookieParser(config.sessionSecret));
     app.use(bodyParser.urlencoded({
@@ -62,6 +73,22 @@ module.exports = function() {
     app.use(express.static('./public'));
     app.use('/csv', express.static('./public/lib/CSVData/'), directory('./public/lib/CSVData/', {'icons':true}));
 
-    return app;
+    let online = 0;
+    io.on('connection', (socket)=>{
+        online++;
+        socket.emit('count', {count:online});
+        socket.on('hello', function (data) {
+            console.log('Connected ' + this.id + ' on ' + this.handshake.headers.referer.split('?')[0] + ' total ' + online);
+          });
+        socket.on('disconnect', ()=>{
+            online--;
+            console.log('Disconnect ' + socket.id + ' on ' + socket.handshake.headers.referer.split('?')[0] + ' total ' + online);
+            socket.emit('count', {count:online});
+        })
+    })
+
+
+
+    return server;
 
 };

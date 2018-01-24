@@ -3,6 +3,7 @@
 // Require export packages
 let json2csv = require('json2csv');
 let fs = require('fs');
+const iconv = require('iconv-lite');
 
 // Paths project, datasets, tables
 const projectId = 'mdma-175510';
@@ -277,7 +278,7 @@ class FileWork {
     }
 
     writeFile(str) {
-        this.stream.write(str);
+        this.stream.write(iconv.encode(str,'win1251'));
     }
 
     csvString(obj) {
