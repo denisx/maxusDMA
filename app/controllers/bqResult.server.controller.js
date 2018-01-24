@@ -304,13 +304,14 @@ class FileWork {
     }
 
     writeEmpty() {
-        this.stream.write(json2csv({
+        let str = json2csv({
             data: [{
                 'Зачем': 'было это скачивать?'
             }],
             fields: ['Зачем'],
             del: ';'
-        }));
+        });
+        this.stream.write(iconv.encode(str,'win1251'));
         console.info((new Date()).getTime() - startTime.getTime());
         console.info('Отдаю для загрузки пустой ' + this.type);
         this.stream.end('');
@@ -421,6 +422,9 @@ let resultQuery = (a, id) => {
                 let obj = {};
                 data.forEach((d) => {
                     obj[d.name] = d.data;
+                    if (d.data.length == 0){
+                        delete obj[d.name];
+                    }
                 })
                 data = null;
                 Object.keys(queryResult).forEach((result) => {
