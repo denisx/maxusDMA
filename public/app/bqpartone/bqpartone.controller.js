@@ -159,7 +159,7 @@ angular.module('bqpartone').controller('preResultTable', ['$scope', 'bqpartoneFa
 			console.log(answer);
 			setLocalStorage();
 //			clearFirstLocalStorage();
-			window.location.href = '/result' + makeGet();
+			window.location.href = '/benchmarks/result' + makeGet();
 		};
 		
 		// on page loads send req to get data from server, after table&bread are loaded, kills loader

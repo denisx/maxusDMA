@@ -13,17 +13,21 @@ module.exports = (app) => {
 			next();
 		})  */
 
+	app.route('/benchmarks')
+		.get(user.checkAuthentication)
+		.get(index.showBenchmarks);
+
+	app.route('/benchmarks/filters')
+		.get(user.checkAuthentication)
+		.get(index.showBenchmarksFilters);
+
+	app.route('/benchmarks/result')
+		.get(user.checkAuthentication)
+		.get(index.showBenchmarksResults);
+
 	app.route('/')
 		.get(user.checkAuthentication)
 		.get(index.showIndex);
-
-	app.route('/filters')
-		.get(user.checkAuthentication)
-		.get(index.showFilters);
-
-	app.route('/result')
-		.get(user.checkAuthentication)
-		.get(index.showResults);
 
 	app.route('/dirname')
 		.get(index.dirname);

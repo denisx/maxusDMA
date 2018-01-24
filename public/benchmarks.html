@@ -20,30 +20,33 @@
         })(window, document, 'script', 'dataLayer', 'GTM-KGHRSMJ');
     </script>
     <!-- End Google Tag Manager -->
-    <title>WM Analytics</title>
+    <title>MDMA - Benchmarking warehouse interface</title>
     <link rel="shortcut icon" href="../lib/pic/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="lib/style/benchmarks.style.css">
     <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="lib/style/index.style.css">
     <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     
     <script type="text/javascript" src="lib/angular/angular.js"></script>
     
-    <script type="text/javascript" src="app/mainHeader/mainHeader.module.js"></script>
-    <script type="text/javascript" src="app/mainHeader/mainHeader.controller.js"></script>
-    <script type="text/javascript" src="app/mainHeader/mainHeader.component.js"></script>
-    <link rel="stylesheet" href="app/mainHeader/mainHeader.template.css">
-
+    <script type="text/javascript" src="app/header/header.module.js"></script>
+    <script type="text/javascript" src="app/header/header.controller.js"></script>
+    <script type="text/javascript" src="app/header/header.component.js"></script>
+    <script type="text/javascript" src="app/header/header.service.js"></script>
+	<link rel="stylesheet" href="app/header/header.style.css">
+   
+    <script type="text/javascript" src="app/filter/filter.module.js"></script>
+    <script type="text/javascript" src="app/filter/filter.controller.js"></script>
+    <script type="text/javascript" src="app/filter/filter.component.js"></script>
+    <script type="text/javascript" src="app/filter/filter.service.js"></script>
+	<link rel="stylesheet" href="app/filter/filter.template.css"> 
+   
     <script type="text/javascript" src="app/footer/footer.module.js"></script>
     <script type="text/javascript" src="app/footer/footer.controller.js"></script>
     <script type="text/javascript" src="app/footer/footer.component.js"></script>
-    <link rel="stylesheet" href="app/footer/footer.template.css">
-   
-    <script type="text/javascript" src="app/index/index.module.js"></script>
-    <script type="text/javascript" src="app/index/index.controller.js"></script>
-    <script type="text/javascript" src="app/index/index.component.js"></script>
-	<link rel="stylesheet" href="app/index/index.template.css"> 
+    <script type="text/javascript" src="app/footer/footer.service.js"></script>
+    <link rel="stylesheet" href="app/footer/footer.template.css"> 
 
 </head>
 
@@ -53,15 +56,22 @@
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KGHRSMJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
-    <div id="mainHeaderApp" ng-app="mainHeader">
-        <mainheader></mainheader>
+    <div id="pageheadApp" ng-app="pagehead">
+        <pagehead></pagehead>
     </div>
-    <div id="indexApp" ng-app="index">
-        <index></index>
+    <div id="filterApp" ng-app="filter">
+        <filter></filter>
     </div>
-    <div id="footerApp" ng-app="pagefooter">
-        <pagefooter></pagefooter>
-    </div>
+<!--     <div class="iframe">
+        <iframe width="1170" height="700" src="https://datastudio.google.com/embed/reporting/1RL4NmJCyecq1HJTaBpABkbAmno3-yJFf/page/vXXL" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div> -->
+<!--    <script src="lib/socket.io-client/dist/socket.io.js"></script>
+<script>
+	var socket = io();
+	socket.on('count', (count)=>{
+		console.log(count.count);
+	})
+</script>-->
 </body>
 
 </html>

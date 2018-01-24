@@ -237,7 +237,7 @@ angular.module('filter').controller('filterController', ['$scope', 'optionsFilte
     $scope.nextPage = () => {
         setTimeout(() => {
 			setLocalStorage();
-            window.location.href = '/filters' + makeGet();
+            window.location.href = '/benchmarks/filters' + makeGet();
         }, 1);
 
     }

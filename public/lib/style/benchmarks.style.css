@@ -1,12 +1,6 @@
-.container {
-	width: 100%;
-}
-
 body {
 	font-family: 'Roboto', sans-serif;
 	overflow-y: scroll;
-	background-image: url(../../lib/pic/login_bg.jpg);
-	background-size: cover;
 }
 
 .mainTextRow{
@@ -35,4 +29,3 @@ body {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
-

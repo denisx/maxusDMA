@@ -480,7 +480,7 @@ exports.sendTable = (req, res) => {
 }
 
 exports.unlinkFiles = (req, res) => {
-    let id = req.sessionID;
+    let id = req.user.id;
     let arr = ['Postbuy', 'Google_Analytics', 'Yandex_Metrika'];
     arr.forEach((elem) => {
         fs.unlink('./public/lib/CSVData/' + id + '_' + elem + '_benchmarks_upload.csv', (err) => {
@@ -489,4 +489,6 @@ exports.unlinkFiles = (req, res) => {
             }
         })
     })
+    res.status('200');
+    res.send();
 }

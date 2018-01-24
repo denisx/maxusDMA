@@ -1,0 +1,88 @@
+.blockRow {
+    margin: auto;
+    width: 80%;
+    height: 300px;
+    text-align: center;
+}
+
+#captions {
+    height: 20px;
+}
+
+#first, #captions {
+    padding-top: 150px;
+}
+
+#second {
+    padding-top: 150px;
+}
+
+.blockRow p {
+    display: inline-block;
+    width: 30%;
+    height: inherit;
+    position: relative;
+    border-radius: 2px;
+    background-color: #345263;
+    color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    margin-top: 1%;
+}
+
+.subBlock {
+    width: 30%;
+    height: inherit;
+    display: inline-block;
+    position: relative;
+    border-radius: 2px;
+    background-color: white;
+    opacity: 0.9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.subBlock:hover {
+    opacity: 1;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#left {
+    float: left;
+}
+
+#benchmarks {
+    float: left;
+    background-color: white;
+}
+
+#dashboards #pic {
+    width: 100%;
+    height: 100%;
+    background: url(../../lib/pic/dashboards.png) no-repeat center center;
+    background-color: white;
+}
+
+#right {
+    float: right;
+}
+
+a div {
+    display: table;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+a div div {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+a div div img {
+    width: 100%;
+}

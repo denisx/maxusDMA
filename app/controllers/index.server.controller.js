@@ -1,16 +1,21 @@
 'use strict';
 
 const path = require('path');
+
 exports.showIndex = (req, res) => {
   res.sendFile(path.join(__dirname, '../../public/', 'index.html'));
+}
+
+exports.showBenchmarks = (req, res) => {
+  res.sendFile(path.join(__dirname, '../../public/', 'benchmarks.html'));
 };
 
-exports.showFilters = (req, res) => {
+exports.showBenchmarksFilters = (req, res) => {
   // res.redirect('/filters');
   res.sendFile(path.join(__dirname, '../../public/', 'filters.html'));
 };
 
-exports.showResults = (req, res) => {
+exports.showBenchmarksResults = (req, res) => {
   // res.redirect('/filters');
   res.sendFile(path.join(__dirname, '../../public/', 'result.html'));
 };
