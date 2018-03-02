@@ -18,9 +18,10 @@ const bigquery = require('@google-cloud/bigquery')({
     keyFilename: 'config/keys/mdma-17fcdb829378.json'
 });
 
-let startTime;
+//Использовалась для трекинга времени работы
+// let startTime;
 
-
+// Класс описывает построение запроса в BQ для получения данных по выбранным фильтрам по источнику
 class Data {
     constructor(type, data, datasets, startDate, endDate, filters, id) {
         this.type = type;
@@ -32,7 +33,7 @@ class Data {
         this.id = id;
     }
 
-    //Конфигурация 
+    //Конфигурация select-части запроса
     selectConfig() {
         if (this.type == 'postbuy') {
             return "SELECT " + this.data.join(', ');
@@ -62,6 +63,7 @@ class Data {
         return selectClause.replace(/\, $/, ' ');
     };
 
+    //Конфигурация from-части запроса
     fromConfigSplitted() {
         switch (this.type) {
             case "postbuy":
@@ -80,6 +82,7 @@ class Data {
         };
     };
 
+    ///Конфигурация where-части запроса
     whereConfig() {
         let whereClause = "";
         switch (this.type) {
@@ -108,10 +111,12 @@ class Data {
         }
     };
 
+    //Конфигурация select-части запроса
     groupByConfig() {
         return "GROUP BY industry, client, site, " + this.data.dimension.join(', ');
     };
 
+    //Отправка асинхронного запроса в BQ, стримящего данные из хранилища в файл для загрузки, и в массив для веб-просмотра (ограничение строк для веб - 5000)
     getData() {
         let query = this.selectConfig() + this.fromConfigSplitted() + this.whereConfig();
         if (this.type != 'postbuy') {
@@ -173,21 +178,22 @@ class Data {
 
 }
 
+//Класс, определяющий датасеты, данные из которых могут быть получены, в соответствии с заданными фильтрами
 class Datasources {
     constructor(filters, datasource) {
         this.filters = filters;
         this.datasource = datasource;
     }
 
-
-    getTableId(webAnal) {
+    //
+    getTableId(webAnalyt) {
         return new Promise((resolve, reject) => {
             let answ = [];
-            bigquery.dataset(webAnal).getTables().then((data) => {
+            bigquery.dataset(webAnalyt).getTables().then((data) => {
                 for (let j in data[0]) {
                     answ.push({
                         'id': data[0][j].metadata.tableReference.tableId,
-                        'dataset': webAnal
+                        'dataset': webAnalyt
                     });
                 }
                 resolve(answ);
