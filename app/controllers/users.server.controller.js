@@ -91,7 +91,7 @@ exports.signup = function(req, res, next) {
 			return false
 		} else {
 			let regMail = /^[a-z]+\.[a-z]+\@(wmglobal)\.com/;
-			let regName = /[А-я]+/;
+			let regName = /[а-яё]+/i;
 			if(regMail.exec(req.body.email) == null || regName.exec(req.body.name) == null || req.body.password.length <8){
 				res.status('403');
 				res.json({'status':'falied'});
