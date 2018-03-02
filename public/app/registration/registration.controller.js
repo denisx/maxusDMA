@@ -60,7 +60,7 @@ angular.module('registration').controller('registrationController', [
 			}
 		};
 
-		let mailValid = new RegExp("^[a-z]+\.[a-z]+\@(maxusglobal|wavemaker)\.com", 'i');
+		let mailValid = new RegExp("^[a-z]+\.[a-z]+\@(wmglobal)\.com", 'i');
 		let nameValid = new RegExp("[А-я]+")
 
 		let setNameCookie = (name) => {

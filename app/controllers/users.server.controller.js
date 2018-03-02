@@ -90,7 +90,7 @@ exports.signup = function(req, res, next) {
 			res.json({'status':'falied'});
 			return false
 		} else {
-			let regMail = /^[a-z]+\.[a-z]+\@(maxusglobal|wavemaker)\.com/;
+			let regMail = /^[a-z]+\.[a-z]+\@(wmglobal)\.com/;
 			let regName = /[А-я]+/;
 			if(regMail.exec(req.body.email) == null || regName.exec(req.body.name) == null || req.body.password.length <8){
 				res.status('403');

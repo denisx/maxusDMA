@@ -32,6 +32,7 @@ class Data {
         this.id = id;
     }
 
+    //Конфигурация 
     selectConfig() {
         if (this.type == 'postbuy') {
             return "SELECT " + this.data.join(', ');
